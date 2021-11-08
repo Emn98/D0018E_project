@@ -28,7 +28,7 @@
 
         echo("123");
 
-        /*
+        
         // error check for connection
         if (mysqli_connect_errno()) {
           echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
@@ -43,7 +43,9 @@
          VALUES ('$productName', '$productDescription', '$category', '$quantity',
         '$price', '$size', '$color', '$discount', '$picture')";
 
-        */
+        echo("345");
+
+        
       ?>
   </body>
 </html>
