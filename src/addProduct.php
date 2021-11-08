@@ -30,16 +30,16 @@
 
         
         // error check for connection
-        if (mysqli_connect_errno()) {
-          echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
-          exit();
-
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
         }
+        echo "Connected successfully";
 
         // perform query
-        $result = mysqli_query($mysqli,$sql  = 'INSERT INTO `Products`( `ProductName`, `ProductDescription`, `CategoryID`, `Quantity`,
+        $result = $conn->query('INSERT INTO `Products`( `ProductName`, `ProductDescription`, `CategoryID`, `Quantity`,
          `Price`, `Size`, `Color`, `Discount`, `Picture`)
-          VALUES (\"A\",\"A\",1,1,1,1,1,1,\"A\")';
+          VALUES (\"A\",\"A\",1,1,1,1,1,1,\"A\")');
 
         echo("345");
 
