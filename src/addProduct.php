@@ -42,11 +42,9 @@
         }
         echo "Connected successfully";
 
+         $query = "INSERT INTO Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
+         VALUES ("$productName", "$productDescription", $category, $quantity, $price, $size, $color, $discount, "$picture")";
         
-        $query = "CREATE DATABASE TUTORIALS";
-         /*$query = "INSERT INTO Products (ProductName, ProductDescription, CategoryID, Quantity, Price, Size, Color, Discount, Picture)
-         VALUES ("$productName","$productDescription",$category, $quantity, $price, $size, $color, $discount, "$picture")";
-        */
 
         // perform query
 
