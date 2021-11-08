@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: darkgrey;
+}
+
+.login_box{
+    text-align: center;
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 10%;
+    margin-bottom: auto;
+
+    height: 550px;
+
+    background-color: #242525;
+
+}
+
+.login_box h1{
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 45px;
+}
+
+.login_inp_text{
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 6%;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.login_inp{
+    border: 1px solid #242525;
+    font-size: 30px;
+    width: calc(100% - 75px);
+}
+
+.btn{
+    width: calc(100% - 75px);
+    margin-top: 30px;
+    height: 45px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.registration_link{
+    text-align: left;
+    color: white;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-left: 7%;
+}
+
+.registration_link a{
+    color: white;
+}
+
+
+
