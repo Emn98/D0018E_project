@@ -13,9 +13,15 @@
   <body>
     <header>
       <h1>OFF<span>BRAND</span></h1>
+      <div class="search_bar_box">
+      <form method="POST" action="search.php">
+          <input type="text" name="Sök produkter" placeholder="Sök produkter">
+          <input type="submit" name="Sök" value="Sök">
+      </form> 
+      </div>
       <nav>
         <ul class="menu">
-          <li><a href="Profiles/my_site_director.php">Min sida</a></li>
+          <li><a href="Accounts/my_site_director.php">Min sida</a></li>
           <li><a href="#">kundvagn</a></li>
         </ul>
       </nav>

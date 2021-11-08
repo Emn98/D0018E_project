@@ -15,12 +15,18 @@ header{
     background-color: #242525;
 }
 
+header div {
+    margin-right: auto;
+    padding-right: auto;
+    
+}
+
 header h1{
     color: white;
     margin-right: auto;
     padding-right: auto;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 200;
+    font-weight: lighter;
 }
 
 header h1 span{
@@ -45,5 +51,3 @@ menu{
 .menu li a:hover{
     color: rgb(23, 125, 209);
 }
-
-
