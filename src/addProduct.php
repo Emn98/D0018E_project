@@ -37,11 +37,15 @@
         }
 
         // perform query
-        $result = mysqli_query($mysqli, "INSERT INTO Products
-        ('ProductName', 'ProductDescription', 'CategoryID', 'Quantity', 'Price',
-        'Size', 'Color', 'Discount', 'Picture')
-         VALUES ('$productName', '$productDescription', '$category', '$quantity',
-        '$price', '$size', '$color', '$discount', '$picture')";
+        $result = mysqli_query($mysqli, $sql  = 'INSERT INTO Products\n"
+
+        . "        (ProductName, ProductDescription, CategoryID, Quantity, Price,\n"
+    
+        . "        Size, Color, Discount, Picture)\n"
+    
+        . "         VALUES (\'$productName\', \'$productDescription\', \'$category\', \'$quantity\',\n"
+    
+        . "        \'$price\', \'$size\', \'$color\', \'$discount\', \'$picture\')';
 
         echo("345");
 
