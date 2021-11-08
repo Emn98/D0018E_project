@@ -24,25 +24,25 @@
         $addres   = mysqli_real_escape_string($con, $addres);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
-        //$query    = "INSERT into `Users` (first_name, last_name, email_addres, number, addres, password)
-        //             VALUES ('$first_name','$last_name', '$email_addres', '$number', '$addres','" . sha1($password) . "', '$create_datetime')";
+        $query    = "INSERT into `Users` (first_name, last_name, email_addres, number, addres, password)
+                     VALUES ('$first_name','$last_name', '$email_addres', '$number', '$addres','" . sha1($password) ."')";
         $email_exist =  mysqli_query($con, "SELECT * FROM Users
         WHERE email_addres = $email_addres");
-        //$result   = mysqli_query($con, $query);
+        $result   = mysqli_query($con, $query);
         if ($email_exist) {
             echo "<div class='form'>
                 <h3>Required fields are missing.</h3><br/>
-                <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
                 </div>";
-        //elseif ($result) {
-        //    echo "<div class='form'>
-        //          <h3>You are registered successfully.</h3><br/>
-        //          <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
-        //          </div>";
+        elseif ($result) {
+            echo "<div class='form'>
+                  <h3>You are registered successfully.</h3><br/>
+                  <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
+                  </div>";
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
                   </div>";
         }
     } else {
