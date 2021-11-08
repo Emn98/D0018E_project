@@ -30,7 +30,7 @@
         $password = "Offbrand123$";
         $database = "Website";
         
-        $mysqli = new mysqli($host,$username,$password, $database);
+        $conn = new mysqli($host,$username,$password, $database);
 
         echo("123");
 
