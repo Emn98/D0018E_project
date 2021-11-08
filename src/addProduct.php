@@ -28,14 +28,14 @@
 
 
         // error check for connection
-        if ($mysqli -> connect_errno) {
-          echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+        if (mysqli_connect_errno()) {
+          echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
           exit();
 
         }
 
         // perform query
-        $result = $mysqli -> query("INSERT INTO Products
+        $result = mysqli_query($mysqli, "INSERT INTO Products
         (`ProductName`, `ProductDescription`, `CategoryID`, `Quantity`, `Price`,
         `Size`, `Color`, `Discount`, `Picture`)
          VALUES ($productName, $productDescription, $category, $quantity,
