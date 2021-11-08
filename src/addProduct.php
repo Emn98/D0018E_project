@@ -39,7 +39,7 @@
         // perform query
         $result = $conn->query('INSERT INTO `Products`( `ProductName`, `ProductDescription`, `CategoryID`, `Quantity`,
          `Price`, `Size`, `Color`, `Discount`, `Picture`)
-          VALUES (\"A\",\"A\",1,1,1,1,1,1,\"A\")');
+          VALUES ("A","A",1,1,1,1,1,1,"A")');
 
         echo("345");
 
