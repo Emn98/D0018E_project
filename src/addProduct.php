@@ -5,6 +5,12 @@
   <body>
       
       <?php
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
+
+
         $productName = $_POST['productName'];
         $productDescription = $_POST['productDescription'];
         $category = $_POST['category'];
@@ -43,7 +49,7 @@
         // perform query
 
         echo("567");
-        
+
         $result = $conn->query($query);
 
         if (!$mysqli->error) {
