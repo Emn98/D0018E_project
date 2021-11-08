@@ -37,11 +37,13 @@
         echo "Connected successfully";
 
 
-        $query = "INSERT INTO `Products`( `ProductName`, `ProductDescription`, `CategoryID`, `Quantity`,
-        `Price`, `Size`, `Color`, `Discount`, `Picture`)
-         VALUES ("A","A",1,1,1,1,1,1,"A")";
+        $query = "INSERT INTO Products (ProductName, ProductDescription, CategoryID, Quantity, Price, Size, Color, Discount, Picture)
+         VALUES ("$productName","$productDescription","$category","$quantity","$price","$size","$color","$discount","$picture")";
 
         // perform query
+
+        echo("567");
+        
         $result = $conn->query($query);
 
         if (!$mysqli->error) {
