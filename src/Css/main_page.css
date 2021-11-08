@@ -15,12 +15,6 @@ header{
     background-color: #242525;
 }
 
-header div {
-    margin-right: auto;
-    padding-right: auto;
-    
-}
-
 header h1{
     color: white;
     margin-right: auto;
@@ -51,3 +45,26 @@ menu{
 .menu li a:hover{
     color: rgb(23, 125, 209);
 }
+
+.search_bar_form{
+    margin-right: auto;
+    padding-right: auto;
+    margin-left: 5%;
+    width: 50%;
+}
+
+.search_bar_inp{
+    width: 90%;
+    height: 30px;
+    font-size: 16px;
+}
+
+.search_btn{
+    height: 32px;
+    border: 1px;
+    padding-top: 1px;
+    width: 8%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
