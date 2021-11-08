@@ -14,14 +14,14 @@
         $first_name = stripslashes($_REQUEST['First Name']);
         //escapes special characters in a string
         $first_name = mysqli_real_escape_string($con, $first_name);
-        $last_name    = stripslashes($_REQUEST['Last Name']);
-        $last_name    = mysqli_real_escape_string($con, $last_name);
-        $email_addres    = stripslashes($_REQUEST['Email']);
-        $email_addres    = mysqli_real_escape_string($con, $email_addres);
-        $number    = stripslashes($_REQUEST['Telefone Number']);
-        $number    = mysqli_real_escape_string($con, $number);
-        $addres    = stripslashes($_REQUEST['Addres']);
-        $addres    = mysqli_real_escape_string($con, $addres);
+        $last_name  = stripslashes($_REQUEST['Last Name']);
+        $last_name  = mysqli_real_escape_string($con, $last_name);
+        $email_addres = stripslashes($_REQUEST['Email']);
+        $email_addres = mysqli_real_escape_string($con, $email_addres);
+        $number   = stripslashes($_REQUEST['Telefone Number']);
+        $number   = mysqli_real_escape_string($con, $number);
+        $addres   = stripslashes($_REQUEST['Addres']);
+        $addres   = mysqli_real_escape_string($con, $addres);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         $query    = "INSERT into `Users` (first_name, last_name, email_addres, number, addres, password)
