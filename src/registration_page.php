@@ -24,7 +24,7 @@
         $addres   = mysqli_real_escape_string($con, $addres);
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
-        $query    = "INSERT into `Users` (first_name, last_name, email_addres, number, addres, password)
+        $query    = "INSERT INTO Users (first_name, last_name, email_addres, number, addres, password)
                      VALUES ('$first_name','$last_name', '$email_addres', '$number', '$addres','" . sha1($password) ."')";
         $email_exist =  mysqli_query($con, "SELECT * FROM Users
         WHERE email_addres = $email_addres");
