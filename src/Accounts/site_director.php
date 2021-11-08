@@ -2,11 +2,11 @@
 <?php
   session_start();
 
-  if($_SESSION["customerID"]!= ""){
+  if(isset($_SESSION["customerID"])){
     header("Location: my_page.php");
     exit;
   }else{
-    header("Location: log_in.php");
+    header("Location: login_page.php");
     exit;
   }
 ?>
