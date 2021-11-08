@@ -26,7 +26,9 @@
         
         $mysqli = new mysqli($host,$username,$password, $database);
 
+        echo("123");
 
+        /*
         // error check for connection
         if (mysqli_connect_errno()) {
           echo("Failed to connect to MySQL: " . $mysqli -> connect_error);
@@ -36,12 +38,12 @@
 
         // perform query
         $result = mysqli_query($mysqli, "INSERT INTO Products
-        (`ProductName`, `ProductDescription`, `CategoryID`, `Quantity`, `Price`,
-        `Size`, `Color`, `Discount`, `Picture`)
-         VALUES ($productName, $productDescription, $category, $quantity,
-        $price, $size, $color, $discount, $picture)";
+        ('ProductName', 'ProductDescription', 'CategoryID', 'Quantity', 'Price',
+        'Size', 'Color', 'Discount', 'Picture')
+         VALUES ('$productName', '$productDescription', '$category', '$quantity',
+        '$price', '$size', '$color', '$discount', '$picture')";
 
-
+        */
       ?>
   </body>
 </html>
