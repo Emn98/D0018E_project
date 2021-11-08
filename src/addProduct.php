@@ -18,8 +18,13 @@
         // establish connection
 
         echo ($productName);
+
+        $host = "localhost";
+        $username = "phpmyadmin";
+        $password = "Offbrand123$";
+        $database = "Website";
         
-        $mysqli = new mysqli("localhost","Offbrand123$","Website");
+        $mysqli = new mysqli($host,$username,$password, $database);
 
 
         // error check for connection
