@@ -42,7 +42,7 @@
         }
         echo "Connected successfully";
 
-        /*
+        
         $query = "INSERT INTO Products (ProductName, ProductDescription, CategoryID, Quantity, Price, Size, Color, Discount, Picture)
          VALUES ("$productName","$productDescription",$category, $quantity, $price, $size, $color, $discount, "$picture")";
 
@@ -51,7 +51,7 @@
         echo("567");
 
         $result = $conn->query($query);
-        */
+        
         if (!$conn->error) {
           printf("Errormessage: %s\n", $conn->error);
        }
