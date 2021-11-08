@@ -41,6 +41,9 @@
          `Price`, `Size`, `Color`, `Discount`, `Picture`)
           VALUES ("A","A",1,1,1,1,1,1,"A")');
 
+
+        $conn->close();
+        
         echo("345");
 
         
