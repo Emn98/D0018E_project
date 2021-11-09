@@ -1,6 +1,6 @@
 <html>
   <head>
-      <title>Add Product</title>  
+      <title>Remove Product</title>  
   </head>
   <body>
       
@@ -13,13 +13,13 @@
         
         include("database.php");
 
-        $query = "DELETE FROM  Products WHERE product_name LIKE '$product_name'";
+        $query = "DELETE FROM  PRODUCTS WHERE product_name LIKE '$product_name'";
 
         // perform query
 
         $result = $con->query($query);
         if($result == true){
-          echo "item sucessfully added to table";
+          echo "item sucessfully deleted to table";
         }
 
         $con->close();
