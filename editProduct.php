@@ -1,6 +1,6 @@
 <html>
   <head>
-      <title>Edit Product</title>  
+      <title>Add Product</title>  
   </head>
   <body>
       
@@ -23,14 +23,14 @@
 
         include("database.php");
 
-        $query = "INSERT INTO Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
-         VALUES ('$productName', '$productDescription', $category, $quantity, $price, $size, '$color', $discount, '$picture')";
+        $query = "UPDATE Products SET (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
+         VALUES ('$productName', '$productDescription', $category, $quantity, $price, $size, '$color', $discount, '$picture') WHERE productName LIKE '$productName'";
 
         // perform query
 
         $result = $conn->query($query);
         if($result == true){
-          echo "item sucessfully added to table";
+          echo "item sucessfully updated in table";
         }
 
         $conn->close();
