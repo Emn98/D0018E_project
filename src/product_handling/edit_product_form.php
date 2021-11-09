@@ -10,7 +10,7 @@
     </div>
   </head>
   <body>
-        <form action="editProduct.php" method="post">
+        <form action="edit_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
         <label for="product_description">Description</label>
