@@ -15,7 +15,7 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("DELETE * FROM  PRODUCTS WHERE product_name LIKE ?");
+        $stmt = $con->prepare("DELETE FROM  PRODUCTS WHERE product_name LIKE ?");
 
         // perform query
 
