@@ -13,14 +13,15 @@
         
         include("database.php");
 
-        $query = "DELETE FROM  PRODUCTS WHERE product_name LIKE '$product_name'";
+        $stmt = $con->prepare("DELETE * FROM  PRODUCTS WHERE product_name LIKE ?");
 
         // perform query
 
-        $result = $con->query($query);
-        if($result == true){
-          echo "item sucessfully deleted to table";
-        }
+        $stmt->bind_param("s", $product_name);
+
+        $stmt->execute();
+
+        printf("%d row deleted.\n", $stmt->affected_rows);
 
         $con->close();
         

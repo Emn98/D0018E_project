@@ -23,15 +23,16 @@
 
         include("database.php");
 
-        $query = "UPDATE PRODUCTS SET product_name='$product_name', product_description='$product_description', category_id=$category,
-         quantity=$quantity, price=$price, size=$size, color='$color', discount=$discount, picture='$picture' WHERE product_name LIKE '$product_name'";
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=?,
+         quantity=?, price=?, size=?, color=?, discount=?, picture=? WHERE product_name LIKE ?");
 
         // perform query
 
-        $result = $con->query($query);
-        if($result == true){
-          echo "item sucessfully updated in table";
-        }
+        $stmt->bind_param("ssiiiisiss", $product_name, $product_description, $category, $quantity, $price, $size, $color, $discount, $picture, $product_name);
+
+        $stmt->execute();
+
+        printf("%d row edited.\n", $stmt->affected_rows);
 
         $con->close();
         

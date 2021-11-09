@@ -3,7 +3,7 @@
       <title>Search</title>
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="Css/add_product.css">
+    <link rel="stylesheet" href="Css/product.css">
   </head>
   <body>
       
@@ -18,12 +18,16 @@
 
         include("database.php");
 
-        $query = "SELECT * FROM PRODUCTS WHERE product_name LIKE '$product_name'";
+        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
-        $result = $con->query($query);
+        $stmt->bind_param("s", $product_name);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
 
         echo "<table>";
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
             $category = $row['category_id'];
