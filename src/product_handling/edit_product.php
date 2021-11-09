@@ -21,7 +21,7 @@
 
         // establish connection
 
-        include("database.php");
+        include("/database.php");
 
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=?,
          quantity=?, price=?, size=?, color=?, discount=?, picture=? WHERE product_name LIKE ?");

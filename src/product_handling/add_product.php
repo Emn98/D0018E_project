@@ -21,7 +21,7 @@
 
         // establish connection
 
-        include("database.php");
+        include("/database.php");
 
         $stmt = $con ->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
