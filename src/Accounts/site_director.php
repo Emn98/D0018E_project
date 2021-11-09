@@ -1,4 +1,5 @@
-<!-- This php script will redirect the user to the right page-->
+<!-- This php script will redirect the user to my page or logg in page... 
+depending on the users logged in status-->
 <?php
   session_start();
 

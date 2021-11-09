@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>OFF<span>BRAND</span></h1>
+      <h1><a href="/index.php">OFF<span>BRAND</span></a></h1>
     </header>
     <?php
         session_start();
@@ -24,7 +24,9 @@
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
 
-            $query = $con->prepare("SELECT first_name, last_name, tel_nr, addres, user_id FROM USERS WHERE email=? and pwd=?");
+            echo "not logged in query";
+
+            $query = $con->prepare("SELECT first_name, last_name, t_number, addres, user_id FROM USERS WHERE email_addres=? and pwd=?");
             $query->bind_param("ss", $input_email, $hashed_pwd);
             $query->execute();
             $query->bind_result($first_name, $last_name, $tel_nr, $address, $user_id);
@@ -36,9 +38,10 @@
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in. 
                 drawPageLayout($first_name, $last_name, $tel_nr, $address, $user_id, $input_email);
             }else{
-                //If user_id dosen't exists then the authentication failed. 
+                //If user_id dosen't exists then the authentication failed. Display this to the user.
+                echo "user don't exist";
                 echo "<div class='auth_failed_container'>";
-                echo "<div class='auth_failed_container_text>";
+                echo "<div class='auth_failed_container_text'>";
                 echo "Wrong account information";
                 echo "<br>";
                 echo "</div>";
@@ -46,7 +49,7 @@
                 echo "</div>";
             }
         }else{
-            $query = $con->prepare("SELECT first_name, last_name, email_addres, tel_nr, addres FROM USERS WHERE user_id=?");
+            $query = $con->prepare("SELECT first_name, last_name, email_addres, t_number, addres FROM USERS WHERE user_id=?");
             $query->bind_param("s", $_SESSION["user_id"]);
             $query->execute();
             $query->bind_result($first_name, $last_name, $email, $tel_nr, $address);

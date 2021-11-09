@@ -1,13 +1,17 @@
 <!-- This is the log in page for our e-comerce site -->
-<?php 
+<?php
+    //Checks to see if the input fields have been set.
     if(isset($_POST["email"]) and isset($_POST["password"])){
+        //If both email and password have been entered resume to my_page.
         if(($_POST["email"]!= "") and $_POST["password"]!=""){
             header("Location: my_page.php");
             exit;
         }else{
-            echo '<script type="text/javascript">',
-                 'login_error_pop_up();',
-                 '</script>';
+            //Promt the user that you need to fill in both fields to log in. 
+            echo '<script type="text/JavaScript">
+                 alert("Please fill in both fields to log in");
+                 </script>'
+                 ;
         }
     }
 ?>
@@ -37,8 +41,3 @@
     </div>
   </body>
 </html>
-<script type="text/javascript">
-    function login_error_pop_up(){
-        alert("Test")
-    }
-</script>
