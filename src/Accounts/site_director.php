@@ -2,7 +2,7 @@
 <?php
   session_start();
 
-  if(isset($_SESSION["customerID"])){
+  if(isset($_SESSION["user_id"])){
     header("Location: my_page.php");
     exit;
   }else{
