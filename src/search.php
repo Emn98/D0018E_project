@@ -1,6 +1,9 @@
 <html>
   <head>
-      <title>Search</title>  
+      <title>Search</title>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Css/product.css">
   </head>
   <body>
       
@@ -9,27 +12,33 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        $productName = $_POST['Search products'];
+        $product_name = $_POST['product_name'];
     
         // establish connection
 
-        include("database.php");
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
-        $query = "SELECT * FROM Products WHERE productName LIKE '$productName'";
+        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
-        $result = $con->query($query);
+        $stmt->bind_param("s", $product_name);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
 
         echo "<table>";
-        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $name   = $row['productName'];
-            $description = $row['productDescription'];
-            $category = $row['categoryID'];
+        while ($row = $result->fetch_assoc()) {
+            $name   = $row['product_name'];
+            $description = $row['product_description'];
+            $category = $row['category_id'];
             $quantity   = $row['quantity'];
             $price = $row['price'];
             $size = $row['size'];
             $color = $row['color'];
-            $description = $row['discount'];
-            $category = $row['picture'];
+            $discount = $row['discount'];
+            $picture = $row['picture'];
             echo "<tr><td>".$name."</td><td>".$description."</td><td>".
             $category."</td></tr>".$quantity."</td></tr>".$price."</td><td>".
             $size."</td><td>".$color."</td></tr>".$discount."</td></tr>".$picture."</td></tr>";
