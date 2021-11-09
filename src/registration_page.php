@@ -28,7 +28,7 @@
                    VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
         $email_exist =  mysqli_query($con, "SELECT * FROM USERS
         WHERE email_addres = $email_addres");
-        //$result   = mysqli_query($con, $query);
+        $result   = mysqli_query($con, $query);
         if ($email_exist) {
             echo "<div class='form'>
                 <h3>Required fields are missing.</h3><br/>
@@ -42,7 +42,7 @@
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+                  <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
                   </div>";
         }
     } else {
