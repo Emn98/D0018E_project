@@ -23,15 +23,16 @@
 
         include("database.php");
 
-        $query = "INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
-         VALUES ('$product_name', '$product_description', $category, $quantity, $price, $size, '$color', $discount, '$picture')";
+        $stmt = $con ->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // perform query
 
-        $result = $con->query($query);
-        if($result == true){
-          echo "item sucessfully added to table";
-        }
+        $stmt->bind_param("ssiiiisis", $product_name, $product_description, $category, $quantity, $price, $size, $color, $discount, $picture);
+
+        $stmt->execute();
+
+        printf("%d row inserted.\n", $stmt->affected_rows);
 
         $con->close();
         
