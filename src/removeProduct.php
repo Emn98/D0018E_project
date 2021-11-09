@@ -17,12 +17,12 @@
 
         // perform query
 
-        $result = $conn->query($query);
+        $result = $con->query($query);
         if($result == true){
           echo "item sucessfully added to table";
         }
 
-        $conn->close();
+        $con->close();
         
       ?>
   </body>

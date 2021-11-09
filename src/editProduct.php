@@ -28,12 +28,12 @@
 
         // perform query
 
-        $result = $conn->query($query);
+        $result = $con->query($query);
         if($result == true){
           echo "item sucessfully updated in table";
         }
 
-        $conn->close();
+        $con->close();
         
       ?>
   </body>
