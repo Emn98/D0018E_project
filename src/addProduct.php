@@ -42,7 +42,7 @@
         }
         echo "Connected successfully";
 
-         $query = "INSERT INTO Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
+         $query = "INSERT INTO Website.Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
          VALUES ("$productName", "$productDescription", $category, $quantity, $price, $size, $color, $discount, "$picture")";
         
 
@@ -51,6 +51,9 @@
         echo("567");
 
         $result = $conn->query($query);
+        if($result == true){
+          echo "item sucessfully added to table";
+        }
         
         if (!$conn->error) {
           printf("Errormessage: %s\n", $conn->error);
