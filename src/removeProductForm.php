@@ -10,7 +10,7 @@
     </div>
   </head>
   <body>
-        <form action="addProduct.php" method="post">
+        <form action="removeProduct.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
         <input type="submit" placeholder="Send">
