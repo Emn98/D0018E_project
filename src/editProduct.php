@@ -23,8 +23,8 @@
 
         include("database.php");
 
-        $query = "UPDATE PRODUCTS SET (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
-         VALUES ('$product_name', '$product_description', $category, $quantity, $price, $size, '$color', $discount, '$picture') WHERE product_name LIKE '$product_name'";
+        $query = "UPDATE PRODUCTS SET product_name='$product_name', product_description='$product_description', category_id=$category,
+         quantity=$quantity, price=$price, size=$size, color='$color', discount=$discount, picture='$picture' WHERE product_name LIKE '$product_name'";
 
         // perform query
 
