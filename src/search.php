@@ -17,10 +17,10 @@
 
         $query = "SELECT * FROM Products WHERE productName LIKE '$productName'";
 
-        $result = $conn->query($query);
+        $result = $con->query($query);
 
         echo "<table>";
-        while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $name   = $row['productName'];
             $description = $row['productDescription'];
             $category = $row['categoryID'];
@@ -37,7 +37,7 @@
         echo "</table>";
  
 
-        $conn->close();
+        $con->close();
         
       ?>
   </body>

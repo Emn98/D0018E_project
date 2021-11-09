@@ -1,6 +1,6 @@
 <html>
   <head>
-      <title>Edit Product</title>  
+      <title>Add Product</title>  
   </head>
   <body>
       
@@ -28,12 +28,12 @@
 
         // perform query
 
-        $result = $conn->query($query);
+        $result = $con->query($query);
         if($result == true){
           echo "item sucessfully added to table";
         }
 
-        $conn->close();
+        $con->close();
         
       ?>
   </body>
