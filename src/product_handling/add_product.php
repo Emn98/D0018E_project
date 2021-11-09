@@ -20,10 +20,11 @@
         $picture = $_POST['picture'];
 
         // establish connection
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
-        include("/database.php");
-
-        $stmt = $con ->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
+       $stmt = $con ->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // perform query
