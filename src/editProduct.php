@@ -9,8 +9,8 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        $productName = $_POST['productName'];
-        $productDescription = $_POST['productDescription'];
+        $product_name = $_POST['product_name'];
+        $product_description = $_POST['product_description'];
         $category = $_POST['category'];
         $quantity = $_POST['quantity'];
         $price = $_POST['price'];
@@ -23,8 +23,8 @@
 
         include("database.php");
 
-        $query = "UPDATE Products SET (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
-         VALUES ('$productName', '$productDescription', $category, $quantity, $price, $size, '$color', $discount, '$picture') WHERE productName LIKE '$productName'";
+        $query = "UPDATE PRODUCTS SET (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
+         VALUES ('$product_name', '$product_description', $category, $quantity, $price, $size, '$color', $discount, '$picture') WHERE product_name LIKE '$product_name'";
 
         // perform query
 
