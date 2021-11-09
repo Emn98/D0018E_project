@@ -9,11 +9,11 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        $productName = $_POST['productName'];
+        $product_name = $_POST['product_name'];
         
         include("database.php");
 
-        $query = "DELETE FROM  Products WHERE productName LIKE '$productName'";
+        $query = "DELETE FROM  Products WHERE product_name LIKE '$product_name'";
 
         // perform query
 
