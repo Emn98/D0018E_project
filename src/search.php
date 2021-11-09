@@ -16,7 +16,7 @@
     
         // establish connection
 
-        include("database.php");
+        include("/database.php");
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
