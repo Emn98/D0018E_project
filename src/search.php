@@ -1,6 +1,9 @@
 <html>
   <head>
-      <title>Search</title>  
+      <title>Search</title>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Css/add_product.css">
   </head>
   <body>
       
@@ -28,8 +31,8 @@
             $price = $row['price'];
             $size = $row['size'];
             $color = $row['color'];
-            $description = $row['discount'];
-            $category = $row['picture'];
+            $discount = $row['discount'];
+            $picture = $row['picture'];
             echo "<tr><td>".$name."</td><td>".$description."</td><td>".
             $category."</td></tr>".$quantity."</td></tr>".$price."</td><td>".
             $size."</td><td>".$color."</td></tr>".$discount."</td></tr>".$picture."</td></tr>";
