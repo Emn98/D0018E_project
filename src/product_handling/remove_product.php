@@ -11,7 +11,9 @@
 
         $product_name = $_POST['product_name'];
         
-        include("/database.php");
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
         $stmt = $con->prepare("DELETE * FROM  PRODUCTS WHERE product_name LIKE ?");
 

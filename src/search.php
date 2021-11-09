@@ -16,7 +16,9 @@
     
         // establish connection
 
-        include("/database.php");
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 

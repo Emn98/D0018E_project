@@ -21,7 +21,9 @@
 
         // establish connection
 
-        include("/database.php");
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=?,
          quantity=?, price=?, size=?, color=?, discount=?, picture=? WHERE product_name LIKE ?");
