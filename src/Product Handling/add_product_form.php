@@ -2,15 +2,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="Css/add_product.css">
-      <title>Edit Product</title>
+    <link rel="stylesheet" href="/Css/product.css">
+      <title>Add Product</title>
 
     <div>
-      <h1>Edit Product Page</h1>
+      <h1>Add Product Page</h1>
     </div>
   </head>
   <body>
-        <form action="editProduct.php" method="post">
+        <form action="addProduct.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
         <label for="product_description">Description</label>
