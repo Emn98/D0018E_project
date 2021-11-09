@@ -14,7 +14,9 @@
         session_start();
 
         //creates connection to database
-        include("/database.php");
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include_once($path);
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
@@ -59,7 +61,7 @@
             if($user_id == 0){
 
             }else{
-                
+
             }
         }
     ?>
