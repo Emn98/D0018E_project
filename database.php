@@ -5,7 +5,8 @@ $username = "phpmyadmin";
 $password = "Offbrand123$";
 $database = "Website";
 
-$conn = new mysqli($host,$username,$password, $database);
+global $conn;
+$conn; = new mysqli($host,$username,$password, $database);
 
 // error check for connection
 // Check connection
