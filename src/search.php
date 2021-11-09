@@ -9,7 +9,7 @@
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
-        $productName = $_POST['Search products'];
+        $productName = $_POST['productName'];
     
         // establish connection
 
