@@ -1,17 +1,7 @@
 <?php
-
-$host = "localhost";
-$username = "phpmyadmin";
-$password = "Offbrand123$";
-$database = "Website";
-
-$conn; = new mysqli($host,$username,$password, $database);
-
-// error check for connection
+$con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-echo "Connected successfully";
-
 ?>
