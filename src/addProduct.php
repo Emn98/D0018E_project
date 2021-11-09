@@ -42,12 +42,12 @@
         }
         echo "Connected successfully";
 
-        /*$query = "INSERT INTO Website.Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
-         VALUES ('$productName', '$productDescription', $category, $quantity, $price, $size, $color, $discount, '$picture')";
-        */
-        $query = "INSERT INTO MyGuests (firstname, lastname, email)
-        VALUES ('John', 'Doe', 'john@example.com')";
+        $query = "INSERT INTO Products (productName, productDescription, categoryID, quantity, price, size, color, discount, picture)
+         VALUES ('$productName', '$productDescription', $category, $quantity, $price, $size, '$color', $discount, '$picture')";
         
+        /*$query = "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('John', 'Doe', 'john@example.com')";
+        */
 
         // perform query
 
