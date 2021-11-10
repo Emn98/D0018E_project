@@ -53,20 +53,34 @@ if (isset($_POST['submit'])) {
 
         $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
+        $email_exist->execute()
         $result = $email_exist->execute();
 
-        if($result) {
-            echo "<div class='form'>
-            <h3>User Created Succesfully.</h3><br/>
-            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
-            </div>";
-        }else {
+        if($email_exist->rowCount() > 0) {
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
             </div>";
         }
-
+        if($email_exist->rowCount() == 0) {
+            $query = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+            $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+            $query -> execute();
+            $result = $query->execute();
+            if($result) {
+                echo "<div class='form'>
+                <h3>User Created Succesfully.</h3><br/>
+                <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+                </div>";
+            }
+            else {
+                echo "<div class='form'>
+                <h3>Something went wrong.</h3><br/>
+                <p class='link'>Click here to <a href='registration_page.php'>try</a> again.</p>
+                </div>";
+            }
+        }
         //$email_exist_result = $email_exist->rowCount();
 
     /*    if($email_exist->rowCount() > 0){ //have to fix
