@@ -27,7 +27,7 @@
         $pwd = stripslashes($_REQUEST['pwd']);
         $pwd = mysqli_real_escape_string($con, $pwd);
         $sha_pwd = sha1($pwd);
-        $query    = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
@@ -58,7 +58,7 @@
         }
     } else {
 ?>
-    <form class="form" action="registration_page.php" method="post">
+    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
