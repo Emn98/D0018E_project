@@ -31,5 +31,9 @@
         <input type="text" id="picture" name="picture" placeholder="picture url"><br>
         <button type="submit" class="btn">Send</button>
         </form>
+
+        <form action="/Accounts/my_page.php" method="post">
+          <button type="submit" class="btn">Return</button>
+        </form>
   </body>
 </html>
