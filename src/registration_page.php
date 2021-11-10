@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
         //$result = $con->query($query);
         //$email_exist = $con->affected_rows;
 
-        if (!$query) {
+        if (!empty($query)) {
             die('Invalid query: ' . mysql_error());
         }
         else{
