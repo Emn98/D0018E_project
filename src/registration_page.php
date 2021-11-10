@@ -17,8 +17,8 @@
         $last_name  = mysqli_real_escape_string($con, $_POST['last_name']);
         $email_addres = mysqli_real_escape_string($con, $_POST['email_addres']);
         $t_number   = mysqli_real_escape_string($con, $_POST['t_number']);
-        $addres     = mysqli_real_escape_string($con, $_POST['pwd']);
-        $pwd        = mysqli_real_escape_string($con, $pwd);
+        $addres     = mysqli_real_escape_string($con, $_POST['addres']);
+        $pwd        = mysqli_real_escape_string($con, $_POST['pwd']);
         $sha_pwd = sha1($pwd);
 
 
