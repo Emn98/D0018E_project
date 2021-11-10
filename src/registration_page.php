@@ -27,16 +27,16 @@
         $pwd = stripslashes($_REQUEST['pwd']);
         $pwd = mysqli_real_escape_string($con, $pwd);
         $sha_pwd = sha1($pwd);
-        $query    = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-                   VALUES (?, ?, ?, ?, ?, ?)"); 
-        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        $query -> execute();
+        //$query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+        //           VALUES (?, ?, ?, ?, ?, ?)"); 
+        //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        //$query -> execute();
         
         //$email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         //$email_exist->bind_param("s", $email_addres);
         //$email_exist->execute();
 
-        $result = $query->get_result();
+        //$result = $query->get_result();
         //$email_exist_result = $email_exist -> get_result();
 
         //if ($email_exist_result) {
@@ -58,7 +58,7 @@
         }
     } else {
 ?>
-    <form class="form" action="registration_page.php" method="post">
+    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
