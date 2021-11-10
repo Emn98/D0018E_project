@@ -36,6 +36,7 @@
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in.
                 $_SESSION["email_addres"] = $input_email;
                 $_SESSION["pwd"] = $hashed_pwd;
+
                 drawPageLayout($first_name, $last_name, $tel_nr, $address);
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
@@ -47,7 +48,7 @@
                 echo "<a href='login_page.php'>try again</a>";
                 echo "</div>";
             }
-        }else{
+        }else{//If customer already logged in, get the right information. 
             $query = $con->prepare("SELECT first_name, last_name, t_number, addres FROM USERS WHERE user_id=?");
             $query->bind_param("s", $_SESSION["user_id"]);
             $query->execute();
@@ -61,8 +62,14 @@
         function drawPageLayout($first_name, $last_name, $tel_nr, $address){
             //If the current user is logged in as admin, draw the admin page.
             if($_SESSION["user_id"] == 0){
-                echo "you are the admin";
-
+                echo "<div class='admin_box'>";
+                echo "<h1>Welcome admin</h1>";
+                echo "<div class='inner_admin_box'>";
+                echo "<ul class='admin_menu'>";
+                echo "<li><href='/product_handling/add_product_form.php'>Add Product</a></li>";
+                echo "<li><href='/product_handling/edit_product_form.php'>Edit product</a></li>";
+                echo "<li><href='/product_handling/remove_product_form'>Remove product</a></li>";
+                echo "<li><href='log_out.php'>Log Out</a></li>";
             }else{
 
             }
