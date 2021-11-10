@@ -50,11 +50,11 @@
         //          <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
         //          </div>";
         //} 
-        else {
-            echo "<div class='form'>
-                  <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
-                  </div>";
+        //else {
+        //    echo "<div class='form'>
+        //          <h3>Required fields are missing.</h3><br/>
+        //          <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
+        //          </div>";
         }
     } else {
 ?>
