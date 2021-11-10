@@ -13,13 +13,13 @@
         <div class="login_form_box">
             <form class="login_form" method="POST" action="my_page.php">
                 <h2 class="login_inp_text">Enter Email</h2>
-                <input type="text" class="login_inp" name="email">
+                <input type="text" class="login_inp" name="email" required>
                 <br>
                 <h2 class="login_inp_text">Enter Password</h2>
-                <input type="text" class="login_inp" name="password">
+                <input type="password" class="login_inp" name="password" required>
                 <br>
                 <button type="submit" class="btn">Login</button>
-                <p class="registration_link">Don't have an account? <a href="registration_page.php">Register here</a></p>
+                <p class="registration_link">Don't have an account? <a href="/registration_page.php">Register here</a></p>
             </form>
         </div>
     </div>
