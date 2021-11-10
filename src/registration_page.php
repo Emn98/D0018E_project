@@ -54,9 +54,9 @@ if (isset($_POST['submit'])) {
         $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
-        $email_exist_result = $email_exist->rowCount();
+        //$email_exist_result = $email_exist->rowCount();
 
-        if(email_exist_result > 0){
+        if($email_exist->rowCount() > 0){
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
