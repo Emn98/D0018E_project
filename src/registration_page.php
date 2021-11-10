@@ -51,14 +51,14 @@ if (isset($_POST['submit'])) {
  //           </div>";
  //   }
 
-
+/*
         $email_exists = 0;
         $sql = 'SELECT email_addres FROM USERS WHERE email_addres = :email_addres';
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':email_addres',$_POST['email_addres']);
         $stmt->execute();
         if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // row(s) returned
+            // row returned 
             $email_exists = 1;
          } else {
             // no row returned
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
                 <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
                 </div>";
         }
-/*
+
         $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
@@ -130,15 +130,15 @@ if (isset($_POST['submit'])) {
             </div>";
         }
 */
-       // $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-        //           VALUES (?, ?, ?, ?, ?, ?)"); 
-        //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        //$query -> execute();
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        $query -> execute();
 
-        //echo "<div class='form'>
-        //<h3>User Created Succesfully.</h3><br/>
-        //<p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
-        //</div>";
+        echo "<div class='form'>
+        <h3>User Created Succesfully.</h3><br/>
+        <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+        </div>";
 
         //$query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
         //           VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
