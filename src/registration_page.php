@@ -134,11 +134,13 @@ if (isset($_POST['submit'])) {
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
+
+        $email_exist = $con -> select("SELECT email_addres FROM USERS WHERE `email_addres` = '$email_addres'");
         //$result = $con->query($query);
         //$email_exist = $con->affected_rows;
 
-        if (!empty($query)) {
-            die('Invalid query: ' . mysql_error());
+        if (!empty($email_exist)) {
+            echo "Email already in use";
         }
         else{
         echo "<div class='form'>
