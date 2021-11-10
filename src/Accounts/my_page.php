@@ -11,9 +11,10 @@
         session_start();
 
         //creates connection to database
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/database.php";
-        include_once($path);
+        include_once("/database.php");
+        //$path = $_SERVER['DOCUMENT_ROOT'];
+        //$path .= "/database.php";
+        //include_once($path);
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
@@ -90,7 +91,7 @@
                 echo "<th>$first_name $last_name</th>";
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th>Email address</th>";
+                echo "<th>Email Address</th>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th>$email_address</th>";

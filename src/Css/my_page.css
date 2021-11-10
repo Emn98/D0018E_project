@@ -49,3 +49,22 @@ header h1 a span{
 .nav_menu li a:hover{
     color: rgb(23, 125, 209);
 }
+
+.auth_failed_container{
+    text-align: center;
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 10%;
+    margin-bottom: auto;
+
+    height: 550px;
+
+    background-color: #242525;
+}
+
+
+
+
+
+
+
