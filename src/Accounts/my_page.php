@@ -57,15 +57,15 @@
         }
 
         function drawPageLayout($first_name, $last_name, $tel_nr, $address){
+            //Draw out the header
             echo "<header>";
-            echo "<h1><a href='/index-php'>OFF<span>BRAND</span></a></h1>";
+            echo "<h1><a href='/index.php'>OFF<span>BRAND</span></a></h1>";
             echo "<nav>";
             echo "<ul class='nav_menu'>";
             echo "<li><a href='log_out.php'>Log Out</a></li>";
             echo "</ul>";
             echo "</nav>";
             echo "</header>";
-            
             
             //If the current user is logged in as admin, draw the admin page.
             if($_SESSION["user_id"] == 0){
@@ -85,13 +85,32 @@
                 echo "<h1>Welcome $first_name </h1>";
                 echo "<div class='inner_user_box'>";
                 echo "<h2>Account Information</h2>";
-
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Name</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>$first_name $last_name</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>Telephone Number</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>$tel_nr</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>Address</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>$address</th>";
+                echo "</tr>";
+                echo "</table>";
+                echo "<div class='user_menu_box'>";
                 echo "<ul class='user_menu'>";
-                echo "<li><a href='/product_handling/add_product_form.php'>Add Product</a></li>";
-                echo "<li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>";
-                echo "<li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>";
-                echo "<li><a href='log_out.php'>Log Out</a></li>";
+                echo "<li><a href='#'>Edit user</a></li>";
+                echo "<li><a href='#'>Delete user</a></li>";
                 echo "</ul>";
+                echo "</div>";
                 echo "</div>";
                 echo "</div>";
             }
