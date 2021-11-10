@@ -57,10 +57,28 @@ header h1 a span{
     margin-top: 10%;
     margin-bottom: auto;
 
-    height: 550px;
+    height: 200px;
 
     background-color: #242525;
 }
+
+.auth_failed_container_text h1{
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.auth_failed_container_text a{
+    transition: all 0.2s ease 0s;
+    color: white;
+
+}
+
+.auth_failed_container_text a:hover{
+    color: rgb(23, 125, 209);
+}
+
 
 
 
