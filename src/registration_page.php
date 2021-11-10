@@ -7,7 +7,22 @@
 </head>
 <body>
 <?php
-    require('database.php');
+
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/database.php";
+include_once($path);
+// When form submitted, insert values into the database.
+if (isset($_POST['submit'])) {
+    //escapes special characters in a string
+    $first_name = $_POST['first_name'];
+    $last_name  = $_POST['last_name'];
+    $email_addres = $_POST['email_addres'];
+    $t_number   = $_POST['t_number'];
+    $addres     = $_POST['addres'];
+    $pwd        = $_POST['pwd'];
+    $sha_pwd = sha1($pwd);
+
+    /*require('database.php');
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['first_name'])) {
         // removes backslashes
@@ -24,7 +39,7 @@
         $addres   = mysqli_real_escape_string($con, $addres);
         $pwd = stripslashes($_REQUEST['pwd']);
         $pwd = mysqli_real_escape_string($con, $pwd);
-
+*/
 
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
