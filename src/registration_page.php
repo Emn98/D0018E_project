@@ -41,25 +41,46 @@ if (isset($_POST['submit'])) {
         $pwd = mysqli_real_escape_string($con, $pwd);
 */
 
-    $email_exist =  mysqli_query($con, "SELECT * FROM USERS
-    WHERE email_addres = $email_addres");
+ //   $email_exist =  mysqli_query($con, "SELECT * FROM USERS
+//    WHERE email_addres = $email_addres");
 
-    if ($email_exist) {
-        echo "<div class='form'>
+//    if ($email_exist) {
+//        echo "<div class='form'>
+ //           <h3>Email already in use.</h3><br/>
+ //           <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+ //           </div>";
+ //   }
+
+        $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
+        $email_exist->bind_param("s", $email_addres);
+        $email_exist->execute();
+        $email_exist_result = $email_exist->get_result();
+
+        if(email_exist_result){
+            echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
-            <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+            <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
             </div>";
-    }
-
-        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+        }else{
+            $query = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
-        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        $query -> execute();
+            $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+            $query -> execute();
+            echo "<div class='form'>
+            <h3>User Created Succesfully.</h3><br/>
+            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+            </div>";
+        }
 
-        echo "<div class='form'>
-        <h3>User Created Succesfully.</h3><br/>
-        <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a> again.</p>
-        </div>";
+       // $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+        //           VALUES (?, ?, ?, ?, ?, ?)"); 
+        //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        //$query -> execute();
+
+        //echo "<div class='form'>
+        //<h3>User Created Succesfully.</h3><br/>
+        //<p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+        //</div>";
 
         //$query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
         //           VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
