@@ -20,6 +20,7 @@
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
+            echo"what";
             $input_email = $_POST["email"];
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
