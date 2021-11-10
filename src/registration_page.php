@@ -7,7 +7,9 @@
 </head>
 <body>
 <?php
-    require('database.php');
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/database.php";
+    include_once($path);
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['first_name'])) {
         // removes backslashes
@@ -24,17 +26,25 @@
         $addres   = mysqli_real_escape_string($con, $addres);
         $pwd = stripslashes($_REQUEST['pwd']);
         $pwd = mysqli_real_escape_string($con, $pwd);
-        $query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-                   VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
-        $email_exist =  mysqli_query($con, "SELECT * FROM USERS
-        WHERE email_addres = $email_addres");
-        $result   = mysqli_query($query);
-        if ($email_exist) {
+        $sha_pwd = sha1($pwd);
+        $query    = $con -> prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        $query -> execute();
+        
+        $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
+        $email_exist -> bind_param("s", $email_addres);
+        $email_exist -> execute();
+
+        $result = $query -> get_result();
+        $email_exist_result = $email_exist -> get_result();
+
+        if ($email_exist_result) {
             echo "<div class='form'>
                 <h3>Required fields are missing.</h3><br/>
                 <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
                 </div>";
-        elseif ($result) {
+        elseif ($result) {              
             echo "<div class='form'>
                   <h3>You are registered successfully.</h3><br/>
                   <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
