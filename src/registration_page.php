@@ -134,10 +134,20 @@ if (isset($_POST['submit'])) {
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
-        $result = $con->query($query);
-        $email_exist = $con->affected_rows;
+        //$result = $con->query($query);
+        //$email_exist = $con->affected_rows;
 
-        if($email_exist == 1){
+        if (!$query) {
+            die('Invalid query: ' . mysql_error());
+        }
+        else{
+        echo "<div class='form'>
+        <h3>User Created Succesfully.</h3><br/>
+        <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+        </div>";
+        }
+
+    /*    if($email_exist == 1){
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
@@ -148,7 +158,7 @@ if (isset($_POST['submit'])) {
         <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
         </div>";
         }
-
+*/
         //$query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
         //           VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
         //$email_exist =  mysqli_query($con, "SELECT * FROM USERS
