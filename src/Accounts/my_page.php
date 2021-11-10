@@ -7,9 +7,6 @@
     <title>Offbrand.pwr</title>
   </head>
   <body>
-    <header>
-      <h1><a href="/index.php">OFF<span>BRAND</span></a></h1>
-    </header>
     <?php
         session_start();
 
@@ -60,6 +57,16 @@
         }
 
         function drawPageLayout($first_name, $last_name, $tel_nr, $address){
+            echo "<header>";
+            echo "<h1><a href='/index-php'>OFF<span>BRAND</span></a></h1>";
+            echo "<nav>";
+            echo "<ul class='nav_menu'>";
+            echo "<li><a href='log_out.php'>Log Out</a></li>";
+            echo "</ul>";
+            echo "</nav>";
+            echo "</header>";
+            
+            
             //If the current user is logged in as admin, draw the admin page.
             if($_SESSION["user_id"] == 0){
                 echo "<div class='admin_box'>";
@@ -68,10 +75,25 @@
                 echo "<ul class='admin_menu'>";
                 echo "<li><a href='/product_handling/add_product_form.php'>Add Product</a></li>";
                 echo "<li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>";
-                echo "<li><a href='/product_handling/remove_product_form'>Remove product</a></li>";
-                echo "<li><a href='log_out.php'>Log Out</a></li>";
+                echo "<li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>";
+                echo "</ul>";
+                echo "</div>";
+                echo "</div>";
             }else{
+                //The user is a normal user, draw the user page.
+                echo "<div class='user_box'>";
+                echo "<h1>Welcome $first_name </h1>";
+                echo "<div class='inner_user_box'>";
+                echo "<h2>Account Information</h2>";
 
+                echo "<ul class='user_menu'>";
+                echo "<li><a href='/product_handling/add_product_form.php'>Add Product</a></li>";
+                echo "<li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>";
+                echo "<li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>";
+                echo "<li><a href='log_out.php'>Log Out</a></li>";
+                echo "</ul>";
+                echo "</div>";
+                echo "</div>";
             }
         }
     ?>
