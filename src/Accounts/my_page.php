@@ -34,13 +34,9 @@
             //if user_id is set then the user exists in the database
             if(isset($user_id)){
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in.
-                $_SESSION["first_name"] = $first_name;
-                $_SESSION["last_name"] = $last_name;
-                $_SESSION["t_number"]  = $tel_nr;
-                $_SESSION["address"] = $address;
-                $_SESSION["email_address"] = $input_email;
+                $_SESSION["email_addres"] = $input_email;
                 $_SESSION["pwd"] = $hashed_pwd;
-                drawPageLayout();
+                drawPageLayout($first_name, $last_name, $tel_nr, $address);
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
                 echo "<div class='auth_failed_container'>";
@@ -51,11 +47,20 @@
                 echo "<a href='login_page.php'>try again</a>";
                 echo "</div>";
             }
+        }else{
+            $query = $con->prepare("SELECT first_name, last_name, t_number, addres FROM USERS WHERE user_id=?");
+            $query->bind_param("s", $_SESSION["user_id"]);
+            $query->execute();
+            $query->bind_result($first_name, $last_name, $tel_nr, $address);
+            $query->fetch();
+            $query->close();
+
+            drawPageLayout($first_name, $last_name, $tel_nr, $address);
         }
-        function drawPageLayout(){
+
+        function drawPageLayout($first_name, $last_name, $tel_nr, $address){
             //If the current user is logged in as admin, draw the admin page.
             if($_SESSION["user_id"] == 0){
-                echo "<br>";
                 echo "you are the admin";
 
             }else{
