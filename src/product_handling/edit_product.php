@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,7 +45,8 @@
       ?>
 
     <form action="edit_product_form.php" method="post">
-    <input type="submit" placeholder="Return">
+    <button type="submit" class="btn">Return</button>
+    </form>
 
   </body>
 </html>
