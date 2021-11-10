@@ -7,51 +7,44 @@
 </head>
 <body>
 <?php
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include_once($path);
+    require('database.php');
     // When form submitted, insert values into the database.
-   // if (isset($_POST['submit'])) {
+    if (isset($_REQUEST['first_name'])) {
+        // removes backslashes
+        $first_name = stripslashes($_REQUEST['first_name']);
         //escapes special characters in a string
-        $first_name = $_POST['first_name'];
-        $last_name  = $_POST['last_name'];
-        $email_addres = $_POST['email_addres'];
-        $t_number   = $_POST['t_number'];
-        $addres     = $_POST['addres'];
-        $pwd        = $_POST['pwd'];
-        $sha_pwd = sha1($pwd);
-
-
-
-        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-                   VALUES (?, ?, ?, ?, ?, ?)"); 
-        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        $query -> execute();
-        
-        //$email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
-        //$email_exist->bind_param("s", $email_addres);
-        //$email_exist->execute();
-
-        //$result = $query->get_result();
-        //$email_exist_result = $email_exist -> get_result();
-
-        //if ($email_exist_result) {
-        //    echo "<div class='form'>
-        //        <h3>Required fields are missing.</h3><br/>
-        //        <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
-        //        </div>";
-        //if ($result) {              
+        $first_name = mysqli_real_escape_string($con, $first_name);
+        $last_name  = stripslashes($_REQUEST['last_name']);
+        $last_name  = mysqli_real_escape_string($con, $last_name);
+        $email_addres = stripslashes($_REQUEST['email']);
+        $email_addres = mysqli_real_escape_string($con, $email_addres);
+        $t_number   = stripslashes($_REQUEST['t_number']);
+        $t_number   = mysqli_real_escape_string($con, $t_number);
+        $addres   = stripslashes($_REQUEST['addres']);
+        $addres   = mysqli_real_escape_string($con, $addres);
+        $pwd = stripslashes($_REQUEST['pwd']);
+        $pwd = mysqli_real_escape_string($con, $pwd);
+        $query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
+        $email_exist =  mysqli_query($con, "SELECT * FROM USERS
+        WHERE email_addres = $email_addres");
+        $result   = mysqli_query($con, $query); //Borde varra denna som är fel
+        if ($email_exist) {
+            echo "<div class='form'>
+                <h3>Required fields are missing.</h3><br/>
+                <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+                </div>";
+        //elseif ($result) {              //Kan även vara denna, kommenteras denna elseif sats ut så kommer programmet upp på servern men man kan inte skapa en user
         //    echo "<div class='form'>
         //          <h3>You are registered successfully.</h3><br/>
         //          <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
         //          </div>";
-        //} 
-        //else {
-        //    echo "<div class='form'>
-        //          <h3>Required fields are missing.</h3><br/>
-        //          <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
-        //          </div>";
-    //    }
+        } else {
+            echo "<div class='form'>
+                  <h3>Required fields are missing.</h3><br/>
+                  <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
+                  </div>";
+        }
     } else {
 ?>
     <form class="form" action="" method="post">
