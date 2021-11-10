@@ -43,7 +43,7 @@
             echo $user_id;
 
             //if user_id exists then the user exists in the database
-            if($user_id != ""){
+            if(isset($user_id)){
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in. 
                 drawPageLayout($first_name, $last_name, $tel_nr, $address, $user_id, $input_email);
             }else{
