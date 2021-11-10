@@ -13,20 +13,20 @@
     // When form submitted, insert values into the database.
     if (isset($_POST['submit'])) {
         //escapes special characters in a string
-        $first_name = mysqli_real_escape_string($con, $_POST['first_name']);
-        $last_name  = mysqli_real_escape_string($con, $_POST['last_name']);
-        $email_addres = mysqli_real_escape_string($con, $_POST['email_addres']);
-        $t_number   = mysqli_real_escape_string($con, $_POST['t_number']);
-        $addres     = mysqli_real_escape_string($con, $_POST['addres']);
-        $pwd        = mysqli_real_escape_string($con, $_POST['pwd']);
+        $first_name = $_POST['first_name'];
+        $last_name  = $_POST['last_name'];
+        $email_addres = $_POST['email_addres'];
+        $t_number   = $_POST['t_number'];
+        $addres     = $_POST['addres'];
+        $pwd        = $_POST['pwd'];
         $sha_pwd = sha1($pwd);
 
 
 
-        //$query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-        //           VALUES (?, ?, ?, ?, ?, ?)"); 
-        //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        //$query -> execute();
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        $query -> execute();
         
         //$email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         //$email_exist->bind_param("s", $email_addres);
