@@ -11,7 +11,7 @@
     $path .= "/database.php";
     include_once($path);
     // When form submitted, insert values into the database.
-    if (isset($_POST['submit'])) {
+   // if (isset($_POST['submit'])) {
         //escapes special characters in a string
         $first_name = $_POST['first_name'];
         $last_name  = $_POST['last_name'];
@@ -51,7 +51,7 @@
         //          <h3>Required fields are missing.</h3><br/>
         //          <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
         //          </div>";
-        }
+    //    }
     } else {
 ?>
     <form class="form" action="" method="post">
