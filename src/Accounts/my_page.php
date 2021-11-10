@@ -20,11 +20,14 @@
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
-            echo"what";
             $input_email = $_POST["email"];
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
 
+            echo $hashed_pwd;
+            echo $input_pwd;
+            echo "<br>";
+    
             $query = $con->prepare("SELECT first_name, last_name, t_number, addres, user_id FROM USERS WHERE email_addres=? and pwd=?");
             $query->bind_param("ss", $input_email, $hashed_pwd);
             $query->execute();
@@ -32,12 +35,20 @@
             $query->fetch();
             $query->close();
 
+
+            echo $first_name; 
+            echo $last_name; 
+            echo $tel_nr; 
+            echo $address;
+            echo $user_id;
+
             //if user_id exists then the user exists in the database
             if($user_id != ""){
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in. 
                 drawPageLayout($first_name, $last_name, $tel_nr, $address, $user_id, $input_email);
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
+                echo "<br>";
                 echo "user don't exist";
                 echo "<div class='auth_failed_container'>";
                 echo "<div class='auth_failed_container_text'>";
@@ -61,8 +72,6 @@
         function drawPageLayout($first_name, $last_name, $tel_nr, $address, $user_id, $email){
             //If the current user is logged in as admin, draw the admin page.
             if($user_id == 0){
-                echo"you are the admin";
-
             }else{
 
             }
