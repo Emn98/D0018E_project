@@ -32,23 +32,23 @@
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
         
-        $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
-        $email_exist -> bind_param("s", $email_addres);
-        $email_exist -> execute();
+        //$email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
+        //$email_exist -> bind_param("s", $email_addres);
+        //$email_exist -> execute();
 
         $result = $query -> get_result();
-        $email_exist_result = $email_exist -> get_result();
+        //$email_exist_result = $email_exist -> get_result();
 
-        if ($email_exist_result) {
-            echo "<div class='form'>
-                <h3>Required fields are missing.</h3><br/>
-                <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
-                </div>";
-        elseif ($result) {              
-            echo "<div class='form'>
-                  <h3>You are registered successfully.</h3><br/>
-                  <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
-                  </div>";
+        //if ($email_exist_result) {
+        //    echo "<div class='form'>
+        //        <h3>Required fields are missing.</h3><br/>
+        //        <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+        //        </div>";
+        //if ($result) {              
+        //    echo "<div class='form'>
+        //          <h3>You are registered successfully.</h3><br/>
+        //          <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
+        //          </div>";
         } else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
