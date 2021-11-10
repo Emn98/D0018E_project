@@ -66,10 +66,10 @@
                 echo "<h1>Welcome admin</h1>";
                 echo "<div class='inner_admin_box'>";
                 echo "<ul class='admin_menu'>";
-                echo "<li><href='/product_handling/add_product_form.php'>Add Product</a></li>";
-                echo "<li><href='/product_handling/edit_product_form.php'>Edit product</a></li>";
-                echo "<li><href='/product_handling/remove_product_form'>Remove product</a></li>";
-                echo "<li><href='log_out.php'>Log Out</a></li>";
+                echo "<li><a href='/product_handling/add_product_form.php'>Add Product</a></li>";
+                echo "<li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>";
+                echo "<li><a href='/product_handling/remove_product_form'>Remove product</a></li>";
+                echo "<li><a href='log_out.php'>Log Out</a></li>";
             }else{
 
             }
