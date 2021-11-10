@@ -35,7 +35,7 @@
         //           VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
         $email_exist =  mysqli_query($con, "SELECT * FROM USERS
         WHERE email_addres = $email_addres");
-        //$result   = mysqli_query($con, $query); //Borde varra denna som är fel
+        $result   = mysqli_query($con, $query); //Borde varra denna som är fel
 
 
 
@@ -44,15 +44,17 @@
                 <h3>Required fields are missing.</h3><br/>
                 <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
                 </div>";
-        //elseif ($result) {              //Kan även vara denna, kommenteras denna elseif sats ut så kommer programmet upp på servern men man kan inte skapa en user
-        //    echo "<div class='form'>
-        //          <h3>You are registered successfully.</h3><br/>
-        //          <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
-        //          </div>";
-        } else {
+        }
+        elseif ($result) {              //Kan även vara denna, kommenteras denna elseif sats ut så kommer programmet upp på servern men man kan inte skapa en user
+            echo "<div class='form'>
+                  <h3>You are registered successfully.</h3><br/>
+                  <p class='link'>Click here to <a href='login_page.php'>Login</a></p>
+                  </div>";
+        }
+         else {
             echo "<div class='form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration_page.php'>registrater</a> again.</p>
+                  <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
                   </div>";
         }
     } else {
