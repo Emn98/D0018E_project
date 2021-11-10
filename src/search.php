@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
   <head>
       <title>Search</title>
       <meta charset="UTF-8">
