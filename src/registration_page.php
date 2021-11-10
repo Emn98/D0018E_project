@@ -54,7 +54,6 @@ if (isset($_POST['submit'])) {
         $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute()
-        $result = $email_exist->execute();
 
         if($email_exist->rowCount() > 0) {
             echo "<div class='form'>
@@ -83,7 +82,7 @@ if (isset($_POST['submit'])) {
         }
         //$email_exist_result = $email_exist->rowCount();
 
-    /*    if($email_exist->rowCount() > 0){ //have to fix
+     /*    if($email_exist->rowCount() > 0){ //have to fix
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
@@ -98,7 +97,7 @@ if (isset($_POST['submit'])) {
             <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
             </div>";
         }
-*/
+      */
        // $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
         //           VALUES (?, ?, ?, ?, ?, ?)"); 
         //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
@@ -135,7 +134,7 @@ if (isset($_POST['submit'])) {
         //          <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
         //          </div>";
         //}
-    } else {
+   } else {
 ?>
     <form class="form" action="" method="post">
         <h1 class="login-title">Registration</h1>
