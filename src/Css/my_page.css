@@ -41,11 +41,11 @@ header h1 a span{
     padding: 0px 25px;
 }
 
-.menu li a{
+.nav_menu li a{
     transition: all 0.2s ease 0s;
     color: white;
 }
 
-.menu li a:hover{
+.nav_menu li a:hover{
     color: rgb(23, 125, 209);
 }

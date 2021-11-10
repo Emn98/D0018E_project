@@ -31,10 +31,7 @@
             //if user_id is set then the user exists in the database
             if(isset($user_id)){
                 $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in.
-                $_SESSION["email_addres"] = $input_email;
-                $_SESSION["pwd"] = $hashed_pwd;
-
-                drawPageLayout($first_name, $last_name, $tel_nr, $address);
+                drawPageLayout($first_name, $last_name, $tel_nr, $address, $input_email);
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
                 echo "<div class='auth_failed_container'>";
@@ -46,17 +43,17 @@
                 echo "</div>";
             }
         }else{//If customer already logged in, get the right information. 
-            $query = $con->prepare("SELECT first_name, last_name, t_number, addres FROM USERS WHERE user_id=?");
+            $query = $con->prepare("SELECT first_name, last_name, email_addres, t_number, addres FROM USERS WHERE user_id=?");
             $query->bind_param("s", $_SESSION["user_id"]);
             $query->execute();
-            $query->bind_result($first_name, $last_name, $tel_nr, $address);
+            $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address);
             $query->fetch();
             $query->close();
 
-            drawPageLayout($first_name, $last_name, $tel_nr, $address);
+            drawPageLayout($first_name, $last_name, $tel_nr, $address, $email_address);
         }
 
-        function drawPageLayout($first_name, $last_name, $tel_nr, $address){
+        function drawPageLayout($first_name, $last_name, $tel_nr, $address, $email_address){
             //Draw out the header
             echo "<header>";
             echo "<h1><a href='/index.php'>OFF<span>BRAND</span></a></h1>";
@@ -91,6 +88,12 @@
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th>$first_name $last_name</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>Email address</th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th>$email_address</th>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th>Telephone Number</th>";
