@@ -1,6 +1,10 @@
 <html>
   <head>
-      <title>Add Product</title>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/Css/product.css">
+
+    <title>Add Product</title>  
   </head>
   <body>
       
@@ -39,5 +43,9 @@
         $con->close();
         
       ?>
+
+    <form action="edit_product_form.php" method="post">
+    <input type="submit" placeholder="Return">
+
   </body>
 </html>
