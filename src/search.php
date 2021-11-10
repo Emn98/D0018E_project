@@ -29,6 +29,8 @@
         $result = $stmt->get_result();
 
         echo "<table>";
+        echo "<tr><td>"."Name"."</td><td>"."Description"."</td><td>"."product_name"."</td><td>"."category"."</td><td>"."quantity"."</td><td>"."price"."</td><td>"."size".
+        "</td><td>"."color"."</td><td>"."discount"."</td><td>"."picture"."</td></tr>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
@@ -40,8 +42,8 @@
             $discount = $row['discount'];
             $picture = $row['picture'];
             echo "<tr><td>".$name."</td><td>".$description."</td><td>".
-            $category."</td></tr>".$quantity."</td></tr>".$price."</td><td>".
-            $size."</td><td>".$color."</td></tr>".$discount."</td></tr>".$picture."</td></tr>";
+            $category."</td><td>".$quantity."</td><td>".$price."</td><td>".
+            $size."</td><td>".$color."</td><td>".$discount."</td><td>".$picture."</td></tr>";
         }
         echo "</table>";
  
