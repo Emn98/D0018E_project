@@ -49,5 +49,9 @@
         $con->close();
         
       ?>
+
+    <form action="index.php" method="post">
+    <input type="submit" placeholder="Return">
+
   </body>
 </html>
