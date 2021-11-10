@@ -33,12 +33,11 @@ input[type=text], select, textarea {
   }
 
   table, th, td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
   }
 
   table {
     border-collapse: collapse;
-  }
-  td{
     padding: 20px;
   }
+  
