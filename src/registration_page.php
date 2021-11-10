@@ -54,7 +54,7 @@
         }
     } else {
 ?>
-    <form class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form class="form" action="" method="post">
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
