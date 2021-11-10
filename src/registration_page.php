@@ -51,6 +51,37 @@ if (isset($_POST['submit'])) {
  //           </div>";
  //   }
 
+
+        $email_exists = 0;
+        $sql = 'SELECT email_addres FROM USERS WHERE email_addres = :email_addres';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':email_addres',$_POST['email_addres']);
+        $stmt->execute();
+        if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // row(s) returned
+            $email_exists = 1;
+         } else {
+            // no row returned
+            $email_exists = 0;
+         }
+         $stmt->closeCursor();
+
+         if($email_exist == 1) {
+            echo "<div class='form'>
+            <h3>Email already in use.</h3><br/>
+            <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
+            </div>";
+        }else{
+            $query = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+            $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+            $query -> execute();
+            echo "<div class='form'>
+                <h3>User Created Succesfully.</h3><br/>
+                <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+                </div>";
+        }
+/*
         $email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
@@ -83,7 +114,7 @@ if (isset($_POST['submit'])) {
         }
         //$email_exist_result = $email_exist->rowCount();
 
-    /*    if($email_exist->rowCount() > 0){ //have to fix
+        if($email_exist->rowCount() > 0){ //have to fix
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
