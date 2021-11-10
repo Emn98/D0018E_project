@@ -24,8 +24,6 @@
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
 
-            echo "not logged in query";
-
             $query = $con->prepare("SELECT first_name, last_name, t_number, addres, user_id FROM USERS WHERE email_addres=? and pwd=?");
             $query->bind_param("ss", $input_email, $hashed_pwd);
             $query->execute();
@@ -62,6 +60,7 @@
         function drawPageLayout($first_name, $last_name, $tel_nr, $address, $user_id, $email){
             //If the current user is logged in as admin, draw the admin page.
             if($user_id == 0){
+                echo"you are the admin";
 
             }else{
 
