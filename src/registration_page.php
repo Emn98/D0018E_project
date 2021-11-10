@@ -41,24 +41,37 @@ if (isset($_POST['submit'])) {
         $pwd = mysqli_real_escape_string($con, $pwd);
 */
 
+    $email_exist =  mysqli_query($con, "SELECT * FROM USERS
+    WHERE email_addres = $email_addres");
+
+    if ($email_exist) {
+        echo "<div class='form'>
+            <h3>Email already in use.</h3><br/>
+            <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
+            </div>";
+    }
+
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
 
-        printf("%d User created.\n", $stmt->affected_rows);
+        echo "<div class='form'>
+        <h3>User Created Succesfully.</h3><br/>
+        <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a> again.</p>
+        </div>";
 
         //$query    = "INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
         //           VALUES ('$first_name','$last_name', '$email_addres', $t_number, '$addres','" . sha1('$pwd') ."')";
         //$email_exist =  mysqli_query($con, "SELECT * FROM USERS
-        //WHERE email_addres = $email_addres");
+       // WHERE email_addres = $email_addres");
         //$result   = mysqli_query($con, $query); //Borde varra denna som är fel
 
 
 
         //if ($email_exist) {
         //    echo "<div class='form'>
-        //        <h3>Required fields are missing.</h3><br/>
+        //        <h3>Email already in use.</h3><br/>
         //        <p class='link'>Click here to <a href='registration_page.php'>registration</a> again.</p>
         //        </div>";
         //}
@@ -85,7 +98,7 @@ if (isset($_POST['submit'])) {
         <input type="text" class="login-input" name="addres" placeholder="Addres" required>
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="login_page.php">Click to Login</a></p>
+        <p class="link"><a href="Accounts/login_page.php">Click to Login</a></p>
     </form>
 <?php
     }
