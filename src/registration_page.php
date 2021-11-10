@@ -11,32 +11,28 @@
     $path .= "/database.php";
     include_once($path);
     // When form submitted, insert values into the database.
-    if (isset($_REQUEST['first_name'])) {
-        // removes backslashes
-        $first_name = stripslashes($_REQUEST['first_name']);
+    if (isset($_POST['submit'])) {
         //escapes special characters in a string
-        $first_name = mysqli_real_escape_string($con, $first_name);
-        $last_name  = stripslashes($_REQUEST['last_name']);
-        $last_name  = mysqli_real_escape_string($con, $last_name);
-        $email_addres = stripslashes($_REQUEST['email']);
-        $email_addres = mysqli_real_escape_string($con, $email_addres);
-        $t_number   = stripslashes($_REQUEST['t_number']);
-        $t_number   = mysqli_real_escape_string($con, $t_number);
-        $addres   = stripslashes($_REQUEST['addres']);
-        $addres   = mysqli_real_escape_string($con, $addres);
-        $pwd = stripslashes($_REQUEST['pwd']);
-        $pwd = mysqli_real_escape_string($con, $pwd);
+        $first_name = mysqli_real_escape_string($con, $_POST['first_name']);
+        $last_name  = mysqli_real_escape_string($con, $_POST['last_name']);
+        $email_addres = mysqli_real_escape_string($con, $_POST['email_addres']);
+        $t_number   = mysqli_real_escape_string($con, $_POST['t_number']);
+        $addres     = mysqli_real_escape_string($con, $_POST['pwd']);
+        $pwd        = mysqli_real_escape_string($con, $pwd);
         $sha_pwd = sha1($pwd);
-        //$query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-        //           VALUES (?, ?, ?, ?, ?, ?)"); 
-        //$query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
-        //$query -> execute();
+
+
+
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
+                   VALUES (?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        $query -> execute();
         
         //$email_exist = $con -> prepare("SELECT * FROM USERS WHERE email_addres = ?");
         //$email_exist->bind_param("s", $email_addres);
         //$email_exist->execute();
 
-        //$result = $query->get_result();
+        $result = $query->get_result();
         //$email_exist_result = $email_exist -> get_result();
 
         //if ($email_exist_result) {
