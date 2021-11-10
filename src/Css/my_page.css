@@ -52,9 +52,9 @@ header h1 a span{
 
 .auth_failed_container{
     text-align: center;
-    margin-right: 35%;
-    margin-left: 35%;
-    margin-top: 10%;
+    margin-right: 42%;
+    margin-left: 42%;
+    margin-top: 30%;
     margin-bottom: auto;
 
     height: 200px;
@@ -65,7 +65,7 @@ header h1 a span{
 .auth_failed_container_text h1{
     color: white;
     font-size: 20px;
-    margin-top: 15px;
+    margin-top: 30%;
     margin-bottom: 5px;
 }
 
