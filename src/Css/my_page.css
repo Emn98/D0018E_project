@@ -54,12 +54,16 @@ header h1 a span{
     text-align: center;
     margin-right: 40%;
     margin-left: 40%;
-    margin-top: 15%;
-    margin-bottom: 15;
+    margin-top: 20%;
+    margin-bottom: auto;
 
     height: 200px;
 
     background-color: #242525;
+}
+
+.auth_failed_container_text{
+    margin-top: 5%;
 }
 
 .auth_failed_container_text h1{
