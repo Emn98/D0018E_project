@@ -39,3 +39,6 @@ input[type=text], select, textarea {
   table {
     border-collapse: collapse;
   }
+  td{
+    padding: 10px;
+  }

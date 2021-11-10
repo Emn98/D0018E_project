@@ -29,7 +29,7 @@
         $result = $stmt->get_result();
 
         echo "<table>";
-        echo "<tr><td>"."Name"."</td><td>"."Description"."</td><td>"."product_name"."</td><td>"."category"."</td><td>"."quantity"."</td><td>"."price"."</td><td>"."size".
+        echo "<tr><td>"."Name"."</td><td>"."Description"."</td><td>"."category"."</td><td>"."quantity"."</td><td>"."price"."</td><td>"."size".
         "</td><td>"."color"."</td><td>"."discount"."</td><td>"."picture"."</td></tr>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
