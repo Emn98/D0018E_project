@@ -29,7 +29,7 @@
         <input type="text" id="discount" name="discount" placeholder="discount"><br>
         <label for="picture">Picture</label>
         <input type="text" id="picture" name="picture" placeholder="picture url"><br>
-        <input type="submit" placeholder="Send">
+        <button type="submit" class="btn">Send</button>
         </form>
   </body>
 </html>

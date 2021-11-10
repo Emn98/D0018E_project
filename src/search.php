@@ -51,7 +51,8 @@
       ?>
 
     <form action="index.php" method="post">
-    <input type="submit" placeholder="Return">
+    <button type="submit" class="btn">Return</button>
+    </form>
 
   </body>
 </html>

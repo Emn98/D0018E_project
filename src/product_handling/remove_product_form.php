@@ -13,7 +13,7 @@
         <form action="remove_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
-        <input type="submit" placeholder="Send">
+        <button type="submit" class="btn">Send</button>
         </form>
   </body>
 </html>
