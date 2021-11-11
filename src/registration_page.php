@@ -130,29 +130,35 @@ if (isset($_POST['submit'])) {
             </div>";
         }
 */
+        $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
+        $email_exist->bind_param("s", $email_addres);
+        $email_exist->execute();
+        $email_exist->bind_result($email_addres_exists);
+        $email_exist->fetch();
+        $email_exist->close();
+
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
 
-        $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
-        $email_exist->bind_param("s", $email_addres);
-        $email_exist->execute();
-        $result = $con->query($email_exist);
-        echo "$result";
+        
+        $query->close();
+        //$result = $con->query($email_exist);
         //$result = $con->get_result();
         //$con->close();
         //$email_exist = $con->affected_rows;
 
-        //if ($result->num_rows == 0) {  //fastnar här
-        //    echo "<div class='form'>
-        //    <h3>User Created Succesfully.</h3><br/>
-        //    <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
-        //    </div>";
-        //}
-        //else{
-        //    echo "Email already in use";
-        //}
+        echo $email_addres_exists;
+        if ($email_addres_exists == "") {  //fastnar här
+            echo "<div class='form'>
+            <h3>User Created Succesfully.</h3><br/>
+            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+            </div>";
+        }
+        else{
+            echo "Email already in use";
+        }
 
     /*    if($email_exist == 1){
             echo "<div class='form'>
