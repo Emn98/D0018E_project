@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
         <input type="email" class="login-input" name="email_addres" placeholder="Email Adress" required>
         <input type="text" class="login-input" name="t_number" placeholder="Phone Number" required>
-        <input type="text" class="login-input" name="addres" placeholder="Addres" required>
+        <input type="text" class="login-input" name="addres" placeholder="Address" required>
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
         <input type="submit" name="submit" value="Register" class="login-button">
         <p class="link"><a href="Accounts/login_page.php">Click to Login</a></p>
