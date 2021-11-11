@@ -135,11 +135,14 @@ if (isset($_POST['submit'])) {
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
 
-        $email_exist = $con -> select("SELECT email_addres FROM USERS WHERE `email_addres` = '$email_addres'");
-        //$result = $con->query($query);
+        $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE `email_addres` = '$email_addres'");
+        $email_exist->bind_param("s", $email_addres);
+        $email_exist->execute();
+        $result = $con->get_result();
+        $con->close();
         //$email_exist = $con->affected_rows;
 
-        if (!empty($email_exist)) {
+        if (!empty($result)) {  //fastnar här
             echo "Email already in use";
         }
         else{
