@@ -1,10 +1,28 @@
-<html>
+<!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
+<?php 
+  session_start();
+?>
+<!DOCTYPE html>
+  <html lang="en">
   <head>
-      <title>Offbrand</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Css/main_page.css">
+    <title>Offbrand.pwr</title>
   </head>
   <body>
-      <?php
-      echo "test 123";
-      ?>
+    <header>
+      <h1>OFF<span>BRAND</span></h1>
+      <form class="search_bar_form" method="POST" action="search.php">
+          <input class="search_bar_inp" type="text" name="product_name">
+          <button type="submit" class="search_btn">Search</button>
+      </form> 
+      <nav>
+        <ul class="menu">
+          <li><a href="Accounts/site_director.php">My page</a></li>
+          <li><a href="test.php">Shopping cart</a></li>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>
