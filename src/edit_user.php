@@ -10,8 +10,7 @@
     
       <?php
 
-        sesion_start();
-
+        session_start();
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
 
@@ -32,8 +31,6 @@
          t_number=?, addres=?, pwd=? WHERE user_id = ?");
 
         // perform query
-
-        
         $stmt->bind_param("sssisss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $_SESSION["user_id"]);
         $stmt->execute();
         printf("%d row edited.\n", $stmt->affected_rows);
