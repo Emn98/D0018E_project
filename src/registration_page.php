@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
 
-        $email_exist = "SELECT email_addres FROM USERS WHERE email_addres = '$email_addres'");
+        $email_exist = "SELECT email_addres FROM USERS WHERE email_addres = '$email_addres'";
         $result = $con->query($email_adders);
         //$email_exist->bind_param("s", $email_addres);
         //$email_exist->execute();
