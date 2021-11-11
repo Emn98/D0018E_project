@@ -78,6 +78,45 @@ header h1 a span{
     color: rgb(23, 125, 209);
 }
 
+.admin_box{
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 10%;
+    margin-bottom: auto;
+
+    text-align: center;
+    height: 200px;
+    background-color: #242525;
+}
+
+.admin_box h1{
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.inner_admin_box{
+    margin-top: 5px;
+}
+
+.admin_menu{
+    list-style:none;
+}
+
+.admin_menu li{
+    display: inline-block;
+}
+
+.admin_menu li a{
+    transition: all 0.2s ease 0s;
+    color: white;
+}
+
+.admin_menu li a:hover{
+    color: rgb(23, 125, 209);
+}
+
+
 
 
 
