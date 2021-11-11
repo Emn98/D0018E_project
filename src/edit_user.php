@@ -34,7 +34,7 @@
         $stmt->bind_param("sssissi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $_SESSION["user_id"]);
         $stmt->execute();
         echo "<div class='form'>
-            <h3>Information has Succesfully ben Changed.</h3><br/>
+            <h3>Information has Succesfully Been Changed.</h3><br/>
             <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
             </div>";
         $con->close();
