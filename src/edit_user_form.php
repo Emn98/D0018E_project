@@ -14,8 +14,8 @@
         <input type="text" id="first_name" name="first_name" placeholder="First Name"><br>
         <label for="last_name">Last Name</label>
         <input type="text" id="last_name" name="last_name" placeholder="Last Name"><br>
-        <label for="email_address">Emali Address</label>
-        <input type="email" id="email_address" name="email_address" placeholder="Email Address"><br>
+        <label for="email_addres">Emali Address</label>
+        <input type="email" id="email_addres" name="email_addres" placeholder="Email Address"><br>
         <label for="t_number">Telefone Number</label>
         <input type="text" id="t_number" name="t_number" placeholder="Telefone Number"><br>
         <label for="addres">Address</label>
