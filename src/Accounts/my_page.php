@@ -109,7 +109,7 @@
                 echo "</table>";
                 echo "<div class='user_menu_box'>";
                 echo "<ul class='user_menu'>";
-                echo "<li><a href='#'>Edit user</a></li>";
+                echo "<li><a href='/edit_user_form.php'>Edit user</a></li>";
                 echo "<li><a href='/Accounts/delete_user_confirm_page.php'>Delete user</a></li>";
                 echo "</ul>";
                 echo "</div>";
