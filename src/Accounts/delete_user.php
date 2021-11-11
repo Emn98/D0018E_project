@@ -17,15 +17,21 @@
 
             //Admin want's to delete a user.
             if(isset($_POST["email"])){
-                if($_POST["email"] == "admin"){
+                if($_POST["email"] == "admin@gmail.com"){
                     echo "you are not allowed to delete the admin profile";
                     echo "<a href='my_page.php'>Go back</a>";
                 }else{
-                    echo "admin delete stuff";
                     $query = $con->prepare("DELETE FROM USERS WHERE email_addres=?");
                     $query->bind_param("s", $_POST["email"]);
                     $query->execute();
-                    printf("%d row deleted.\n", $query->affected_rows);
+                    if($query->affected_rows == 0){
+                        echo "No account with this email exist in the database";
+                        echo "<a href='delete_user_admin_form.php'>Do you want to enter another email?</a>";
+                        echo "<a href='my_page.php'>Go back</a>";
+                        $query->close();
+                        exit;
+
+                    }
                     $query->close();
                     $link = "/Accounts/my_page.php";
                 }

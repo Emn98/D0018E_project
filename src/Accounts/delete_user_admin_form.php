@@ -8,7 +8,7 @@
         <body>
         <form class="delete_user_form" method="POST" action="delete_user.php">
                 <h2 class="login_inp_text">Enter Email</h2>
-                <input type="text" class="delete_inp" name="email" required>
+                <input type="email" class="delete_inp" name="email" required>
                 <br>
                 <button type="submit" class="delete_btn">Confirm</button>
         </body>
