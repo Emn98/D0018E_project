@@ -81,7 +81,7 @@ header h1 a span{
 .admin_box{
     margin-right: 35%;
     margin-left: 35%;
-    margin-top: 10%;
+    margin-top: 15%;
     margin-bottom: auto;
 
     text-align: center;
@@ -105,6 +105,8 @@ header h1 a span{
 
 .admin_menu li{
     display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
 }
 
 .admin_menu li a{

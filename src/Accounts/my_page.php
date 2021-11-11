@@ -35,7 +35,6 @@
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
                 echo "<div class='auth_failed_container'>";
-                echo "<br>";
                 echo "<p></p>";
                 echo "<br>";
                 echo "<h1>The account information provided does not exist</h1>";
