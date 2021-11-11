@@ -135,13 +135,14 @@ if (isset($_POST['submit'])) {
         $email_exist->execute();
         $email_exist->bind_result($email_addres_exists);
         $email_exist->fetch();
+        $email_exist->close();
 
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
                    VALUES (?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
         $query -> execute();
 
-        $email_exist->close();
+        
         $query->close();
         //$result = $con->query($email_exist);
         //$result = $con->get_result();
