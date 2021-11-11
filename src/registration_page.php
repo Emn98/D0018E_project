@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
-        <input type="text" class="login-input" name="email_addres" placeholder="Email Adress" required>
+        <input type="email" class="login-input" name="email_addres" placeholder="Email Adress" required>
         <input type="text" class="login-input" name="t_number" placeholder="Phone Number" required>
         <input type="text" class="login-input" name="addres" placeholder="Addres" required>
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
