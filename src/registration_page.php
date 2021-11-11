@@ -142,7 +142,7 @@ if (isset($_POST['submit'])) {
         $con->close();
         //$email_exist = $con->affected_rows;
 
-        if (!empty($result)) {  //fastnar här
+        if (!($result)) {  //fastnar här
             echo "Email already in use";
         }
         else{
