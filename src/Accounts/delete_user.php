@@ -9,7 +9,6 @@
         <body>
         <?php
             session_start();
-            echo $_SESSION["user_id"];
 
             //creates connection to database
             $path = $_SERVER['DOCUMENT_ROOT'];
@@ -21,17 +20,24 @@
                 if($_POST["email"] == "admin"){
                     echo "you are not allowed to delete the admin profile";
                     echo "<a href='my_page.php'>Go back</a>";
+                }else{
+                    echo "admin delete stuff";
+                    $query = $con->prepare("DELETE FROM USERS WHERE email_addres=?");
+                    $query->bind_param("s", $_POST["email"]);
+                    $query->execute();
+                    printf("%d row deleted.\n", $query->affected_rows);
+                    $query->close();
+                    $link = "/Accounts/my_page.php";
                 }
-                echo "admin delete stuff";
             }else{//User delete their own account
                 $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
                 $query->bind_param("s", $_SESSION["user_id"]);
                 $query->execute();
-                printf("%d row deleted.\n", $query->affected_rows);
                 $query->close();
                 session_destroy();
+                $link = "/index.php";
                 }
 ?>
-            <h1>Account deleted successfully<a href="/index.php"></a>Click here to continue</h1>
+            <h1>Account deleted successfully <a href=<?php echo $link;?>>Click here to continue</a></h1>
         </body>
     </html>
