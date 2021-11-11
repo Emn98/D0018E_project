@@ -139,19 +139,20 @@ if (isset($_POST['submit'])) {
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
         $result = $con->query($email_exist);
+        echo "$result";
         //$result = $con->get_result();
         //$con->close();
         //$email_exist = $con->affected_rows;
 
-        if ($result->num_rows == 0) {  //fastnar här
-            echo "<div class='form'>
-            <h3>User Created Succesfully.</h3><br/>
-            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
-            </div>";
-        }
-        else{
-            echo "Email already in use";
-        }
+        //if ($result->num_rows == 0) {  //fastnar här
+        //    echo "<div class='form'>
+        //    <h3>User Created Succesfully.</h3><br/>
+        //    <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+        //    </div>";
+        //}
+        //else{
+        //    echo "Email already in use";
+        //}
 
     /*    if($email_exist == 1){
             echo "<div class='form'>
