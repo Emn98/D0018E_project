@@ -65,7 +65,7 @@ header h1 a span{
 .auth_failed_container h1{
     color: white;
     font-size: 20px;
-    margin-top: 70px;
+    margin-top: 35px;
 }
 
 .auth_failed_container a{

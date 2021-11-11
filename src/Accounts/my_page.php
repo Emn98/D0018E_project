@@ -35,8 +35,6 @@
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
                 echo "<div class='auth_failed_container'>";
-                echo "<p></p>";
-                echo "<br>";
                 echo "<h1>The account information provided does not exist</h1>";
                 echo "<br>";
                 echo "<a href='login_page.php'>try again</a>";
@@ -73,6 +71,7 @@
                 echo "<li><a href='/product_handling/add_product_form.php'>Add Product</a></li>";
                 echo "<li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>";
                 echo "<li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>";
+                echo "<li><a href='/Accounts/delete_user_admin_form.php'>Delete user</a></li>";
                 echo "</ul>";
                 echo "</div>";
                 echo "</div>";
