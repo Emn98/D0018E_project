@@ -138,7 +138,7 @@ if (isset($_POST['submit'])) {
         $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
-        $result = $con->query($email_adders);
+        $result = $con->query($email_exist);
         //$result = $con->get_result();
         //$con->close();
         //$email_exist = $con->affected_rows;
