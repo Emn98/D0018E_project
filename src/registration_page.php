@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
         //$email_exist = $con->affected_rows;
 
         echo $email_addres_exists;
-        /*if ($email_addres_exists == "") {  //fastnar här
+        if ($email_addres_exists == "") {  //fastnar här
             echo "<div class='form'>
             <h3>User Created Succesfully.</h3><br/>
             <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
@@ -156,7 +156,7 @@ if (isset($_POST['submit'])) {
         else{
             echo "Email already in use";
         }
-*/
+
     /*    if($email_exist == 1){
             echo "<div class='form'>
             <h3>Email already in use.</h3><br/>
