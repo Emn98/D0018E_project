@@ -13,7 +13,7 @@
         <div class="login_form_box">
             <form class="login_form" method="POST" action="my_page.php">
                 <h2 class="login_inp_text">Enter Email</h2>
-                <input type="text" class="login_inp" name="email" required>
+                <input type="email" class="login_inp" name="email" required>
                 <br>
                 <h2 class="login_inp_text">Enter Password</h2>
                 <input type="password" class="login_inp" name="password" required>
