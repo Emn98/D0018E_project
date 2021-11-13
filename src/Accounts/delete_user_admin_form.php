@@ -11,5 +11,6 @@
                 <input type="email" class="delete_inp" name="email" required>
                 <br>
                 <button type="submit" class="delete_btn">Confirm</button>
+            </form>
         </body>
     </html>
