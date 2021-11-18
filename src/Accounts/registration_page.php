@@ -16,7 +16,6 @@
 // When form submitted, insert values into the database.
 if (isset($_POST['submit'])) {
     //If the user entered the same password twice
-    //if($_POST["pwd"] == $_POST["pwd2"]){
         $first_name = $_POST['first_name'];
         $last_name  = $_POST['last_name'];
         $email_addres = $_POST['email_address'];
@@ -27,6 +26,8 @@ if (isset($_POST['submit'])) {
         $city       = $_POST["city"];
         $care_of_address = $_POST["care_of_address"];
         $sha_pwd = sha1($pwd);
+        
+        if($_POST["pwd"] == $_POST["pwd2"]){
     
         $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
         $email_exist->bind_param("s", $email_addres);
@@ -54,12 +55,12 @@ if (isset($_POST['submit'])) {
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
             </div>";
             }
-    //}else{
+    }else{
         echo "<div class='form'>
         <h3>The repeated password differed from the first password</h3><br/>
         <p class='link'>Click here to <a href='registration_page.php'>try again</a></p>
         </div>";
-    //}
+    }
 } else{
 ?>
     <form class="form" action="" method="post">
