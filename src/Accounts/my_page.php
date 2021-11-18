@@ -44,11 +44,11 @@
             $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
             $query->bind_param("s", $_SESSION["user_id"]);
             $query->execute();
-            $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address_1, $address_2, $city, $postal_code,);
+            $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address_1, $address_2, $city, $postal_code);
             $query->fetch();
             $query->close();
 
-            drawPageLayout($first_name, $last_name, $tel_nr, $address_1, $address_2, $postal_code, $city, $input_email);
+            drawPageLayout($first_name, $last_name, $tel_nr, $address_1, $address_2, $postal_code, $city, $email_address);
         }
 
         function drawPageLayout($first_name, $last_name, $tel_nr, $address_1, $address_2, $postal_code, $city, $email_address){
