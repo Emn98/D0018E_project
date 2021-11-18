@@ -20,6 +20,9 @@
         $t_number   = $_POST['t_number'];
         $addres     = $_POST['addres'];
         $pwd        = $_POST['pwd'];
+        $post_code  = $_POST["post_code"];
+        $city       = $_POST["city"];
+        $care_of_address = $_POST["care_of_address"];
         $sha_pwd = sha1($pwd);
         // establish connection
 
@@ -28,10 +31,10 @@
         include_once($path);
 
         $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_addres=?,
-         t_number=?, addres=?, pwd=? WHERE user_id = ?");
+         t_number=?, address_1=?, pwd=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
 
         // perform query
-        $stmt->bind_param("sssissi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $_SESSION["user_id"]);
+        $stmt->bind_param("sssisssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
         $stmt->execute();
         echo "<div class='form'>
             <h3>Information has Succesfully Been Changed.</h3><br/>
