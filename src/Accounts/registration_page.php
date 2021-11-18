@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
         <label class="city">Enter City</label>
         <input type="text" class="login-input" name="city" placeholder="City" required><br>
         <label class="address_1">Enter Address</label>
-        <input type="text" class="login-input" name="address" placeholder="Examplestreet 12" pattern="[a-öA-Ö]+ +[0-9a-öA-Ö]" required><br>
+        <input type="text" class="login-input" name="address" placeholder="Examplestreet 12" required><br>
         <label class="care_of_address">(Optional) Enter C/O</label>
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O"><br>
         <label class="password_1">Enter Password</label>
