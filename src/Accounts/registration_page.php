@@ -16,7 +16,7 @@
 // When form submitted, insert values into the database.
 if (isset($_POST['submit'])) {
     //If the user entered the same password twice
-    if($_POST["pwd"] == $_POST["pwd2"]){
+    //if($_POST["pwd"] == $_POST["pwd2"]){
         $first_name = $_POST['first_name'];
         $last_name  = $_POST['last_name'];
         $email_addres = $_POST['email_address'];
@@ -54,12 +54,12 @@ if (isset($_POST['submit'])) {
             <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
             </div>";
             }
-    }else{
+    //}else{
         echo "<div class='form'>
         <h3>The repeated password differed from the first password</h3><br/>
         <p class='link'>Click here to <a href='registration_page.php'>try again</a></p>
         </div>";
-    }
+    //}
 } else{
 ?>
     <form class="form" action="" method="post">
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
         <label class="email_address">Enter Email Address</label>
         <input type="email" class="login-input" name="email_address" placeholder="Example@gmail.com" required><br>
         <label class="t_number">Enter Phone Number</label>
-        <input type="text" class="login-input" name="t_number" placeholder="xxx-xxxxxxx" pattern="[0-9]{3}-[0-9]{7}" require><br>
+        <input type="text" class="login-input" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" require><br>
         <label class="post_code">Enter Post Code</label>
         <input type="text" class="login-input" name="post_code" placeholder="xxx xx"  pattern="[0-9]{3} [0-9]{2}" required><br>
         <label class="city">Enter City</label>

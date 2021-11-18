@@ -12,7 +12,7 @@
 
         //creates connection to database
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/database.php";
+        $path = "/database.php";
         include_once($path);
 
         //If customerID is not already set then the user is not logged in. 
