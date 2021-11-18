@@ -22,9 +22,6 @@ if (isset($_POST['submit'])) {
     $post_code  = $_POST["post_code"];
     $city       = $_POST["city"];
     $care_of_address = $_POST["care_of_address"];
-
-
-
     $sha_pwd = sha1($pwd);
 
         $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
@@ -34,7 +31,7 @@ if (isset($_POST['submit'])) {
         $email_exist->fetch();
         $email_exist->close();
 
-        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, address_1, pwd, address_2, 
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addresss, t_number, address_1, pwd, address_2, 
                                 city, postal_code)
                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssisssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
