@@ -1,14 +1,5 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
-<script>
-function category_link()
-{
-  let description = "<?php echo'$description'?>";
-  let url = 'http://130.240.200.39/Category/';
-  let complete_url = url.concat(description.toLowerCase(), ".php");
 
-  location.replace(complete_url);
-}
-</script>
 <?php 
   session_start();
 ?>
@@ -54,6 +45,18 @@ function category_link()
       while ($row = $result->fetch_assoc()) {
         $description = $row['category_description'];
         echo "<li onclick='category_link()'>". $description . "</li>";
+        ?>
+        <script>
+          function category_link()
+          {
+            let description = "<?php echo"$description"?>";
+            let url = "http://130.240.200.39/Category/";
+            let complete_url = url.concat(description.toLowerCase(), ".php");
+
+            location.replace(complete_url);
+          }
+        </script>
+        <?php
       }
       echo "</ul>";
 
