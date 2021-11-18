@@ -1,4 +1,10 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
+<script>
+function category_link()
+{
+  location.replace("https://www.w3schools.com");
+}
+</script>
 <?php 
   session_start();
 ?>
@@ -41,6 +47,7 @@
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
         echo "<li>". $row['category_description'] . "</li>";
+        echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
 
