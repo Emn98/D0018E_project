@@ -1,3 +1,4 @@
+<!-- This page will let the user edit his or her's account -->
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -27,7 +28,7 @@
     ?>
 
     <div class="edit_user_box">
-        <form action="edit_user.php" method="post">
+      <form action="edit_user.php" method="post">
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" placeholder="First Name" <?php echo"value=$first_name"?>><br>
         <label for="last_name">Last Name</label>
@@ -41,16 +42,14 @@
         <label for="city">City</label>
         <input type="text" class="login-input" name="city" placeholder="City" <?php echo"value=$city"?>><br>
         <label for="addres">Address</label>
-        <input type="text" id="addres" name="addres" placeholder="Address"><?php echo"value=$address_1"?><br>
+        <input type="text" id="addres" name="addres" placeholder="Address" <?php echo"value=$address_1"?>><br>
         <label for="care_of_address">C/O</label>
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O" <?php echo"value=$address_2"?>><br>
-        <label for="pwd">Password</label>
-        <input type="text" id="pwd" name="pwd" placeholder="Password"><br>
-        <button type="submit" class="btn">Send</button>
-        </form>
-        <form action="/Accounts/my_page.php" method="post">
-          <button type="submit" class="btn">Return</button>
-        </form>
-      </div>
+        <button type="submit" class="btn">Save changes</button>
+      </form>
+      <form>
+        <input type="button" value="Cancel!" onclick="history.back()">
+      </form>
+    </div>
   </body>
 </html>
