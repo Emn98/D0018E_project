@@ -110,8 +110,9 @@
                 echo "<th>Care-of-address</th>";
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th>$address_2</th>";
-                echo "</tr>";
+                echo "if($address_2 != ''){     
+                echo <th>$address_2</th>;
+                echo </tr>;}";
                 echo "<tr>";
                 echo "<th>City</th>";
                 echo "</tr>";
