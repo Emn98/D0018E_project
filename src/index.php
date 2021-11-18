@@ -56,7 +56,7 @@ function category_link()
       */
 
       ?>
-      */
+      
     </div>
     <div class="search products">
     </div>
