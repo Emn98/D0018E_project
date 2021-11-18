@@ -32,8 +32,11 @@ function category_link()
     </header>
     <div class="categorie_list">
       <!-- This is categorie search -->
+      <ul>
+        <li onclick="category_link()">Hello</li>
+      </ul>
       <?php
-      $path = $_SERVER['DOCUMENT_ROOT'];
+      /*$path = $_SERVER['DOCUMENT_ROOT'];
       $path .= "/database.php";
       include_once($path);
 
@@ -50,8 +53,10 @@ function category_link()
         //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
+      */
 
       ?>
+      */
     </div>
     <div class="search products">
     </div>
