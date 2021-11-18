@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
                                 city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
-        $query -> bind_param("sssisssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
+        $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
         $query -> execute();
         $query->close();
 
