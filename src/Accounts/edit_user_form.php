@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/edit_user.css">
-      <title>Edit Information</title>
+      <title>Edit Profile - Offbrand.pwr</title>
     <div>
       <h1>Edit Account</h1>
     </div>
@@ -38,7 +38,7 @@
         <label for="t_number">Telefone Number</label>
         <input type="text" id="t_number" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}|[0-9]{3}-[0-9]{7}" <?php echo"value=$tel_nr"?>><br>
         <label for="post_code">Post Code</label>
-        <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{3} [0-9]{2}|[0-9]{5}" <?php echo"value=$postal_code"?>><br>
+        <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{5}|[0-9}{3} [0-9]{2}" <?php echo"value=$postal_code"?>><br>
         <label for="city">City</label>
         <input type="text" class="login-input" name="city" placeholder="City" <?php echo"value=$city"?>><br>
         <label for="addres">Address</label>
