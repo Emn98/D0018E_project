@@ -15,22 +15,25 @@ include_once($path);
 if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name  = $_POST['last_name'];
-    $email_addres = $_POST['email_addres'];
+    $email_addres = $_POST['email_address'];
     $t_number   = $_POST['t_number'];
-    $addres     = $_POST['addres'];
+    $addres     = $_POST['address'];
     $pwd        = $_POST['pwd'];
+    $post_code  = $_POST["post_code"];
+    $city       = $_POST["city"];
+    $care_of_address = $_POST["care_of_address"];
     $sha_pwd = sha1($pwd);
 
-        $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
+        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
         $email_exist->bind_result($email_addres_exists);
         $email_exist->fetch();
         $email_exist->close();
 
-        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_addres, t_number, addres, pwd)
-                   VALUES (?, ?, ?, ?, ?, ?)"); 
-        $query -> bind_param("sssiss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd);
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
+                                city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
         $query -> execute();
         $query->close();
 
@@ -53,12 +56,15 @@ if (isset($_POST['submit'])) {
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
-        <input type="email" class="login-input" name="email_addres" placeholder="Email Adress" required>
-        <input type="text" class="login-input" name="t_number" placeholder="Phone Number" required>
-        <input type="text" class="login-input" name="addres" placeholder="Address" required>
+        <input type="email" class="login-input" name="email_address" placeholder="Email Address" required>
+        <input type="text" class="login-input" name="t_number" placeholder="Phone Number" pattern="[0-9]{10}" require>
+        <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{3} [0-9]{2}"  required>
+        <input type="text" class="login-input" name="city" placeholder="City" required>
+        <input type="text" class="login-input" name="address" placeholder="Address" required>
+        <input type="text" class="login-input" name="care_of_address" placeholder="C/O">
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="Accounts/login_page.php">Click to Login</a></p>
+        <p class="link"><a href="/Accounts/login_page.php">Click to Login</a></p>
     </form>
 <?php
     }
