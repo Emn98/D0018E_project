@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         if ($email_addres_exists == "") {  
             echo "<div class='form'>
             <h3>User Created Succesfully.</h3><br/>
-            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+            <p class='link'>Click here to <a href='/Accounts/login_page.php'>Log in</a>.</p>
             </div>";
         }
         else{
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O">
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="/Accounts/login_page.php">Click to Login</a></p>
+        <p class="link">Already have an account?<a href="/Accounts/login_page.php">Click here to Login</a></p>
     </form>
 <?php
     }
