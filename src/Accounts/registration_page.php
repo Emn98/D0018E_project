@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O">
         <input type="password" class="login-input" name="pwd" placeholder="Password" required>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <p class="link"><a href="login_page.php">Click to Login</a></p>
+        <p class="link"><a href="/Accounts/login_page.php">Click to Login</a></p>
     </form>
 <?php
     }
