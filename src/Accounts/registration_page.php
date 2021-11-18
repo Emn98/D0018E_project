@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
     <form class="form" action="" method="post">
         <h1 class="login-title">Register</h1>
         <label class="first_name">Enter First Name</label>
-        <input type="text" class="login-input" name="first_name" required><br>
+        <input type="text" class="login-input" name="first_name" placeholder="First Name" required><br>
         <label class="last_name">Enter Last Name</label>
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required><br>
         <label class="email_address">Enter Email Address</label>
