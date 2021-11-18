@@ -1,8 +1,8 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
 <script>
-function category_link(desc)
+function category_link()
 {
-  let description = desc;
+  let description = 'GPU';
   let url = 'http://130.240.200.39/Category/';
   let complete_url = url.concat(description.toLowerCase(), ".php");
 
