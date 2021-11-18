@@ -1,10 +1,10 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
 <script>
-function category_link(desc)
+function category_link()
 {
-  let desc = desc;
+  let description = 'GPU';
   let url = 'http://130.240.200.39/Category/';
-  let complete_url = url.concat(desc.toLowerCase(), ".php");
+  let complete_url = url.concat(description.toLowerCase(), ".php");
 
   location.replace(complete_url);
 }
@@ -53,7 +53,7 @@ function category_link(desc)
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
         $description = $row['category_description'];
-        echo "<li onclick='category_link('$description')'>". $description . "</li>";
+        echo "<li onclick='category_link()'>". $description . "</li>";
       }
       echo "</ul>";
 
