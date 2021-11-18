@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $care_of_address = $_POST["care_of_address"];
     $sha_pwd = sha1($pwd);
 
-        $email_exist = $con->prepare("SELECT email_addres FROM USERS WHERE email_addres = ?");
+        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
         $email_exist->bind_param("s", $email_addres);
         $email_exist->execute();
         $email_exist->bind_result($email_addres_exists);
