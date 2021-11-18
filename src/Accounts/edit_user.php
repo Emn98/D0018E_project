@@ -38,7 +38,7 @@
         $stmt->execute();
         echo "<div class='form'>
             <h3>Information has Succesfully Been Changed.</h3><br/>
-            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+            <p class='link'>Click here to <a href='/Accounts/login_page.php'>Log in</a>.</p>
             </div>";
         $con->close();
         
