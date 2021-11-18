@@ -46,17 +46,17 @@
                     <h3>User Created Succesfully.</h3><br/>
                     <p class='link'>Click here to <a href='/Accounts/login_page.php'>Log in</a>.</p>
                     </div>";
-                }else{
+                }else{ // Account creation successfull
                     echo "<div class='form'>
                     <h3>Email already in use.</h3><br/>
                     <p class='link'>Click here to <a href='registration_page.php'>register</a> again.</p>
                     </div>";
                 }
-                }else{
+                }else{//If the repeated password dosent match the first submitted one
                     echo "<div class='form'>
                     <h3>The repeated password differed from the first password</h3><br/>
                     <p class='link'>Click here to <a href='registration_page.php'>try again</a></p>
-                 </div>";
+                    </div>";
                 }
             }else{
                 ?>
@@ -69,9 +69,9 @@
                     <label class="email_address">Enter Email Address</label>
                     <input type="email" class="login-input" name="email_address" placeholder="Example@gmail.com" required><br>
                     <label class="t_number">Enter Phone Number</label>
-                    <input type="text" class="login-input" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" require><br>
+                    <input type="text" class="login-input" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}|[0-9]{3}-[0-9]{7}" require><br>
                     <label class="post_code">Enter Post Code</label>
-                    <input type="text" class="login-input" name="post_code" placeholder="xxx xx"  pattern="[0-9]{3} [0-9]{2}" required><br>
+                    <input type="text" class="login-input" name="post_code" placeholder="xxx xx"  pattern="[0-9]{3} [0-9]{2}|[0-9]{5}" required><br>
                     <label class="city">Enter City</label>
                     <input type="text" class="login-input" name="city" placeholder="City" required><br>
                     <label class="address_1">Enter Address</label>
