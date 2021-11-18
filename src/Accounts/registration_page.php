@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         $email_exist->close();
 
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
-                                city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?"); 
+                                city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssisssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
         $query -> execute();
         $query->close();
@@ -56,8 +56,8 @@ if (isset($_POST['submit'])) {
         <h1 class="login-title">Registration</h1>
         <input type="text" class="login-input" name="first_name" placeholder="First Name" required />
         <input type="text" class="login-input" name="last_name" placeholder="Last Name" required>
-        <input type="email" class="login-input" name="email_address" placeholder="Email Adress" required>
-        <input type="tel" class="login-input" name="t_number" placeholder="Phone Number" pattern="[0-9]{10}" require>
+        <input type="email" class="login-input" name="email_address" placeholder="Email Address" required>
+        <input type="text" class="login-input" name="t_number" placeholder="Phone Number" pattern="[0-9]{10}" require>
         <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{3} [0-9]{2}"  required>
         <input type="text" class="login-input" name="city" placeholder="City" required>
         <input type="text" class="login-input" name="address" placeholder="Address" required>
