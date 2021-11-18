@@ -32,11 +32,8 @@ function category_link()
     </header>
     <div class="categorie_list">
       <!-- This is categorie search -->
-      <ul>
-        <li onclick="category_link()">Hello</li>
-      </ul>
       <?php
-      /*$path = $_SERVER['DOCUMENT_ROOT'];
+      $path = $_SERVER['DOCUMENT_ROOT'];
       $path .= "/database.php";
       include_once($path);
 
@@ -49,11 +46,12 @@ function category_link()
       // print out list with categorie descriptions
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
-        echo "<li>". $row['category_description'] . "</li>";
+        $description = $row['category_description'];
+        echo "<li onclick="category_link()">". $description . "</li>";
         //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
-      */
+      
 
       ?>
       
