@@ -40,11 +40,13 @@
       // print out list with categorie descriptions
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
-        echo "<li>". $row['category_description'] . "</li>";
+        echo "<li onclick="location.href = 'http://130.240.200.39/Category/gpu.php';">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
 
       ?>
+    </div>
+    <div class="search products">
     </div>
   </body>
 </html>
