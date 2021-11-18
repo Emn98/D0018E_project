@@ -1,10 +1,4 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
-<script>
-function category_link()
-{
-  location.replace("https://www.w3schools.com");
-}
-</script>
 <?php 
   session_start();
 ?>
@@ -49,9 +43,8 @@ function category_link()
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
         $description = $row['category_description'];
-        echo "<li onclick='category_link()'>". $description . "</li>";
-        //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
-      }
+        echo "<li onclick='location.href = "http://www.youtube.com";'>". $description . "</li>";
+        
       echo "</ul>";
 
       $con->close();
