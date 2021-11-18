@@ -69,7 +69,7 @@
                     <label class="email_address">Enter Email Address</label>
                     <input type="email" class="login-input" name="email_address" placeholder="Example@gmail.com" required><br>
                     <label class="t_number">Enter Phone Number</label>
-                    <input type="text" class="login-input" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}|[0-9]{3}-[0-9]{7}" require><br>
+                    <input type="text" class="login-input" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" require><br>
                     <label class="post_code">Enter Post Code</label>
                     <input type="text" class="login-input" name="post_code" placeholder="xxxxx"  pattern="[0-9]{5}" required><br>
                     <label class="city">Enter City</label>

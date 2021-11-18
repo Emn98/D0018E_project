@@ -36,9 +36,9 @@
         <label for="email_addres">Emali Address</label>
         <input type="email" id="email_addres" name="email_addres" placeholder="Email Address" <?php echo"value=$email_address"?>><br>
         <label for="t_number">Telefone Number</label>
-        <input type="text" id="t_number" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}|[0-9]{3}-[0-9]{7}" <?php echo"value=$tel_nr"?>><br>
+        <input type="text" id="t_number" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" <?php echo"value=$tel_nr"?>><br>
         <label for="post_code">Post Code</label>
-        <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{5}|[0-9}{3} [0-9]{2}" <?php echo"value=$postal_code"?>><br>
+        <input type="text" class="login-input" name="post_code" placeholder="postcode: xxxxx"  pattern="[0-9]{5}" <?php echo"value=$postal_code"?>><br>
         <label for="city">City</label>
         <input type="text" class="login-input" name="city" placeholder="City" <?php echo"value=$city"?>><br>
         <label for="addres">Address</label>
