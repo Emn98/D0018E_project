@@ -19,7 +19,7 @@
       </form> 
       <nav>
         <ul class="menu">
-          <li><a href="Accounts/site_director.php">My page</a></li>
+          <li><a href="/Accounts/site_director.php">My page</a></li>
           <li><a href="test.php">Shopping cart</a></li>
         </ul>
       </nav>
