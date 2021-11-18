@@ -106,14 +106,6 @@
                 echo "<tr>";
                 echo "<th>$address_1</th>";
                 echo "</tr>";
-                echo "if($address_2 != ''){
-                    echo '<tr>'
-                    echo '<th>Care-of-address</th>'
-                    echo '</tr>'
-                    echo '<tr>'
-                    echo '<th>$address_2</th>'
-                    echo '</tr>'
-                    echo }";
                 echo "<tr>";
                 echo "<th>City</th>";
                 echo "</tr>";
