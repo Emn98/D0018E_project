@@ -43,6 +43,8 @@ function category_link()
 
       $result = $stmt->get_result();
 
+      $con->close();
+
       // print out list with categorie descriptions
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
@@ -51,6 +53,8 @@ function category_link()
         //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
+
+      
       
 
       ?>
