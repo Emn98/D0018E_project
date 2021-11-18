@@ -2,7 +2,8 @@
 <script>
 function category_link()
 {
-  location.replace("https://www.w3schools.com");
+
+  location.replace("http://130.240.200.39/Category/gpu.php");
 }
 </script>
 <?php 
@@ -50,7 +51,6 @@ function category_link()
       while ($row = $result->fetch_assoc()) {
         $description = $row['category_description'];
         echo "<li onclick='category_link()'>". $description . "</li>";
-        //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
 
