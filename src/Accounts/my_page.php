@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href="/Css/my_page.css">
-    <title>Offbrand.pwr</title>
+    <title>My Page - Offbrand.pwr</title>
   </head>
   <body>
     <?php
@@ -12,11 +12,12 @@
 
         //creates connection to database
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path = "/database.php";
+        $path .= "/database.php";
         include_once($path);
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
+            echo"test";
             $input_email = $_POST["email"];
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
