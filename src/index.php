@@ -47,7 +47,7 @@ function category_link()
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
         echo "<li>". $row['category_description'] . "</li>";
-        echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
+        //echo "<li onclick="category_link()">". $row['category_description'] . "</li>";
       }
       echo "</ul>";
 
