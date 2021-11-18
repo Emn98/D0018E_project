@@ -2,8 +2,11 @@
 <script>
 function category_link()
 {
+  let desc = '<?php echo $description ;?>';
+  let url = 'http://130.240.200.39/Category/';
+  let complete_url = url.concat(desc.toLowerCase(), ".php");
 
-  location.replace("http://130.240.200.39/Category/gpu.php");
+  location.replace(complete_url);
 }
 </script>
 <?php 
