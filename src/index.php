@@ -24,5 +24,27 @@
         </ul>
       </nav>
     </header>
+    <div class="categorie_list">
+      <!-- This is categorie search -->
+      <?php
+      $path = $_SERVER['DOCUMENT_ROOT'];
+      $path .= "/database.php";
+      include_once($path);
+
+      $stmt = $con->prepare("SELECT * FROM  CATEGORIES");
+
+      $stmt->execute();
+
+      $result = $stmt->get_result();
+
+      // print out list with categorie descriptions
+      echo "<ul>";
+      while ($row = $result->fetch_assoc()) {
+        echo "<li>". $row['category_description'] . "</li>";
+      }
+      echo "</ul>";
+
+      ?>
+    </div>
   </body>
 </html>
