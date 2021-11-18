@@ -1,4 +1,11 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
+<script>
+function category_link()
+{
+
+  location.replace("http://130.240.200.39/Category/gpu.php");
+}
+</script>
 <?php 
   session_start();
 ?>
@@ -43,8 +50,8 @@
       echo "<ul>";
       while ($row = $result->fetch_assoc()) {
         $description = $row['category_description'];
-        echo "<li onclick='location.href = "http://www.youtube.com";'>". $description . "</li>";
-        
+        echo "<li onclick='category_link()'>". $description . "</li>";
+      }
       echo "</ul>";
 
       $con->close();
