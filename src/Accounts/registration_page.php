@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Registration</title>
+    <title>Register - Offbrand.pwr</title>
 <!--    <link rel="stylesheet" href="style.css"/>  -->
 </head>
 <body>
@@ -11,10 +11,12 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include_once($path);
+
 // When form submitted, insert values into the database.
 if (isset($_POST['submit'])) {
     //If the user entered the same password twice
     if($_POST["pwd"] == $_POST["pwd2"]){
+        echo"hej";
         $first_name = $_POST['first_name'];
         $last_name  = $_POST['last_name'];
         $email_addres = $_POST['email_address'];
@@ -81,7 +83,7 @@ if (isset($_POST['submit'])) {
         <label class="password_1">Enter Password</label>
         <input type="password" class="login-input" name="pwd" placeholder="Password" required><br>
         <label class="password_2">Repeat Password</label>
-        <input type="password_2" class="login-input" name="pwd2" placeholder="Password" required><br>
+        <input type="password" class="login-input" name="pwd2" placeholder="Password" required><br>
         <input type="submit" name="submit" value="Register" class="login-button">
         <p class="link">Already have an account?<a href="/Accounts/login_page.php"> Click here to Login</a></p>
     </form>
