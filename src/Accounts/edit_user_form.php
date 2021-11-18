@@ -17,7 +17,7 @@
         <label for="email_addres">Emali Address</label>
         <input type="email" id="email_addres" name="email_addres" placeholder="Email Address" required><br>
         <label for="t_number">Telefone Number</label>
-        <input type="tel" id="t_number" name="t_number" placeholder="Telefone Number" pattern="[0-9]{10}"required><br>
+        <input type="text" id="t_number" name="t_number" placeholder="Telefone Number" pattern="[0-9]{10}"required><br>
         <label for="post_code">post code</label>
         <input type="text" class="login-input" name="post_code" placeholder="postcode: xxx xx"  pattern="[0-9]{3} [0-9]{2}" required><br>
         <label for="city">city</label>

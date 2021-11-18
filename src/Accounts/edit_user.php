@@ -30,11 +30,11 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_addres=?,
+        $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
          t_number=?, address_1=?, pwd=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
 
         // perform query
-        $stmt->bind_param("sssSsssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
+        $stmt->bind_param("sssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
         $stmt->execute();
         echo "<div class='form'>
             <h3>Information has Succesfully Been Changed.</h3><br/>
