@@ -28,6 +28,7 @@
     ?>
     <div class="edit_user_box">
       <form action="edit_user.php" method="post">
+        <h2>Edit User Information</h2>
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" placeholder="First Name" <?php echo"value=$first_name";?>><br>
         <label for="last_name">Last Name</label>
@@ -46,9 +47,17 @@
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O" <?php echo"value=$address_2";?>><br>
         <button type="submit" class="btn">Save changes</button>
       </form>
+    </div>
+    <div class="edit_password_boc">
+      <h2>Change Password</h2>
+      <form>
+        <input type="password" class="old_password" name="old_password_field" placeholder="CURRENT PASSWORD"><br>
+        <input type="password" class="new_password_1" name="new_password_field_1" placeholder="NEW PASSWORD"><br>
+        <input type="password" class="new_password_2" name="new_password_field_2" placeholder="CONFIRM NEW PASSWORD"><br>
+      </form>
+    </div>
       <form>
         <input type="button" value="Cancel!" onclick="history.back()">
       </form>
-    </div>
   </body>
 </html>

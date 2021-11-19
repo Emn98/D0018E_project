@@ -81,7 +81,7 @@
                     <label class="password_1">Enter Password</label>
                     <input type="password" class="login-input" name="pwd" placeholder="Password" required><br>
                     <label class="password_2">Repeat Password</label>
-                    <input type="password" class="login-input" name="pwd2" placeholder="Repeat Password" required><br>
+                    <input type="password" class="login-input" name="pwd2" placeholder="CONFIRM PASSWORD" required><br>
                     <input type="submit" name="submit" value="Register" class="login-button">
                     <p class="link">Already have an account?<a href="/Accounts/login_page.php"> Click here to Login</a></p>
                 </form>
