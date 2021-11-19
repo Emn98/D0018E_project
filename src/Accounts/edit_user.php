@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/product.css">
+    <link rel="stylesheet" href="/Css/edit_user.css">
 
     <title>Edit User</title>  
   </head>
@@ -19,23 +19,24 @@
         $email_addres = $_POST['email_addres'];
         $t_number   = $_POST['t_number'];
         $addres     = $_POST['addres'];
-        $pwd        = $_POST['pwd'];
-        $sha_pwd = sha1($pwd);
-        // establish connection
+        $post_code  = $_POST["post_code"];
+        $city       = $_POST["city"];
+        $care_of_address = $_POST["care_of_address"];
 
+        // establish connection
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_addres=?,
-         t_number=?, addres=?, pwd=? WHERE user_id = ?");
+        $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
+         t_number=?, address_1=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
 
         // perform query
-        $stmt->bind_param("sssissi", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $_SESSION["user_id"]);
+        $stmt->bind_param("ssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
         $stmt->execute();
         echo "<div class='form'>
             <h3>Information has Succesfully Been Changed.</h3><br/>
-            <p class='link'>Click here to <a href='Accounts/login_page.php'>Log in</a>.</p>
+            <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
             </div>";
         $con->close();
         

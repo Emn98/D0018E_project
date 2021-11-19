@@ -19,7 +19,7 @@
                 <input type="password" class="login_inp" name="password" required>
                 <br>
                 <button type="submit" class="btn">Login</button>
-                <p class="registration_link">Don't have an account? <a href="/registration_page.php">Register here</a></p>
+                <p class="registration_link">Don't have an account? <a href="/Accounts/registration_page.php">Register here</a></p>
             </form>
         </div>
     </div>
