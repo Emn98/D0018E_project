@@ -60,10 +60,13 @@ menu{
 }
 
 .search_btn{
-    height: 32px;
-    border: 1px;
-    padding-top: 1px;
-    width: 8%;
-    font-size: 16px;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
     cursor: pointer;
 }
