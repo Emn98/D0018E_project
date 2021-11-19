@@ -80,6 +80,14 @@ menu{
     width: 100%;
     */
 }
+
+.item1 h1{
+    color: white;
+    margin-right: auto;
+    padding-right: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+}
 .item2 { grid-area: c_menu; }
 .item3 { grid-area: products; }
 
