@@ -1,24 +1,49 @@
-<html lang="en">
+<?php 
+  session_start();
+?>
+<!DOCTYPE html>
+  <html lang="en">
   <head>
-      <title>Search</title>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/product.css">
+    <link rel="stylesheet" href="/Css/main_page.css">
+    <title>Offbrand.pwr</title>
   </head>
   <body>
+    <header>
+      <h1><a href="/index.php">OFF<span>BRAND</span></h1>
+      <form class="search_bar_form" method="POST" action="search.php">
+          <input class="search_bar_inp" type="text" name="product_name">
+          <button type="submit" class="search_btn">Search</button>
+      </form> 
+      <nav>
+        <ul class="menu">
+          <li><a href="/Accounts/site_director.php">My page</a></li>
+          <li><a href="/test.php">Shopping cart</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="category_list_div">
+
+      <!-- This is categorie search -->
+
+      <ul class="category_list_ul">
+        <li><a href="/Category/gpu.php">GPU</a></li>
+        <li><a href="/Category/cpu.php">CPU</a></li>
+      </ul>
       
-      <?php
+    </div>
 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+    <!-- This is search -->
 
-        $product_name = $_POST['product_name'];
-    
-        // establish connection
+    <div class="search products">
+        <?php
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
+
+        $product_name = $_POST['product_name'];
 
         if($product_name == ""){
           $stmt = $con->prepare("SELECT * FROM PRODUCTS");
@@ -28,8 +53,6 @@
 
           $stmt->bind_param("s", $product_name);
         }
-
-        
 
         $stmt->execute();
 
@@ -59,10 +82,6 @@
         $con->close();
         
       ?>
-
-    <form action="index.php" method="post">
-    <button type="submit" class="btn">Return</button>
-    </form>
-
+    </div>
   </body>
 </html>
