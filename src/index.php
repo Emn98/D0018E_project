@@ -39,6 +39,6 @@
       <div class="item3">
 
       </div>
-    <div>
+    </div>
   </body>
 </html>
