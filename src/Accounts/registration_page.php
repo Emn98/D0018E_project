@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Register - Offbrand.pwr</title>
-<!--    <link rel="stylesheet" href="style.css"/>  -->
+    <link rel="stylesheet" href="/Css/registration_page.css"/>  
 </head>
     <body>
         <?php
