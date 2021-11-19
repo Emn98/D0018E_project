@@ -45,7 +45,7 @@
         <input type="text" id="addres" name="addres" placeholder="Address" <?php echo"value=$address_1";?>><br>
         <label for="care_of_address">C/O</label>
         <input type="text" class="login-input" name="care_of_address" placeholder="C/O" <?php echo"value=$address_2";?>><br>
-        <button type="submit" class="btn">Save changes</button>
+        <button type="submit" class="edit_info_btn">Save changes</button>
       </form>
     </div>
     <div class="edit_password_boc">
@@ -54,10 +54,11 @@
         <input type="password" class="old_password" name="old_password_field" placeholder="CURRENT PASSWORD"><br>
         <input type="password" class="new_password_1" name="new_password_field_1" placeholder="NEW PASSWORD"><br>
         <input type="password" class="new_password_2" name="new_password_field_2" placeholder="CONFIRM NEW PASSWORD"><br>
+        <button type="submit" class="edit_pwd_btn">Save Changes</button>
       </form>
     </div>
-      <form>
-        <input type="button" value="Cancel!" onclick="history.back()">
-      </form>
+    <form>
+      <input type="button" value="Cancel!" onclick="history.back()">
+    </form>
   </body>
 </html>
