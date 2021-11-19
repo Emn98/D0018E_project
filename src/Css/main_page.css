@@ -76,4 +76,11 @@ menu{
     border: 1px solid grey;
     border-left: none;
     cursor: pointer;
+
+    transition: all 0.2s ease 0s;
+    color: white;
+}
+
+.search_btn:hover{
+    color: rgb(23, 125, 209);
 }
