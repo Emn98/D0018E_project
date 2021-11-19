@@ -17,7 +17,6 @@
 
         //If customerID is not already set then the user is not logged in. 
         if(!isset($_SESSION["user_id"])){
-            echo"test";
             $input_email = $_POST["email"];
             $input_pwd = $_POST["password"];
             $hashed_pwd = sha1($input_pwd);
@@ -31,7 +30,10 @@
 
             //if user_id is set then the user exists in the database
             if(isset($user_id)){
-                $_SESSION["user_id"] = $user_id;//The user will now be seen as logged in.
+                //The user will now be seen as logged in.
+                $_SESSION["user_id"] = $user_id;
+                $_SESSION["user_pwd"] = $hashed_pwd;
+
                 drawPageLayout($first_name, $last_name, $tel_nr, $address_1, $address_2, $postal_code, $city, $input_email);
             }else{
                 //If user_id dosen't exists then the authentication failed. Display this to the user.
@@ -41,7 +43,8 @@
                 echo "<a href='/Accounts/login_page.php'>try again</a>";
                 echo "</div>";
             }
-        }else{//If customer already logged in, get the right information. 
+        }else{
+            //If customer already logged in, get the right information. 
             $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
             $query->bind_param("s", $_SESSION["user_id"]);
             $query->execute();

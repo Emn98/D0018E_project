@@ -27,7 +27,7 @@
       $query->close();
     ?>
     <div class="edit_user_box">
-      <form action="edit_user.php" method="post">
+      <form action="edit_user.php" method="POST">
         <h2>Edit User Information</h2>
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" placeholder="First Name" <?php echo"value=$first_name";?>><br>
@@ -48,17 +48,26 @@
         <button type="submit" class="edit_info_btn">Save changes</button>
       </form>
     </div>
-    <div class="edit_password_boc">
+    <div class="edit_password_box">
       <h2>Change Password</h2>
-      <form>
-        <input type="password" class="old_password" name="old_password_field" placeholder="CURRENT PASSWORD"><br>
-        <input type="password" class="new_password_1" name="new_password_field_1" placeholder="NEW PASSWORD"><br>
-        <input type="password" class="new_password_2" name="new_password_field_2" placeholder="CONFIRM NEW PASSWORD"><br>
-        <button type="submit" class="edit_pwd_btn">Save Changes</button>
+      <form class="edit_password_form" action="change_password.php" method="POST">
+        <input  type="password" class="old_password"   name="old_password_field"   placeholder="CURRENT PASSWORD" require><br>
+        <input  type="password" class="new_password_1" name="new_password_field_1" placeholder="NEW PASSWORD" require><br>
+        <input  type="password" class="new_password_2" name="new_password_field_2" placeholder="CONFIRM NEW PASSWORD" require><br>
+        <button type="submit"   class="edit_pwd_btn">Save Changes</button>
       </form>
     </div>
     <form>
-      <input type="button" value="Cancel!" onclick="history.back()">
+      <input type="button" value="Cancel!" onclick="go_back()">
     </form>
   </body>
+  <?php
+    function go_back(){
+      header("Location: /Accounts/my_page.php");
+      exit;
+    }
+  
+  
+  ?>
+
 </html>
