@@ -88,6 +88,11 @@ menu{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: lighter;
 }
+.item1 h1 span{
+    font-weight: 800;
+    color: rgb(84, 88, 88);
+}
+
 .item2 { grid-area: c_menu; }
 .item3 { grid-area: products; }
 
