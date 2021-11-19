@@ -6,10 +6,12 @@
 
 body{
     background-color: darkgrey;
+    overflow: auto;
 }
 
 header{
     display: flex;
+    background-size: cover;
     justify-content: flex-end;
     align-items: center;
     padding: 20px 10%;
