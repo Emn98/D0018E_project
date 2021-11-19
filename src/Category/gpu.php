@@ -55,7 +55,9 @@
             $product_name = $row['product_name'];
             echo "<li>". $product_name. "</li>";
         }
-        echo "</ul">;
+        echo "</ul>";
+
+        $con->close();
 
         ?>
     </div>
