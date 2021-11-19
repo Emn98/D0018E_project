@@ -51,9 +51,9 @@
     <div class="edit_password_box">
       <h2>Change Password</h2>
       <form class="edit_password_form" action="change_password.php" method="POST">
-        <input  type="password" class="old_password"   name="old_password_field"   placeholder="CURRENT PASSWORD" require><br>
-        <input  type="password" class="new_password_1" name="new_password_field_1" placeholder="NEW PASSWORD" require><br>
-        <input  type="password" class="new_password_2" name="new_password_field_2" placeholder="CONFIRM NEW PASSWORD" require><br>
+        <input  type="password" class="old_password_inp"   name="old_password"   placeholder="CURRENT PASSWORD" require><br>
+        <input  type="password" class="new_password_1_inp" name="new_password_1" placeholder="NEW PASSWORD" require><br>
+        <input  type="password" class="new_password_2_inp" name="new_password_2" placeholder="CONFIRM NEW PASSWORD" require><br>
         <button type="submit"   class="edit_pwd_btn">Save Changes</button>
       </form>
     </div>
@@ -65,9 +65,6 @@
     function go_back(){
       header("Location: /Accounts/my_page.php");
       exit;
-    }
-  
-  
+    }  
   ?>
-
 </html>

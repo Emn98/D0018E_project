@@ -16,12 +16,12 @@
                 $new_pwd_1  = $_POST["new_password_1"];
                 $new_pwd_2  = $_POST["new_password_2"];
 
-                echo $new_pwd_1;
-                echo $new_pwd_2;
-
 
                 //If the stored password does not match the users old password input  
                 if($new_pwd_1 != $new_pwd_2 ){
+                    echo $new_pwd_1;
+                    echo $new_pwd_2;
+                    echo $old_pwd;
                     echo "<div class='wrong_old_pwd_container'>";
                     echo "<h1>The confirm new password does not match the new password.</h1>";
                     echo "<br>";
