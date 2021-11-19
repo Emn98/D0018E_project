@@ -47,6 +47,7 @@ menu{
 }
 
 .search_bar_form{
+    float: center;
     margin-right: auto;
     padding-right: auto;
     margin-left: 5%;
