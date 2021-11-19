@@ -68,7 +68,7 @@ menu{
 
 .search_btn{
     float: left;
-    width: 10%;
+    width: calc(10%- 15px);
     padding: 10px;
     background: white;
     color: black;
