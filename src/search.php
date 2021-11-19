@@ -39,7 +39,9 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
-            echo "<img src ='$picture'>";
+            echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
+            echo "$product_name". "<br>";
+            echo "$description";
         }
         echo "</div>";
 
