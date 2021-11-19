@@ -57,12 +57,12 @@ menu{
     float: left;
     width: 75%;
     padding: 10px;
-    background: #2196F3;
+    background: darkgrey;
     color: white;
     font-size: 17px;
-    border: 1px solid grey;
+    border: 1px solid black;
     border-left: none; /* Prevent double borders */
-    cursor: pointer;
+    cursor: text;
 }
 
 .search_btn{
