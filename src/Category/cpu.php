@@ -10,70 +10,72 @@
     <title>Offbrand.pwr</title>
   </head>
   <body>
-    <div class = "item1">
-      <h1>OFF<span>BRAND</span></h1>
-      <form class="search_bar_form" method="POST" action="/search.php">
-          <input class="search_bar_inp" type="text" name="product_name">
-          <button type="submit" class="search_btn">Search</button>
-      </form> 
-      <nav>
-        <ul class="menu">
-          <li><a href="/Accounts/site_director.php">My page</a></li>
-          <li><a href="/test.php">Shopping cart</a></li>
+    <div class = "grid-container">
+      <div class = "item1">
+        <h1>OFF<span>BRAND</span></h1>
+        <form class="search_bar_form" method="POST" action="/search.php">
+            <input class="search_bar_inp" type="text" name="product_name">
+            <button type="submit" class="search_btn">Search</button>
+        </form> 
+        <nav>
+          <ul class="menu">
+            <li><a href="/Accounts/site_director.php">My page</a></li>
+            <li><a href="/test.php">Shopping cart</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="item2">
+
+        <!-- This is categorie search -->
+
+        <ul class="category_list_ul">
+          <li><a href="/Category/gpu.php">GPU</a></li>
+          <li><a href="/Category/cpu.php">CPU</a></li>
         </ul>
-      </nav>
-    </div>
-    <div class="item2">
+        
+      </div>
+      <div class="item3">
+          <?php
 
-      <!-- This is categorie search -->
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/database.php";
+          include_once($path);
 
-      <ul class="category_list_ul">
-        <li><a href="/Category/gpu.php">GPU</a></li>
-        <li><a href="/Category/cpu.php">CPU</a></li>
-      </ul>
-      
-    </div>
-    <div class="item3">
-        <?php
+          $category_id = 2;
 
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/database.php";
-        include_once($path);
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
-        $category_id = 2;
+          $stmt->bind_param("i", $category_id);
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
+          $stmt->execute();
 
-        $stmt->bind_param("i", $category_id);
+          $result = $stmt->get_result();
 
-        $stmt->execute();
+          echo "<ul>";
+          while ($row = $result->fetch_assoc()) {
+              $name   = $row['product_name'];
+              $description = $row['product_description'];
+              $category = $row['category_id'];
+              $quantity   = $row['quantity'];
+              $price = $row['price'];
+              $size = $row['size'];
+              $color = $row['color'];
+              $discount = $row['discount'];
+              $picture = $row['picture'];
+              echo "<li>";
+              echo "<div>";
+              echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
+              echo "$name". "<br>";
+              echo "$description";
+              echo "</div>";
+              echo "</li>";
+          }
+          echo "</ul>";
 
-        $result = $stmt->get_result();
+          $con->close();
 
-        echo "<ul>";
-        while ($row = $result->fetch_assoc()) {
-            $name   = $row['product_name'];
-            $description = $row['product_description'];
-            $category = $row['category_id'];
-            $quantity   = $row['quantity'];
-            $price = $row['price'];
-            $size = $row['size'];
-            $color = $row['color'];
-            $discount = $row['discount'];
-            $picture = $row['picture'];
-            echo "<li>";
-            echo "<div>";
-            echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
-            echo "$name". "<br>";
-            echo "$description";
-            echo "</div>";
-            echo "</li>";
-        }
-        echo "</ul>";
-
-        $con->close();
-
-        ?>
+          ?>
+      </div>
     </div>
   </body>
 </html>
