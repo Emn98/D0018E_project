@@ -10,9 +10,9 @@
     <title>Offbrand.pwr</title>
   </head>
   <body>
-    <header>
+    <div class = "item1">
       <h1>OFF<span>BRAND</span></h1>
-      <form class="search_bar_form" method="POST" action="search.php">
+      <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name">
           <button type="submit" class="search_btn">Search</button>
       </form> 
@@ -22,8 +22,8 @@
           <li><a href="/test.php">Shopping cart</a></li>
         </ul>
       </nav>
-    </header>
-    <div class="category_list_div">
+    </div>
+    <div class="item2">
 
       <!-- This is categorie search -->
 
@@ -33,7 +33,7 @@
       </ul>
       
     </div>
-    <div class="search products">
+    <div class="item3">
         <?php
 
         $path = $_SERVER['DOCUMENT_ROOT'];
