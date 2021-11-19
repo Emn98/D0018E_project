@@ -20,15 +20,22 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
+        if($product_name == ""){
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+        } else{
 
-        $stmt->bind_param("s", $product_name);
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
+
+          $stmt->bind_param("s", $product_name);
+        }
+
+        
 
         $stmt->execute();
 
         $result = $stmt->get_result();
 
-        echo "<div>";
+        echo "<ul>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
@@ -39,11 +46,15 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
+            echo "<li>";
+            echo "<div>";
             echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
             echo "$product_name". "<br>";
             echo "$description";
+            echo "</div>";
+            echo "</li>";
         }
-        echo "</div>";
+        echo "</ul>";
 
         $con->close();
         
