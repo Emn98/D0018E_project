@@ -50,8 +50,6 @@
 
         $result = $stmt->get_result();
 
-        $result = $stmt->get_result();
-
         echo "<ul>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
