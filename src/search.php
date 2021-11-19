@@ -12,7 +12,7 @@
   <body>
     <header>
       <h1><a href="/index.php">OFF<span>BRAND</span></h1>
-      <form class="search_bar_form" method="POST" action="search.php">
+      <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name">
           <button type="submit" class="search_btn">Search</button>
       </form> 
