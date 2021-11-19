@@ -39,7 +39,7 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
-            echo "<img src ='/Images/test.png'>";
+            echo "<img src ='$picture'>";
         }
         echo "</div>";
 
