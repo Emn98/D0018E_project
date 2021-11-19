@@ -27,9 +27,9 @@
         </nav>
       </div>
       <div class="item2">
-
+        
         <!-- This is categorie search -->
-
+        
         <ul class="category_list_ul">
           <li><a href="/Category/gpu.php">GPU</a></li>
           <li><a href="/Category/cpu.php">CPU</a></li>

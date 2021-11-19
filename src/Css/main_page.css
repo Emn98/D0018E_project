@@ -1,14 +1,17 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
     background-color: darkgrey;
+    overflow: auto;
 }
 
 header{
     display: flex;
+    background-size: cover;
     justify-content: flex-end;
     align-items: center;
     padding: 20px 10%;
@@ -49,6 +52,7 @@ menu{
 }
 
 .search_bar_form{
+    float: center;
     margin-right: auto;
     padding-right: auto;
     margin-left: 5%;
@@ -56,18 +60,34 @@ menu{
 }
 
 .search_bar_inp{
-    width: 90%;
-    height: 30px;
-    font-size: 16px;
+    float: left;
+    width: calc(100% - 12%);
+    padding: 10px;
+    background: darkgrey;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: text;
 }
 
 .search_btn{
-    height: 32px;
-    border: 1px;
-    padding-top: 1px;
-    width: 8%;
-    font-size: 16px;
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: white;
+    color: black;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
     cursor: pointer;
+
+    transition: all 0.2s ease 0s;
+    color: white;
+}
+
+.search_btn:hover{
+    background: rgb(23, 125, 209);
 }
 
 .item1 { grid-area: header;
