@@ -42,7 +42,7 @@
 
         $category_id = 1;
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE Category_id = ?'");
+        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
         $stmt->bind_param("i", $category_id);
 
