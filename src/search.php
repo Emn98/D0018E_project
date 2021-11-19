@@ -49,7 +49,7 @@
             echo "<li>";
             echo "<div>";
             echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
-            echo "$product_name". "<br>";
+            echo "$name". "<br>";
             echo "$description";
             echo "</div>";
             echo "</li>";
