@@ -50,10 +50,26 @@
 
         $result = $stmt->get_result();
 
+        $result = $stmt->get_result();
+
         echo "<ul>";
-        while($row = $result->fetch_assoc()){
-            $product_name = $row['product_name'];
-            echo "<li>". $product_name. "</li>";
+        while ($row = $result->fetch_assoc()) {
+            $name   = $row['product_name'];
+            $description = $row['product_description'];
+            $category = $row['category_id'];
+            $quantity   = $row['quantity'];
+            $price = $row['price'];
+            $size = $row['size'];
+            $color = $row['color'];
+            $discount = $row['discount'];
+            $picture = $row['picture'];
+            echo "<li>";
+            echo "<div>";
+            echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
+            echo "$name". "<br>";
+            echo "$description";
+            echo "</div>";
+            echo "</li>";
         }
         echo "</ul>";
 
