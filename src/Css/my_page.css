@@ -8,6 +8,7 @@ body{
 }
 
 header{
+    background-size: cover;
     display: flex;
     justify-items: flex-end;
     align-items: center;
