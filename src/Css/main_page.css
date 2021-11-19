@@ -47,6 +47,7 @@ menu{
 }
 
 .search_bar_form{
+    float: center;
     margin-right: auto;
     padding-right: auto;
     margin-left: 5%;
@@ -54,16 +55,25 @@ menu{
 }
 
 .search_bar_inp{
-    width: 90%;
-    height: 30px;
-    font-size: 16px;
+    float: left;
+    width: 89%;
+    padding: 10px;
+    background: darkgrey;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: text;
 }
 
 .search_btn{
-    height: 32px;
-    border: 1px;
-    padding-top: 1px;
-    width: 8%;
-    font-size: 16px;
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: white;
+    color: black;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
     cursor: pointer;
 }
