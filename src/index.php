@@ -15,7 +15,7 @@
     <header>
       <h1>OFF<span>BRAND</span></h1>
       <form class="search_bar_form" method="POST" action="search.php">
-          <input class="search_bar_inp" type="search" name="product_name">
+          <input class="search_bar_inp" type="search" name="product_name" placeholder="Search..">
           <button type="submit" class="search_btn">Search</button>
       </form> 
       <nav>
