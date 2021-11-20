@@ -51,4 +51,16 @@ input[type=text], select, textarea {
     height: 5%;
     background-color: #242525;
 }
+.inner_product_div{
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.inner_product_div h1{
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
   
