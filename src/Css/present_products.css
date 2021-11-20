@@ -1,6 +1,4 @@
 .list_product_div{
-    margin-top: 5%;
-    margin-left:5%;
 
     background-color: #242525;
 }
@@ -8,6 +6,7 @@
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 300px);
+    column-gap: 20px;
  }
 
  .product_name_label{
