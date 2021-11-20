@@ -1,13 +1,15 @@
 .list_product_div{
 
     background-color: #242525;
-    padding:20px;
+    padding:10px;
+
 }
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 220px);
     grid-template-rows: repeat(3, 320px);
     column-gap: 20px;
+    padding-top:10px;
  }
 
  .product_name_label{
