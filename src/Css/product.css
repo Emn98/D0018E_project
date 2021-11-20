@@ -63,4 +63,8 @@ input[type=text], select, textarea {
   padding-top: 20px;
   padding-bottom: 15px;
 }
+.inner_product_div form label{
+  text-align: left;
+  color: white;
+}
   
