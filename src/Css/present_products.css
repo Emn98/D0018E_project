@@ -10,3 +10,7 @@
     grid-template-rows: repeat(3, 100px);
  }
 
+ .product_name_label{
+     color:white;
+ }
+
