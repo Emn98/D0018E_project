@@ -47,8 +47,6 @@ input[type=text], select, textarea {
     margin-top: 15%;
     margin-bottom: auto;
 
-    text-align: center;
-    height: 5%;
     background-color: #242525;
 }
 .inner_product_div{
@@ -62,9 +60,9 @@ input[type=text], select, textarea {
   color: white;
   padding-top: 20px;
   padding-bottom: 15px;
+  text-align: center;
 }
 .inner_product_div form label{
-  text-align: left;
   color: white;
 }
   
