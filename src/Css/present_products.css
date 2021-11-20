@@ -6,12 +6,13 @@
 }
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 250px);
  }
 
  .product_name_label{
      color:white;
      width:100%;
+     display: block;
  }
 
