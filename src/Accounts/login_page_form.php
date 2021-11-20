@@ -7,7 +7,7 @@
     <title>Login - Offbrand.pwr</title>
   </head>
   <body>
-    <form class="login_form" method="post" action="my_page.php">
+    <form class="login_form" method="post" action="authenticate_user.php">
       <h1 class="form_title">Login</h1>
       <div class="form_elements">
         <input type="email" id="email" name="email" class="login_input" autocomplete="off" required>
