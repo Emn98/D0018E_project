@@ -70,8 +70,8 @@
             $picture = $row['picture'];
             echo "<div class='list_product_div'>";
             echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
-            echo "$name". "<br>";
-            echo "$description";
+            echo "<label class='product_name_label'>$name</label>";
+            echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
         }
         echo "</div>";
