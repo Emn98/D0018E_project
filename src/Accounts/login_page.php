@@ -3,25 +3,21 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/login_page.css">
-    <title>Offbrand.pwr</title>
+    <title>Login - Offbrand.pwr</title>
   </head>
   <body>
-    <div class="login_box">
-        <h1>Sign in</h1>
-        <div class="login_form_box">
-            <form class="login_form" method="POST" action="my_page.php">
-                <h2 class="login_inp_text">Enter Email</h2>
-                <input type="email" class="login_inp" name="email" required>
-                <br>
-                <h2 class="login_inp_text">Enter Password</h2>
-                <input type="password" class="login_inp" name="password" required>
-                <br>
-                <button type="submit" class="btn">Login</button>
-                <p class="registration_link">Don't have an account? <a href="/Accounts/registration_page.php">Register here</a></p>
-            </form>
-        </div>
-    </div>
+    <form class="login_form" method="post" action="my_page.php">
+      <h1 class="form_title">Login</h1>
+      <div class="form_elements">
+        <input type="email" id="email" class="login_input" autocomplete="off" required>
+        <label for="email" class="form_label">Email</label>
+      </div>
+      <div class="form_elements">
+        <input type="password" id="password" class="login_input" required>
+        <label for="password" class="form_label">Password</label>
+      </div>
+        <button class="form_button">Login</button>
+    </form>
   </body>
 </html>
