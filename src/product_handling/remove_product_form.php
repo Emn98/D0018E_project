@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="/Css/product.css">
       <title>Remove Product</title>
 
-    <div>
-      <h1>Remove Product Page</h1>
-    </div>
+    
   </head>
   <body>
+    <div class="product_div">
+      <div class="inner_product_div">
+        <h1>Remove Product Page</h1>
+   
         <form action="remove_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
@@ -19,5 +21,7 @@
         <form action="/Accounts/my_page.php" method="post">
           <button type="submit" class="btn">Return</button>
         </form>
+      </div>
+    </div>
   </body>
 </html>
