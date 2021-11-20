@@ -18,6 +18,7 @@
         <label for="password" class="form_label">Password</label>
       </div>
         <button class="form_button">Login</button>
+        <p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page.php'>Register here</a></p>
     </form>
   </body>
 </html>

@@ -21,6 +21,11 @@ body {
     border-radius: 10px;
 }
 
+.login_form p{
+  margin-top: 2rem;
+  font-weight: 500;
+}
+
 .login_form h1 {
     margin-bottom: 1.6rem;
 }

@@ -2,7 +2,6 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href="/Css/my_page.css">
     <title>My Page - Offbrand.pwr</title>
   </head>
@@ -40,7 +39,11 @@
                 echo "<div class='auth_failed_container'>";
                 echo "<h1>The account information provided does not exist</h1>";
                 echo "<br>";
-                echo "<a href='/Accounts/login_page.php'>try again</a>";
+                echo "<ul class='user_choices'>";
+                echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page.php'>try again</a></p></li>";
+                echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page.php'>Register   
+                here</a></p></li>";
+                echo "</ul>";
                 echo "</div>";
             }           
         }else{
