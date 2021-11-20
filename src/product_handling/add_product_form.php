@@ -4,12 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/product.css">
       <title>Add Product</title>
-
-    <div>
-      <h1>Add Product Page</h1>
-    </div>
   </head>
   <body>
+    <div class="product_div">
+        <h1>Add Product Page</h1>
+        
         <form action="add_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
@@ -35,5 +34,6 @@
         <form action="/Accounts/my_page.php" method="post">
           <button type="submit" class="btn">Return</button>
         </form>
+      </div>
   </body>
 </html>
