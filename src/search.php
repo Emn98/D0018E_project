@@ -57,7 +57,7 @@
 
         $result = $stmt->get_result();
 
-        echo "<ul>";
+        echo "<div class='wrapper'>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
@@ -68,15 +68,13 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
-            echo "<li>";
             echo "<div class='list_product_div'>";
             echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
             echo "$name". "<br>";
             echo "$description";
             echo "</div>";
-            echo "</li>";
         }
-        echo "</ul>";
+        echo "</div>";
 
         $con->close();
         
