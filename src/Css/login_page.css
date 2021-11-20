@@ -33,11 +33,12 @@ body {
 
 .form_elements .login_input {
     width: 100%;
-    height: 70%;
+    height: 75%;
     border: 2px solid;
     border-radius: 1rem;
     font-family: inherit;
     font-weight: inherit;
+    font-size: 18px;
     outline: none;
     padding: 1rem;
 
