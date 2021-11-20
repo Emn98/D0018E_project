@@ -44,8 +44,9 @@ input[type=text], select, textarea {
   .product_div{
     margin-right: 35%;
     margin-left: 35%;
-    margin-top: 15%;
     margin-bottom: auto;
+
+    padding-bottom: 5%;
 
     background-color: #242525;
 }
