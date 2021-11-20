@@ -7,7 +7,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 250px);
+    grid-template-rows: repeat(3, 300px);
  }
 
  .product_name_label{
