@@ -7,8 +7,9 @@
   </head>
   <body>
     <div class="product_div">
+      <div class="inner_product_div">
         <h1>Add Product Page</h1>
-        
+
         <form action="add_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
@@ -35,5 +36,6 @@
           <button type="submit" class="btn">Return</button>
         </form>
       </div>
+    </div>
   </body>
 </html>
