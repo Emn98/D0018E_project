@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
+    <link rel="stylesheet" href="/Css/present_products.css">
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -68,7 +69,7 @@
             $discount = $row['discount'];
             $picture = $row['picture'];
             echo "<li>";
-            echo "<div>";
+            echo "<div class='list_product_div'>";
             echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
             echo "$name". "<br>";
             echo "$description";
