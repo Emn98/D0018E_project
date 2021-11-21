@@ -18,4 +18,35 @@
      display: block;
  }
 
+ .product_details_image_div{
+    grid-area: image;
+ }
+ .product_details_quantity_div{
+    grid-area: quant;
+ }
+ .product_details_price_div{
+    grid-area: price;
+ }
+ .best_customer_review_div{
+    grid-area: b_rew;
+ }
+ .customer_reviews_div{
+    grid-area: revew;
+ }
+ .product_details_details_div{
+    grid-area: det;
+ }
 
+.product_details_container{
+    display: grid;
+    grid-template-areas:
+    'image image image image image quant'
+    'image image image image image quant'
+    'image image image image image price'
+    'image image image image image price'
+    'image image image image image price'
+    'b_rew b_rew b_rew b_rew b_rew rew'
+    'det det det det det rew';
+    grid-gap: 0px;
+    padding: 0px;
+}
