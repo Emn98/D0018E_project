@@ -38,20 +38,22 @@
                 <h3>User Created Succesfully.</h3><br/>
                 <p class='link'>Click here to <a href='/Accounts/login_page_form.php'>Log in</a>.</p>
                 </div>";
-                exit;
+                Dont_draw_out_form();
+                
             }else{ // Account creation successfull
                 echo "<div class='form'>
                 <h3>Email already in use.</h3><br/>
                 <p class='link'>Click here to <a href='registration_page_2.php'>register with another email</a>.</p>
                 </div>";
-                exit;
+                Dont_draw_out_form();
+                
         }
         }else{//If the repeated password dosent match the first submitted one
             echo "<div class='form'>
             <h3>The repeated password differed from the first password</h3><br/>
             <p class='link'>Click here to <a href='registration_page_2.php'>try again</a></p>
             </div>";
-            exit;
+            Dont_draw_out_form();   
         }
     }
 ?>
@@ -113,6 +115,7 @@
 
 <?php
     function Dont_draw_out_form(){
+        echo "<link rel='stylesheet' href='/Css/reg_page_2.css'>";
         exit;
     }
 
