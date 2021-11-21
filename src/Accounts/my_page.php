@@ -2,7 +2,6 @@
   <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link rel="stylesheet" href="/Css/my_page.css">
     <title>My Page - Offbrand.pwr</title>
   </head>
@@ -30,7 +29,7 @@
 
             //if user_id is set then the user exists in the database
             if(isset($user_id)){
-                //The user will now be seen as logged in.
+                //The user will now be seen as logged in by the site.
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["user_pwd"] = $hashed_pwd;
 
@@ -40,9 +39,13 @@
                 echo "<div class='auth_failed_container'>";
                 echo "<h1>The account information provided does not exist</h1>";
                 echo "<br>";
-                echo "<a href='/Accounts/login_page.php'>try again</a>";
+                echo "<ul class='user_choices'>";
+                echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page.php'>try again</a></p></li>";
+                echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page.php'>Register   
+                here</a></p></li>";
+                echo "</ul>";
                 echo "</div>";
-            }
+            }           
         }else{
             //If customer already logged in, get the right information. 
             $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
