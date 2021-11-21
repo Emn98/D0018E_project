@@ -44,6 +44,8 @@
 
           $product_name = $_POST['product_name'];
 
+          echo $product_name. " hello";
+
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
           $stmt->bind_param("s", $product_name);
