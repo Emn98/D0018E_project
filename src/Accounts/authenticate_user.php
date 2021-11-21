@@ -31,7 +31,7 @@
             echo "<h1>The account information provided does not exist</h1>";
             echo "<br>";
             echo "<ul class='user_choices'>";
-            echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page.php'>try again</a></p></li>";
+            echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page_form.php'>try again</a></p></li>";
             echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page.php'>Register here</a></p></li>";
             echo "</ul>";
             echo "</div>";

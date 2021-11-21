@@ -7,7 +7,7 @@ depending on the users logged in status-->
     header("Location: login_page_form.php");
     exit;
   }elseif($_SESSION["user_id"]!= 0){
-    header("Location: my_page.php");
+    header("Location: user_page.php");
     exit;
   }else{
     header("Location: admin_page.php");
