@@ -28,7 +28,7 @@
   <body>
     <div class="container">
       <header>
-        <img class="logo" src="/Images/logga.png" alt="Logo"/>
+        <img class="logo" src="/Images/logga2.png" alt="Logo"/>
         <nav>
           <ul class="nav_menu">
             <li><a href="/index.php">home</a></li>
