@@ -32,7 +32,7 @@
         <nav>
           <ul class="nav_menu">
             <li><a href="/index.php">home</a></li>
-            <li><a href="logout.php"><i class="fa fa-sign-out"></i> Log out</a></li>
+            <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
           </ul>
         </nav>
       </header>
