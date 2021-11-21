@@ -20,7 +20,7 @@
         <div class="admin_menu_container">
           <h1>Welcome Admin</h1>
           <h2>Admin Menu</h2>
-          <ul class="Admin_menu">
+          <ul class="admin_menu">
             <li><a href='/product_handling/add_product_form.php'>Add Product</a></li>
             <li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>
             <li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>
