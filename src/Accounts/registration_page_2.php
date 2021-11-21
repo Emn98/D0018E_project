@@ -36,19 +36,22 @@
             if ($email_addres_exists == "") {  //If a user with the submitted email already exists
                 echo "<div class='form'>
                 <h3>User Created Succesfully.</h3><br/>
-                <p class='link'>Click here to <a href='/Accounts/login_page.php'>Log in</a>.</p>
+                <p class='link'>Click here to <a href='/Accounts/login_page_form.php'>Log in</a>.</p>
                 </div>";
+                exit;
             }else{ // Account creation successfull
                 echo "<div class='form'>
                 <h3>Email already in use.</h3><br/>
-                <p class='link'>Click here to <a href='registration_page.php'>register with another email</a>.</p>
+                <p class='link'>Click here to <a href='registration_page_2.php'>register with another email</a>.</p>
                 </div>";
+                exit;
         }
         }else{//If the repeated password dosent match the first submitted one
             echo "<div class='form'>
             <h3>The repeated password differed from the first password</h3><br/>
-            <p class='link'>Click here to <a href='registration_page.php'>try again</a></p>
+            <p class='link'>Click here to <a href='registration_page_2.php'>try again</a></p>
             </div>";
+            exit;
         }
     }
 ?>
@@ -107,3 +110,10 @@
     </form>
   </body>
 </html>
+
+<?php
+    function Dont_draw_out_form(){
+        exit;
+    }
+
+?>
