@@ -20,21 +20,27 @@
 
  .product_details_image_div{
     grid-area: image;
+    border-style: solid;
  }
  .product_details_quantity_div{
     grid-area: quant;
+    border-style: solid;
  }
  .product_details_price_div{
     grid-area: price;
+    border-style: solid;
  }
  .best_customer_review_div{
     grid-area: b_rew;
+    border-style: solid;
  }
  .customer_reviews_div{
     grid-area: revew;
+    border-style: solid;
  }
  .product_details_details_div{
     grid-area: det;
+    border-style: solid;
  }
 
 .product_details_container{
