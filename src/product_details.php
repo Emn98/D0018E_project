@@ -79,8 +79,10 @@
             echo "</form>";
             echo "</div>";
             echo "<div class='best_customer_review_div'>";
+            echo "this is future best customer review";
             echo "</div>";
             echo "<div class='customer_reviews_div'>";
+            echo "this is future customer reveiw";
             echo "</div>";
             echo "<div class='product_details_details_div'";
             echo "<label class='product_name_label'>$name</label>";
