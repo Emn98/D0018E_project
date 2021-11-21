@@ -44,7 +44,6 @@
 
           $product_name = $_POST['product_name'];
 
-          echo $product_name. " hello";
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
@@ -69,7 +68,7 @@
             echo "<div class='product_details_image_div'>";
             echo "<img src ='$picture'>";
             echo "</div>";
-            echo "div class='product_details_quantity_div'";
+            echo "<div class='product_details_quantity_div'>";
             echo "<label class='product_details_quantity_label'>$quantity</label>";
             echo "</div>";
             echo "<div class='product_details_price_div'>";
