@@ -102,7 +102,7 @@
         <input type="password" id="pwd2" name="pwd2" class="register_input" placeholder="Confirm Password" required>
         <label for="pwd2" class="form_label">Repeat password</label>
       </div>
-      <button class="form_button">Register</button>
+      <button class="form_button" name="submit">Register</button>
       <p class="link">Already have an account?<a href="/Accounts/login_page.php"> Click here to Login</a></p>
     </form>
   </body>
