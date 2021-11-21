@@ -73,7 +73,7 @@
             echo "<label class='product_name_label'>$name</label>";
             echo "<label class='product_name_label'>$description</label>";
             echo "<form action='/product_details.php' method='post'>";
-            echo "<input type='hidden' name='product_name' value ='<?php echo $name; ?>'>";
+            echo "<input type='hidden' name='product_name' value = $name>";
             echo "<button type='submit' class='product_details_button'>Go to product</button>";
             echo "</form>";
             echo "</div>";
