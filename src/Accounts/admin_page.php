@@ -13,7 +13,7 @@
     <body>
     <div class="container">
       <header>
-        <img class="logo" src="/Images/logga2.png" alt="Logo"/>
+      <h1>OFF<span>BRAND</span></h1>
         <nav>
           <ul class="nav_menu">
             <li><a href="/index.php">Home</a></li>

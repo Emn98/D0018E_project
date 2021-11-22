@@ -34,8 +34,17 @@ header li, a{
   color: black;
 }
 
-.logo{
-  cursor: pointer;
+header h1{
+  color: white;
+  margin-right: auto;
+  padding-right: auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: lighter;
+}
+
+header h1 span{
+  font-weight: 800;
+  color: rgb(84, 88, 88);
 }
 
 .nav_menu{
