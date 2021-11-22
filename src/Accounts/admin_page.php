@@ -1,8 +1,7 @@
+<!-- This page will display the admin frontend for our site -->
 <?php 
   require("log_in_check.php");
-
 ?>
-
 <!DOCTYPE html>
   <html lang="en">
     <head>

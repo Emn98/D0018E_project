@@ -1,3 +1,5 @@
+<!-- This script authentacte the user in the log in progress and sends the...
+     user to the right page depending on if it is the admin or a normal user -->
 <!DOCTYPE html>
   <html lang="en">
   <head>

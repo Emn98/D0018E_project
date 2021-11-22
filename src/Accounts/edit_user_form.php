@@ -1,4 +1,7 @@
 <!-- This page will let the user edit his or her's account -->
+<?php 
+  require("log_in_check.php");
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">

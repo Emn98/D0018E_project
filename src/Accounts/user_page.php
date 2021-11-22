@@ -1,22 +1,23 @@
 <!-- This will act as the userpage for our website --> 
-<?php 
+<?php
+  require("log_in_check.php");
 
-    session_start();
+  session_start();
 
-    include("/Accounts/log_in_check.php");
+  include("/Accounts/log_in_check.php");
 
-    //creates connection to database
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include_once($path);
+  //creates connection to database
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path);
 
-    //Retrive the users data from the database
-    $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
-    $query->bind_param("s", $_SESSION["user_id"]);
-    $query->execute();
-    $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address_1, $address_2, $city, $postal_code);
-    $query->fetch();
-    $query->close();
+  //Retrive the users data from the database
+  $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
+  $query->bind_param("s", $_SESSION["user_id"]);
+  $query->execute();
+  $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address_1, $address_2, $city, $postal_code);
+  $query->fetch();
+  $query->close();
 ?>
 <!DOCTYPE html>
   <html lang="en">
@@ -28,7 +29,7 @@
   <body>
     <div class="container">
       <header>
-        <h1>OFF<span>BRAND</span></h1>>
+        <h1>OFF<span>BRAND</span></h1>
         <nav>
           <ul class="nav_menu">
             <li><a href="/index.php">Home</a></li>
@@ -65,12 +66,16 @@
             <tr>
               <th class="value"><?php echo "$address_1";?></th>
             </tr> 
-            <tr>
-              <th class="category" >C/O</th>
-            </tr>
-            <tr>
-              <th class="value"><?php echo "$address_2";?></th>
-            </tr> 
+            <?php
+              if($address_2 != ""){//Only displays the care-of-address if one is set. 
+                echo "<tr>";
+                echo "<th class='category'>Care-Of-Address<th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th class='value'>$address_2<th>";
+                echo "</tr>";
+              }
+            ?>
             <tr>
               <th class="category">City</th>
             </tr>
