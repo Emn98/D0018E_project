@@ -35,13 +35,13 @@
                         echo "<br>";
                         echo "<a href='delete_user_admin_form.php'>Do you want to enter another email?</a>";
                         echo "<br>";
-                        echo "<a href='my_page.php'>Go back</a>";
+                        echo "<a href='/Accounts/admin_page.php'>Go back</a>";
                         echo "</div>";
                         $query->close();
                         exit;
                     }
                     $query->close();
-                    $link = "/Accounts/my_page.php";
+                    $link = "/Accounts/admin_page.php";
                 }
             }else{//User delete their own account
                 $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
