@@ -22,7 +22,7 @@
                     echo "<div class='form'>";
                     echo "<h3>you are not allowed to delete the admin profile</h3>";
                     echo "<br>";
-                    echo "<a href='my_page.php'>Go back</a>";
+                    echo "<a href='/Accounts/admin_page.php'>Go back</a>";
                     echo "</div>";
                     exit;
                 }else{
