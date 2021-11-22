@@ -18,7 +18,7 @@
         <button type="submit" class="btn">Send</button>
         </form>
 
-        <form action="/Accounts/my_page.php" method="post">
+        <form action="/Accounts/admin_page.php" method="post">
           <button type="submit" class="btn">Return</button>
         </form>
       </div>
