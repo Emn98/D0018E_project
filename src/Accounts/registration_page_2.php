@@ -114,7 +114,7 @@
 </html>
 
 <?php
-    function Dont_draw_out_form(){
+    function Dont_draw_out_form(){//Makes it so the form dosen't show up on the page. 
         echo "<link rel='stylesheet' href='/Css/reg_page_2.css'>";
         exit;
     }

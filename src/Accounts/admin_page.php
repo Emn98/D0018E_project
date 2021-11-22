@@ -1,3 +1,8 @@
+<?php 
+  require("log_in_check.php");
+
+?>
+
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -11,7 +16,7 @@
         <img class="logo" src="/Images/logga2.png" alt="Logo"/>
         <nav>
           <ul class="nav_menu">
-            <li><a href="/index.php">home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
           </ul>
         </nav>
