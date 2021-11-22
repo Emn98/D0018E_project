@@ -43,7 +43,7 @@
         $stmt->bind_param("sis", $product_name, $quantity, $color);
         $stmt->execute();
 
-        $stmt->$con->prepare("UPDATE PRODUCTS SET inventory_id=(SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY) WHERE product_name=?");
+        $stmt = $con->prepare("UPDATE PRODUCTS SET inventory_id=(SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY) WHERE product_name=?");
 
         $stmt->bind_param("s", $product_name);
 
