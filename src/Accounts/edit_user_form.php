@@ -75,15 +75,15 @@
         <form class="change_password_form" action="change_password.php" method="POST">
           <h2 class="form_title">Change Password</h2>
           <div class="form_elements">
-            <input type="password" id="old_password" name="old_password" placeholder="Current Password" class="edit_user_inp" require>
+            <input type="password" id="old_password" name="old_password" placeholder="Current Password" class="edit_user_inp" required>
             <label class="form_label" for="old_password">Current Password</label>
           </div>
           <div class="form_elements">
-            <input type="password" id="new_password_1" name="new_password_1" placeholder="New Password" class="edit_user_inp" require>
+            <input type="password" id="new_password_1" name="new_password_1" placeholder="New Password" class="edit_user_inp" required>
             <label class="form_label" for="new_password_1">New Password</label>
           </div>
           <div class="form_elements">
-            <input type="password" id="new_password_2" name="new_password_2" placeholder="Confirm New Password" class="edit_user_inp" require>
+            <input type="password" id="new_password_2" name="new_password_2" placeholder="Confirm New Password" class="edit_user_inp" required>
             <label class="form_label" for="new_password_2">Confirm New Password</label>
           </div>
           <button class="form_button">Save Changes</button>
