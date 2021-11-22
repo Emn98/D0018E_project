@@ -34,7 +34,7 @@
             echo "<br>";
             echo "<ul class='user_choices'>";
             echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page_form.php'>try again</a></p></li>";
-            echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page.php'>Register here</a></p></li>";
+            echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page_2.php'>Register here</a></p></li>";
             echo "</ul>";
             echo "</div>";
         }else{//if user_id is set then the user exists in the database
