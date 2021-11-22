@@ -31,7 +31,7 @@
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
 
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, inventory_id, price, size, discount, picture)
-          VALUES (?, ?, ?, 1, ?, ?, ?, ?)");
+          VALUES (?, ?, ?, (NOT NULL), ?, ?, ?, ?)");
 
         $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
 
