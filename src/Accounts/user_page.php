@@ -28,10 +28,10 @@
   <body>
     <div class="container">
       <header>
-        <img class="logo" src="/Images/logga2.png" alt="Logo"/>
+        <h1>OFF<span>BRAND</span></h1>>
         <nav>
           <ul class="nav_menu">
-            <li><a href="/index.php">home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
           </ul>
         </nav>

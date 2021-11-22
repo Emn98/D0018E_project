@@ -29,6 +29,13 @@ align-items: center;
 padding: 20px 5% ;
 }
 
+header h1{
+  margin-right: auto;
+  padding-right: auto;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: lighter;
+}
+
 header li, a{
 font-size: 18px;
 color: black;
