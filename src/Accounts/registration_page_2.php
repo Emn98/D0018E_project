@@ -108,7 +108,7 @@
         <label for="pwd2" class="form_label">Repeat password</label>
       </div>
       <button class="form_button" name="submit">Register</button>
-      <p class="link">Already have an account?<a href="/Accounts/login_page.php"> Click here to Login</a></p>
+      <p class="link">Already have an account?<a href="/Accounts/login_page_form.php"> Click here to Login</a></p>
     </form>
   </body>
 </html>
