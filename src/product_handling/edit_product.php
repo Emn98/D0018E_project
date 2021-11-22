@@ -39,7 +39,7 @@
 
         printf("%d row edited.\n", $stmt->affected_rows);
 
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name=?");
+        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name=?)");
 
         $stmt->bind_param("iss", $quantity, $color, $product_name);
         $stmt->execute();
