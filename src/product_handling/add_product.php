@@ -28,7 +28,12 @@
         $path .= "/database.php";
         include_once($path);
 
-        
+        $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, inventory_id, price, size, discount, picture)
+          VALUES (?, ?, ?, NULL, ?, ?, ?, ?)");
+
+        $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
+
+        $stmt->execute();
 
         $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
         ?,?)");
@@ -36,14 +41,13 @@
         $stmt->bind_param("sis", $product_name, $quantity, $color);
         $stmt->execute();
 
-        $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, inventory_id, price, size, discount, picture)
-          VALUES (?, ?, ?, (SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY), ?, ?, ?, ?)");
+        $stmt->$con->prepare("UPDATE PRODUCTS (inventory_id) VALUES ((SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY))");
+
+        $stmt->execute();
 
         // perform query
 
-        $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
-
-        $stmt->execute();
+        
 
         printf("%d row inserted.\n", $stmt->affected_rows);
 
