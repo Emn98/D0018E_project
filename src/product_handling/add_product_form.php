@@ -19,12 +19,12 @@
         <input type="text" id="category" name="category" placeholder="category"><br>
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" placeholder="color"><br>
         <label for="price">Price</label>
         <input type="text" id="price" name="price" placeholder="price"><br>
         <label for="size">Size</label>
-        <input type="text" id="size" name="size" placeholder="size"><br>
-        <label for="color">Color</label>
-        <input type="text" id="color" name="color" placeholder="color"><br>
+        <input type="text" id="size" name="size" placeholder="size"><br>  
         <label for="discount">Discount</label>
         <input type="text" id="discount" name="discount" placeholder="discount"><br>
         <label for="picture">Picture</label>
