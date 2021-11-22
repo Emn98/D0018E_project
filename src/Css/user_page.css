@@ -55,7 +55,6 @@ transition: color 0.2s ease 0s;
 color: #0088a9;
 }
 
-
 main{
 background: rgba(255, 255, 255, 0.05);
 grid-area: main;
@@ -73,16 +72,17 @@ display: grid;
 justify-content: center;
 align-items: center;
 box-shadow:0px 0px 0px 1px black inset;
-position: relative;
 }
 
 .user_info_box h1{
 margin-bottom: 0.6rem;
 margin-top: 0.1rem;
+margin-left: 1.65rem;
 }
 
 .user_info_box h2{
 margin-bottom: 0.8rem;
+margin-left: 4rem ;
 }
 
 .user_info_box .category{
@@ -95,11 +95,10 @@ font-size: 18px;
 }
 
 .user_info_box button{
-position: absolute;
-left: 20rem ;
-top: 29.8rem ;
-width: 4.5rem;
-height: 1.5rem;
+margin-left: 15rem;
+margin-top: 1.5rem;
+width: 5.5rem;
+height: 2rem;
 border-radius: 10px;
 border: 1px solid;
 background-color: #F0F8FF;
