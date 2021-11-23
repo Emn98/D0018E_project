@@ -23,17 +23,19 @@
 
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
-        /*$stmt->bind_result($product_id);
+        $stmt->bind_result($product_id);
         $stmt->fetch();
 
         printf($product_id);
         printf($product_name);
-        */
+        
 
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
         
         $stmt->bind_param("i", $product_id);
-        $stmt->execute();
+        if(!$stmt->execute()){
+          echo(mysql_error($con));
+        }
         
         printf("%d row deleted.\n", $stmt->affected_rows);
 
