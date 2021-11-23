@@ -14,9 +14,28 @@
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
         <label for="product_description">Description</label>
-        <input type="text" id="description" name="product_description" placeholder="product description"><br>
+        <input type="text" id="description" name="product_description" placeholder="product description"><br>    
         <label for="category">Category</label>
-        <input type="text" id="category" name="category" placeholder="category"><br>
+
+        <?php
+
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/database.php";
+          include_once($path);
+
+          $stmt = $con->prepare("SELECT * FROM CATEGORIES");
+          
+          $stmt->execute();
+
+          $result = $stmt->get_result();
+
+          echo "<select name='category' id='category'>";
+          while($row = $result->fetch_assoc()){
+            $category_name = $row['category_name'];
+            echo "<option value='$category_name'>$category_name</option>";
+          }
+          echo "</select>";
+         ?> 
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
         <label for="color">Color</label>
