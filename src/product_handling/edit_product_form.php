@@ -36,7 +36,7 @@
          </select>
         <label>Edit information:</label><br>
         <label for="product_description">Description</label>
-        <input type="text" id="description" name="product_description" placeholder="product description"><br>
+        <input type="text" id="description" name="product_description" placeholder="product description" required><br>
         <label for="category">Category</label>
         <select name="category" id="category">
         <?php
@@ -59,17 +59,17 @@
          ?>
          </select>
         <label for="quantity">Quantity</label>
-        <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
+        <input type="text" id="quantity" name="quantity" placeholder="quantity" required><br>
         <label for="color">Color</label>
-        <input type="text" id="color" name="color" placeholder="color"><br>
+        <input type="text" id="color" name="color" placeholder="color" required><br>
         <label for="price">Price</label>
-        <input type="text" id="price" name="price" placeholder="price"><br>
+        <input type="text" id="price" name="price" placeholder="price" required><br>
         <label for="size">Size</label>
-        <input type="text" id="size" name="size" placeholder="size"><br>
+        <input type="text" id="size" name="size" placeholder="size" required><br>
         <label for="discount">Discount</label>
-        <input type="text" id="discount" name="discount" placeholder="discount"><br>
+        <input type="text" id="discount" name="discount" placeholder="discount" required><br>
         <label for="picture">Picture</label>
-        <input type="text" id="picture" name="picture" placeholder="picture url"><br>
+        <input type="text" id="picture" name="picture" placeholder="picture url" required><br>
         <button type="submit" class="btn">Send</button>
         </form>
 
