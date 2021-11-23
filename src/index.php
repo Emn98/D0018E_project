@@ -29,13 +29,7 @@
       </header>
       <main>Main
 
-        <script>
-        $(".button").click(function() {
-        var link = $(this).attr('var');
-        $('.post').attr("value",link);
-        $('.redirect').submit();
-        });
-        </script>
+        
 
         <ul class="category_list_ul">
           <li><a href='javascript:void(0)' class='button' var='/Category/category.php'>GPU</a></li>
@@ -43,6 +37,13 @@
           <input type="hidden" class="post" name="post" value="">
           <input type="submit" style="display: none;">
           </form>
+          <script>
+            $(".button").click(function() {
+            var link = $(this).attr('var');
+            $('.post').attr("value",link);
+            $('.redirect').submit();
+            });
+          </script>
         </ul>
       </main>
       <div class="left_side">Left Side</div>
