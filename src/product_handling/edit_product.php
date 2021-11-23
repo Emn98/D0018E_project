@@ -31,10 +31,10 @@
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=?,
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?),
         price=?, size=?,discount=?, picture=? WHERE product_name=?");
 
-        $stmt->bind_param("ssiiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->bind_param("sssiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
         $stmt->execute();
 
         printf("%d row edited.\n", $stmt->affected_rows);
