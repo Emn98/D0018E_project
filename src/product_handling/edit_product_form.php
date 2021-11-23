@@ -4,12 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/product.css">
       <title>Edit Product</title>
-
-    <div>
-      <h1>Edit Product Page</h1>
-    </div>
   </head>
   <body>
+    <div class="product_div">
+      <div class="inner_product_div">
+
+        <h1>Edit Product Page</h1>
         <form action="edit_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name"><br>
@@ -19,12 +19,12 @@
         <input type="text" id="category" name="category" placeholder="category"><br>
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" placeholder="color"><br>
         <label for="price">Price</label>
         <input type="text" id="price" name="price" placeholder="price"><br>
         <label for="size">Size</label>
         <input type="text" id="size" name="size" placeholder="size"><br>
-        <label for="color">Color</label>
-        <input type="text" id="color" name="color" placeholder="color"><br>
         <label for="discount">Discount</label>
         <input type="text" id="discount" name="discount" placeholder="discount"><br>
         <label for="picture">Picture</label>
@@ -32,7 +32,7 @@
         <button type="submit" class="btn">Send</button>
         </form>
 
-        <form action="/Accounts/my_page.php" method="post">
+        <form action="/Accounts/admin_page.php" method="post">
           <button type="submit" class="btn">Return</button>
         </form>
   </body>

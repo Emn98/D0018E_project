@@ -28,14 +28,30 @@
         $path .= "/database.php";
         include_once($path);
 
-       $stmt = $con ->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, quantity, price, size, color, discount, picture)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
+
+        $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
+          VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+        $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
+
+        $stmt->execute();
+
+        $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
+        ?,?)");
+
+        $stmt->bind_param("sis", $product_name, $quantity, $color);
+        $stmt->execute();
+
+        $stmt = $con->prepare("UPDATE PRODUCTS SET inventory_id=(SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY) WHERE product_name=?");
+
+        $stmt->bind_param("s", $product_name);
+
+        $stmt->execute();
 
         // perform query
 
-        $stmt->bind_param("ssiiiisis", $product_name, $product_description, $category, $quantity, $price, $size, $color, $discount, $picture);
-
-        $stmt->execute();
+        
 
         printf("%d row inserted.\n", $stmt->affected_rows);
 

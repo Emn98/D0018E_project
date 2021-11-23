@@ -1,0 +1,88 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    font-weight: 500;
+    background-image: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%);
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration_form{
+    width: 32rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.registration_form h1{
+  margin-bottom: 1.6rem;
+  margin-left: 11rem ;
+  
+}
+
+.registration_form .form_elements{
+    position: relative;
+    height: 2.9rem;
+    margin-top: 1.6rem;
+}
+
+.registration_form .form_button {
+    display: block;
+    margin-left: auto;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1.5rem;
+    background-color: #F0F8FF;
+    opacity: 0.95;
+    height: 2.2rem;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    border: 1px inline;
+    border-radius: 0.3rem;
+}
+
+.registration_form p{
+  margin-top: 0.5rem;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.registration_form .register_input{
+    width: 100%;
+    height: 75%;
+    border: 2px solid;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 18px;
+    outline: none;
+    padding: 1rem;
+}
+
+.form_elements .form_label {
+    position: absolute;
+    left: 0.8rem;
+    bottom: 3.1rem;
+}
+
+.form{
+    background-color: white;
+    width: auto;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+    align-items: center;
+  }
+  
+  .form h3{
+    margin-bottom: 1rem;
+  }

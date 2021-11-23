@@ -1,64 +1,69 @@
-*{
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
-    background-color: darkgrey;
+body {
+    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    font-weight: 500;
+    background-image: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%);
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
-.login_box{
-    text-align: center;
-    margin-right: 35%;
-    margin-left: 35%;
-    margin-top: 10%;
-    margin-bottom: auto;
+.login_form {
+    width: 24rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 10px;
+}
 
-    height: 550px;
+.login_form p{
+  margin-top: 2rem;
+  font-weight: 500;
+}
 
-    background-color: #242525;
+.login_form h1 {
+    margin-bottom: 1.6rem;
+}
+
+.login_form .form_elements {
+    position: relative;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.form_elements .login_input {
+    width: 100%;
+    height: 75%;
+    border: 2px solid;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 18px;
+    outline: none;
+    padding: 1rem;
 
 }
 
-.login_box h1{
-    color: white;
-    padding-top: 50px;
-    padding-bottom: 45px;
+.form_elements .form_label {
+    position: absolute;
+    left: 0.8rem;
+    bottom: 3.1rem;
 }
 
-.login_inp_text{
-    margin-top: 15px;
-    text-align: left;
-    margin-left: 6%;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.login_inp{
-    border: 1px solid #242525;
-    font-size: 30px;
-    width: calc(100% - 75px);
-}
-
-.btn{
-    width: calc(100% - 75px);
-    margin-top: 30px;
-    height: 45px;
-    font-size: 16px;
+.login_form .form_button {
+    display: block;
+    margin-left: auto;
+    padding: 0.4rem 1.5rem;
+    background-color: #F0F8FF;
+    opacity: 0.95;
+    color: black;
+    font-weight: bolder;
     cursor: pointer;
+    border: 1px inline;
+    border-radius: 0.25rem;
 }
-
-.registration_link{
-    text-align: left;
-    color: white;
-    margin-top: 15px;
-    font-size: 16px;
-    margin-left: 7%;
-}
-
-.registration_link a{
-    color: white;
-}
-
-
-

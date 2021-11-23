@@ -29,13 +29,19 @@
         $path .= "/database.php";
         include_once($path);
 
+        // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
+
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=?,
-         quantity=?, price=?, size=?, color=?, discount=?, picture=? WHERE product_name LIKE ?");
+        price=?, size=?,discount=?, picture=? WHERE product_name=?");
 
-        // perform query
+        $stmt->bind_param("ssiiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->execute();
 
-        $stmt->bind_param("ssiiiisiss", $product_name, $product_description, $category, $quantity, $price, $size, $color, $discount, $picture, $product_name);
+        printf("%d row edited.\n", $stmt->affected_rows);
 
+        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name=?)");
+
+        $stmt->bind_param("iss", $quantity, $color, $product_name);
         $stmt->execute();
 
         printf("%d row edited.\n", $stmt->affected_rows);

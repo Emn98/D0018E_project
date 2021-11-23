@@ -1,79 +1,84 @@
-*{
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
-    background-color: darkgrey;
+body {
+    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+    font-weight: 500;
+    background-image: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%);
+    height: 100vh;
+}
+
+
+
+
+.container{
+  display:grid;
+  height:100vh;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-rows: 0.2fr 8fr;
+  grid-template-areas: "header header header"
+   "left_side main right_side";
+}
+
+main{
+  background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
+  grid-area: main;
 }
 
 header{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 10%;
-    background-color: #242525;
+background-color: white;
+width: cover;
+grid-area: header;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 5% ;
+}
+header li, a{
+font-size: 18px;
+color: black;
 }
 
 header h1{
-    color: white;
-    margin-right: auto;
-    padding-right: auto;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: lighter;
+margin-right: auto;
+padding-right: auto;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-weight: lighter;
 }
 
-header h1 span{
-    font-weight: 800;
-    color: rgb(84, 88, 88);
+.nav_menu{
+list-style: none;
 }
 
-menu{
-    list-style: none;
+.nav_menu li{
+display: inline-block;
+padding: 0px 1rem;
 }
 
-.menu li{
-    display: inline-block;
-    padding: 0px 25px;
+.nav_menu li a{
+transition: color 0.2s ease 0s;
 }
 
-.menu li a{
-    transition: all 0.2s ease 0s;
-    color: white;
+.nav_menu li a:hover{
+color: #0088a9;
 }
 
-.menu li a:hover{
-    color: rgb(23, 125, 209);
+
+main{
+background: rgba(255, 255, 255, 0.05);
+grid-area: main;
 }
 
-.search_bar_form{
-    float: center;
-    margin-right: auto;
-    padding-right: auto;
-    margin-left: 5%;
-    width: 50%;
-}
 
-.search_bar_inp{
-    float: left;
-    width: 89%;
-    padding: 10px;
-    background: darkgrey;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; 
-    cursor: text;
+.right_side{
+  
+  grid-area: right_side;
 }
-
-.search_btn{
-    float: left;
-    width: 10%;
-    padding: 10px;
-    background: white;
-    color: black;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+.left_side{
+  grid-area: left_side;
+  opacity: 1;
 }

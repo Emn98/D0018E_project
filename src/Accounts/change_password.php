@@ -42,6 +42,8 @@
                     $query->bind_param("ss", $hased_new_pwd, $user_id);
                     $query->execute();
                     $query->close();
+
+                    $_SESSION["user_pwd"] = $hased_new_pwd;
                     
                     header("Location: /Accounts/edit_user_form.php");
                     exit;

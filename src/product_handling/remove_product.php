@@ -19,15 +19,24 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("DELETE FROM  PRODUCTS WHERE product_name LIKE ?");
-
-        // perform query
+        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
 
         $stmt->bind_param("s", $product_name);
-
+        $stmt->execute();
+        $stmt->bind_result($product_id);
+        $stmt->fetch();
+        $con->close();
+        $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+     
+        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
+        
+        $stmt->bind_param("i", $product_id);
         $stmt->execute();
 
-        printf("%d row deleted.\n", $stmt->affected_rows);
+        $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=?");
+
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
 
         $con->close();
         
