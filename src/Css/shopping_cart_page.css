@@ -15,6 +15,8 @@ body {
 .container{
   display:grid;
   height: 100vh;
+  overflow: auto;
+  
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
   grid-template-rows: 0.2fr 7fr;
   grid-template-areas: "header header header header"
@@ -68,28 +70,76 @@ color: #0088a9;
   grid-area: left_side;
 }
 
-.shopping_cart{
+.container .shopping_cart{
   grid-area: shopping_cart;
-  background: rgba(255, 255, 255, 0.6);
+  max-height:initial; 
+  background: rgba(255, 255, 255, 0.5);
 }
 
-.shopping_cart .cart-container{
-  background: rgba(255, 255, 255, 0.9);
+.cart_container{
+  background: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
   width: cover;
-  height: cover;
   border-radius: 10px;
   margain-right: rem;
-  margin-top: 1.2rem;
+  margin-top: 1.3rem;
   margain-bottom: 1.2rem;
   margin-right: 1rem;
   margin-left: 1rem;
-  overflow: auto;
-  border: 1px solid black;
-  
+   
 }
+
+.cart_container h2{
+  margin-top: 0.3rem;
+  margin-left: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  padding: 0.2rem;
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+
+}
+
+thead{
+  background: white;
+  border-bottom: 1px solid darkgrey;
+}
+
+thead th{
+  font-size: 1.15rem;
+  padding-left: 2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+tbody td{
+  padding-left: 2.2rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.table_row_odd{
+  background: rgba(255, 255, 255, 0.2);
+
+}
+
+.table_row_even{
+  background: rgba(211, 211, 211, 0.2);
+}
+
+
+
+
 
 .shopping_cart_info{
   grid-area: shopping_cart_info;
   background: red;
   width: cover;
 }
+
+
+

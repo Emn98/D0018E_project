@@ -1,13 +1,20 @@
 <!-- This will serve as the shopping cart page for our e-comerce site offbrand.pwr-->
-<?php 
+<?php
+  
+  require("/Accounts/log_in_check.php");//Check so the user is logged in
+  require("check_shopping.php");//Checks so the user have an shopping cart. if not, create one
+  
   session_start();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/shopping_cart_page.css">
+    <link rel="stylesheet" href="/Css/main_page.css">
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -26,72 +33,44 @@
       </nav>
       </header>
         <div class="shopping_cart">
-          <div class="cart-container">
+          <div class="cart_container">
             <h2>Shopping cart</h2>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-                        test<br>
-            test<br>
-            test<br>
-
-            
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Color</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table_row_odd">
+                  <td>Test</td>
+                  <td>color</td>
+                  <td>1</td>
+                  <td>50.00$</td>
+                </tr>
+                <tr class="table_row_even">
+                  <td>Test 2</td>
+                  <td>color 2</td>
+                  <td>2</td>
+                  <td>43.00$</td>
+                </tr>
+                <tr class="table_row_odd">
+                  <td>Test</td>
+                  <td>color</td>
+                  <td>1</td>
+                  <td>50.00$</td>
+                </tr>
+                <tr class="table_row_even">
+                  <td>Test 2</td>
+                  <td>color 2</td>
+                  <td>2</td>
+                  <td>43.00$</td>
+                </tr>                
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="shopping_cart_info">Info</div>    
