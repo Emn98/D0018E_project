@@ -137,8 +137,8 @@ td small{
 }
 
 td img{
-  width: 90px;
-  height: 90px;
+  max-width: 90px;
+  max-height: 90px;
   margin-right: 0.4rem;
   margin-bottom: 0.2rem;
   margin-left: -0.4rem;
