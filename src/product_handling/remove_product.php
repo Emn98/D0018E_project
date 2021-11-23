@@ -31,7 +31,7 @@
         
 
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_name=?");
-        printf($con->error_list);
+        print_r($con->error_list);
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         
