@@ -65,6 +65,7 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
+            $product_id = $row['product_id'];
             echo "<div class='product_details_image_div'>";
             echo "<img src ='$picture'>";
             echo "</div>";
@@ -73,8 +74,8 @@
             echo "</div>";
             echo "<div class='product_details_price_div'>";
             echo "<label class='product_details_price_label'>$price</label>";
-            echo "<form action='/buy.php' method='post'>";
-            echo "<input type='hidden' name='product_name' value ='<?php echo $price; ?>'>";
+            echo "<form action='/Shopping/buy.php' method='post'>";
+            echo "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>";
             echo "<button type='submit' class='product_details_buy_button'>Buy</button>";
             echo "</form>";
             echo "</div>";
