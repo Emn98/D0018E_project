@@ -38,6 +38,6 @@ if(isset($_POST[quantity])) {
              </div>";
     }
 
-}else echo "No work :("
+}else echo "No work :(";
 
 ?>
