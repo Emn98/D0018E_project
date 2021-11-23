@@ -34,7 +34,7 @@
         <ul class="category_list_ul">
           <li><a href='javascript:void(0)' class='button' var='/Category/category.php'>GPU</a></li>
           <form method="post" name="redirect" class="redirect">
-          <input type="hidden" class="post" name="post" value="">
+          <input type="hidden" class="post" name="post" value="1">
           <input type="submit" style="display: none;">
           </form>
           <script>
