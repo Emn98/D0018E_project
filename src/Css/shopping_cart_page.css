@@ -131,32 +131,26 @@ tbody td{
   background: rgba(211, 211, 211, 0.2);
 }
 
-td small{
-
-
+.product_display{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 td img{
-  max-width: 90px;
-  max-height: 90px;
+  width: 90px;
+  height: 90px;
   margin-right: 0.4rem;
   margin-bottom: 0.2rem;
-  margin-left: -0.4rem;
+  margin-left: -0.9rem;
 }
 
 td p{
+  margin-top: 0.4rem;
   margin-bottom: 0.2rem ;
 }
-
-
-
-
 
 .shopping_cart_info{
   grid-area: shopping_cart_info;
   background: red;
   width: cover;
 }
-
-
-
