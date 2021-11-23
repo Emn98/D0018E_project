@@ -11,12 +11,53 @@
 
         <h1>Edit Product Page</h1>
         <form action="edit_product.php" method="post">
+        <label>Which Product to edit:</label>
         <label for="product_name">Name</label>
-        <input type="text" id="name" name="product_name" placeholder="product name"><br>
+        <select name="product_name" id="product_name">
+        <?php
+
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/database.php";
+          include_once($path);
+
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+          
+          $stmt->execute();
+
+          $result = $stmt->get_result();
+ 
+          while($row = $result->fetch_assoc()){
+            $product_name = $row['product_name'];
+            echo "<option value='$product_name'>$product_name</option>";
+          }
+          $con->close();
+          
+         ?>
+         </select>
+        <label>Edit information:</label>
         <label for="product_description">Description</label>
         <input type="text" id="description" name="product_description" placeholder="product description"><br>
         <label for="category">Category</label>
-        <input type="text" id="category" name="category" placeholder="category"><br>
+        <select name="category" id="category">
+        <?php
+
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/database.php";
+          include_once($path);
+
+          $stmt = $con->prepare("SELECT * FROM CATEGORIES");
+          
+          $stmt->execute();
+
+          $result = $stmt->get_result();
+ 
+          while($row = $result->fetch_assoc()){
+            $category_name = $row['category_name'];
+            echo "<option value='$category_name'>$category_name</option>";
+          }
+          $con->close();
+         ?>
+         </select>
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
         <label for="color">Color</label>
