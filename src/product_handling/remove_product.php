@@ -19,7 +19,7 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
+        $stmt = $con->prepare("SELECT product_id FROM PRODUCT_INVENTORY WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name=?)");
 
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
