@@ -37,7 +37,7 @@
           // it doesn't make sense to go on
           // you might want to use a more sophisticated mechanism than die()
           // but's it's only an example
-          die('prepare() failed: ' . htmlspecialchars($con->error));
+          die('prepare() failed: ' . htmlspecialchars($con->error). htmlspecialchars($stmt->error));
         }
         $rc = $stmt->bind_param("i", $product_id);
         if ( false===$rc ) {
