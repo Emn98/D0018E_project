@@ -24,6 +24,7 @@
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->bind_result($product_id);
+        $stmt->fetch();
 
         printf($product_id);
         printf($product_name);
