@@ -11,7 +11,7 @@
 
         <h1>Edit Product Page</h1>
         <form action="edit_product.php" method="post">
-        <label>Which Product to edit:</label>
+        <label>Which Product to edit:</label><br>
         <label for="product_name">Name</label>
         <select name="product_name" id="product_name">
         <?php
@@ -34,7 +34,7 @@
           
          ?>
          </select>
-        <label>Edit information:</label>
+        <label>Edit information:</label><br>
         <label for="product_description">Description</label>
         <input type="text" id="description" name="product_description" placeholder="product description"><br>
         <label for="category">Category</label>
