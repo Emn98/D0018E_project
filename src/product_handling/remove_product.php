@@ -30,14 +30,16 @@
         printf($product_name);
         
 
-        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=$product_id");
+        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id LIKE ?");
         
+        $stmt->bind_param("i", $product_id);
         $stmt->execute();
         
         printf("%d row deleted.\n", $stmt->affected_rows);
 
-        $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=$product_id");
+        $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=?");
 
+        $stmt->bind_param("i", $product_id);
         $stmt->execute();
 
         printf("%d row deleted.\n", $stmt->affected_rows);
