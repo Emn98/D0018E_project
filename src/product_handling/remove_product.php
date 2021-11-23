@@ -19,6 +19,14 @@
         $path .= "/database.php";
         include_once($path);
 
+        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
+
+        $stmt->bind_param("s", $product_name);
+        $stmt->execute();
+        $stmt->bind_result($product_id);
+        $stmt->fetch();
+        
+
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_name=?");
 
         $stmt->bind_param("s", $product_name);
@@ -27,9 +35,8 @@
         printf("%d row deleted.\n", $stmt->affected_rows);
 
 
-        $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name=?)");
+        $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=$product_id");
 
-        $stmt->bind_param("s", $product_name);
         $stmt->execute();
 
         printf("%d row deleted.\n", $stmt->affected_rows);
