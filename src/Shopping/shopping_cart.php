@@ -2,7 +2,7 @@
 <?php
   
   //require("/Accounts/log_in_check.php");//Check so the user is logged in
-  //require("check_shopping.php");//Checks so the user have an shopping cart. if not, create one
+  require("check_shopping.php");//Checks so the user have an shopping cart. if not, create one
   
   session_start();
 
