@@ -1,7 +1,7 @@
 <?php
 //require 'Accounts/log_in_check.php';
 //require 'Shopping/check_shopping.php';
-//SESSSION_START();
+session_start();
 
 
 if(isset($_POST[quantity])) {
