@@ -18,6 +18,10 @@
             <input class="search_bar_inp" type="text" name="product_name">
             <button type="submit" class="search_btn">Search</button>
         </form> 
+        <div class="form_elements">
+        <input type="int" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
+        <label for="quantity" class="form_label">Enter Quantity</label>
+      </div>
         <nav>
           <ul class="menu">
             <li><a href="/Accounts/site_director.php">My page</a></li>
