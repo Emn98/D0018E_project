@@ -14,7 +14,27 @@
    
         <form action="remove_product.php" method="post">
         <label for="product_name">Name</label>
-        <input type="text" id="name" name="product_name" placeholder="product name"><br>
+        <select name="product_name" id="product_name">
+        <?php
+
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/database.php";
+          include_once($path);
+
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+          
+          $stmt->execute();
+
+          $result = $stmt->get_result();
+ 
+          while($row = $result->fetch_assoc()){
+            $product_name = $row['product_name'];
+            echo "<option value='$product_name'>$product_name</option>";
+          }
+          $con->close();
+          
+         ?>
+         </select><br>
         <button type="submit" class="btn">Send</button>
         </form>
 
