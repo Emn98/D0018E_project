@@ -1,7 +1,7 @@
 <?php
 //require 'Accounts/log_in_check.php';
 //require 'Shopping/check_shopping.php';
-SESSSION_START();
+//SESSSION_START();
 
 
 if(isset($_POST[quantity])) {
@@ -38,6 +38,7 @@ if(isset($_POST[quantity])) {
              </div>";
     }
 
-}else echo "No work :(";
-
+}else {
+    echo "No work :(";
+}
 ?>
