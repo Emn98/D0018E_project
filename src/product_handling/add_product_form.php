@@ -16,7 +16,7 @@
         <label for="product_description">Description</label>
         <input type="text" id="description" name="product_description" placeholder="product description"><br>    
         <label for="category">Category</label>
-
+        <select name="category" id="category">
         <?php
 
           $path = $_SERVER['DOCUMENT_ROOT'];
@@ -28,14 +28,14 @@
           $stmt->execute();
 
           $result = $stmt->get_result();
-
-          echo "<select name='category' id='category'>";
+ 
           while($row = $result->fetch_assoc()){
             $category_name = $row['category_name'];
             echo "<option value='$category_name'>$category_name</option>";
           }
-          echo "</select>";
-         ?> 
+          
+         ?>
+         </select>
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity"><br>
         <label for="color">Color</label>
