@@ -32,10 +32,11 @@
 
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
         
-        $stmt->bind_param("i", $product_id);
-        if(!$stmt->execute()){
+        if(!$stmt){
           echo(mysql_error($con));
         }
+        $stmt->bind_param("i", $product_id);
+        
         
         printf("%d row deleted.\n", $stmt->affected_rows);
 
