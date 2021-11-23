@@ -19,7 +19,7 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
+        /*$stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
 
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
@@ -28,10 +28,10 @@
 
         printf($product_id);
         printf($product_name);
-        
+        */
 
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_name=?");
-        print_r($con->error_list);
+
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         
