@@ -24,7 +24,7 @@ if(isset($_POST[quantity])) {
             $query -> execute();
             $query->close();
         }else{
-            $query = $con->prepare("INSERT INTO CART_ITEMS (cart_item_id, user_id, product_id, quantity) VALUES (?, ?, ?)"); 
+            $query = $con->prepare("INSERT INTO CART_ITEMS (user_id, product_id, quantity) VALUES (?, ?, ?)"); 
             $query -> bind_param("iii", $_SESSION["user_id"], $product_id, $quantity);
             $query -> execute();
             $query->close();
