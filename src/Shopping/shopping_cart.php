@@ -12,7 +12,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/shopping_cart_page.css">
+    <link rel="stylesheet" href="/Css/main_page.css">
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -44,25 +44,57 @@
               </thead>
               <tbody>
                 <tr class="table_row_odd">
-                  <td>Test</td>
+                  <td>
+                    <div class="product_display">
+                      <img src="/Images/test.png" alt="product"/>
+                      <div class="product_info">
+                        <p>test</p>
+                        <small>remove</small>
+                      </div>
+                    </div>
+                  </td>
                   <td>color</td>
                   <td>1</td>
                   <td>50.00$</td>
                 </tr>
                 <tr class="table_row_even">
-                  <td>Test 2</td>
+                 <td>
+                    <div class="product_display">
+                      <img src="/Images/test.png" alt="product"/>
+                      <div class="product_info">
+                        <p>test</p>
+                        <small>remove</small>
+                      </div>
+                    </div>
+                  </td>                  
                   <td>color 2</td>
                   <td>2</td>
                   <td>43.00$</td>
                 </tr>
                 <tr class="table_row_odd">
-                  <td>Test</td>
+                  <td>
+                    <div class="product_display">
+                      <img src="/Images/test.png" alt="product"/>
+                      <div class="product_info">
+                        <p>test</p>
+                        <small>remove</small>
+                      </div>
+                    </div>
+                  </td>
                   <td>color</td>
                   <td>1</td>
                   <td>50.00$</td>
                 </tr>
                 <tr class="table_row_even">
-                  <td>Test 2</td>
+                  <td>
+                    <div class="product_display">
+                      <img src="/Images/test.png" alt="product"/>
+                      <div class="product_info">
+                        <p>test</p>
+                        <small>remove</small>
+                      </div>
+                    </div>
+                  </td>
                   <td>color 2</td>
                   <td>2</td>
                   <td>43.00$</td>
@@ -75,5 +107,5 @@
       <div class="left_side">Left Side</div>
       <div class="right_side">Right Side</div>
 	</div>
-</body>
+  </body>
 </html>

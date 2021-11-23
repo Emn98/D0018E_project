@@ -131,6 +131,23 @@ tbody td{
   background: rgba(211, 211, 211, 0.2);
 }
 
+td small{
+
+
+}
+
+td img{
+  width: 90px;
+  height: 90px;
+  margin-right: 0.4rem;
+  margin-bottom: 0.2rem;
+  margin-left: -0.4rem;
+}
+
+td p{
+  margin-bottom: 0.2rem ;
+}
+
 
 
 
