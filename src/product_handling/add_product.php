@@ -23,6 +23,8 @@
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
 
+        echo($category);
+
         // establish connection
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
@@ -31,9 +33,9 @@
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
 
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
-          VALUES (?, ?, ?, ?, ?, ?, ?)");
+          VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
 
-        $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
+        $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
 
         $stmt->execute();
 

@@ -25,6 +25,7 @@
         $stmt->execute();
         $stmt->bind_result($product_id);
         $stmt->fetch();
+        
         $con->close();
         $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
      
