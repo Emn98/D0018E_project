@@ -23,6 +23,8 @@
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
 
+        echo($category);
+
         // establish connection
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
