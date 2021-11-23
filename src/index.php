@@ -23,7 +23,7 @@
       <nav>
         <ul class="nav_menu">
           <li><a href="/Accounts/site_director.php">My Page</a></li>
-          <li><a href="/Shopping/shopping_cart.php"><i class="fa fa-sign-out"></i>Shopping cart</a></li>
+          <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
         </ul>
       </nav>
       </header>
