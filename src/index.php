@@ -1,5 +1,4 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
-
 <?php 
   session_start();
 ?>
@@ -22,7 +21,7 @@
       <nav>
         <ul class="nav_menu">
           <li><a href="/Accounts/site_director.php">My Page</a></li>
-          <li><a href="#"><i class="fa fa-sign-out"></i>Shopping cart</a></li>
+          <li><a href="shopping_cart.php"><i class="fa fa-sign-out"></i>Shopping cart</a></li>
         </ul>
       </nav>
       </header>
