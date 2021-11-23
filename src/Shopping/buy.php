@@ -3,11 +3,11 @@
 //require 'Shopping/check_shopping.php';
 session_start();
 
-//När require används så blire det error på servern, koden kommer inte in i if satsen på rad 9. 
-//Kan bero på att de inte kommer in nån quantity eller att det inte postades medans man var inne på sidan
+//Något problem med require, HTTP ERROR 500 med dom. KOmmer inte in i id sats på rad 9
 
-//if(isset($_POST[quantity])) {
-//    $quantity = $_POST['quantity'];
+
+if(isset($_POST[quantity])) {
+    $quantity = $_POST['quantity'];
 
     //Checks the Database if the product already is in the cart
     $cart_product = $con->prepare("SELECT product_id FROM CART_ITEMS WHERE user_id = ?");
@@ -38,11 +38,9 @@ session_start();
              <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
              <p class='link'>Click here to <a href='/product_handling/product_details.php'>continue shopping</a>.</p>
              </div>";
-    }else{
-        echo "No work :(";
     }
 
-//}else {
-//    echo "No work :(";
+}else {
+    echo "No work :(";
 }
 ?>
