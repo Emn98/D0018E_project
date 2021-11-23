@@ -29,8 +29,8 @@
         <!-- This is categorie search -->
         
         <ul class="category_list_ul">
-          <li><a href="/Category/gpu.php">GPU</a></li>
-          <li><a href="/Category/cpu.php">CPU</a></li>
+          <li><a href="/Category/category.php">GPU</a></li>
+          <li><a href="/Category/category.php">CPU</a></li>
         </ul>
         
       </div>
