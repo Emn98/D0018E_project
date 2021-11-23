@@ -35,7 +35,7 @@
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
 
-        $stmt->bind_param("ssiiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
+        $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
 
         $stmt->execute();
 
