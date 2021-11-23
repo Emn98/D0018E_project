@@ -151,6 +151,43 @@ td p{
 
 .shopping_cart_info{
   grid-area: shopping_cart_info;
-  background: red;
+  background: rgba(255, 255, 255, 0.5);
   width: cover;
+}
+
+.in_shopping_cart_info{
+  background: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  width: cover;
+  margain-right: rem;
+  margin-top: 5.5rem;
+  margain-bottom: 1.2rem;
+  margin-right: 1rem;
+  background: white;
+}
+
+.in_shopping_cart_info h3{
+  padding-top: 0.8rem;
+  margin-left: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.info_table{
+ border: none;
+ border-top: 1px solid black;
+ text-align: left; 
+}
+
+.info_table tr{
+  text-align: left;
+}
+
+.total_label{
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total_price{
+  font-size: 18px;
 }
