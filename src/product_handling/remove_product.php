@@ -23,14 +23,14 @@
 
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
-        $stmt->bind_result($product_id);
+        /*$stmt->bind_result($product_id);
         $stmt->fetch();
 
         printf($product_id);
         printf($product_name);
-        
+        */
 
-        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id LIKE ?");
+        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
         
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
