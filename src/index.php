@@ -1,4 +1,12 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
+<script>
+$(".button").click(function() {
+    var link = $(this).attr('var');
+    $('.post').attr("value",link);
+    $('.redirect').submit();
+});
+</script>
+
 <?php 
   session_start();
 ?>
@@ -26,9 +34,17 @@
       </nav>
       </header>
       <main>Main
-          <ul class="category_list_ul">
-          <li><a href="/Category/gpu.php">GPU</a></li>
-          <li><a href="/Category/cpu.php">CPU</a></li>
+
+        <form method="post" name="redirect" class="redirect">
+        <input type="hidden" class="post" name="post" value="">
+        <input type="submit" style="display: none;">
+        </form>
+        <ul class="category_list_ul">
+          <li><a href='javascript:void(0)' class='button' var='/Category/category.php'>GPU</a></li>
+            <form method="post" name="redirect" class="redirect">
+            <input type="hidden" class="post" name="post" value="GPU">
+            <input type="submit" style="display: none;">
+          <!--<li><a href='javascript:void(0)' class='button' var='/Category'>CPU</a></li> -->
         </ul>
       </main>
       <div class="left_side">Left Side</div>
