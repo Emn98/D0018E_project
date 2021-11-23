@@ -43,7 +43,7 @@
 
           $path = $_SERVER['DOCUMENT_ROOT'];
           $path .= "/database.php";
-          include_once($path);
+          include($path);
 
           $stmt = $con->prepare("SELECT * FROM CATEGORIES");
           
