@@ -6,8 +6,8 @@
 }
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 220px);
-    grid-template-rows: repeat(3, 320px);
+    grid-template-columns: repeat(3, 0.5fr);
+    grid-template-rows: repeat(3, 0.5fr);
     column-gap: 20px;
     padding-top:10px;
  }

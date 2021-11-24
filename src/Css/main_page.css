@@ -29,7 +29,7 @@ main{
   background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
   grid-area: main;
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 8fr;
   grid-template-areas:"inner_left_side inner_right_side";
 
