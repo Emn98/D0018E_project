@@ -40,6 +40,7 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
             $(document).ready(function() {
               $(".list").click(function() {
+                alert("Hello, World!");
                 var link = $(this).attr('var');
                 $('.post').attr("value",link);
                 $('.redirect').submit();
