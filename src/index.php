@@ -37,10 +37,9 @@
           <input type="hidden" class="post" name="post" value="1">
           <input type="submit" style="display: none;">
           </form>
-          <script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
             $(".button").click(function() {
             var link = $(this).attr('var');
-            window.print(link);
             $('.post').attr("value",link);
             $('.redirect').submit();
             });
