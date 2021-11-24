@@ -47,7 +47,7 @@
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
-        $stmt->bind_param("i", $category_id);
+        $stmt->bind_param("i", (int)$category_id);
 
         $stmt->execute();
 
