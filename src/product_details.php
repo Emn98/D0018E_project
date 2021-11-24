@@ -74,7 +74,7 @@
             echo "</div>";
             echo "<div class='product_details_price_div'>";
             echo "<label class='product_details_price_label'>$price</label>";
-            echo "<form action='/Shopping/buy.php' method='post'>";
+            echo "<form action='/Shopping/buy_2.php' method='post'>";
             echo "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>";
             echo "<input type='hidden' name='quantity' value ='<?php echo $quantity; ?>'>"; //changed
             echo "</form>";
