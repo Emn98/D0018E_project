@@ -2,9 +2,7 @@
 <?php
   
 //Check so the user is logged in
-  $path = $_SERVER['DOCUMENT_ROOT']; 
-  $path .= "/log_in_check.php";
-  require_once($path);
+  require("./check_shopping.php");
 
   session_start();
 
