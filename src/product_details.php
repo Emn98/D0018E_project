@@ -17,15 +17,7 @@
         <form class="search_bar_form" method="POST" action="/search.php">
             <input class="search_bar_inp" type="text" name="product_name">
             <button type="submit" class="search_btn">Search</button>
-<<<<<<< HEAD
         </form>
-=======
-        </form> 
-        <div class="form_elements">
-        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
-        <label for="quantity" class="form_label">Enter Quantity</label>
-      </div>
->>>>>>> f12f63e787c47888fc3fbb5a0f2b7dd6d09a1856
         <nav>
           <ul class="menu">
             <li><a href="/Accounts/site_director.php">My page</a></li>
@@ -106,7 +98,7 @@
       </div>
     <div>
 
-    <form class="buy_button" method="POST" action="/Shopping/buy.hp"> 
+    <form class="buy_button" method="POST" action="/Shopping/buy.php"> 
       <div class="form_elements">
         <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
         <label for="quantity" class="form_label">Enter Quantity</label>
