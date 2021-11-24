@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION["user_id"])){
-        header("Location: login_page_form.php");
+        header("Location: /Accounts/login_page_form.php");
         exit;
     }
 ?>

@@ -2,7 +2,7 @@
 <?php
   
 //Check so the user is logged in
-  require("./check_shopping.php");
+  require("/Accounts/check_shopping.php");
 
   session_start();
 
