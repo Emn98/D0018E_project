@@ -24,9 +24,21 @@ body {
    "left_side main right_side";
 }
 
+
 main{
   background: rgba(255, 255, 255, 0.2); /* Green background with 30% opacity */
   grid-area: main;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 8fr;
+  grid-template-areas:"inner_left_side inner_right_side";
+
+}
+.inner_left_side{
+  grid-area:inner_left_side;
+}
+.inner_right_side{
+  grid-area:inner_right_side;
 }
 
 header{
