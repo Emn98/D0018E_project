@@ -1,6 +1,6 @@
     <!--This script will check if the user is logged in, if not redirect to log in page -->
 <?php
-    require 'Accounts/log_in_check.php';
+    require 'src/Accounts/log_in_check.php';
     session_start();
 
     $Shopping_cart = $con->prepare("SELECT user_id FROM CARTS WHERE user_id = ?");
