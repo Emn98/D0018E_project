@@ -42,6 +42,7 @@
         include_once($path);
 
         $category_id = 1;
+        echo($_POST['post']);
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
