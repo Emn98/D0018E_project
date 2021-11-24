@@ -2,6 +2,10 @@
 <?php
   
 //Check so the user is logged in
+  
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/Accounts/log_in_check.php";
+require($path);
 
   session_start();
 
