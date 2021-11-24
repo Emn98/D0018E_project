@@ -97,6 +97,7 @@
             echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
           }
+          $_SESSION['product_id'] = $product_id;
           echo "</div>";
 
           $con->close();

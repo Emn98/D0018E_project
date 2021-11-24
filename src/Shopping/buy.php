@@ -9,6 +9,8 @@ session_start();
 //Något problem med require, HTTP ERROR 500 med dom. Kommer inte in i if sats på rad 9
 
 $quantity = $_SESSION['quantity'];
+$product_id = $_SESSION['product_id'];
+echo $product_id;
 echo "$quantity";
 echo $quantity;
 //if(isset($_POST[quantity])) {
