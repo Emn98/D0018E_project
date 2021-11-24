@@ -10,7 +10,7 @@ session_start();
 
 $quantity = $_SESSION['quantity'];
 echo "$quantity";
-echo "test";
+echo $quantity;
 if(isset($_POST[quantity])) {
     $quantity = $_POST['quantity'];
 
