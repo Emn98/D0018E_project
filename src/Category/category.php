@@ -54,6 +54,10 @@
 
         $result = $stmt->get_result();
 
+        if(empty($result)){
+          echo"no products matching this category");
+        } else {
+
         echo "<div class='wrapper'>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
@@ -76,7 +80,7 @@
             echo "</div>";
         }
         echo "</div>";
-
+      }
         $con->close();
 
         ?>
