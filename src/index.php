@@ -30,11 +30,8 @@
       </nav>
       </header>
       <main>Main
-        <script type="text/javascript">alert("this")</script>
-        <button id="click_this">Click me</button>
-
         <ul class="category_list_ul">
-          <li><a href='javascript:void(0)' id='list_id' var='http://130.240.200.39/Category/category.php'>GPU</a>
+          <li><a href='javascript:void(0)' id='click_this' var='http://130.240.200.39/Category/category.php'>GPU</a>
           
           <form method="post" name="redirect" class="redirect">
           <input type="hidden" class="post" name="post" value="1">
