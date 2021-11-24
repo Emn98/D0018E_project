@@ -47,6 +47,7 @@
           include_once($path);
 
           $product_name = $_POST['product_name'];
+          $_SESSION['quantity'] = $_POST['quantity'];
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
@@ -94,7 +95,7 @@
             echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
           }
-          $_SESSION['quantity'] = POST['quantity'];
+          
           $_SESSION['product_id'] = $product_id;
           echo "</div>";
 
