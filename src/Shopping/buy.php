@@ -8,8 +8,8 @@ session_start();
 //include "/Shopping/check_shopping.php";
 //Något problem med require, HTTP ERROR 500 med dom. Kommer inte in i if sats på rad 9
 
-$quantity = $_SESSION['quantity'];
-$product_id = $_SESSION['product_id'];
+$quantity = $_POST['quantity'];
+$product_id = $_POST['product_id'];
 echo $product_id;
 echo "$quantity";
 echo $quantity;
