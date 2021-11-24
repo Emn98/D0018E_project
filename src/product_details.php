@@ -17,7 +17,15 @@
         <form class="search_bar_form" method="POST" action="/search.php">
             <input class="search_bar_inp" type="text" name="product_name">
             <button type="submit" class="search_btn">Search</button>
+<<<<<<< HEAD
         </form>
+=======
+        </form> 
+        <div class="form_elements">
+        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
+        <label for="quantity" class="form_label">Enter Quantity</label>
+      </div>
+>>>>>>> f12f63e787c47888fc3fbb5a0f2b7dd6d09a1856
         <nav>
           <ul class="menu">
             <li><a href="/Accounts/site_director.php">My page</a></li>
@@ -43,6 +51,7 @@
           include_once($path);
 
           $product_name = $_POST['product_name'];
+          $_SESSION['quantity'] = $_POST['quantity'];
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
@@ -89,7 +98,12 @@
             echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
           }
+<<<<<<< HEAD
 
+=======
+          
+          $_SESSION['product_id'] = $product_id;
+>>>>>>> f12f63e787c47888fc3fbb5a0f2b7dd6d09a1856
           echo "</div>";
 
           $con->close();
