@@ -32,18 +32,18 @@
         
 
         <ul class="category_list_ul">
-          <li><a href='javascript:void(0)' class='list' var='http://130.240.200.39/Category/category.php'>GPU</a>
+          <li><a href='javascript:void(0)' class='list_class' var='http://130.240.200.39/Category/category.php'>GPU</a>
           <form method="post" name="redirect" class="redirect">
           <input type="hidden" class="post" name="post" value="1">
           <input type="submit" style="display: none;">
           </form>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
             $(document).ready(function() {
-              $(".list").click(function() {
+              $(".list_class").click(function() {
                 alert("Hello, World!");
-                var link = $(this).attr('var');
-                $('.post').attr("value",link);
-                $('.redirect').submit();
+                //var link = $(this).attr('var');
+                //$('.post').attr("value",link);
+                //$('.redirect').submit();
               });
             });
           </script>
