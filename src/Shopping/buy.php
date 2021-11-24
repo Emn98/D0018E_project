@@ -29,6 +29,8 @@ echo $quantity;
     $cart_product->fetch();
     $cart_product->close();
 
+    echo "$product_in_cart";
+
     if($quantity > 0){
         if($product_in_cart != 0){ //If product is already in cart
             $new_quantity = $quantity + $product_in_cart;
