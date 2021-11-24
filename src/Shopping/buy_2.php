@@ -19,7 +19,7 @@
  $query->fetch();
  $query->close();
  
- if($quantity_in_cart != 0){
+ if($quantity_in_cart == ""){
     $quantity = $quantity + $quantity_in_cart;
     $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND user_id=?");
     $query -> bind_param("iii", $quantity , $product_id, $user_id);
