@@ -1,11 +1,11 @@
 <!-- This will serve as the shopping cart page for our e-comerce site offbrand.pwr-->
 <?php
   
-  $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/Accounts/log_in_check.php";
-  require_once($path);//Check so the user is logged in
-  //require("check_shopping.php");//Checks so the user have an shopping cart. if not, create one
-  
+//Check so the user is logged in
+  $path = $_SERVER['DOCUMENT_ROOT']; 
+  $path .= "/log_in_check.php";
+  require_once($path);
+
   session_start();
 
 ?>
