@@ -43,7 +43,7 @@
         include_once($path);
 
         $category_id = $_POST['category_id'];
-        gettype($category_id);
+        echo (gettype($category_id));
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
