@@ -29,7 +29,7 @@
       </header>
       <main>Main
 
-        <button id="click_this"></button>
+        <button id="click_this">Click me</button>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
             $(document).ready(function() {
