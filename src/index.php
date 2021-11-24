@@ -40,6 +40,7 @@
           <script>
             $(".button").click(function() {
             var link = $(this).attr('var');
+            window.print(link);
             $('.post').attr("value",link);
             $('.redirect').submit();
             });
