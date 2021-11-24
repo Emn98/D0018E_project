@@ -1,10 +1,10 @@
 <?php
-require "log_in_check.php'";
+//require "log_in_check.php'";
 //require "check_shopping.php";
 
 session_start();
 
-include "/Accounts/log_in_check.php";
+//include "/Accounts/log_in_check.php";
 //include "/Shopping/check_shopping.php";
 //Något problem med require, HTTP ERROR 500 med dom. KOmmer inte in i id sats på rad 9
 
