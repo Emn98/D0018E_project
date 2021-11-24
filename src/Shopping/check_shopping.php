@@ -31,4 +31,5 @@
     $query->close();
     exit;
   }
+  exit;
 ?>
