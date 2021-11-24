@@ -31,7 +31,7 @@
       </nav>
       </header>
       <main>Main
-        <div class="inner_left_side" w3-include-html="content.html">
+        <div class="inner_left_side" w3-include-html="/Category/categories_file.html">
         </div>
         <div class="inner_right_side"></div>
       </main>
