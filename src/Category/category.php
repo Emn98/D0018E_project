@@ -28,8 +28,12 @@
         </nav>
         </header>
         <main>Main
-          <div class="inner_left_side">
-            <?php include("categories_file.html")?>
+          <div class="inner_left_side">  
+            <?php 
+            $path = $_SERVER['DOCUMENT_ROOT'];
+            $path .= "/Category/categories_file.html";
+            include($path);
+            ?>
           </div>
           <div class="inner_right_side">
           <?php
