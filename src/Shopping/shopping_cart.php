@@ -2,7 +2,6 @@
 <?php
   
 //Check so the user is logged in
-  require("./Accounts/log_in_check.php");
 
   session_start();
 
