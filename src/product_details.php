@@ -17,11 +17,7 @@
         <form class="search_bar_form" method="POST" action="/search.php">
             <input class="search_bar_inp" type="text" name="product_name">
             <button type="submit" class="search_btn">Search</button>
-        </form> 
-        <div class="form_elements">
-        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
-        <label for="quantity" class="form_label">Enter Quantity</label>
-      </div>
+        </form>
         <nav>
           <ul class="menu">
             <li><a href="/Accounts/site_director.php">My page</a></li>
@@ -81,7 +77,6 @@
             echo "<form action='/Shopping/buy.php' method='post'>";
             echo "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>";
             echo "<input type='hidden' name='quantity' value ='<?php echo $quantity; ?>'>"; //changed
-            echo "<button type='submit' class='product_details_buy_button'>Buy</button>";
             echo "</form>";
             echo "</div>";
             echo "<div class='best_customer_review_div'>";
@@ -95,14 +90,20 @@
             echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
           }
-          
-          $_SESSION['product_id'] = $product_id;
           echo "</div>";
 
           $con->close();
-        
         ?>
+        </form>
       </div>
     <div>
+
+    <form class="buy_button" method="POST" action="/Shopping/buy.php"> 
+      <div class="form_elements">
+        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
+        <label for="quantity" class="form_label">Enter Quantity</label>
+        <input type="hidden" id="product_id" name="product_id" class="register_input" value=<?php echo "$product_id";?>>
+        <button class="form_button">Buy</button>
+      </div>
   </body>
 </html>

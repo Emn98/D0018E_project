@@ -4,12 +4,17 @@
 
 session_start();
 
+//creates connection to database
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/database.php";
+include_once($path);
+
 //include "/Accounts/log_in_check.php";
 //include "/Shopping/check_shopping.php";
 //Något problem med require, HTTP ERROR 500 med dom. Kommer inte in i if sats på rad 9
 
-$quantity = $_SESSION['quantity'];
-$product_id = $_SESSION['product_id'];
+$quantity = $_POST['quantity'];
+$product_id = $_POST['product_id'];
 echo $product_id;
 echo "$quantity";
 echo $quantity;
@@ -23,6 +28,8 @@ echo $quantity;
     $cart_product->bind_result($product_in_cart);
     $cart_product->fetch();
     $cart_product->close();
+
+    echo "$product_in_cart";
 
     if($quantity > 0){
         if($product_in_cart != 0){ //If product is already in cart

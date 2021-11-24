@@ -1,14 +1,13 @@
 <!-- This will serve as the shopping cart page for our e-comerce site offbrand.pwr-->
 <?php
   
-//Check so the user is logged in
-  
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/Accounts/log_in_check.php";
-require($path);
+  //Check so the user is logged in
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/Accounts/log_in_check.php";
+  require($path);
 
   session_start();
-
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
