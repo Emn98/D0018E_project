@@ -25,7 +25,7 @@
   $query->close();
 
   if($cart_id == ""){
-    $query = $con->prepare("INSERT INTO CART (user_id) VALUE(?)");
+    $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
