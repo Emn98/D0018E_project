@@ -21,11 +21,13 @@
  
  if($quantity_in_cart != ""){
     $quantity = $quantity + $quantity_in_cart;
+    echo"Uppdate";
     $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND user_id=?");
     $query -> bind_param("iii", $quantity , $product_id, $user_id);
     $query -> execute();
     $query->close();
  }else{
+     echo"ADDD";
     $query = $con->prepare("INSERT INTO CART_ITEMS (user_id, product_id, quantity) 
                             ValUES(?,?,?)"); 
     $query -> bind_param("iii",$user_id, $product_id, $quantity);
