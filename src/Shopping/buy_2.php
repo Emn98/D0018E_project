@@ -19,19 +19,19 @@
  $query->fetch();
  $query->close();
  
- if($quantity_in_cart != 0){
-    $quantity = $quantity + $quantity_in_cart;
-    $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND user_id=?");
-    $query -> bind_param("iii", $quantity , $product_id, $user_id);
-    $query -> execute();
-    $query->close();
+ /*if($quantity_in_cart != 0){
+    //$quantity = $quantity + $quantity_in_cart;
+    //$query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND user_id=?");
+    //$query -> bind_param("iii", $quantity , $product_id, $user_id);
+    //$query -> execute();
+    //$query->close();
  }else{
     $query = $con->prepare("INSERT INTO CART_ITEMS user_id=?, product_id=?, quantity=?"); 
     $query -> bind_param("iii",$user_id, $product_id, $quantity);
     $query -> execute();
     $query->close();
  }
-
+*/
  echo"added item to shopping cart";
 
 ?>
