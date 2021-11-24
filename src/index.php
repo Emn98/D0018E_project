@@ -31,10 +31,10 @@
       </header>
       <main>Main
         <ul class="category_list_ul">
-          <li><a href='javascript:void(0)' id='click_this' var='http://130.240.200.39/Category/category.php'>GPU</a>
+          <li><a href='javascript:void(0)' id='click_this' var='1'>GPU</a>
           
           <form method="post" action="/Category/category.php" name="redirect" class="redirect">
-          <input type="hidden" class="post" name="post" value="1">
+          <input type="hidden" class="post" name="category_id" value="">
           <input type="submit" style="display: none;">
           </form>
           
