@@ -28,19 +28,10 @@
       </nav>
       </header>
       <main>Main
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
+             </script>
 
         <button id="click_this">Click me</button>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
-            $(document).ready(function() {
-              $("body").on("click", "#click_this", function() {
-                alert("Hello, World!");
-                //var link = $(this).attr('var');
-                //$('.post').attr("value",link);
-                //$('.redirect').submit();
-              });
-            });
-          </script>
 
         <ul class="category_list_ul">
           <li><a href='javascript:void(0)' id='list_id' var='http://130.240.200.39/Category/category.php'>GPU</a>
