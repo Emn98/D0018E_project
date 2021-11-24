@@ -1,6 +1,6 @@
 <?php
-//require 'Accounts/log_in_check.php';
-//require 'Shopping/check_shopping.php';
+require 'src/Accounts/log_in_check.php';
+//require 'src/Shopping/check_shopping.php';
 session_start();
 
 //Något problem med require, HTTP ERROR 500 med dom. KOmmer inte in i id sats på rad 9
