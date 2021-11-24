@@ -32,7 +32,7 @@
         
 
         <ul class="category_list_ul">
-          <li><a href='javascript:void(0)' class='button' var='/Category/category.php'>GPU</a></li>
+          <li><a href='javascript:void(0)' class='button' var='http://130.240.200.39/Category/category.php'>GPU</a>
           <form method="post" name="redirect" class="redirect">
           <input type="hidden" class="post" name="post" value="1">
           <input type="submit" style="display: none;">
@@ -44,6 +44,7 @@
             $('.redirect').submit();
             });
           </script>
+          </li>
         </ul>
       </main>
       <div class="left_side">Left Side</div>
