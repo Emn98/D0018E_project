@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
+    <link rel="stylesheet" href="/Css/present_product.css">
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -41,8 +42,7 @@
         $path .= "/database.php";
         include_once($path);
 
-        $category_id = 1;
-        print_r($_POST);
+        $category_id = $_POST['category_id'];
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
@@ -52,7 +52,7 @@
 
         $result = $stmt->get_result();
 
-        echo "<ul>";
+        echo "<div class='wrapper'>";
         while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
@@ -63,15 +63,17 @@
             $color = $row['color'];
             $discount = $row['discount'];
             $picture = $row['picture'];
-            echo "<li>";
-            echo "<div>";
-            echo "<img src ='$picture' width = '200' height = '250'>" . "<br>";
-            echo "$name". "<br>";
-            echo "$description";
+            echo "<div class='list_product_div'>";
+            echo "<img src ='$picture' width = '200' height = '250'>";
+            echo "<label class='product_name_label'>$name</label>";
+            echo "<label class='product_name_label'>$description</label>";
+            echo "<form action='/product_details.php' method='post'>";
+            echo "<input type='hidden' name='product_name' value = $name>";
+            echo "<button type='submit' class='product_details_button'>Go to product</button>";
+            echo "</form>";
             echo "</div>";
-            echo "</li>";
         }
-        echo "</ul>";
+        echo "</div>";
 
         $con->close();
 
