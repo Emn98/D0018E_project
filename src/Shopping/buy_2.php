@@ -3,9 +3,9 @@
   session_start();
 
   //Check so the user have a cart. 
-/*  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Shopping/check_shopping.php";
-  require($path)*/;
+  require($path);
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];

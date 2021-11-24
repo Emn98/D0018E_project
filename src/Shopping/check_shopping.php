@@ -20,7 +20,7 @@
   $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
   $query->bind_param("i", $user_id);
   $query->execute();
-  $query->bind_result($quart_id);
+  $query->bind_result($cart_id);
   $query->fetch();
   $query->close();
 
