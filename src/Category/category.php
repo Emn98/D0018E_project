@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <header>
-        <h1><a href="index.php"> OFF<span>BRAND</span> </a></h1>
+        <h1><a href="/index.php"> OFF<span>BRAND</span> </a></h1>
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name">
           <button type="submit" class="search_btn">Search</button>
