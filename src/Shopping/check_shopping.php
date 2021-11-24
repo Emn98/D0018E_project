@@ -17,17 +17,22 @@
   $user_id = $_SESSION["user_id"];
 
   //Check if the user have a shopping cart in the database
-  $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
-  $query->bind_param("i", $user_id);
-  $query->execute();
-  $query->bind_result($cart_id);
-  $query->fetch();
-  $query->close();
-
-  if($cart_id == ""){
+  if(!isset($_SESSION["cart_id"])){
     $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
+
+    $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
+    $query -> bind_param("i", $user_id);
+    $query -> execute();
+    $query->bind_result($cart_id);
+    $query->fetch();
+    $query->close();
+
+    $_SESSION["cart_id"] = $cart_id;
   }
+
+
+
 ?>

@@ -1,62 +1,44 @@
 <?php
-//require "log_in_check.php'";
-//require "check_shopping.php";
 
-session_start();
+  session_start();
 
-//creates connection to database
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/database.php";
-include_once($path);
+  //Check so the user have a cart. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/Shopping/check_shopping.php";
+  require($path);
 
-//include "/Accounts/log_in_check.php";
-//include "/Shopping/check_shopping.php";
-//Något problem med require, HTTP ERROR 500 med dom. Kommer inte in i if sats på rad 9
+  //creates connection to database
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path); 
+  
+  $quantity = $_POST['quantity'];
+  $product_id = $_POST['product_id'];
+  $cart_id = $_SESSION["cart_id"];
 
-$quantity = $_POST['quantity'];
-$product_id = $_POST['product_id'];
-echo $product_id;
-echo "$quantity";
-echo $quantity;
-//if(isset($_POST[quantity])) {
-//    $quantity = $_POST['quantity'];
+  //Check the database if product already in cart
+  $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=?");
+  $query->bind_param("ii", $cart_id, $product_id);
+  $query->execute();
+  $query->bind_result($quantity_in_cart);
+  $query->fetch();
+  $query->close();
+ 
 
-    //Checks the Database if the product already is in the cart
-    $cart_product = $con->prepare("SELECT product_id FROM CART_ITEMS WHERE user_id = ?");
-    $cart_product->bind_param("i", $_SESSION["user_id"]);
-    $cart_product->execute();
-    $cart_product->bind_result($product_in_cart);
-    $cart_product->fetch();
-    $cart_product->close();
+  if($quantity_in_cart != ""){
+    $quantity = $quantity + $quantity_in_cart;
+    $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=?");
+    $query -> bind_param("iii", $quantity , $product_id, $cart_id);
+    $query -> execute();
+    $query->close();
+ }else{
+    $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity) 
+                            VALUES(?,?,?)"); 
+    $query -> bind_param("iii",$cart_id, $product_id, $quantity);
+    $query -> execute();
+    $query->close();
+ }
 
-    echo "$product_in_cart";
+ echo"added item to shopping cart";
 
-    if($quantity > 0){
-        if($product_in_cart != 0){ //If product is already in cart
-            $new_quantity = $quantity + $product_in_cart;
-
-            $query = $con->prepare("INSERT INTO CART_ITEMS (user_id, product_id, quantity) VALUES (?, ?, ?)"); 
-            $query -> bind_param("iii", $_SESSION["user_id"], $product_id, $new_quantity);
-            $query -> execute();
-            $query->close();
-        }else{
-            $query = $con->prepare("INSERT INTO CART_ITEMS (user_id, product_id, quantity) VALUES (?, ?, ?)"); 
-            $query -> bind_param("iii", $_SESSION["user_id"], $product_id, $quantity);
-            $query -> execute();
-            $query->close();
-
-        }
-
-        echo "<div class='form'>
-             <h3>Products Has Been Added To Cart.</h3><br/>
-             <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
-             <p class='link'>Click here to <a href='/product_handling/product_details.php'>continue shopping</a>.</p>
-             </div>";
-    }else {
-        echo "big";
-    }
-
-//}else {
- //   echo "No work :(";
-//}
 ?>
