@@ -79,13 +79,6 @@ transition: color 0.2s ease 0s;
 color: #0088a9;
 }
 
-
-main{
-background: rgba(255, 255, 255, 0.05);
-grid-area: main;
-}
-
-
 .right_side{
   
   grid-area: right_side;
