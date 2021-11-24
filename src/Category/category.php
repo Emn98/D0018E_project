@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
-    <link rel="stylesheet" href="/Css/present_product.css">
+    <link rel="stylesheet" href="/Css/present_products.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
@@ -58,28 +58,28 @@
               echo ("No products matching this category");
             } else {
 
-            echo "<div class='wrapper'>";
-            while ($row = $result->fetch_assoc()) {
-                $name   = $row['product_name'];
-                $description = $row['product_description'];
-                $category = $row['category_id'];
-                $quantity   = $row['quantity'];
-                $price = $row['price'];
-                $size = $row['size'];
-                $color = $row['color'];
-                $discount = $row['discount'];
-                $picture = $row['picture'];
-                echo "<div class='list_product_div'>";
-                echo "<img src ='$picture' width = '200' height = '250'>";
-                echo "<label class='product_name_label'>$name</label>";
-                echo "<label class='product_name_label'>$description</label>";
-                echo "<form action='/product_details.php' method='post'>";
-                echo "<input type='hidden' name='product_name' value = $name>";
-                echo "<button type='submit' class='product_details_button'>Go to product</button>";
-                echo "</form>";
-                echo "</div>";
-            }
-            echo "</div>";
+              echo "<div class='wrapper'>";
+              while ($row = $result->fetch_assoc()) {
+                  $name   = $row['product_name'];
+                  $description = $row['product_description'];
+                  $category = $row['category_id'];
+                  $quantity   = $row['quantity'];
+                  $price = $row['price'];
+                  $size = $row['size'];
+                  $color = $row['color'];
+                  $discount = $row['discount'];
+                  $picture = $row['picture'];
+                  echo "<div class='list_product_div'>";
+                  echo "<img src ='$picture' width = '200' height = '250'>";
+                  echo "<label class='product_name_label'>$name</label>";
+                  echo "<label class='product_name_label'>$description</label>";
+                  echo "<form action='/product_details.php' method='post'>";
+                  echo "<input type='hidden' name='product_name' value = $name>";
+                  echo "<button type='submit' class='product_details_button'>Go to product</button>";
+                  echo "</form>";
+                  echo "</div>";
+              }
+              echo "</div>";
             }
             $con->close();
 
