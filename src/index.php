@@ -35,7 +35,7 @@
           <li><a href='javascript:void(0)' id='list_id' var='http://130.240.200.39/Category/category.php'>GPU</a>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
             $(document).ready(function() {
-              $("#list_id").click(function() {
+              $("body").on("click", "#list_id", function() {
                 alert("Hello, World!");
                 //var link = $(this).attr('var');
                 //$('.post').attr("value",link);
