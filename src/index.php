@@ -29,13 +29,11 @@
       </header>
       <main>Main
 
-        
+        <button id="click_this"></button>
 
-        <ul class="category_list_ul">
-          <li><a href='javascript:void(0)' id='list_id' var='http://130.240.200.39/Category/category.php'>GPU</a>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript">
             $(document).ready(function() {
-              $("body").on("click", "#list_id", function() {
+              $("body").on("click", "#click_this", function() {
                 alert("Hello, World!");
                 //var link = $(this).attr('var');
                 //$('.post').attr("value",link);
@@ -43,6 +41,10 @@
               });
             });
           </script>
+
+        <ul class="category_list_ul">
+          <li><a href='javascript:void(0)' id='list_id' var='http://130.240.200.39/Category/category.php'>GPU</a>
+          
           <form method="post" name="redirect" class="redirect">
           <input type="hidden" class="post" name="post" value="1">
           <input type="submit" style="display: none;">
