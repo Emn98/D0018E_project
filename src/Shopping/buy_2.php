@@ -2,6 +2,11 @@
 
   session_start();
 
+  //Check so the user have a cart. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/Shopping/check_shopping.php";
+  require($path);
+
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/database.php";
@@ -24,6 +29,7 @@
  $query->fetch();
  $query->close();
  
+
  if($quantity_in_cart != ""){
     $quantity = $quantity + $quantity_in_cart;
     echo"Uppdate";

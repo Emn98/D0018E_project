@@ -1,23 +1,34 @@
     <!--This script will check if the user is logged in, if not redirect to log in page -->
 <?php
-    require("log_in_check.php");
 
-    session_start();
-  
-    include("/Accounts/log_in_check.php");
 
-    $Shopping_cart = $con->prepare("SELECT user_id FROM CARTS WHERE user_id = ?");
-    $Shopping_cart->bind_param("i", $_SESSION["user_id"]);
-    $Shopping_cart->execute();
-    $Shopping_cart->bind_result($Shopping_cart_exist);
-    $Shopping_cart->fetch();
-    $Shopping_cart->close();
+  //Check so the user is logged in. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/Accounts/log_in_check.php";
+  require($path);
 
-    if($Shopping_cart_exist == 0){
-        $query = $con->prepare("INSERT INTO CARTS (user_id) VALUES (?)"); 
-        $query -> bind_param("i", $_SESSION["user_id"]);
-        $query -> execute();
-        $query->close();
-        exit;
-    }
+  session_start();
+
+  //creates connection to database
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path);
+
+  $user_id = $_SESSION["user_id"];
+
+  //Check if the user have a shopping cart in the database
+  $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
+  $query->bind_param("i", $user_id);
+  $query->execute();
+  $query->bind_result($quart_id);
+  $query->fetch();
+  $query->close();
+
+  if($cart_id == ""){
+    $query = $con->prepare("INSERT INTO CART (user_id) VALUE(?)");
+    $query -> bind_param("i", $user_id);
+    $query -> execute();
+    $query->close();
+    exit;
+  }
 ?>
