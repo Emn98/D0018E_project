@@ -19,7 +19,7 @@
             <button type="submit" class="search_btn">Search</button>
         </form> 
         <div class="form_elements">
-        <input type="int" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
+        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
         <label for="quantity" class="form_label">Enter Quantity</label>
       </div>
         <nav>
