@@ -48,6 +48,8 @@
 
           $product_name = $_POST['product_name'];
 
+          $_SESSION['quantity'] = POST['quantity'];
+          $quantity = $_SESSION['quantity'];
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
@@ -63,7 +65,7 @@
             $name   = $row['product_name'];
             $description = $row['product_description'];
             $category = $row['category_id'];
-            $quantity   = $row['quantity'];
+            $product_quantity   = $row['quantity'];   //changed to product_quantity instead of quantity
             $price = $row['price'];
             $size = $row['size'];
             $color = $row['color'];
@@ -74,12 +76,13 @@
             echo "<img src ='$picture'>";
             echo "</div>";
             echo "<div class='product_details_quantity_div'>";
-            echo "<label class='product_details_quantity_label'>$quantity</label>";
+            echo "<label class='product_details_quantity_label'>$product_quantity</label>"; //changed
             echo "</div>";
             echo "<div class='product_details_price_div'>";
             echo "<label class='product_details_price_label'>$price</label>";
             echo "<form action='/Shopping/buy.php' method='post'>";
             echo "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>";
+            echo "<input type='hidden' name='quantity' value ='<?php echo $quantity; ?>'>"; //changed
             echo "<button type='submit' class='product_details_buy_button'>Buy</button>";
             echo "</form>";
             echo "</div>";
