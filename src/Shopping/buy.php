@@ -4,6 +4,11 @@
 
 session_start();
 
+//creates connection to database
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/database.php";
+include_once($path);
+
 //include "/Accounts/log_in_check.php";
 //include "/Shopping/check_shopping.php";
 //Något problem med require, HTTP ERROR 500 med dom. Kommer inte in i if sats på rad 9
