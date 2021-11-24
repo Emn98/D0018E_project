@@ -11,8 +11,8 @@ session_start();
 $quantity = $_SESSION['quantity'];
 echo "$quantity";
 echo $quantity;
-if(isset($_POST[quantity])) {
-    $quantity = $_POST['quantity'];
+//if(isset($_POST[quantity])) {
+//    $quantity = $_POST['quantity'];
 
     //Checks the Database if the product already is in the cart
     $cart_product = $con->prepare("SELECT product_id FROM CART_ITEMS WHERE user_id = ?");
@@ -45,7 +45,7 @@ if(isset($_POST[quantity])) {
              </div>";
     }
 
-}else {
-    echo "No work :(";
-}
+//}else {
+ //   echo "No work :(";
+//}
 ?>
