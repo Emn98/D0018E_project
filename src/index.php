@@ -37,7 +37,7 @@
             include($path);
             ?>
         </div>
-        <div class="inner_right_side"></div>
+        <div class="inner_right_side">Items go here</div>
       </main>
       <div class="left_side">Left Side</div>
       <div class="right_side">Right Side</div>
