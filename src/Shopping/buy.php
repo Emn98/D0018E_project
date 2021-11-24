@@ -43,6 +43,8 @@ echo $quantity;
              <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
              <p class='link'>Click here to <a href='/product_handling/product_details.php'>continue shopping</a>.</p>
              </div>";
+    }else {
+        echo "big";
     }
 
 //}else {
