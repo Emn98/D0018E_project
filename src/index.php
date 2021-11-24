@@ -38,10 +38,12 @@
           <input type="submit" style="display: none;">
           </form>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-            $(".button").click(function() {
-            var link = $(this).attr('var');
-            $('.post').attr("value",link);
-            $('.redirect').submit();
+            $(document).ready(function() {
+              $(".button").click(function() {
+                var link = $(this).attr('var');
+                $('.post').attr("value",link);
+                $('.redirect').submit();
+              });
             });
           </script>
           </li>
