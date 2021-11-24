@@ -29,7 +29,7 @@
         </ul>
       </nav>
       </header>
-      <main>Main
+      <main>
         <div class="inner_left_side">
         <?php 
             $path = $_SERVER['DOCUMENT_ROOT'];
