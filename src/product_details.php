@@ -98,12 +98,6 @@
             echo "<label class='product_name_label'>$description</label>";
             echo "</div>";
           }
-<<<<<<< HEAD
-
-=======
-          
-          $_SESSION['product_id'] = $product_id;
->>>>>>> f12f63e787c47888fc3fbb5a0f2b7dd6d09a1856
           echo "</div>";
 
           $con->close();
