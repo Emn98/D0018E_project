@@ -55,7 +55,7 @@
         $result = $stmt->get_result();
 
         if(empty($result)){
-          echo"no products matching this category");
+          echo ("no products matching this category");
         } else {
 
         echo "<div class='wrapper'>";
