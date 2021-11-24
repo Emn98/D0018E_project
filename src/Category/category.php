@@ -54,7 +54,7 @@
 
         $result = $stmt->get_result();
 
-        if(empty($result)){
+        if (mysqli_num_rows($result)==0) {
           echo ("no products matching this category");
         } else {
 
