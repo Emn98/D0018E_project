@@ -29,7 +29,5 @@
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
-    exit;
   }
-  exit;
 ?>
