@@ -92,8 +92,8 @@
    border-style:solid;
 }
 
-.product_details_quantity_div tr td{
-   padding:10px;
+.product_details_quantity_div td{
+   padding:5px;
 }
 .product_details_quantity_div table{
    border-radius:5px;
