@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/Css/main_page.css">
     <link rel="stylesheet" href="/Css/present_products.css">
     <link rel="stylesheet" href="/Css/category.css">
+    <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
   </head>
   <body>
