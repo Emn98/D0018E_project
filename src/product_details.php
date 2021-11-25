@@ -50,13 +50,6 @@
           $stmt->execute();
           $result = $stmt->get_result();
 
-          $query = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=?");
-          $query->bind_param("i", $product_id);
-          $query->execute();
-          $query->bind_result($product_quantity);
-          $query->fetch();
-          $query->close();
-
           echo "<div class='product_details_container'>";
           while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
@@ -94,8 +87,17 @@
             echo "</div>";
           }
           echo "</div>";
-          echo "This is where product quantity is written $product_quantity"
           $con->close();
+
+          $query = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=?");
+          $query->bind_param("i", $product_id);
+          $query->execute();
+          $query->bind_result($product_quantity);
+          $query->fetch();
+          $query->close();
+          
+          echo "This is where product quantity is written $product_quantity"
+          
         ?>
         </form>
       </div>
