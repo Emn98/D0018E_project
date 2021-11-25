@@ -76,48 +76,51 @@
             $discount = $row['discount'];
             $picture = $row['picture'];
             $product_id = $row['product_id'];
-            echo "<div class='product_details_image_div'>" . 
-                    "<img src ='$picture'>" .
-                  "</div>" . 
-                  "<div class='product_details_quantity_div'>";
+            ?>
+            <div class='product_details_image_div'>
+                    <img src ='<?php echo $picture ?>'>
+                  </div>
+                  <div class='product_details_quantity_div'>
+                    <?php
                     echo "<table>".
                           "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
                     while($row_inventory = $result_inventory->fetch_assoc()){
                       echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
                     }
-                    echo "</table>" .
-                  "</div>" . 
-                  "<div class='product_details_price_div'>" . 
-                    "<label class='product_details_price_label'>Current Price: $price</label>" . 
-                    "<form class='buy_button' method='POST' action='/Shopping/buy.php'>" . 
-                      "<div class='form_elements'>" . 
-                        "<input type='number' id='quantity' name='quantity' class='register_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>" .
-                        "<label for='quantity' class='form_label'>Enter Quantity</label>" . 
-                        "<form action='/Shopping/buy_2.php' method='post'>". 
-                          "<input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id;?>'>".
-                          "<button class='form_button'>Buy</button>".
-                      "</div>".
-                      "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>".
-                      "<input type='hidden' name='quantity' value ='<?php echo $product_quantity; ?>'>".
-                    "</form>".
-                  "</div>".
-                  "<div class='best_customer_review_div'>".
-                    "this is future best customer review".
-                  "</div>".
-                  "<div class='customer_reviews_div'>".
-                    "this is future customer reveiw".
-                  "</div>".
-                  "<div class='product_details_details_div'".
-                    "<label class='product_name_label'>$name</label>".
-                    "<label class='product_name_label'>$description</label>".
-                  "</div>";
+                    echo "</table>";
+                    ?>
+                  </div>
+                  <div class='product_details_price_div'>
+                    <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
+                    <form class='buy_button' method='POST' action='/Shopping/buy.php'>
+                      <div class='form_elements'>
+                        <input type='number' id='quantity' name='quantity' class='register_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
+                        <label for='quantity' class='form_label'>Enter Quantity</label>
+                        <form action='/Shopping/buy_2.php' method='post'>
+                          <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id;?>'>
+                          <button class='form_button'>Buy</button>
+                      </div>
+                      <input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>
+                      <input type='hidden' name='quantity' value ='<?php echo $product_quantity; ?>'>
+                    </form>
+                  </div>
+                  <div class='best_customer_review_div'>
+                    this is future best customer review
+                  </div>
+                  <div class='customer_reviews_div'>
+                    this is future customer reveiw
+                  </div>
+                  <div class='product_details_details_div'>
+                    <label class='product_name_label'><?php echo $name ?></label>
+                    <label class='product_name_label'><?php echo $description ?></label>
+                  </div>
           }
+          <?php
           echo "</div>";
           $con->close();           
           ?>
         </div>
       </main>
     </div>
-    <div>
   </body>
 </html>
