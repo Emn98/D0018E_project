@@ -8,11 +8,6 @@
 
   session_start();
 
-  $ar = array($_SESSION["cart_id"]);
-  print_r($ar); 
-  
-  
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
