@@ -36,6 +36,7 @@
 
         $stmt->bind_param("sssiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
         $stmt->execute();
+        $stmt->close();
 
         printf("%d row edited.\n", $stmt->affected_rows);
 
@@ -43,6 +44,7 @@
 
         $stmt->bind_param("iss", $quantity, $color, $product_name);
         $stmt->execute();
+        $stmt->close();
 
         printf("%d row edited.\n", $stmt->affected_rows);
 
