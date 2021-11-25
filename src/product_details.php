@@ -59,6 +59,7 @@
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
+          $result_inventory_2 = $result_inventory;
           $query->fetch();
           $query->close();
 
@@ -99,7 +100,7 @@
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
                   <select name="color_category" id="color_category">
                   <?php
-                   while($row_inventory = $result_inventory->fetch_assoc()){
+                   while($row_inventory = $result_inventory_2->fetch_assoc()){
                     $picked_color = $row_inventory['color'];
                     echo "<option value='$picked_color'>$picked_color</option>";
                   }
