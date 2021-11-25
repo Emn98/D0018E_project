@@ -22,7 +22,7 @@
 
   //Check the database if product already in cart
   $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=? and color=?");
-  $query->bind_param("ii", $cart_id, $product_id, $product_color);
+  $query->bind_param("iis", $cart_id, $product_id, $product_color);
   $query->execute();
   $query->bind_result($quantity_in_cart);
   $query->fetch();
