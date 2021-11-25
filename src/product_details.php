@@ -102,7 +102,7 @@
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
                   <select name="product_color" id="choose_color">
                   <?php
-                    foreach ($color_arr as &$color) {
+                    foreach ($color_arr as $color) {
                       echo "<option value='$color'>$color</option>";
                     }
                   ?>
