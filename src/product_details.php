@@ -114,8 +114,8 @@
               <label class='product_name_label'><?php echo $name ?></label>
               <label class='product_name_label'><?php echo $description ?></label>
             </div>
-          }
           <?php
+          }
           echo "</div>";
           $con->close();           
           ?>
