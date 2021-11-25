@@ -14,7 +14,7 @@
   
   $quantity = $_POST['quantity'];
   $product_id = $_POST['product_id'];
-  $product_color = $_post['product_color'];
+  $product_color = $_POST['product_color'];
   $cart_id = $_SESSION["cart_id"];
 
   echo $product_color;
