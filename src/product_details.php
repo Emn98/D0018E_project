@@ -100,7 +100,7 @@
 
     <form class="buy_button" method="POST" action="/Shopping/buy.php"> 
       <div class="form_elements">
-        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
+        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" pattern="[0-9]{1,2}" title="Max quantity is 99 items" required>
         <label for="quantity" class="form_label">Enter Quantity</label>
         <input type="hidden" id="product_id" name="product_id" class="register_input" value=<?php echo "$product_id";?>>
         <button class="form_button">Buy</button>
