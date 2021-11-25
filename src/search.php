@@ -71,7 +71,7 @@
                 echo "<label class='product_name_label'>$name</label>";
                 echo "<label class='product_name_label'>$description</label>";
                 echo "<div class='product_price_buy_div'>";
-                echo "<label class='product_price_label>From $price kr</label>";
+                echo "<label class='product_price_label'>From $price kr</label>";
                 echo "<form action='/product_details.php' method='post'>";
                 echo "<input type='hidden' name='product_name' value = $name>";
                 echo "<button type='submit' class='product_details_button'>Go to product</button>";
