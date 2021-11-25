@@ -62,12 +62,7 @@
           $query->fetch();
           $query->close();
 
-          $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
-          $query->bind_param("i", $product_id);
-          $query->execute();
-          $result_inventory_2 = $query->get_result();
-          $query->fetch();
-          $query->close();
+          $color_arr = array();
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
           $stmt->bind_param("s", $product_name);
@@ -95,6 +90,7 @@
                     "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
               while($row_inventory = $result_inventory->fetch_assoc()){
                 echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
+                array_push($color_arr, $row_inventory['color']);
               }
               echo "</table>";
               ?>
@@ -105,15 +101,7 @@
                 <div class='form_elements'>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
                   <?php
-                  echo "test";
-                   while($row = $result_inventory_2->fetch_assoc()){
-                    $picked_color = $row['color'];
-                    if($picked_color = ""){
-                      echo "REEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
-                    }else{
-                      echo "WEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
-                    }
-                  }
+                    print_r($color_arr);
                   ?>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
                   <input type="hidden" class ="purschase_input" name="product_color"  value="<?php echo $picked_color?>">
