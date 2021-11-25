@@ -68,18 +68,20 @@
                 $color = $row['color'];
                 $discount = $row['discount'];
                 $picture = $row['picture'];
-                echo "<div class='list_product_div'>";
-                echo "<img src ='$picture' width = '200' height = '250'>";
-                echo "<label class='product_name_label'>$name</label>";
-                echo "<label class='product_name_label'>$description</label>";
-                echo "<div class='product_price_buy_div'>";
-                echo "<label class='product_price_label'>From $price kr</label>";
-                echo "<form action='/product_details.php' method='post'>";
-                echo "<input type='hidden' name='product_name' value = $name>";
-                echo "<button type='submit' class='product_details_button'>Go to product</button>";
-                echo "</form>";
-                echo "</div>";
-                echo "</div>";
+                ?>
+                <div class='list_product_div'>
+                  <img src ='<?php echo $picture ?>' width = '200' height = '250'>
+                  <label class='product_name_label'><?php echo $name ?></label>
+                  <label class='product_name_label'><?php echo $description ?></label>
+                  <div class='product_price_buy_div'>
+                    <label class='product_price_label'>From <?php echo $price ?> kr</label>
+                    <form action='/product_details.php' method='post'>
+                      <input type='hidden' name='product_name' value = $name>
+                      <button type='submit' class='product_details_button'>Go to product</button>
+                    </form>
+                  </div>
+                </div>
+                <?php
             }
             echo "</div>";
 
