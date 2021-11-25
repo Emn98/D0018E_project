@@ -18,7 +18,7 @@
 
             //Admin want's to delete a user.
             if(isset($_POST["email"])){
-                if($_POST["email"] == "admin@gmail.com"){//If admin tries to delete the admin profile it wont work.
+              if($_POST["email"] == "admin@gmail.com"){//If admin tries to delete the admin profile it wont work.
                     ?>
                     <div class='form'>
                       <h3>you are not allowed to delete the admin profile</h3>
