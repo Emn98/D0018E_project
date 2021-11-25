@@ -38,6 +38,8 @@
         <div class="inner_right_side">
           <?php
 
+          // SELECT PRODUCTS->SELECT PRODUCT_INVENTORY->SELECT PRODUCTS
+
           $path = $_SERVER['DOCUMENT_ROOT'];
           $path .= "/database.php";
           include_once($path);
@@ -57,6 +59,8 @@
           $query->execute();
           $query->bind_result($product_quantity, $color);
           $query->fetch();
+
+          $result_inventory = $query->get_result();
           $query->close();
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
@@ -77,8 +81,13 @@
             echo "<div class='product_details_image_div'>" . 
                     "<img src ='$picture'>" .
                   "</div>" . 
-                  "<div class='product_details_quantity_div'>" . 
-                    "<label class='product_details_quantity_label'>Current quantity: $product_quantity</label>" .
+                  "<div class='product_details_quantity_div'>";
+                    echo "<table>".
+                            "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
+                    while($row_inventory = $result_inventory->fetch_assoc()){
+                      echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
+                    }
+                    echo "</table>" .
                     "<label class='product_details_quantity_label'>Available color: $color</label>" .  
                   "</div>" . 
                   "<div class='product_details_price_div'>" . 
