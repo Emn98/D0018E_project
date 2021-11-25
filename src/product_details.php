@@ -59,7 +59,6 @@
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
-          $result_inventory_2 = $query->get_result();
           $query->fetch();
           $query->close();
 
@@ -98,14 +97,12 @@
               <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
                 <div class='form_elements'>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
-                  <select name="color_category" id="color_category">
                   <?php
-                   while($row_inventory_2 = $result_inventory_2->fetch_assoc()){
-                    $picked_color = $row_inventory_2['color'];
-                    echo "<option value='$picked_color'>$picked_color</option>";
+                   while($row = $result_inventory->fetch_assoc()){
+                    $picked_color = $row['color'];
+                    echo $picked_color;
                   }
                   ?>
-                  </select>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
                   <input type="hidden" class ="purschase_input" name="product_color"  value="<?php echo $picked_color?>">
                     <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
