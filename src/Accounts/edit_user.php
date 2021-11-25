@@ -34,10 +34,12 @@
         // perform query
         $stmt->bind_param("ssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
         $stmt->execute();
-        echo "<div class='form'>
-            <h3>Information has Succesfully Been Changed.</h3><br/>
-            <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
-            </div>";
+        ?>
+        <div class='form'>
+          <h3>Information has Succesfully Been Changed.</h3><br/>
+          <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
+        </div>";
+        <?php
         $con->close();
         
       ?>

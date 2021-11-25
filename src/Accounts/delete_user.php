@@ -19,24 +19,28 @@
             //Admin want's to delete a user.
             if(isset($_POST["email"])){
                 if($_POST["email"] == "admin@gmail.com"){//If admin tries to delete the admin profile it wont work.
-                    echo "<div class='form'>";
-                    echo "<h3>you are not allowed to delete the admin profile</h3>";
-                    echo "<br>";
-                    echo "<a href='/Accounts/admin_page.php'>Go back</a>";
-                    echo "</div>";
+                    ?>
+                    <div class='form'>
+                      <h3>you are not allowed to delete the admin profile</h3>
+                      <br>
+                      <a href='/Accounts/admin_page.php'>Go back</a>
+                    </div>
+                    <?php
                     exit;
                 }else{
                     $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
                     $query->bind_param("s", $_POST["email"]);
                     $query->execute();
                     if($query->affected_rows == 0){//If no user with that email exists
-                        echo "<div class='form'>";
-                        echo "<h3>No account with this email exist in the database<h3>";
-                        echo "<br>";
-                        echo "<a href='delete_user_admin_form.php'>Do you want to enter another email?</a>";
-                        echo "<br>";
-                        echo "<a href='/Accounts/admin_page.php'>Go back</a>";
-                        echo "</div>";
+                        ?>
+                        <div class='form'>
+                          <h3>No account with this email exist in the database<h3>
+                          <br>
+                          <a href='delete_user_admin_form.php'>Do you want to enter another email?</a>
+                          <br>
+                          <a href='/Accounts/admin_page.php'>Go back</a>
+                        </div>
+                        <?php
                         $query->close();
                         exit;
                     }
