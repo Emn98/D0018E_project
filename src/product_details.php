@@ -106,6 +106,7 @@
                       echo "<option value='$color'>$color</option>";
                     }
                   ?>
+                  </select>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
                   <input type="hidden" class ="purschase_input" name="product_color"  value="<?php echo $picked_color?>">
                     <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
