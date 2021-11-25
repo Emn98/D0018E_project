@@ -14,7 +14,6 @@ include_once($path);
 
 $user_id = $_SESSION["user_id"];
 
-echo gettype($_SESSION["cart_id"]);
 
 //Check if the user have a shopping cart in the database
 if(gettype($_SESSION["cart_id"]) == "NULL"){
