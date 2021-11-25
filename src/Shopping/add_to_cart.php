@@ -21,7 +21,7 @@
   print_r($_POST);
 
   //Check the database if product already in cart
-  $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=? and color=?");
+  $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? AND product_id=? AND color=?");
   $query->bind_param("iis", $cart_id, $product_id, $product_color);
   $query->execute();
   $query->bind_result($quantity_in_cart);
@@ -31,14 +31,14 @@
 
   if($quantity_in_cart != ""){
     $quantity = $quantity + $quantity_in_cart;
-    $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=?");
-    $query -> bind_param("iii", $quantity , $product_id, $cart_id);
+    $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=? AND color=?");
+    $query -> bind_param("iiis", $quantity , $product_id, $cart_id, $product_color);
     $query -> execute();
     $query->close();
  }else{
-    $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity) 
-                            VALUES(?,?,?)"); 
-    $query -> bind_param("iii",$cart_id, $product_id, $quantity);
+    $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
+                            VALUES(?,?,?,?)"); 
+    $query -> bind_param("iiis",$cart_id, $product_id, $quantity, $product_color);
     $query -> execute();
     $query->close();
  }
