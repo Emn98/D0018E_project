@@ -100,7 +100,11 @@
                   <?php
                    while($row = $result_inventory->fetch_assoc()){
                     $picked_color = $row['color'];
-                    echo $picked_color;
+                    if($picked_color = ""){
+                      echo "REEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+                    }else{
+                      echo "WEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+                    }
                   }
                   ?>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
