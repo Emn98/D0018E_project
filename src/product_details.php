@@ -54,13 +54,11 @@
           $query->fetch();
           $query->close();
 
-          $query = $con->prepare("SELECT quantity, color FROM PRODUCT_INVENTORY WHERE product_id=?");
+          $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
           $query->bind_param("i", $product_id);
           $query->execute();
-          $query->bind_result($product_quantity, $color);
-          $query->fetch();
-
           $result_inventory = $query->get_result();
+          $query->fetch();
           $query->close();
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
@@ -83,7 +81,7 @@
                   "</div>" . 
                   "<div class='product_details_quantity_div'>";
                     echo "<table>".
-                            "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
+                          "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
                     while($row_inventory = $result_inventory->fetch_assoc()){
                       echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
                     }
