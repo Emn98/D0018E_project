@@ -59,6 +59,12 @@
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
+          $query->fetch();
+          $query->close();
+
+          $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
+          $query->bind_param("i", $product_id);
+          $query->execute();
           $result_inventory_2 = $query->get_result();
           $query->fetch();
           $query->close();
