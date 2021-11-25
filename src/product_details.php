@@ -88,7 +88,7 @@
             echo "<input type='number' id='quantity' name='quantity' class='register_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>";
             echo "<label for='quantity' class='form_label'>Enter Quantity</label>";
             echo "<form action='/Shopping/buy_2.php' method='post'>";
-            echo "<input type='hidden' id='product_id' name='product_id' class='register_input' value=<?php echo $product_id;?>>";
+            echo "<input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id;?>'>";
             echo "<button class='form_button'>Buy</button>";
             echo "</div>";
             echo "<input type='hidden' name='product_id' value ='<?php echo $product_id; ?>'>";
