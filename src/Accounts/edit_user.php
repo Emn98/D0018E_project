@@ -3,16 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/edit_user.css">
-
     <title>Edit User</title>  
   </head>
   <body>
-    
       <?php
 
         session_start();
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
 
         $first_name = $_POST['first_name'];
         $last_name  = $_POST['last_name'];
@@ -38,7 +34,7 @@
         <div class='form'>
           <h3>Information has Succesfully Been Changed.</h3><br/>
           <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
-        </div>";
+        </div>
         <?php
         $con->close();
         
