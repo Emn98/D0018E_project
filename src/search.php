@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
     <link rel="stylesheet" href="/Css/present_products.css">
-    <link rel="stylesheet" href="Css/category.css">
+    <link rel="stylesheet" href="/Css/category.css">
     <title>Offbrand.pwr</title>
   </head>
   <body>
