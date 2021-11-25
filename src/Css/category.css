@@ -1,9 +1,16 @@
 .category_list_ul{
     list-style-type: none;
     margin-left:10px;
+    margin-right:10px;
+
 }
 .category_list_ul li{
     border-style:solid;
     border-radius:5px;
     background-color:white;
+    font-weight: bold;
+}
+
+.category_list_ul li a{
+    text-decoration: none;
 }
