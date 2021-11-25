@@ -74,7 +74,7 @@
                   <label class='product_name_label'><?php $name ?></label>
                   <label class='product_name_label'><?php $description ?></label>
                   <div class='product_price_buy_div'>
-                    <label class='product_price_label'>From <?php $price ?> kr</label>
+                    <label class='product_price_label'>From <?php echo $price ?> kr</label>
                     <form action='/product_details.php' method='post'>
                       <input type='hidden' name='product_name' value = $name>
                       <button type='submit' class='product_details_button'>Go to product</button>
