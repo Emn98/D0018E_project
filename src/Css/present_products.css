@@ -54,6 +54,8 @@
 .product_details_quantity_div{
    grid-area: quant;
    border-style: solid;
+   overflow:auto;
+
 }
 .product_details_price_div{
    grid-area: price;
@@ -88,9 +90,11 @@
 
 .product_details_quantity_div table tr td{
    border-style:solid;
-   border-radius:5px;
 }
 
 .product_details_quantity_div tr td{
    padding:10px;
+}
+.product_details_quantity_div table{
+   border-radius:5px;
 }
