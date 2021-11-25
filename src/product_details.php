@@ -46,20 +46,23 @@
           $_SESSION['quantity'] = $_POST['quantity'];
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
-
           $stmt->bind_param("s", $product_name);
-
-
           $stmt->execute();
-
           $result = $stmt->get_result();
+
+          $query = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=?");
+          $query->bind_param("i", $product_id);
+          $query->execute();
+          $query->bind_result($product_quantity);
+          $query->fetch();
+          $query->close();
 
           echo "<div class='product_details_container'>";
           while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];
             $description = $row['product_description'];
             $category = $row['category_id'];
-            $product_quantity   = $row['quantity'];   //changed to product_quantity instead of quantity
+            //$product_quantity   = $row['quantity'];   //changed to product_quantity instead of quantity
             $price = $row['price'];
             $size = $row['size'];
             $color = $row['color'];
@@ -70,7 +73,7 @@
             echo "<img src ='$picture'>";
             echo "</div>";
             echo "<div class='product_details_quantity_div'>";
-            echo "<label class='product_details_quantity_label'>$product_quantity</label>"; //changed
+            //echo "<label class='product_details_quantity_label'>$product_quantity</label>"; //changed
             echo "</div>";
             echo "<div class='product_details_price_div'>";
             echo "<label class='product_details_price_label'>$price</label>";
@@ -91,7 +94,7 @@
             echo "</div>";
           }
           echo "</div>";
-
+          echo "This is where product quantity is written $product_quantity"
           $con->close();
         ?>
         </form>
@@ -100,7 +103,7 @@
 
     <form class="buy_button" method="POST" action="/Shopping/buy.php"> 
       <div class="form_elements">
-        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" min="0" max=<?php "$product_quantity" ?> required>
+        <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" min="0" max=<?php echo "$product_quantity" ?> required>
         <label for="quantity" class="form_label">Enter Quantity</label>
         <input type="hidden" id="product_id" name="product_id" class="register_input" value=<?php echo "$product_id";?>>
         <button class="form_button">Buy</button>
