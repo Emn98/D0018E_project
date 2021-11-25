@@ -8,6 +8,8 @@
 
   session_start();
 
+  echo gettype($_SESSION["cart_id"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
