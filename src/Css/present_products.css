@@ -85,3 +85,12 @@
    grid-gap: 0px;
    padding: 0px;
 }
+
+.product_details_quantity_div table tr td{
+   border-style:solid;
+   border-radius:5px;
+}
+
+.product_details_quantity_div tr td{
+   padding:10px;
+}
