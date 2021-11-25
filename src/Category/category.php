@@ -70,7 +70,7 @@
                 $picture = $row['picture'];
                 ?>
                 <div class='list_product_div'>
-                  <img src ='$picture' width = '200' height = '250'>
+                  <img src ='<?php $picture ?>' width = '200' height = '250'>
                   <label class='product_name_label'><?php $name ?></label>
                   <label class='product_name_label'><?php $description ?></label>
                   <div class='product_price_buy_div'>
