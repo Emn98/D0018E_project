@@ -30,34 +30,40 @@
         $path .= "/database.php";
         include_once($path);
 
+        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY ->
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
 
+        $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+        $stmt->execute();
+
+        if($stmt->affected_rows != 0){
+          $stmt->close();
+          $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
+          ?,?)");
+          $stmt->bind_param("sis", $product_name, $quantity, $color);
+          $stmt->execute();
+          $stmt->close();
+
+        } else{
+          $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
 
         $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
-
         $stmt->execute();
+        $stmt->close();
 
         $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
         ?,?)");
-
         $stmt->bind_param("sis", $product_name, $quantity, $color);
         $stmt->execute();
-
-        $stmt = $con->prepare("UPDATE PRODUCTS SET inventory_id=(SELECT MAX(inventory_id) FROM PRODUCT_INVENTORY) WHERE product_name=?");
-
-        $stmt->bind_param("s", $product_name);
-
-        $stmt->execute();
+        $stmt->close();
 
         // perform query
 
-        
+        }
 
         printf("%d row inserted.\n", $stmt->affected_rows);
-
-        $con->close();
         
       ?>
 

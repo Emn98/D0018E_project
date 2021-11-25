@@ -33,27 +33,33 @@
             $query->close();
 
 
-            if ($email_addres_exists == "") {  //If a user with the submitted email already exists
-                echo "<div class='form'>
-                <h3>User Created Succesfully.</h3><br/>
-                <p class='link'>Click here to <a href='/Accounts/login_page_form.php'>Log in</a>.</p>
-                </div>";
+            if ($email_addres_exists == "") { // Account creation successfull
+                ?>
+                <div class='form'>
+                  <h3>User Created Succesfully.</h3><br/>
+                  <p class='link'>Click here to <a href='/Accounts/login_page_form.php'>Log in</a>.</p>
+                </div>
+                <?php
                 Dont_draw_out_form();
                 
-            }else{ // Account creation successfull
-                echo "<div class='form'>
-                <h3>Email already in use.</h3><br/>
-                <p class='link'>Click here to <a href='registration_page_2.php'>register with another email</a>.</p>
-                </div>";
+            }else{ //If a user with the submitted email already exists
+                ?>
+                <div class='form'>
+                  <h3>Email already in use.</h3><br/>
+                  <p class='link'>Click here to <a href='registration_page_2.php'>register with another email</a>.</p>
+                </div>
+                <?php
                 Dont_draw_out_form();
                 
         }
         }else{//If the repeated password dosent match the first submitted one
-            echo "<div class='form'>
+          ?>
+          <div class='form'>
             <h3>The repeated password differed from the first password</h3><br/>
             <p class='link'>Click here to <a href='registration_page_2.php'>try again</a></p>
-            </div>";
-            Dont_draw_out_form();   
+          </div>";
+          <?php
+          Dont_draw_out_form();   
         }
     }
 ?>

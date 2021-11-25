@@ -29,14 +29,16 @@
 
         if(!isset($user_id)){
             //If user_id dosen't exists then the authentication failed. Display this to the user.
-            echo "<div class='auth_failed_container'>";
-            echo "<h1>The account information provided does not exist</h1>";
-            echo "<br>";
-            echo "<ul class='user_choices'>";
-            echo "<li><p class='try again'>Click here to <a href='/Accounts/login_page_form.php'>try again</a></p></li>";
-            echo "<li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page_2.php'>Register here</a></p></li>";
-            echo "</ul>";
-            echo "</div>";
+            ?>
+            <div class='auth_failed_container'>
+                <h1>The account information provided does not exist</h1>
+                <br>
+                <ul class='user_choices'>
+                    <li><p class='try again'>Click here to <a href='/Accounts/login_page_form.php'>try again</a></p></li>
+                    <li><p class='registration_link'>Don't have an account? <a href='/Accounts/registration_page_2.php'>Register here</a></p></li>
+                </ul>
+            </div>
+            <?php
         }else{//if user_id is set then the user exists in the database
             //The user will now be seen as logged in by the site.
             $_SESSION["user_id"] = $user_id;

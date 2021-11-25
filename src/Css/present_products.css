@@ -54,6 +54,8 @@
 .product_details_quantity_div{
    grid-area: quant;
    border-style: solid;
+   overflow:auto;
+
 }
 .product_details_price_div{
    grid-area: price;
@@ -84,4 +86,15 @@
    'det det det det det revew';
    grid-gap: 0px;
    padding: 0px;
+}
+
+.product_details_quantity_div table tr td{
+   border-style:solid;
+}
+
+.product_details_quantity_div td{
+   padding:5px;
+}
+.product_details_quantity_div table{
+   border-radius:5px;
 }
