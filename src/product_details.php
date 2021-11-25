@@ -52,19 +52,21 @@
           $query->execute();
           $query->bind_result($product_id);
           $query->fetch();
-          $query->close();
+          $con->close();
 
           $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
           $query->fetch();
-          $query->close();
+          $con->close();
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
           $stmt->bind_param("s", $product_name);
           $stmt->execute();
           $result = $stmt->get_result();
+          $con->close();  
+          
 
           echo "<div class='product_details_container'>";
           while ($row = $result->fetch_assoc()) {
@@ -117,7 +119,7 @@
           <?php
           }
           echo "</div>";
-          $con->close();           
+                   
           ?>
         </div>
       </main>
