@@ -32,7 +32,4 @@
 
     $_SESSION["cart_id"] = $cart_id;
   }
-
-
-
 ?>

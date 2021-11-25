@@ -6,8 +6,10 @@
   $path .= "/Accounts/log_in_check.php";
   require($path);
 
-  session_start();
+  $item_array = get_
   
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
