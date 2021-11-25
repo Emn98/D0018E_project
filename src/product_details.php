@@ -86,7 +86,6 @@
                       echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
                     }
                     echo "</table>" .
-                    "<label class='product_details_quantity_label'>Available color: $color</label>" .  
                   "</div>" . 
                   "<div class='product_details_price_div'>" . 
                     "<label class='product_details_price_label'>Current Price: $price</label>" . 
