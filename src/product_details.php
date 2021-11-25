@@ -98,6 +98,7 @@
                 <div class='form_elements'>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
                   <?php
+                  echo "test";
                    while($row = $result_inventory->fetch_assoc()){
                     $picked_color = $row['color'];
                     if($picked_color = ""){
