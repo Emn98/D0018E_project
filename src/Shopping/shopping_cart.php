@@ -6,7 +6,10 @@
   $path .= "/Accounts/log_in_check.php";
   require($path);
 
-  $item_array = get_
+  session_start();
+
+  $ar = array($_SESSION["cart_id"]);
+  print_r($ar); 
   
   
 

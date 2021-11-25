@@ -17,7 +17,7 @@ include_once($path);
 $user_id = $_SESSION["user_id"];
 
 //Check if the user have a shopping cart in the database
-if($_SESSION["cart_id"] == null){
+if($_SESSION["cart_id"] == ""){
   $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");
   $query -> bind_param("i", $user_id);
   $query -> execute();
