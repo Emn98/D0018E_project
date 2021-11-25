@@ -17,7 +17,7 @@
   $product_color = $_post['product_color'];
   $cart_id = $_SESSION["cart_id"];
 
-  echo"$product_color";
+  echo $product_color;
 
   //Check the database if product already in cart
   $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=? and color=?");
