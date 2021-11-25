@@ -16,9 +16,9 @@
   $product_id = $_POST['product_id'];
   $cart_id = $_SESSION["cart_id"];
 
-  echo"$quantity";
-  echo"$product_id";
-  echo"$cart_id";
+  echo"$quantity     ";
+  echo"$product_id     ";
+  echo"$cart_id     ";
 
   //Check the database if product already in cart
   $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=?");
