@@ -57,11 +57,11 @@
 
               $_SESSION["cart_id"] = $cart_id;
 
-                header("Location: user_page.php");//if user logged in go to user page.
-                exit;
+              header("Location: user_page.php");//if user logged in go to user page.
+              exit;
             }else{
-                header("Location: admin_page.php");//if admin logged in go to admin page.
-                exit;
+               header("Location: admin_page.php");//if admin logged in go to admin page.
+               exit;
             }
         }
      ?>
