@@ -98,7 +98,7 @@
       </div>
     <div>
 
-    <form class="buy_button" method="POST" action="/Shopping/buy_2.php"> 
+    <form class="buy_button" method="POST" action="/Shopping/buy.php"> 
       <div class="form_elements">
         <input type="number" id="quantity" name="quantity" class="register_input" placeholder="Quantity" required>
         <label for="quantity" class="form_label">Enter Quantity</label>
