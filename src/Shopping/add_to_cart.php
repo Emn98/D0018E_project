@@ -4,7 +4,7 @@
 
   //Check so the user have a cart. 
   $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/Shopping/check_shopping.php";
+  $path .= "/Shopping/check_if_user_have_cart.php";
   require($path);
 
   //creates connection to database
