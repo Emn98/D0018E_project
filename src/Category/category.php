@@ -70,9 +70,9 @@
                 $picture = $row['picture'];
                 ?>
                 <div class='list_product_div'>
-                  <img src ='<?php $picture ?>' width = '200' height = '250'>
-                  <label class='product_name_label'><?php $name ?></label>
-                  <label class='product_name_label'><?php $description ?></label>
+                  <img src ='<?php echo $picture ?>' width = '200' height = '250'>
+                  <label class='product_name_label'><?php echo $name ?></label>
+                  <label class='product_name_label'><?php echo $description ?></label>
                   <div class='product_price_buy_div'>
                     <label class='product_price_label'>From <?php echo $price ?> kr</label>
                     <form action='/product_details.php' method='post'>
