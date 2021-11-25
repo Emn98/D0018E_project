@@ -59,10 +59,9 @@
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
+          $result_inventory_2 = $query->get_result();
           $query->fetch();
           $query->close();
-
-          $result_inventory_2 = $result_inventory;
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
           $stmt->bind_param("s", $product_name);
