@@ -17,6 +17,8 @@
   $product_color = $_post['product_color'];
   $cart_id = $_SESSION["cart_id"];
 
+  echo"$product_color";
+
   //Check the database if product already in cart
   $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? and product_id=? and color=?");
   $query->bind_param("ii", $cart_id, $product_id);
@@ -46,3 +48,11 @@
              <p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>
              </div>";
 ?>
+
+
+
+
+
+
+
+

@@ -94,11 +94,19 @@
             </div>
             <div class='product_details_price_div'>
               <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
-              <form class='buy_button' method='POST' action='/Shopping/buy.php'>
+              <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
                 <div class='form_elements'>
-                  <input type='number' id='quantity' name='quantity' class='register_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
+                  <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
+                  <select name="color_category" id="color_category">
+                  <?php
+                   while($row_inventory = $result_inventory->fetch_assoc()){
+                    $picked_color = $row_inventory['color'];
+                    echo "<option value='$picked_color'>$picked_color</option>";
+                  }
+                  ?>
+                  </select>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
-                  <form action='/Shopping/buy_2.php' method='post'>
+                  <input type="hidden" class ="purschase_input" name="product_color"  value="<?php echo '$picked_color';?>">
                     <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
                     <button class='form_button'>Buy</button>
                 </div>
