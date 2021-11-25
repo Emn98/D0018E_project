@@ -67,7 +67,7 @@
                 $discount = $row['discount'];
                 $picture = $row['picture'];
                 echo "<div class='list_product_div'>";
-                echo "<img src ='$picture' sizes: maxwidth(375px) 100 vw>";
+                echo "<img src ='$picture' width = '200' height = '250'>";
                 echo "<label class='product_name_label'>$name</label>";
                 echo "<label class='product_name_label'>$description</label>";
                 echo "<div class='product_price_buy_div'>";
