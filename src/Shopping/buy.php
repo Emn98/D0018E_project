@@ -39,6 +39,10 @@
     $query->close();
  }
 
- echo"added item to shopping cart";
+ echo "<div class='form'>
+             <h3>Products Has Been Added To Cart.</h3><br/>
+             <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
+             <p class='link'>Click here to <a href='/product_handling/product_details.php'>continue shopping</a>.</p>
+             </div>";
 
 ?>
