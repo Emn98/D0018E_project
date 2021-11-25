@@ -103,7 +103,7 @@
                   <select name="product_color" id="choose_color">
                   <?php
                     foreach ($color_arr as $color) {
-                      echo "<option value='$color'>$color</option>";
+                      echo "<option value=$color>$color</option>";
                     }
                   ?>
                   </select>
