@@ -61,11 +61,54 @@
                 </tr>
               </thead>
               <?php
+                $temp = 1;
                while ($row = $result->fetch_assoc()) {
-                echo $row["product_id"];
+                $query = $con->prepare("SELECT price, picture product_name FROM PRODUCTS WHERE product_id=?");
+                $query->bind_param("i", $row["product_id"]);
+                $query->execute();
+                $query->bind_result($product_price, $product_pic_address, $product_name);
+                $query->fetch();
+                $query->close();
+
+                $color = $row["color"];
+                $quantity = $row["quantity"];
+                
+                if($temp == 1){
+                  echo "<tr class='table_row_odd'>";
+                  echo "<td>";
+                  echo "<div class='product_display'";
+                  echo "<img src=$product_pic_address alt='product picture'";
+                  echo "<div class='product_info'>";
+                  echo "<p>$product_name</p>";
+                  echo "<small>remove</small>";
+                  echo"</div>";
+                  echo"</div>";
+                  echo "</td>";
+                  echo "<td>$color</td>";
+                  echo "<td>$quantity</td>";
+                  echo "<td>$quantity*$product_price</td>";
+                  echo "</tr>";
+                  $temp = 0;
+                }else{
+                  echo "<tr class='table_row_even'>";
+                  echo "<td>";
+                  echo "<div class='product_display'";
+                  echo "<img src=$product_pic_address alt='product picture'";
+                  echo "<div class='product_info'>";
+                  echo "<p>$product_name</p>";
+                  echo "<small>remove</small>";
+                  echo"</div>";
+                  echo"</div>";
+                  echo "</td>";
+                  echo "<td>$color</td>";
+                  echo "<td>$quantity</td>";
+                  echo "<td>$quantity*$product_price</td>";
+                  echo "</tr>";
+                  $temp = 1;
+
+                }
                }
               ?>
-             
                 </tr>
                 <tr class="table_row_odd">
                   <td>
