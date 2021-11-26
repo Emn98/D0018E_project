@@ -18,6 +18,8 @@
     $query->execute();
     $query->close();
 
+    $_SESSION["cart_id"] = "NULL";//Reset cart variable
+
     header("Location: shopping_cart.php");
 
 
