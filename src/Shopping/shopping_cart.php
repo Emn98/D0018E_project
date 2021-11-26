@@ -72,7 +72,9 @@
 
                 $color = $row["color"];
                 $quantity = $row["quantity"];
+                $sub_total = $quantity * $product_price;
                 
+                echo $product_pic_address;
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
@@ -86,7 +88,7 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$quantity'*'$product_price</td>";
+                  echo "<td>$$sub_total</td>";
                   echo "</tr>";
                   $temp = 0;
                 }else{
@@ -102,7 +104,7 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$quantity*$product_price</td>";
+                  echo "<td>$sub_total</td>";
                   echo "</tr>";
                   $temp = 1;
 
