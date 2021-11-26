@@ -73,7 +73,7 @@
    echo $new_total_price;
 
 
-   $query = $con->prepare("UPDATE CARTS SET total_quantity=? AND total_price=? WHERE cart_id=?");
+   $query = $con->prepare("UPDATE CARTS SET total_quantity=?, total_price=? WHERE cart_id=?");
    $query -> bind_param("iii", $new_total_quantity, $new_total_price, $cart_id);
    $query -> execute();
    $query->close();

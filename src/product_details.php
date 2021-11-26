@@ -103,9 +103,9 @@
                   <label class="form_label" for="quantity">Enter Quantity</label>
                   <select name="product_color" id=choose_color class="select_color">
                     <?php
-                    foreach ($color_arr as $color) {
-                      echo "<option value=$color>$color</option>";//Display the available colors in a select tag on the site. 
-                    }  
+                      foreach ($color_arr as $color) {
+                         echo "<option value=$color>$color</option>";//Display the available colors in a select tag on the site. 
+                      }  
                     ?>
                   </select>
                   <input type='hidden' id='product_id' name='product_id' class='purchase_input' value='<?php echo $product_id ?>'>
