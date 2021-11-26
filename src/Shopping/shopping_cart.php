@@ -89,7 +89,7 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$$sub_total</td>";
+                  echo "<td>$sub_total$</td>";
                   echo "</tr>";
                   $temp = 0;
                 }else{
@@ -107,7 +107,7 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$sub_total</td>";
+                  echo "<td>$sub_total$</td>";
                   echo "</tr>";
                   $temp = 1;
 
