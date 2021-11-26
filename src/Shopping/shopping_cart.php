@@ -12,15 +12,17 @@
   include_once($path);
 
 
-
   session_start();
 
+  $query = $con->prepare("SELECT prodduct_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
+  $query->bind_param("i", $cart_id);
+  $query->execute();
+  $result = $query->get_result();
+  $query->fetch();
+  $query->close();
 
-  include("shopping_cart_backend.php");
 
-  $results = retrive_cart_items();
 
-  print_r($results)
 
 ?>
 <!DOCTYPE html>
