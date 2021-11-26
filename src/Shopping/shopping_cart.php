@@ -161,9 +161,11 @@
             <table class="info_table">
               <tr>
                 <td class="total_label">Total:</td>
-                <td class="total_price"><?php echo$total_price;?></td>
+                <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
+            <form class="Delete_product_btn_form" action="delete_cart.php">
+              <button>Delete Cart</button>
           </div>
         </div>    
       <div class="left_side">Left Side</div>
