@@ -20,6 +20,8 @@
 
   $results = retrive_cart_items();
 
+  print_r($results)
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,8 +59,8 @@
                 </tr>
               </thead>
               <?php
-               while ($row = $result->fetch_assoc()) {
-                 echo $row["product_id"];
+               while ($row = $results->fetch_assoc()) {
+                echo $row["product_id"];
                }
               ?>
              
