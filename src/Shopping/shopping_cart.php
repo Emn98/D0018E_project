@@ -66,20 +66,21 @@
                 $query = $con->prepare("SELECT price, picture, product_name FROM PRODUCTS WHERE product_id=?");
                 $query->bind_param("i", $row["product_id"]);
                 $query->execute();
-                $query->bind_result($product_price, $product_pic_address, $product_name);
+                $query->bind_result($product_price, $picture, $product_name);
                 $query->fetch();
                 $query->close();
 
                 $color = $row["color"];
                 $quantity = $row["quantity"];
                 $sub_total = $quantity * $product_price;
+                echo $picture;
                 
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                 <img src ='<?php echo $product_pic_address ?>'>
+                 <img src ='<?php echo $picture ?>'>
                   <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
@@ -97,7 +98,7 @@
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                   <img src ='<?php echo $product_pic_address ?>'>
+                   <img src ='<?php echo $picture ?>'>
                  <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
