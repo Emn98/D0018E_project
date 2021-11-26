@@ -44,12 +44,24 @@
             $_SESSION["user_id"] = $user_id;
             $_SESSION["user_pwd"] = $hashed_pwd;
 
+
             if($_SESSION["user_id"] != 0){ 
-                header("Location: user_page.php");//if user logged in go to user page.
-                exit;
+
+              //Retrive the users cart id
+              $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
+              $query->bind_param("i", $user_id);
+              $query->execute();
+              $query->bind_result($cart_id);
+              $query->fetch();
+              $query->close();
+
+              $_SESSION["cart_id"] = $cart_id;
+
+              header("Location: user_page.php");//if user logged in go to user page.
+              exit;
             }else{
-                header("Location: admin_page.php");//if admin logged in go to admin page.
-                exit;
+               header("Location: admin_page.php");//if admin logged in go to admin page.
+               exit;
             }
         }
      ?>

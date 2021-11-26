@@ -1,8 +1,7 @@
-    <!--This script will check if the user is logged in, if not redirect to log in page -->
+<!-- This php scirpt will check if the logged in user have a cart in the database and
+if not it will create one for him/her -->
 <?php
-
-
-  //Check so the user is logged in. 
+  //Check so the user is logged in.  
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Accounts/log_in_check.php";
   require($path);
@@ -17,8 +16,8 @@
   $user_id = $_SESSION["user_id"];
 
   //Check if the user have a shopping cart in the database
-  if(!isset($_SESSION["cart_id"])){
-    $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");
+  if(gettype($_SESSION["cart_id"]) == "NULL" || !isset($_SESSION["cart_id"])){
+    $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");//If not create the cart
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
@@ -32,7 +31,4 @@
 
     $_SESSION["cart_id"] = $cart_id;
   }
-
-
-
 ?>

@@ -1,36 +1,36 @@
 <?php 
-    //creates connection to database
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include_once($path);
+  //creates connection to database
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path);
 
-    // When form submitted, insert values into the database.
-    if (isset($_POST['submit'])) {  
-        $first_name = $_POST['first_name'];
-        $last_name  = $_POST['last_name'];
-        $email_addres = $_POST['email_address'];
-        $t_number   = $_POST['phone_nr'];
-        $addres     = $_POST['address'];
-        $pwd        = $_POST['pwd'];
-        $post_code  = $_POST["post_code"];
-        $city       = $_POST["city"];
-        $care_of_address = $_POST["care_of_address"];
-        $sha_pwd = sha1($pwd);
+  // When form submitted, insert values into the database.
+  if (isset($_POST['submit'])) {  
+    $first_name = $_POST['first_name'];
+    $last_name  = $_POST['last_name'];
+    $email_addres = $_POST['email_address'];
+    $t_number   = $_POST['phone_nr'];
+    $addres     = $_POST['address'];
+    $pwd        = $_POST['pwd'];
+    $post_code  = $_POST["post_code"];
+    $city       = $_POST["city"];
+    $care_of_address = $_POST["care_of_address"];
+    $sha_pwd = sha1($pwd);
 
-        //Checks so the user have written the same password twice
-        if($_POST["pwd"] == $_POST["pwd2"]){
-            $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
-            $email_exist->bind_param("s", $email_addres);
-            $email_exist->execute();
-            $email_exist->bind_result($email_addres_exists);
-            $email_exist->fetch();
-            $email_exist->close();
+      //Checks so the user have written the same password twice
+      if($_POST["pwd"] == $_POST["pwd2"]){
+          $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
+          $email_exist->bind_param("s", $email_addres);
+          $email_exist->execute();
+          $email_exist->bind_result($email_addres_exists);
+          $email_exist->fetch();
+          $email_exist->close();
 
-            $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
+          $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
                                       city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
-            $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
-            $query -> execute();
-            $query->close();
+          $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
+          $query -> execute();
+          $query->close();
 
 
             if ($email_addres_exists == "") { // Account creation successfull

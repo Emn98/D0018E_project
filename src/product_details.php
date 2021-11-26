@@ -62,6 +62,8 @@
           $query->fetch();
           $query->close();
 
+          $color_arr = array();
+
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
           $stmt->bind_param("s", $product_name);
           $stmt->execute();
@@ -88,23 +90,28 @@
                     "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
               while($row_inventory = $result_inventory->fetch_assoc()){
                 echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
+                array_push($color_arr, $row_inventory['color']);
               }
               echo "</table>";
               ?>
             </div>
             <div class='product_details_price_div'>
               <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
-              <form class='buy_button' method='POST' action='/Shopping/buy.php'>
-                <div class='form_elements'>
-                  <input type='number' id='quantity' name='quantity' class='register_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
-                  <label for='quantity' class='form_label'>Enter Quantity</label>
-                  <form action='/Shopping/buy_2.php' method='post'>
-                    <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
-                    <button class='form_button'>Buy</button>
+              <form class="buy_button" method="POST" action="/Shopping/add_to_cart.php">
+                <div class="form_elements">
+                  <input type="number" id="quantity" name="quantity" class="purchase_input" placeholder="Quantity" min="1" require>
+                  <label class="form_label" for="quantity">Enter Quantity</label>
+                  <select name="product_color" id=choose_color class="select_color">
+                    <?php
+                      foreach ($color_arr as $color) {
+                         echo "<option value=$color>$color</option>";//Display the available colors in a select tag on the site. 
+                      }  
+                    ?>
+                  </select>
+                  <input type='hidden' id='product_id' name='product_id' class='purchase_input' value='<?php echo $product_id ?>'>
+                  <button class='form_button'>Buy Product</button>
                 </div>
-                <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
-                <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
-              </form>
+              </form> 
             </div>
             <div class='best_customer_review_div'>
               this is future best customer review
