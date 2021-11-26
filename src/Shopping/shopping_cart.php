@@ -74,7 +74,6 @@
                 $quantity = $row["quantity"];
                 $sub_total = $quantity * $product_price;
                 
-                echo $product_pic_address;
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
