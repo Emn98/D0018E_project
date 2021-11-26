@@ -87,7 +87,7 @@
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                 <img src ='<?php echo $picture ?>'>
+                 <img src ='<?php echo $picture ?>' alt="product"/>
                   <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
