@@ -14,6 +14,8 @@
 
   session_start();
 
+  $cart_id = $_SESSION["cart_id"];
+
   $query = $con->prepare("SELECT prodduct_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
   $query->bind_param("i", $cart_id);
   $query->execute();
