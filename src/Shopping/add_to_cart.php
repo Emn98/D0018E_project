@@ -52,18 +52,24 @@
     $query->close();
  }
 
-   $query = $con->prepare("SELECT total_price AND total_quantity FROM CARTS WHERE cart_id=?");
+   $query = $con->prepare("SELECT total_price, total_quantity FROM CARTS WHERE cart_id=?");
    $query -> bind_param("i",  $cart_id);
    $query -> execute();
    $query->bind_result($total_price, $total_quantity);
    $query->fetch();
    $query->close();
 
+   
    $new_total_quantity = $total_quantity + $quantity;
    $new_total_price = $total_price + ($product_price * $quantity);
 
+   echo $total_price;
+   echo $total_quantity;
+   echo $quantity;
+   echo $product_price;
+
    $query = $con->prepare("UPDATE CARTS SET total_quantity=? AND total_price=? WHERE cart_id=?");
-   $query -> bind_param("iii", $new_total_quantity , $new_total_price, $cart_id);
+   $query -> bind_param("iii", $new_total_quantity, $new_total_price, $cart_id);
    $query -> execute();
    $query->close();
 
