@@ -23,15 +23,13 @@
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
 
-        echo($category);
-
         // establish connection
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
 
-        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY ->
-        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
+        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
+        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
         $stmt = $con->prepare("SELECT * FROM PRODUCTS");
         $stmt->execute();
@@ -62,9 +60,7 @@
         // perform query
 
         }
-
-        printf("%d row inserted.\n", $stmt->affected_rows);
-        
+    
       ?>
 
     <form action="add_product_form.php" method="post">
