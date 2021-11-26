@@ -24,6 +24,14 @@
   $query->close();
 
 
+  $query = $con->prepare("SELECT total_price FROM CARTS WHERE cart_id=?");
+  $query->bind_param("i", $_SESSION["cart_id"]);
+  $query->execute();
+  $query->bind_result($total_price);
+  $query->fetch();
+  $query->close();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +87,7 @@
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                 <img src ='<?php echo $picture ?>'>
+                 <img src =<?php echo $picture ?>>
                   <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
@@ -97,7 +105,7 @@
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                   <img src ='<?php echo $picture ?>'>
+                   <img src =<?php echo $picture ?>>
                  <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
@@ -153,7 +161,7 @@
             <table class="info_table">
               <tr>
                 <td class="total_label">Total:</td>
-                <td class="total_price">200kr</td>
+                <td class="total_price"><?php echo$total_price;?></td>
               </tr>
             </table>
           </div>
