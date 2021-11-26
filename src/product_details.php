@@ -97,7 +97,7 @@
             </div>
             <div class='product_details_price_div'>
               <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
-              <form class="buy_button" method="POST" action="/shopping/add_to_cart.php">
+              <form class="buy_button" method="POST" action="/Shopping/add_to_cart.php">
                 <div class="form_elements">
                   <input type="number" id="quantity" name="quantity" class="purchase_input" placeholder="Quantity" min="1" require>
                   <label class="form_label" for="quantity">Enter Quantity</label>
