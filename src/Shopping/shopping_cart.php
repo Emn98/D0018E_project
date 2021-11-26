@@ -68,6 +68,7 @@
                   <th>Subtotal</th>
                 </tr>
               </thead>
+              <tbody>
               <?php
                 $temp = 1;
                while ($row = $result->fetch_assoc()) {
@@ -118,10 +119,13 @@
                   echo "<td>$sub_total$</td>";
                   echo "</tr>";
                   $temp = 1;
-
                 }
                }
               ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <div class="shopping_cart_info">
           <div class="in_shopping_cart_info">
             <h3>Summary</h3>
