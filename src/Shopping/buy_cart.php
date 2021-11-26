@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include_once($path);
