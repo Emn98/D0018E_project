@@ -85,7 +85,7 @@
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
-                  echo "<div class='product_display'";
+                  echo "<div class='product_display'>";
                   ?>
                  <img src ='<?php echo $picture ?>' alt="product"/>
                   <?php
@@ -103,7 +103,7 @@
                 }else{
                   echo "<tr class='table_row_even'>";
                   echo "<td>";
-                  echo "<div class='product_display'";
+                  echo "<div class='product_display'>";
                   ?>
                    <img src =<?php echo $picture ?>>
                  <?php
