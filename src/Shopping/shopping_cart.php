@@ -134,9 +134,6 @@
             <form class="Delete_product_btn_form" action="delete_cart.php">
               <button>Delete Cart</button>
             </form>
-            <form class="buy_product_btn_form" action="buy_cart.php">
-              <button>Buy products</button>
-            </form>
           </div>
         </div>    
       <div class="left_side">Left Side</div>
