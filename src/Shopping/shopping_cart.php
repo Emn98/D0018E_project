@@ -61,7 +61,7 @@
                 </tr>
               </thead>
               <?php
-               while ($row = $results->fetch_assoc()) {
+               while ($row = $result->fetch_assoc()) {
                 echo $row["product_id"];
                }
               ?>
