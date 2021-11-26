@@ -24,6 +24,7 @@
     $query->bind_param("s", $cart_id);
     $query->execute();
     $result = $query->get_result();
+    $query->fetch();
     $query->close();
 
     return($result);
