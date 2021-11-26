@@ -78,7 +78,9 @@
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
                   echo "<div class='product_display'";
-                  echo "<img src='$product_pic_address' alt='product picture'";
+                  ?>
+                 <img src ='<?php echo $product_pic_address ?>'>
+                  <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
                   echo "<small>remove</small>";
@@ -94,7 +96,9 @@
                   echo "<tr class='table_row_even'>";
                   echo "<td>";
                   echo "<div class='product_display'";
-                  echo "<img src='$product_pic_address' alt='product picture'";
+                  ?>
+                   <img src ='<?php echo $product_pic_address ?>'>
+                 <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
                   echo "<small>remove</small>";
