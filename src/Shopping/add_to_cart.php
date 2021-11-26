@@ -56,14 +56,8 @@
    $query -> bind_param("i",  $cart_id);
    $query -> execute();
    $query->bind_result($total_price, $total_quantity);
+   $query->fetch();
    $query->close();
-
-   echo $total_price;
-   echo $total_quantity;
-   echo  $quantity;
-   echo $product_price;
-
-
 
    $new_total_quantity = $total_quantity + $quantity;
    $new_total_price = $total_price + ($product_price * $quantity);
