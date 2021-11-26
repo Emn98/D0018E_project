@@ -18,7 +18,7 @@
     $query->execute();
     $query->close();
 
-    $_SESSION["cart_id"] = "NULL";//Reset cart variable
+    unset($_SESSION["cart_id"]);//Reset cart_id variable
 
     header("Location: shopping_cart.php");
 
