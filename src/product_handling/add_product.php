@@ -34,7 +34,7 @@
         $stmt = $con->prepare("SELECT * FROM PRODUCTS");
         $stmt->execute();
 
-        if($stmt->affected_rows != 0){
+        /*if($stmt->affected_rows != 0){
           $stmt->close();
           $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
           ?,?)");
@@ -42,8 +42,8 @@
           $stmt->execute();
           $stmt->close();
 
-        } else{
-          $stmt->close();
+        }*/
+        $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
 
@@ -58,8 +58,6 @@
         $stmt->close();
 
         // perform query
-
-        }
     
       ?>
 
