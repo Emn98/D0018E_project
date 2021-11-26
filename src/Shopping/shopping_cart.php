@@ -16,14 +16,12 @@
 
   $cart_id = $_SESSION["cart_id"];
 
-  $query = $con->prepare("SELECT prodduct_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
-  $query->bind_param("i", $cart_id);
-  $query->execute();
-  $result = $query->get_result();
-  $query->fetch();
-  $query->close();
-
-
+  //$query = $con->prepare("SELECT prodduct_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
+  //$query->bind_param("i", $cart_id);
+  //$query->execute();
+  //$result = $query->get_result();
+  //$query->fetch();
+  //$query->close();
 
 
 ?>
