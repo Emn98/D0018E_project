@@ -81,13 +81,15 @@
                 $color = $row["color"];
                 $quantity = $row["quantity"];
                 $sub_total = $quantity * $product_price;
+
+                echo $picture;
                 
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
                   echo "<td>";
                   echo "<div class='product_display'";
                   ?>
-                 <img src =<?php echo $picture ?>>
+                 <img src ='<?php echo $picture ?>'>
                   <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
