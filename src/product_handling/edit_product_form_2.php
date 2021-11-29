@@ -52,6 +52,8 @@
 
             print_r($_POST);
 
+            $stmt->close();
+
             $stmt = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id = (SELECT product_id FROM PRODUCTS WHERE product_name = ? )");
             $stmt->bind_param("s", $product_name);
             $stmt->execute();
