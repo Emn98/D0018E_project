@@ -35,9 +35,10 @@
 
         $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ? LIMIT 1");
         $stmt->bind_param("s", $product_name);
+        $stmt->execute();
         $stmt->bind_result($product_name_exists);
         $stmt->fetch();
-        $stmt->execute();
+        
 
         print_r($_POST);
         echo "<br>" . "this is product_name: "  . $product_name_exists;
