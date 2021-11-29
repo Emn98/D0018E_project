@@ -32,7 +32,9 @@
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT product_name, inventory_id, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
+        
+
+        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE inventory_id = $inventory_id");
           
         $stmt->execute();
 
@@ -40,7 +42,7 @@
 
         $stmt->close();
 
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE inventory_id = $inventory_id");
+        $stmt = $con->prepare("UPDATE PRODUCT SELECT product_id,product_name, inventory_id, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
           
         $stmt->execute();
 
