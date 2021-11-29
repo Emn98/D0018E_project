@@ -38,7 +38,7 @@
         $stmt->execute();
 
         print_r($_POST);
-        echo "<br>" . $product_id_exists;
+        echo "<br>" . "this is product_id: "  . $product_id_exists;
 
         if($product_id_exists == ""){
           $stmt->close();
