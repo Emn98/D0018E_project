@@ -32,7 +32,6 @@ $(document).ready(function() {
   });
 });
 function saveData() {
-  alert("this is happening 2");
   var table = document.getElementsByClassName('edit_table');
     for (var r = 0, n = table.rows.length; r < n; r++) {
         for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
