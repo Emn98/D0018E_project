@@ -46,7 +46,7 @@ function saveData() {
 
   $.ajax({
     type: "POST",
-    url: "/Product_handling/edit_product.php",
+    url: "http://130.240.200.39/product_handling/edit_product.php",
     data: { table_array: obj},
     success: function() {
          alert("this worked");
