@@ -37,6 +37,9 @@
         $stmt->fetch();
         $stmt->execute();
 
+        print_r($_POST);
+        echo "<br>" . $product_id_exists;
+
         if($product_id_exists == ""){
           $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
