@@ -31,14 +31,13 @@
         // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name like ?");
+        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name like ? LIMIT 1");
         $stmt->bind_param('s', $product_name);
         $stmt->bind_result($product_name_exists);
         $stmt->fetch();
         $stmt->execute();
 
         print_r($_POST);
-        echo (gettype($product_name));
         echo "<br>" . "this is product_name: "  . $product_name_exists;
 
         if($product_name_exists == ""){
