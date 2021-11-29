@@ -1,5 +1,5 @@
 <?php
-include("checkadmin.php");
+require("check_admin.php");
 ?>
 
 <html lang="en">
