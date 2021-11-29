@@ -57,6 +57,7 @@ require("check_admin.php");
             include($path);
 
             $product_name = $_POST['product_name'];
+            print_r($_POST);
 
             $stmt = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id = (SELECT product_id FROM PRODUCTS WHERE product_name = ?)");
             $stmt->bind_param("s", $product_name);
