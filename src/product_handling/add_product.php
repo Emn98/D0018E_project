@@ -31,7 +31,9 @@
         // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name like ? LIMIT 1");
+        echo $product_name;
+
+        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ? LIMIT 1");
         $stmt->bind_param('s', $product_name);
         $stmt->bind_result($product_name_exists);
         $stmt->fetch();
