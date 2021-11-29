@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 // listen to typing in table edit_product
 
-$('.edit_table').keyup(function() {
+$('.edit_table td').keyup(function() {
   alert("this is happening 1");
   clearTimeout($.data(this, 'timer'));
   var wait = setTimeout(saveData, 500); // delay after user types
