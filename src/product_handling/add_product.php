@@ -38,6 +38,7 @@
         $stmt->execute();
 
         print_r($_POST);
+        echo (gettype($product_name));
         echo "<br>" . "this is product_name: "  . $product_name_exists;
 
         if($product_name_exists == ""){
