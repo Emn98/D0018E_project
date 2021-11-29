@@ -36,7 +36,7 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        print_r($_POST);
+        echo $_REQUEST['table_array'];
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
