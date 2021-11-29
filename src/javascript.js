@@ -24,12 +24,14 @@ $(document).ready(function() {
 
 // listen to typing in table edit_product
 
-$('.edit_table td').keyup(function() {
+$('.edit_table').keyup(function() {
+  alert("this is happening 1");
   clearTimeout($.data(this, 'timer'));
   var wait = setTimeout(saveData, 500); // delay after user types
   $(this).data('timer', wait);
 });
 function saveData() {
+  //alert("this is happening 2");
   var table = document.getElementsByClassName('edit_table');
     for (var r = 0, n = table.rows.length; r < n; r++) {
         for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
