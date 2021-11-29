@@ -42,7 +42,7 @@ function saveData() {
       td_2: $row.find(':nth-child(2)').text()
      };
   }).get();
-  alert(obj.td_1);
+  //alert(obj.td_1);
 
   $.ajax({
     type: "POST",
