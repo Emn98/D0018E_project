@@ -17,7 +17,7 @@
   $query->fetch();
   $query->close();
 
-  print_r($query);
+  print_r($address_1);
 ?>
 <!DOCTYPE html>
 <html>
