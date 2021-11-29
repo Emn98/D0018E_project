@@ -37,7 +37,7 @@
         $stmt->fetch();
         $stmt->execute();
 
-        if($product_id_exitst == ""){
+        if($product_id_exists == ""){
           $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
