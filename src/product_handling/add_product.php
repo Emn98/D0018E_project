@@ -31,7 +31,7 @@
         // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
+        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name=?");
         $stmt->bind_param('s', $product_name);
         $stmt->bind_result($product_id_exists);
         $stmt->fetch();
