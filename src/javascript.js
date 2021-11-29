@@ -53,6 +53,6 @@ function saveData() {
     }
     
   });
-  $('#redirect').submit();
+  $("#redirect").submit();
 
 }

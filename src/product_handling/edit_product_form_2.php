@@ -16,7 +16,7 @@ require("check_admin.php");
         <div class="inner_product_div">
 
             <h1>Edit Product Page</h1>
-            <form action="edit_product.php" method="post">
+            <form action="edit_product.php" id="redirect" method="post">
             <label>Edit information:</label><br>
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" required><br>
@@ -72,7 +72,7 @@ require("check_admin.php");
             }
             echo "</table>"; 
             ?>   
-            <button type="submit" id="redirect" class="btn">Send</button>
+            <button type="submit" class="btn">Send</button>
             </form>
 
             <form action="/Accounts/admin_page.php" method="post">
