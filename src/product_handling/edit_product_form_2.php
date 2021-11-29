@@ -65,7 +65,7 @@ require("check_admin.php");
             $stmt->fetch();
             $stmt->close();
 
-            echo "<table class='edit_table'>".
+            echo "<table id='edit_table'>".
                     "<tr><td>Current Colors</td><td>Current Quantity</td></tr>"; 
             while($row_inventory = $result_inventory->fetch_assoc()){
                 echo "<tr><td contenteditable='true'>" . $row_inventory['color'] . "</td><td contenteditable='true'>" . $row_inventory['quantity'] . "</td></tr>";
