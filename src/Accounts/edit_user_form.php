@@ -16,6 +16,8 @@
   $query->bind_result($first_name, $last_name, $email_address, $tel_nr, $address_1, $address_2, $city, $postal_code);
   $query->fetch();
   $query->close();
+
+  print_r($query);
 ?>
 <!DOCTYPE html>
 <html>

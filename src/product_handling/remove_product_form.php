@@ -1,3 +1,7 @@
+<?php
+require("check_admin.php");
+?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">

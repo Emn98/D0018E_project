@@ -1,3 +1,7 @@
+<?php
+require("check_admin.php");
+?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -23,28 +27,27 @@
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
 
-        echo($category);
-
         // establish connection
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
 
-        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY ->
-        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> UPDATE inventory_id in PRODUCTS -> done
+        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
+        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+        echo $product_name;
+
+        $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ? LIMIT 1");
+        $stmt->bind_param("s", $product_name);
         $stmt->execute();
+        $stmt->bind_result($product_name_exists);
+        $stmt->fetch();
+        
 
-        if($stmt->affected_rows != 0){
-          $stmt->close();
-          $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
-          ?,?)");
-          $stmt->bind_param("sis", $product_name, $quantity, $color);
-          $stmt->execute();
-          $stmt->close();
+        print_r($_POST);
+        echo "<br>" . "this is product_name: "  . $product_name_exists;
 
-        } else{
+        if($product_name_exists == ""){
           $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
@@ -59,12 +62,22 @@
         $stmt->execute();
         $stmt->close();
 
-        // perform query
+        } else{
+          $stmt->close();
+        $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
+        ?,?)");
+        $stmt->bind_param("sis", $product_name, $quantity, $color);
+        $stmt->execute();
+        $stmt->close();
 
         }
-
-        printf("%d row inserted.\n", $stmt->affected_rows);
         
+        
+
+
+        
+        // perform query
+    
       ?>
 
     <form action="add_product_form.php" method="post">
