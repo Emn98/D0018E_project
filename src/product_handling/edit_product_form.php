@@ -20,7 +20,7 @@
           $path .= "/database.php";
           include_once($path);
 
-          $stmt = $con->prepare("SELECT product_name, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
+          $stmt = $con->prepare("SELECT product_name, inventory_id, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
           
           $stmt->execute();
 
@@ -29,7 +29,7 @@
           while($row = $result->fetch_assoc()){
             $product_name = $row['product_name'];
             $product_color = $row['color'];
-            echo "<option value='$product_name'>" . $product_name . " color: "  . $product_color .  "</option>";
+            echo "<option value='$inventory_id'>" .  "Name: ". $product_name . " color: "  . $product_color .  "</option>";
           }
           $con->close();
           
