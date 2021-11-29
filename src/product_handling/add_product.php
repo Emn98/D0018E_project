@@ -31,11 +31,13 @@
         // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
+        $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
         $stmt->bind_param('s', $product_name);
+        $stmt->bind_result($product_id_exists);
+        $stmt->fetch();
         $stmt->execute();
 
-        if($stmt->affected_rows == 0){
+        if($product_id_exitst == ""){
           $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
