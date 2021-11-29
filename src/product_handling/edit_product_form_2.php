@@ -72,7 +72,7 @@ require("check_admin.php");
             }
             echo "</table>"; 
             ?>   
-            <button type="submit" class="btn">Send</button>
+            <button type="submit" id="redirect" class="btn">Send</button>
             </form>
 
             <form action="/Accounts/admin_page.php" method="post">

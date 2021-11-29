@@ -42,7 +42,17 @@ function saveData() {
       td_2: $row.find(':nth-child(2)').text()
      };
   }).get();
-  alert(obj[1].td_1);
+  alert(obj.td_1);
 
+  $.ajax({
+    type: "POST",
+    url: "/Product_handling/edit_product.php",
+    data: { table_array: obj},
+    success: function() {
+         alert("this worked");
+    }
+    
+  });
+  $('#redirect').submit();
 
 }
