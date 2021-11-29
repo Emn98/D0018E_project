@@ -31,7 +31,8 @@
         // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
         // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+        $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
+        $stmt->bind_param('s', $product_name);
         $stmt->execute();
 
         if($stmt->affected_rows == 0){
@@ -49,14 +50,17 @@
         $stmt->execute();
         $stmt->close();
 
-        }
-        
-        $stmt->close();
+        } else{
+          $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES ((SELECT product_id FROM PRODUCTS WHERE product_name=?),
         ?,?)");
         $stmt->bind_param("sis", $product_name, $quantity, $color);
         $stmt->execute();
         $stmt->close();
+
+        }
+        
+        
 
 
         
