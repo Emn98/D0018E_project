@@ -42,7 +42,7 @@ function saveData() {
       td_2: $row.find(':nth-child(2)').text()
      };
   }).get();
-  alert(obj.td_1);
+  alert(obj[1].td_1);
   var path = "http://130.240.200.39/product_handling/edit_product_form_2.php";
 
   $.ajax({
