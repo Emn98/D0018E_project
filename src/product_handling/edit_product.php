@@ -16,9 +16,9 @@ require("check_admin.php");
       
       <?php
 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-
+        $data = json_decode($_POST['data']);
+        print_r($data);
+        /*
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
@@ -36,8 +36,7 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        $data = json_decode($_POST['data']);
-        print_r($data);
+        
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
@@ -59,8 +58,9 @@ require("check_admin.php");
 
         $stmt->close();
 
-        
+      */  
       ?>
+      
 
     <form action="edit_product_form.php" method="post">
     <button type="submit" class="btn">Return</button>
