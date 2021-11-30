@@ -53,6 +53,7 @@ function saveData() {
     data: {'data':JSON.stringify(obj)},
     success: function(data){
       alert('horray! 200 status code!');
+      alert(data);
       
     },
     error: function(jqXHR, textStatus, errorThrown) {
