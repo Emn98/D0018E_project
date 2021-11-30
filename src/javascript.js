@@ -43,6 +43,8 @@ function saveData() {
      };
   }).get();
   //alert(obj.td_1);
+  var path = "${pageContext.request.contextPath}/edit_product.php";
+  alert(path);
 
   $.ajax({
     cache: false,
