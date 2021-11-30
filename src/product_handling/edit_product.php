@@ -18,9 +18,7 @@ require("check_admin.php");
 
         $data = $this->input->post('data');
         $data = json_decode($data);
-        $color = $data[0]->td_1;
-        echo $color;
-        print_r($data);
+        
         /*
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
