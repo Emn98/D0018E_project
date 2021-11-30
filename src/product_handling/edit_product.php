@@ -36,7 +36,9 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        echo $_REQUEST['table_array'];
+        $strRequest = file_get_contents('php://input');
+        $Request = json_decode($strRequest);
+        echo $Request;
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
