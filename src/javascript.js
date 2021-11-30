@@ -50,8 +50,7 @@ function saveData() {
     cache: false,
     type: "POST",
     url: path,
-    dataType: "json",
-    data: (JSON.stringify(JSON.parse(obj))),
+    data: {'data':JSON.stringify(obj)},
     success: function(data){
       alert('horray! 200 status code!');
     },
