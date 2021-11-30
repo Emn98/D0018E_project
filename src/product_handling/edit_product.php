@@ -16,7 +16,10 @@ require("check_admin.php");
       
       <?php
 
-        $data = json_decode($_POST['data']);
+        $data = $this->input->post('data');
+        $data = json_decode($data);
+        $color = $data[0]->td_1;
+        echo $color;
         print_r($data);
         /*
         $product_name = $_POST['product_name'];
