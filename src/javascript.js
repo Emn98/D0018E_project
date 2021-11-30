@@ -45,9 +45,10 @@ function saveData() {
   //alert(obj.td_1);
 
   $.ajax({
+    cache: false,
     type: "POST",
     url: "/product_handling/edit_product.php",
-    dataType:'json',
+    dataType: "json",
     data: JSON.stringify(obj),
     success: function() {
          alert("this worked");
