@@ -53,6 +53,7 @@ function saveData() {
     data: {'data':JSON.stringify(obj)},
     success: function(data){
       alert('horray! 200 status code!');
+      $('#redirect').submit();
     },
     error: function(jqXHR, textStatus, errorThrown) {
       alert(jqXHR.status);
