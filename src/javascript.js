@@ -44,13 +44,14 @@ function saveData() {
   }).get();
   alert(obj[1].td_1);
   var path = "http://130.240.200.39/product_handling/edit_product_form_2.php";
+  
 
   $.ajax({
     cache: false,
     type: "POST",
     url: path,
     dataType: "json",
-    data: obj,
+    data: JSON.parse(obj),
     success: function(data){
       alert('horray! 200 status code!');
     },
