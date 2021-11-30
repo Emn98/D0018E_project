@@ -48,7 +48,7 @@ function saveData() {
     type: "POST",
     url: "/product_handling/edit_product.php",
     dataType:'json',
-    data: JSON.stringify(arr),
+    data: JSON.stringify(obj),
     success: function() {
          alert("this worked");
     }
