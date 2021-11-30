@@ -43,13 +43,13 @@ function saveData() {
      };
   }).get();
   //alert(obj.td_1);
-  var path = "${pageContext.request.contextPath}/edit_product.php";
-  alert(path);
+  var path = "http://130.240.200.39/product_handling/edit_product_form_2.php";
+  //alert(path);
 
   $.ajax({
     cache: false,
     type: "POST",
-    url: "${pageContext.request.contextPath}/edit_product.php",
+    url: path,
     dataType: "json",
     data: JSON.stringify(obj),
     success: function(data){
