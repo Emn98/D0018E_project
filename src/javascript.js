@@ -47,7 +47,7 @@ function saveData() {
   $.ajax({
     cache: false,
     type: "POST",
-    url: "/Product_handling/edit_product.php",
+    url: "product_handling/edit_product.php",
     dataType: "json",
     data: JSON.stringify(obj),
     success: function() {
