@@ -17,6 +17,7 @@ require("check_admin.php");
 
             <h1>Edit Product Page</h1>
             <form action="edit_product.php" id="redirect" method="post">
+            <input type="hidden" name="product_name" value=<?php echo $_POST['product_name'] ?>>
             <label>Edit information:</label><br>
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" required><br>
@@ -69,6 +70,7 @@ require("check_admin.php");
                     "<tr><td>Current Colors</td><td>Current Quantity</td></tr>"; 
             while($row_inventory = $result_inventory->fetch_assoc()){
                 echo "<tr><td><input type='text' name='color[]' value=" . $row_inventory['color'] .  "></td><td><input type='text' name='quantity[]' value=".$row_inventory['quantity'] . "></td></tr>";
+                echo"<input type='hidden' name ='old_color' value=" . $row_inventory['color'] . ">";
             }
             echo "</table>"; 
             ?>   

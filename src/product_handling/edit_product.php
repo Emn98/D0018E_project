@@ -30,14 +30,6 @@ require("check_admin.php");
         $color_arr = $_POST['color'];
         $quantity_arr = $_POST['quantity'];
 
-        $new_arr = array_merge($color_arr, $quantity_arr);
-        echo "<br>";
-        print_r($new_arr);
-        echo "<br>";
-        print_r($new_arr[0]);
-        echo "<br>";
-        print_r($new_arr[1]);
-
 
         // establish connection
 
@@ -45,21 +37,42 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        /*
+        
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
-        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
-        picture=?");
+        /*$stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        picture=? WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name = ?)");
 
         $stmt->bind_param();
         $stmt->execute();
         $stmt->close();
+        */
+        //XD WILL THIS WORK
+        $sql = "UPDATE PRODUCT_INVENTORY SET color = (CASE ";
+        for($i = 0; $i < sizeof($color_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $new_color = $color_arr[$i];
+          $sql .= "WHEN color = $old_color THEN color = $new_color";
+        }
+        $sql .= "SET quantity = (CASE ";
+        for($i = 0; $i < sizeof($quantity_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $new_quantity = $color_arr[$i];
+          $sql .= "WHEN color = $old_color THEN quantity = $new_quantity";
+        }
+        $sql .= "END) WHERE ";
+        for($i = 0; $i < sizeof($quantity_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $sql .= "color = $old_color AND ";
+          if(($i = sizeof($quantity_arr)-1)){
+            $sql .= "color = $old_color";
+          }
+        }
 
-        
-        
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET color=")
-      */
+        $sql .= "color = $old_color ";
+        echo $sql;
+      
       ?>
       
 
