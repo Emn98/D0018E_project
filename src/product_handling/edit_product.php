@@ -35,7 +35,7 @@ require("check_admin.php");
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
-        include_once($path);
+        include($path);
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
