@@ -38,14 +38,14 @@ require("check_admin.php");
         include($path);
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
-        /*
+        
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
         picture=? WHERE product_name=?");
         $stmt->bind_param("ssiiiss", $product_description, $category, $price, $size, $discount, $picture, $product_name);
         $stmt->execute();
         $stmt->close();
 
-        */
+        
         //XD WILL THIS WORK
         $sql = "UPDATE PRODUCT_INVENTORY
          SET color = 
@@ -75,11 +75,11 @@ require("check_admin.php");
         echo "<br>";
         echo $sql;
 
-        /*$stmt = $con->prepare($sql);
+        $stmt = $con->prepare($sql);
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->close();
-        */
+        
       ?>
       
 
