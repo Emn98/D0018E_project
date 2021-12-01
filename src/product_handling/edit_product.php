@@ -29,6 +29,7 @@ require("check_admin.php");
         $picture = $_POST['picture'];
         $color_arr = $_POST['color'];
         $quantity_arr = $_POST['quantity'];
+        $old_color_arr = $_POST['old_color'];
 
 
         // establish connection
