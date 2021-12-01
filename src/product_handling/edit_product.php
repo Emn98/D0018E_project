@@ -30,7 +30,7 @@ require("check_admin.php");
         $color_arr = $_POST['color'];
         $quantity_arr = $_POST['quantity'];
 
-        $new_arr = $color_arr + $quantity_arr;
+        $new_arr = array_merge($color_arr, $quantity_arr);
         echo "<br>";
         print_r($new_arr);
         echo "<br>";
