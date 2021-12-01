@@ -68,14 +68,8 @@ require("check_admin.php");
           $new_quantity = $color_arr[$i];
           $sql .= " WHEN color = $old_color THEN quantity = $new_quantity";
         }
-        $sql .= " END) WHERE ";
-        for($i = 0; $i < sizeof($quantity_arr); $i++){
-          $old_color = $old_color_arr[$i];
-          $sql .= " color = $old_color AND ";
-          if(($i = sizeof($quantity_arr))){
-            $sql .= " color = $old_color";
-          }
-        }
+        $sql .= " END) WHERE product_id = (SELECT product_id FROM PRODUCTS WHERE product_name = ?)";
+        
         echo "<br>";
         echo $sql;
       
