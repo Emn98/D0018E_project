@@ -53,7 +53,7 @@ require("check_admin.php");
         for($i = 0; $i < sizeof($color_arr); $i++){
           $old_color = $old_color_arr[$i];
           $new_color = $color_arr[$i];
-          $sql .= " WHEN color = $old_color THEN color = $new_color";
+          $sql .= " WHEN color = $old_color THEN $new_color";
         }
         $sql .= " END,
          quantity =
@@ -61,7 +61,7 @@ require("check_admin.php");
         for($i = 0; $i < sizeof($quantity_arr); $i++){
           $old_color = $old_color_arr[$i];
           $new_quantity = $color_arr[$i];
-          $sql .= " WHEN color = $old_color THEN quantity = $new_quantity";
+          $sql .= " WHEN color = $old_color THEN $new_quantity";
         }
         $sql .= " END WHERE color IN (";
         for($i = 0; $i < sizeof($quantity_arr); $i++){
