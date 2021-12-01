@@ -16,7 +16,7 @@ require("check_admin.php");
         <div class="inner_product_div">
 
             <h1>Edit Product Page</h1>
-            <form action="edit_product.php" id="redirect" method="post">
+            <form action="/index.php" id="redirect" method="post">
             <label>Edit information:</label><br>
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" required><br>

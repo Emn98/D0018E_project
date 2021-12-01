@@ -42,17 +42,17 @@ function saveData() {
       td_2: $row.find(':nth-child(2)').text()
      };
   }).get();
-  alert(obj[1].td_1);
-  alert(JSON.stringify(obj));
+  //alert(obj[1].td_1);
+  //alert(JSON.stringify(obj));
   var dataArray = JSON.stringify(obj);
-  var path = "product_handling/edit_product.php";
+  var path = "/index.php";
   
-/*
+
   $.ajax({
     cache: false,
     type: "POST",
     url: path,
-    data: {'data': dataArray},
+    data: {'data': "Hello"},
     success: function(data){
       alert('horray! 200 status code!');
       alert(data);
@@ -65,8 +65,6 @@ function saveData() {
     }
     
   });
-  */
-  $.post(path, {'data': "Hello"}, function(data){/*stuff*/}, 'json');
   $('#redirect').submit();
 
 }
