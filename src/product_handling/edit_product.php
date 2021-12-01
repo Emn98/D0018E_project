@@ -16,7 +16,7 @@ require("check_admin.php");
       
       <?php
 
-        $data = $this->input->post('data');
+        $data = $_POST['data'];
         $data = json_decode($data);
         
         /*
