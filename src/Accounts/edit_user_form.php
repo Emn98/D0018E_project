@@ -65,7 +65,7 @@
             <label class="form_label" for="city">City</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp" value="<?php echo htmlspecialchars($address_1) ?>" require>
+            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp" value="<?php echo $address_1 ?>" require>
             <label class="form_label" for="addres">Address</label>
           </div>
           <div class="form_elements">
