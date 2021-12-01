@@ -69,8 +69,7 @@ require("check_admin.php");
             $sql .= "color = $old_color";
           }
         }
-
-        $sql .= "color = $old_color ";
+        echo "<br>";
         echo $sql;
       
       ?>
