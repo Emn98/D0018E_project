@@ -7,7 +7,6 @@
   </head>
   <body>
       <?php
-
         session_start();
 
         $first_name = $_POST['first_name'];
@@ -24,18 +23,17 @@
         $path .= "/database.php";
         include_once($path);
 
-        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE user_id!=?");
-        $email_exist->bind_param("i", $_SESSION['user_id']);
+        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address=? AND user_id!=?");
+        $email_exist->bind_param("si", $email_addres, $_SESSION['user_id']);
         $email_exist->execute();
-        $email_exist->bind_result($email_addres_exists);
+        $email_exist->bind_result($email_address_exists);
         $email_exist->fetch();
         $email_exist->close();
 
-        if($email_addres_exists == ""){
-          $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
-         t_number=?, address_1=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
 
-          // perform query
+        if($email_address_exists == ""){
+          $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
+                                t_number=?, address_1=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
           $stmt->bind_param("ssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
           $stmt->execute();
           $con->close();
