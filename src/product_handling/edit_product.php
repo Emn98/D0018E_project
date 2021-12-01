@@ -10,56 +10,76 @@ require("check_admin.php");
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
 
-    <title>Add Product</title>  
+    <title>Edit Product</title>  
   </head>
   <body>
       
       <?php
 
-        $data = $this->input->post('data');
-        $data = json_decode($data);
+        print_r($_POST);
         
-        /*
+        
+        
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
-        $quantity = $_POST['quantity'];
         $price = $_POST['price'];
         $size = $_POST['size'];
-        $color = $_POST['color'];
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
-        $inventory_id = $_POST['inventory_id'];
+        $color_arr = $_POST['color'];
+        $quantity_arr = $_POST['quantity'];
+        $old_color_arr = $_POST['old_color'];
 
         // establish connection
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
-        include_once($path);
-
-        
+        include($path);
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
+        
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        picture=? WHERE product_name=?");
+        $stmt->bind_param("ssiiiss", $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->execute();
+        $stmt->close();
 
         
+        //XD WILL THIS WORK
+        $sql = "UPDATE PRODUCT_INVENTORY
+         SET color = 
+         CASE ";
+        for($i = 0; $i < sizeof($color_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $new_color = $color_arr[$i];
+          $sql .= " WHEN color = $old_color THEN $new_color";
+        }
+        $sql .= " END,
+         quantity =
+         CASE ";
+        for($i = 0; $i < sizeof($quantity_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $new_quantity = $color_arr[$i];
+          $sql .= " WHEN color = $old_color THEN $new_quantity";
+        }
+        $sql .= " END WHERE color IN (";
+        for($i = 0; $i < sizeof($quantity_arr); $i++){
+          $old_color = $old_color_arr[$i];
+          $sql .= "$old_color";
+          if($i < sizeof($quantity_arr)-1){
+            $sql .= ", ";
+          }
+        }  
+        $sql .= ")";
+        echo "<br>";
+        echo $sql;
 
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE inventory_id = $inventory_id");
-          
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("s", $product_name);
         $stmt->execute();
-
-        $result = $stmt->get_result();
-
         $stmt->close();
-
-        $stmt = $con->prepare("UPDATE PRODUCT SELECT product_id,product_name, inventory_id, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
-          
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        $stmt->close();
-
-      */  
+        
       ?>
       
 

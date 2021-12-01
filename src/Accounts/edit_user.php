@@ -7,7 +7,6 @@
   </head>
   <body>
       <?php
-
         session_start();
 
         $first_name = $_POST['first_name'];
@@ -24,25 +23,34 @@
         $path .= "/database.php";
         include_once($path);
 
-        $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
-         t_number=?, address_1=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
+        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address=? AND user_id!=?");
+        $email_exist->bind_param("si", $email_addres, $_SESSION['user_id']);
+        $email_exist->execute();
+        $email_exist->bind_result($email_address_exists);
+        $email_exist->fetch();
+        $email_exist->close();
 
-        // perform query
-        $stmt->bind_param("ssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
-        $stmt->execute();
-        ?>
-        <div class='form'>
-          <h3>Information has Succesfully Been Changed.</h3><br/>
-          <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
-        </div>
-        <?php
-        $con->close();
-        
+
+        if($email_address_exists == ""){
+          $stmt = $con->prepare("UPDATE USERS SET first_name=?, last_name=?, email_address=?,
+                                t_number=?, address_1=?, address_2=?, city=?, postal_code=? WHERE user_id = ?");
+          $stmt->bind_param("ssssssssi", $first_name, $last_name, $email_addres, $t_number, $addres, $care_of_address, $city, $post_code, $_SESSION["user_id"]);
+          $stmt->execute();
+          $con->close();
+
+          echo "<div class='form'>";
+          echo "<h3>The information have been successfully changed.</h3>";
+          echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>continue</a>.</p>";
+          echo "<p class='link'>Click here to <a href='/Accounts/edit_user_form.php'>edit user</a>.</p>";
+          echo "</div>"; 
+
+        }else{
+          echo "<div class='form'>";
+          echo "<h3>New email already in use.</h3><br/>";
+          echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>continue</a>.</p>";
+          echo "<p class='link'>Click here to <a href='/Accounts/edit_user_form.php'>edit user</a>.</p>";
+          echo "</div>"; 
+        }
       ?>
-
-    <form action="edit_user_form.php" method="post">
-    <button type="submit" class="btn">Return</button>
-    </form>
-
   </body>
 </html>
