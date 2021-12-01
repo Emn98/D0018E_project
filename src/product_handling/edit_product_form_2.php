@@ -16,7 +16,7 @@ require("check_admin.php");
         <div class="inner_product_div">
 
             <h1>Edit Product Page</h1>
-            <form action="/index.php" id="redirect" method="post">
+            <form action="edit_product.php" id="redirect" method="post">
             <label>Edit information:</label><br>
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" required><br>
@@ -68,7 +68,7 @@ require("check_admin.php");
             echo "<table id='edit_table'>".
                     "<tr><td>Current Colors</td><td>Current Quantity</td></tr>"; 
             while($row_inventory = $result_inventory->fetch_assoc()){
-                echo "<tr><td contenteditable='true'>" . $row_inventory['color'] . "</td><td contenteditable='true'>" . $row_inventory['quantity'] . "</td></tr>";
+                echo "<tr><td><input type='text' name='color[]'" . $row_inventory['color'] . "</td><td><input type='text' name='quantity[]'" . $row_inventory['quantity'] . "</td></tr>";
             }
             echo "</table>"; 
             ?>   

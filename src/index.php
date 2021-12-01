@@ -36,7 +36,6 @@
             $path = $_SERVER['DOCUMENT_ROOT'];
             $path .= "/Category/categories_file.html";
             include($path);
-            echo $_POST['data'];
             ?>
         </div>
         <div class="inner_right_side">Items go here</div>
