@@ -100,7 +100,7 @@
               <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
                 <div class='form_elements'>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
-                  <select name="color_category" id="color_category">
+                  <select name="product_color" id="color_category">
                   <?php
                   foreach ($color_arr as $value) {
                     echo "<option value='$value'>$value</option>";
@@ -108,7 +108,6 @@
                   ?>
                   </select>
                   <label for='quantity' class='form_label'>Enter Quantity</label>
-                  <input type="hidden" class ="purschase_input" name="product_color"  value="<?php echo $picked_color?>">
                     <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
                     <button class='form_button'>Buy</button>
                 </div>
