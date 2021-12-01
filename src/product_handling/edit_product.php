@@ -16,8 +16,9 @@ require("check_admin.php");
       
       <?php
 
-        $data = $_POST['data'];
+        $data = file_get_contents($_POST['data']);
         $data = json_decode($data);
+        print_r($data);
         
         /*
         $product_name = $_POST['product_name'];
