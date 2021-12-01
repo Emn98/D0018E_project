@@ -66,7 +66,7 @@ function saveData() {
     
   });
   */
-  $.post(path, {'data': obj}, function(data){/*stuff*/}, 'json');
+  $.post(path, {'data': "Hello"}, function(data){/*stuff*/}, 'json');
   $('#redirect').submit();
 
 }
