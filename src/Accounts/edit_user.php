@@ -33,11 +33,11 @@
         ?>
         <div class='form'>
           <h3>Information has Succesfully Been Changed.</h3><br/>
-          <p class='link'>Click here to <a href='/Accounts/my_page.php'>go back</a>.</p>
+          <p class='link'>Click here to <a href='/Accounts/user_page.php'>go back</a>.</p>
         </div>
+        
         <?php
         $con->close();
-        
       ?>
 
     <form action="edit_user_form.php" method="post">

@@ -17,7 +17,7 @@
   $query->fetch();
   $query->close();
 
-  print_r($address_1);
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,11 +65,11 @@
             <label class="form_label" for="city">City</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp" value=<?php echo $address_1 ?> require>
+            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp" value=<?php echo htmlspecialchars($address_1) ?> require>
             <label class="form_label" for="addres">Address</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="care_of_address" name="care_of_address" placeholder="C/O" class="edit_user_inp" value=<?php echo $address_2 ?>>
+            <input type="text" id="care_of_address" name="care_of_address" placeholder="C/O" class="edit_user_inp" value=<?php echo htmlspecialchars($address_2) ?>>
             <label class="form_label" for="care_of_address">C/O</label>
           </div>
           <button class="form_button">Save Changes</button>
