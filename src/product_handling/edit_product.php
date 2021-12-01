@@ -45,7 +45,7 @@ require("check_admin.php");
         $stmt->execute();
         $stmt->close();
         
-        //XD WILL THIS WORK
+        /*//XD WILL THIS WORK
         $sql = "UPDATE PRODUCT_INVENTORY SET color = (CASE ";
         for($i = 0; $i < sizeof($color_arr); $i++){
           $old_color = $old_color_arr[$i];
@@ -67,7 +67,7 @@ require("check_admin.php");
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->close();
-      
+      */
       ?>
       
 
