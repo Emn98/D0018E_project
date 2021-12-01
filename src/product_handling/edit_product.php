@@ -31,6 +31,7 @@ require("check_admin.php");
         $quantity_arr = $_POST['quantity'];
 
         $new_arr = $color_arr + $quantity_arr;
+        echo "<br>";
         print_r($new_arr);
 
         // establish connection
