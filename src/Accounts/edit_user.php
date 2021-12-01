@@ -24,8 +24,8 @@
         $path .= "/database.php";
         include_once($path);
 
-        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE user_id IS NOT user_id=?");
-        $email_exist->bind_param("s", $_SESSION['user_id']);
+        $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE user_id!=?");
+        $email_exist->bind_param("i", $_SESSION['user_id']);
         $email_exist->execute();
         $email_exist->bind_result($email_addres_exists);
         $email_exist->fetch();
