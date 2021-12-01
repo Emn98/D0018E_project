@@ -52,10 +52,5 @@
           echo "</div>"; 
         }
       ?>
-
-    <form action="edit_user_form.php" method="post">
-    <button type="submit" class="btn">Return</button>
-    </form>
-
   </body>
 </html>
