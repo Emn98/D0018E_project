@@ -109,7 +109,7 @@
       </div>
       <div class="form_elements">
         <input type="password" id="pwd2" name="pwd2" class="register_input" placeholder="Confirm Password" required>
-        <label for="pwd2" class="form_label">Repeat password</label>
+        <label for="pwd2" class="form_label">Repeat Password</label>
       </div>
       <button class="form_button" name="submit">Register</button>
       <p class="link">Already have an account?<a href="/Accounts/login_page_form.php"> Click here to Login</a></p>

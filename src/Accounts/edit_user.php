@@ -39,14 +39,16 @@
           $con->close();
 
           echo "<div class='form'>";
-          echo "<h3>Information has Succesfully Been Changed.</h3><br/>";
-          echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>go back</a>.</p>";
+          echo "<h3>The information have been successfully changed.</h3>";
+          echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>continue</a>.</p>";
+          echo "<p class='link'>Click here to <a href='/Accounts/edit_user_form.php'>edit user</a>.</p>";
           echo "</div>"; 
 
         }else{
           echo "<div class='form'>";
-          echo "<h3>New Email already in use.</h3><br/>";
-          echo "<p class='link'>Click here to <a href='/Accounts/edit_user_form.php'>go back</a>.</p>";
+          echo "<h3>New email already in use.</h3><br/>";
+          echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>continue</a>.</p>";
+          echo "<p class='link'>Click here to <a href='/Accounts/edit_user_form.php'>edit user</a>.</p>";
           echo "</div>"; 
         }
       ?>

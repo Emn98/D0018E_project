@@ -17,7 +17,6 @@
   $query->fetch();
   $query->close();
 
-  
 ?>
 <!DOCTYPE html>
 <html>
