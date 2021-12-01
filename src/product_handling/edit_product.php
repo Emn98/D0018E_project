@@ -17,7 +17,7 @@ require("check_admin.php");
       <?php
 
         $data = $_POST['data'];
-        print_r($data);
+        echo $data;
         
         /*
         $product_name = $_POST['product_name'];
