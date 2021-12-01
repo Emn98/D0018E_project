@@ -18,22 +18,20 @@
     $sha_pwd = sha1($pwd);
 
       //Checks so the user have written the same password twice
-      if($_POST["pwd"] == $_POST["pwd2"]){
-          $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
-          $email_exist->bind_param("s", $email_addres);
-          $email_exist->execute();
-          $email_exist->bind_result($email_addres_exists);
-          $email_exist->fetch();
-          $email_exist->close();
+    if($_POST["pwd"] == $_POST["pwd2"]){
+      $email_exist = $con->prepare("SELECT email_address FROM USERS WHERE email_address = ?");
+      $email_exist->bind_param("s", $email_addres);
+      $email_exist->execute();
+      $email_exist->bind_result($email_addres_exists);
+      $email_exist->fetch();
+      $email_exist->close();
 
-          $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
-                                      city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
-          $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
-          $query -> execute();
-          $query->close();
-
-
-            if ($email_addres_exists == "") { // Account creation successfull
+      if ($email_addres_exists == "") { // Account creation successfull
+        $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
+        city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+        $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
+        $query -> execute();
+        $query->close();
                 ?>
                 <div class='form'>
                   <h3>User Created Succesfully.</h3><br/>

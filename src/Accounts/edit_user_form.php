@@ -41,35 +41,35 @@
         <form class="edit_user_form" method="post" action="edit_user.php">
           <h2 class="form_title">Edit User Information</h2>
           <div class="form_elements">
-            <input type="text" id="first_name" name="first_name" placeholder="First Name" class="edit_user_inp">
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" class="edit_user_inp" value=<?php echo $first_name ?> require>
             <label class="form_label" for="first_name">First Name</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="edit_user_inp">
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="edit_user_inp" value=<?php echo $last_name ?> require>
             <label class="form_label" for="last_name">Last Name</label>
           </div>
           <div class="form_elements">
-            <input type="email" id="email_addres" name="email_addres" placeholder="Example@gmail.com" class="edit_user_inp">
+            <input type="email" id="email_addres" name="email_addres" placeholder="Example@gmail.com" class="edit_user_inp" value=<?php echo $email_address ?> require>
             <label class="form_label" for="email_addres">Email Address</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="t_number" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" class="edit_user_inp">
+            <input type="text" id="t_number" name="t_number" placeholder="xxxxxxxxxx" pattern="[0-9]{10}" class="edit_user_inp" value=<?php echo $tel_nr ?> require>
             <label class="form_label" for="t_number">Telephone Number</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="post_code" name="post_code" placeholder="xxxxx"  pattern="[0-9]{5}" class="edit_user_inp">
+            <input type="text" id="post_code" name="post_code" placeholder="xxxxx"  pattern="[0-9]{5}" class="edit_user_inp" value=<?php echo $postal_code ?> require>
             <label class="form_label" for="post_code">Post code</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="city" name="city" placeholder="City" class="edit_user_inp">
+            <input type="text" id="city" name="city" placeholder="City" class="edit_user_inp" value=<?php echo $city ?> require>
             <label class="form_label" for="city">City</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp">
+            <input type="text" id="addres" name="addres" placeholder="Address" class="edit_user_inp" value=<?php echo $address_1 ?> require>
             <label class="form_label" for="addres">Address</label>
           </div>
           <div class="form_elements">
-            <input type="text" id="care_of_address" name="care_of_address" placeholder="C/O" class="edit_user_inp">
+            <input type="text" id="care_of_address" name="care_of_address" placeholder="C/O" class="edit_user_inp" value=<?php echo $address_2 ?> require>
             <label class="form_label" for="care_of_address">C/O</label>
           </div>
           <button class="form_button">Save Changes</button>
