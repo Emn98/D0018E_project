@@ -43,17 +43,16 @@ function saveData() {
      };
   }).get();
   alert(obj[1].td_1);
-  //alert(JSON.stringify(obj));
-  //var dataArray = JSON.stringify(obj);
+  alert(JSON.stringify(obj));
+  var dataArray = JSON.stringify(obj);
   var path = "http://130.240.200.39/product_handling/edit_product.php";
   
-
+/*
   $.ajax({
     cache: false,
     type: "POST",
     url: path,
-    dataType: "json",
-    data: {'data': obj},
+    data: {'data': dataArray},
     success: function(data){
       alert('horray! 200 status code!');
       alert(data);
@@ -66,6 +65,8 @@ function saveData() {
     }
     
   });
+  */
+  $.post(path, {'data': obj}, function(data){/*stuff*/}, 'json');
   $('#redirect').submit();
 
 }
