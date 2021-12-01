@@ -62,8 +62,6 @@
           $query->fetch();
           $query->close();
 
-          $result_inventory_2 = $result_inventory;
-
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
           $stmt->bind_param("s", $product_name);
           $stmt->execute();
@@ -86,10 +84,13 @@
             </div>
             <div class='product_details_quantity_div'>
               <?php
+              $color_arr = array();
+
               echo "<table>".
                     "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
               while($row_inventory = $result_inventory->fetch_assoc()){
                 echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
+                array_push($color_arr,$row_inventory['color']);
               }
               echo "</table>";
               ?>
@@ -101,9 +102,8 @@
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
                   <select name="color_category" id="color_category">
                   <?php
-                   while($row_inventory = $result_inventory_2->fetch_assoc()){
-                    $picked_color = $row_inventory['color'];
-                    echo "<option value='$picked_color'>$picked_color</option>";
+                  foreach ($color_arr as $value) {
+                    echo "<option value='$value'>$value</option>";
                   }
                   ?>
                   </select>
