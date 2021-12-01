@@ -9,9 +9,13 @@ include_once($path);
 $cart_id = $_SESSION["cart_id"];
 $user_id = $_SESSION["user_id"];
 
-$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) VALUES (SELECT order_id FROM ORDERS WHERE user_id=?), 
-                                                                                              (SELECT product_id, quantity, color FROM CARTS WHERE cart_id=?)");
-$stmt->bind_param("ii", $user_id, $cart_id);
+$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (SELECT order_id FROM ORDERS WHERE user_id=?");                                                                                           
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->close();
+
+$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (product_id, quantity, color) VALUES (SELECT product_id, quantity, color FROM CARTS WHERE cart_id=?)"); 
+$stmt->bind_param("i", $cart_id);
 $stmt->execute();
 $stmt->close();
 
