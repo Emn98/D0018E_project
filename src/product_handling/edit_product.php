@@ -76,7 +76,6 @@ require("check_admin.php");
         echo $sql;
 
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->close();
         
