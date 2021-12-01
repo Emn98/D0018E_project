@@ -10,7 +10,7 @@ require("check_admin.php");
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
 
-    <title>Add Product</title>  
+    <title>Edit Product</title>  
   </head>
   <body>
       
@@ -31,30 +31,20 @@ require("check_admin.php");
         $quantity_arr = $_POST['quantity'];
         $old_color_arr = $_POST['old_color'];
 
-        echo "<br>";
-        print_r($old_color_arr);
-        echo "<br>";
-        print_r($color_arr);
-
-
-
         // establish connection
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
 
-        
-
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
-        /*$stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
         picture=? WHERE product_id=(SELECT product_id FROM PRODUCTS WHERE product_name = ?)");
-
-        $stmt->bind_param();
+        $stmt->bind_param("ssiiiss", $product_description, $category, $price, $size, $discount, $picture, $product_name);
         $stmt->execute();
         $stmt->close();
-        */
+        
         //XD WILL THIS WORK
         $sql = "UPDATE PRODUCT_INVENTORY SET color = (CASE ";
         for($i = 0; $i < sizeof($color_arr); $i++){
@@ -72,6 +62,11 @@ require("check_admin.php");
         
         echo "<br>";
         echo $sql;
+
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param("s", $product_name);
+        $stmt->execute();
+        $stmt->close();
       
       ?>
       
