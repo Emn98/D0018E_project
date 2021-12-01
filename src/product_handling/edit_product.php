@@ -33,6 +33,11 @@ require("check_admin.php");
         $new_arr = $color_arr + $quantity_arr;
         echo "<br>";
         print_r($new_arr);
+        echo "<br>";
+        print_r($new_arr[0]);
+        echo "<br>";
+        print_r($new_arr[1]);
+
 
         // establish connection
 
