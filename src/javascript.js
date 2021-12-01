@@ -45,7 +45,7 @@ function saveData() {
   alert(obj[1].td_1);
   alert(JSON.stringify(obj));
   var dataArray = JSON.stringify(obj);
-  var path = "/product_handling/edit_product.php";
+  var path = "product_handling/edit_product.php";
   
 /*
   $.ajax({
