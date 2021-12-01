@@ -45,7 +45,7 @@ function saveData() {
   //alert(obj[1].td_1);
   //alert(JSON.stringify(obj));
   var dataArray = JSON.stringify(obj);
-  var path = "/index.php";
+  var path = "index.php";
   
 
   $.ajax({
