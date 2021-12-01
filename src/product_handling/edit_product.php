@@ -18,17 +18,20 @@ require("check_admin.php");
 
         print_r($_POST);
         
-        /*
+        
+        
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
-        $quantity = $_POST['quantity'];
         $price = $_POST['price'];
         $size = $_POST['size'];
-        $color = $_POST['color'];
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
-        $inventory_id = $_POST['inventory_id'];
+        $color_arr = $_POST['color'];
+        $quantity_arr = $_POST['quantity'];
+
+        $new_arr = $color_arr + $quantity_arr;
+        print_r($new_arr);
 
         // establish connection
 
@@ -36,29 +39,21 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        
+        /*
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        picture=?");
+
+        $stmt->bind_param();
+        $stmt->execute();
+        $stmt->close();
+
         
-
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=?, color=? WHERE inventory_id = $inventory_id");
-          
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        $stmt->close();
-
-        $stmt = $con->prepare("UPDATE PRODUCT SELECT product_id,product_name, inventory_id, color FROM PRODUCTS AS P INNER JOIN PRODUCT_INVENTORY AS P_I ON P.product_id = P_I.product_id");
-          
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        $stmt->close();
-
-      */  
+        
+        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET color=")
+      */
       ?>
       
 
