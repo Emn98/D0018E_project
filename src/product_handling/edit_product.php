@@ -67,7 +67,7 @@ require("check_admin.php");
         for($i = 0; $i < sizeof($quantity_arr); $i++){
           $old_color = $old_color_arr[$i];
           $sql .= "$old_color";
-          if($i < sizeof($quantity_arr)){
+          if($i < sizeof($quantity_arr)-1){
             $sql .= ", ";
           }
         }  
