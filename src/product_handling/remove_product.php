@@ -14,9 +14,6 @@ require("check_admin.php");
       
       <?php
 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-
         $product_name = $_POST['product_name'];
         
         $path = $_SERVER['DOCUMENT_ROOT'];
@@ -28,21 +25,19 @@ require("check_admin.php");
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->bind_result($product_id);
-        $stmt->fetch();
-        
+        $stmt->fetch();     
         $con->close();
-        $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
      
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
         
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
+        $con->close();
 
         $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=?");
 
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
-
         $con->close();
         
       ?>
