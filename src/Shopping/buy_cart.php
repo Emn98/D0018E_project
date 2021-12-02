@@ -6,6 +6,11 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include_once($path);
 
+ //Check so the user is logged in
+ $path = $_SERVER['DOCUMENT_ROOT'];
+ $path .= "/Accounts/log_in_check.php";
+ require($path);
+
 //Check so the user have a cart. 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/Shopping/check_if_user_have_order.php";
