@@ -24,7 +24,7 @@ echo $order_id;
 //$stmt->close();
 
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (order_id=?)"); 
-$query->bind_param("ii", $order_id);
+$query->bind_param("i", $order_id);
 $query->execute();
 $query->close();
 echo "Test query 1";
