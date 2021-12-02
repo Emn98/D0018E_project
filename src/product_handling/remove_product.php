@@ -18,7 +18,7 @@ require("check_admin.php");
         
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
-        include_once($path);
+        include($path);
 
         $stmt = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
 
@@ -26,19 +26,19 @@ require("check_admin.php");
         $stmt->execute();
         $stmt->bind_result($product_id);
         $stmt->fetch();     
-        $con->close();
+        $stmt->close();
      
         $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
         
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
-        $con->close();
+        $stmt->close();
 
         $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=?");
 
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
-        $con->close();
+        $stmt->close();
         
       ?>
 
