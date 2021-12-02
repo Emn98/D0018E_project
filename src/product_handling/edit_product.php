@@ -19,8 +19,8 @@ require("check_admin.php");
         print_r($_POST);
         
         
-        
-        $product_name = $_POST['product_name'];
+        $old_product_name= $_POST['old_product_name'];
+        $new_product_name = $_POST['new_product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
         $price = $_POST['price'];
@@ -29,7 +29,7 @@ require("check_admin.php");
         $picture = $_POST['picture'];
         $color_arr = $_POST['color'];
         $quantity_arr = $_POST['quantity'];
-        $old_color_arr = $_POST['old_color'];
+        $inventory_id_arr = $_POST['inventory_id'];
 
         // establish connection
 
@@ -39,38 +39,40 @@ require("check_admin.php");
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
         
-        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
         picture=? WHERE product_name=?");
-        $stmt->bind_param("ssiiiss", $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->bind_param("sssiiiss", $new_product_name, $product_description, $category, $price, $size, $discount, $picture, $old_product_name);
         $stmt->execute();
         $stmt->close();
 
         
         //XD WILL THIS WORK
+        
         $sql = "UPDATE PRODUCT_INVENTORY
          SET color = 
          CASE ";
-        for($i = 0; $i < sizeof($color_arr); $i++){
-          $old_color = $old_color_arr[$i];
-          $new_color = $color_arr[$i];
-          $sql .= " WHEN color = $old_color THEN $new_color";
+        for($i = 0; $i < sizeof($inventory_id_arr); $i++){
+          $inventory_id = $inventory_id_arr[$i];
+          $color = $color_arr[$i];
+          $sql .= " WHEN inventory_id = $inventory_id THEN '$color'";
         }
         $sql .= " END,
          quantity =
          CASE ";
-        for($i = 0; $i < sizeof($quantity_arr); $i++){
-          $old_color = $old_color_arr[$i];
-          $new_quantity = $quantity_arr[$i];
-          $sql .= " WHEN color = $old_color THEN quantity = $new_quantity";
+        for($i = 0; $i < sizeof($inventory_id_arr); $i++){
+          $inventory_id = $inventory_id_arr[$i];
+          $quantity = $quantity_arr[$i];
+          $sql .= " WHEN inventory_id = $inventory_id THEN $quantity";
         }
-        $sql .= " END WHERE color IN (";
-        for($i = 0; $i < sizeof($quantity_arr); $i++){
-          $old_color = $old_color_arr[$i];
-          $sql .= "$old_color";
-          if($i < sizeof($quantity_arr)-1){
+        $sql .= " END WHERE inventory_id IN (";
+        for($i = 0; $i < sizeof($inventory_id_arr); $i++){
+          $inventory_id = $inventory_id_arr[$i];
+          $sql .= "$inventory_id";
+          if($i < sizeof($inventory_id_arr)-1){
             $sql .= ", ";
           }
-        }  
+        }
+          
         $sql .= ")";
         echo "<br>";
         echo $sql;
