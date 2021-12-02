@@ -40,6 +40,7 @@ $stmt = $con->prepare("INSERT INTO ORDER_ITEMS (cart_id, product_id, quantity, c
 $stmt->bind_param("ii", $order_id, $cart_id);
 $stmt->execute();
 $stmt->close();
+echo "Test query 1";
 
 $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("i", $cart_id);
