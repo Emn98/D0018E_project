@@ -14,6 +14,9 @@ require($path);
 $cart_id = $_SESSION["cart_id"];
 $user_id = $_SESSION["user_id"];
 $order_id = $_SESSION["order_id"];
+echo $cart_id;
+echo $$user_id;
+echo $order_id;
 
 //$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (SELECT order_id FROM ORDERS WHERE user_id=?");                                                                                           
 //$stmt->bind_param("i", $user_id);
