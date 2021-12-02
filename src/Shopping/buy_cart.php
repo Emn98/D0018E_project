@@ -30,7 +30,7 @@ $query->close();
 echo "Test query 1";
 echo $order_id;
 
-$query = $con->prepare("INSERT INTO ORDER_ITEMS (product_id, quantity, color) WHERE order_id=? VALUES (SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?)"); 
+$query = $con->prepare("INSERT INTO ORDER_ITEMS ((product_id, quantity, color) WHERE order_id=?) VALUES (SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?)"); 
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
 $query->close();
