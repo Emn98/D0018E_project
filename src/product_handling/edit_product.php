@@ -19,8 +19,8 @@ require("check_admin.php");
         print_r($_POST);
         
         
-        
-        $product_name = $_POST['product_name'];
+        $old_product_name= $_POST['old_product_name'];
+        $new_product_name = $_POST['new_product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
         $price = $_POST['price'];
@@ -41,7 +41,7 @@ require("check_admin.php");
         
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
         picture=? WHERE product_name=?");
-        $stmt->bind_param("sssiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->bind_param("sssiiiss", $new_product_name, $product_description, $category, $price, $size, $discount, $picture, $old_product_name);
         $stmt->execute();
         $stmt->close();
 
