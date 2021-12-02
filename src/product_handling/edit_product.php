@@ -39,9 +39,9 @@ require("check_admin.php");
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
         
-        $stmt = $con->prepare("UPDATE PRODUCTS SET product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
         picture=? WHERE product_name=?");
-        $stmt->bind_param("ssiiiss", $product_description, $category, $price, $size, $discount, $picture, $product_name);
+        $stmt->bind_param("sssiiiss", $product_name, $product_description, $category, $price, $size, $discount, $picture, $product_name);
         $stmt->execute();
         $stmt->close();
 

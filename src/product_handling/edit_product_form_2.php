@@ -17,8 +17,11 @@ require("check_admin.php");
 
             <h1>Edit Product Page</h1>
             <form action="edit_product.php" id="redirect" method="post">
-            <input type="hidden" name="product_name" value=<?php echo $_POST['product_name'] ?>>
+            <label>Old product name was: <?php echo $_POST['product_name'] ?></label>
+            <input type="hidden" name="old_product_name" value=<?php echo $_POST['product_name'] ?>>
             <label>Edit information:</label><br>
+            <label for="new_product_name">New product name</label>
+            <input type="text" id="new_product_name" name="new_product_name" value=<?php $_POST['product_name'] ?>>
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" required><br>
             <label for="category">Category</label>
