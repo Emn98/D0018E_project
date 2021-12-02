@@ -54,7 +54,7 @@ require("check_admin.php");
         for($i = 0; $i < sizeof($inventory_id_arr); $i++){
           $inventory_id = $inventory_id_arr[$i];
           $color = $color_arr[$i];
-          $sql .= " WHEN inventory_id = $inventory_id THEN $color";
+          $sql .= " WHEN inventory_id = $inventory_id THEN '$color'";
         }
         $sql .= " END,
          quantity =
