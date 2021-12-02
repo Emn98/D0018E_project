@@ -6,11 +6,6 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include_once($path);
 
- //Check so the user is logged in
- $path = $_SERVER['DOCUMENT_ROOT'];
- $path .= "/Accounts/log_in_check.php";
- require($path);
-
 //Check so the user have a cart. 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/Shopping/check_if_user_have_order.php";
@@ -20,7 +15,7 @@ $cart_id = $_SESSION["cart_id"];
 $user_id = $_SESSION["user_id"];
 $order_id = $_SESSION["order_id"];
 echo $cart_id;
-echo $$user_id;
+echo $user_id;
 echo $order_id;
 
 //$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (SELECT order_id FROM ORDERS WHERE user_id=?");                                                                                           
