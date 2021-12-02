@@ -23,7 +23,7 @@ echo $order_id;
 //$stmt->execute();
 //$stmt->close();
 
-$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (order_id=?)"); 
+$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (?)"); 
 $query->bind_param("i", $order_id);
 $query->execute();
 $query->close();
