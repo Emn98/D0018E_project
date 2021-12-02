@@ -23,7 +23,7 @@ echo $order_id;
 //$stmt->execute();
 //$stmt->close();
 
-$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) VALUES (prder_id=?, (SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?))"); 
+$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) VALUES (order_id=?, (SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?))"); 
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
 $query->close();
