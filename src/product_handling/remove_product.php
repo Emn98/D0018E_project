@@ -28,18 +28,17 @@ require("check_admin.php");
         $stmt->fetch();     
         $stmt->close();
      
-        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
-        
-        $stmt->bind_param("i", $product_id);
-        $stmt->execute();
-        $stmt->close();
-
         $stmt = $con->prepare("DELETE FROM PRODUCT_INVENTORY WHERE product_id=?");
 
         $stmt->bind_param("i", $product_id);
         $stmt->execute();
         $stmt->close();
         
+        $stmt = $con->prepare("DELETE FROM PRODUCTS WHERE product_id=?");
+        
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $stmt->close();
       ?>
 
     <form action="remove_product_form.php" method="post">
