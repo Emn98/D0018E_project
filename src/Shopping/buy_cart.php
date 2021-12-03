@@ -14,27 +14,6 @@ require($path);
 $cart_id = $_SESSION["cart_id"];
 $user_id = $_SESSION["user_id"];
 $order_id = $_SESSION["order_id"];
-echo $cart_id;
-echo $user_id;
-echo $order_id;
-
-//$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (SELECT order_id FROM ORDERS WHERE user_id=?");                                                                                           
-//$stmt->bind_param("i", $user_id);
-//$stmt->execute();
-//$stmt->close();
-
-//$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id) VALUES (?)"); 
-//$query->bind_param("i", $order_id);
-//$query->execute();
-//$query->close();
-//echo "Test query 1";
-//echo $order_id;
-
-//$query = $con->prepare("INSERT INTO ORDER_ITEMS (product_id, quantity, color) WHERE order_id=? VALUES (SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?)"); 
-//$query->bind_param("ii", $order_id, $cart_id);
-//$query->execute();
-//$query->close();
-//echo "Test query 2";
 
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("ii", $order_id, $cart_id);
@@ -53,7 +32,9 @@ $query->execute();
 $query->close();
 
 unset($_SESSION["cart_id"]);//Reset cart_id variable
+echo"TESTINGT";
 unset($_SESSION["order_id"]);//Reset order_id variable
+echo"TESTING AGAIN";
 ?>
 
 <!DOCTYPE html>
