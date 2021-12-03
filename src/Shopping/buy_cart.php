@@ -36,10 +36,10 @@ echo $order_id;
 //$query->close();
 //echo "Test query 2";
 
-$stmt = $con->prepare("INSERT INTO ORDER_ITEMS (cart_id, product_id, quantity, color) VALUES (?,(SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?))");
-$stmt->bind_param("ii", $order_id, $cart_id);
-$stmt->execute();
-$stmt->close();
+$query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
+$query->bind_param("ii", $order_id, $cart_id);
+$query->execute();
+$query->close();
 echo "Test query 1";
 
 $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
