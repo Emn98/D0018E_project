@@ -23,16 +23,13 @@ if not it will create one for him/her -->
     $query -> execute();
     $query->close();
 
-    echo"IF sats check if order 2 nummer";
-
+    //Kollar den senaste inlagda Order_id som tillagts i Databasen
     $query = $con->prepare("SELECT MAX(order_id) FROM ORDERS WHERE user_id=?");
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->bind_result($order_id);
     $query->fetch();
     $query->close();
-
-    echo"IF sats check if order 3 nummer";
 
     $_SESSION["order_id"] = $order_id;
   }

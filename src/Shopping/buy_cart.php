@@ -19,7 +19,6 @@ $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity,
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
 $query->close();
-echo "Test query 1";
 
 $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("i", $cart_id);
@@ -32,9 +31,7 @@ $query->execute();
 $query->close();
 
 unset($_SESSION["cart_id"]);//Reset cart_id variable
-echo"TESTINGT";
 unset($_SESSION["order_id"]);//Reset order_id variable
-echo"TESTING AGAIN";
 ?>
 
 <!DOCTYPE html>
