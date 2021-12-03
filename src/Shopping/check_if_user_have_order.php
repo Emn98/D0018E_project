@@ -17,12 +17,12 @@ if not it will create one for him/her -->
 
   //Check if the user have a shopping order in the database
   if(gettype($_SESSION["order_id"]) == "NULL" || !isset($_SESSION["order_id"])){
-    $query = $con->prepare("INSERT INTO ORDERS (user_id) VALUE(?)");//If not create the order
+    $query = $con->prepare("INSERT INTO ORDERS user_id VALUE(?)");//If not create the order
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
 
-    $query = $con->prepare("SELECT order_id FROM ORDERS WHERE user_id=?");
+    $query = $con->prepare("SELECT MAX(order_id) FROM ORDERS WHERE user_id=?");
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->bind_result($order_id);
