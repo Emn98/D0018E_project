@@ -16,6 +16,7 @@
 
   $cart_id = $_SESSION["cart_id"];
 
+  //Retrive all items associated with the logged in users cart. 
   $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
   $query->bind_param("i", $cart_id);
   $query->execute();
@@ -23,7 +24,7 @@
   $query->fetch();
   $query->close();
 
-
+  //Retrive the total price from the user's cart
   $query = $con->prepare("SELECT total_price FROM CARTS WHERE cart_id=?");
   $query->bind_param("i", $_SESSION["cart_id"]);
   $query->execute();
