@@ -15,25 +15,21 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1><a href="/index.php"> OFF<span>BRAND</span> </a></h1>
-        <div class="search_bar_container">
+    <header>
+      <h1>OFF<span>BRAND</span></h1>
+      <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
           <button type="submit"><i class="fa fa-search"></i>Search</button>
         </form>
      </div>
-        <form class="search_bar_form" method="POST" action="/search.php">
-          <input class="search_bar_inp" type="text" name="product_name">
-          <button type="submit" class="search_btn">Search</button>
-        </form> 
-        <nav>
-          <ul class="nav_menu">
-            <li><a href="/Accounts/site_director.php">My Page</a></li>
-            <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
-          </ul>
-        </nav>
-        </header>
+      <nav>
+        <ul class="nav_menu">
+          <li><a href="/Accounts/site_director.php">My Page</a></li>
+          <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
+        </ul>
+      </nav>
+      </header>
         <main>
           <div class="inner_left_side">
           <?php 
