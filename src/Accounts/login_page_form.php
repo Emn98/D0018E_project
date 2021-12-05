@@ -7,7 +7,6 @@
     <title>Login - Offbrand.pwr</title>
   </head>
   <body>
-    <h1><a href="/index.php">PRESS HERE TO GO BACK SAMUEl</a></h1>
     <form class="login_form" method="post" action="authenticate_user.php">
       <h1 class="form_title">Login</h1>
       <div class="form_elements">

@@ -49,7 +49,7 @@
                 }
             }else{//User delete their own account
                 $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
-                $query->bind_param("s", $_SESSION["user_id"]);
+                $query->bind_param("i", $_SESSION["user_id"]);
                 $query->execute();
                 $query->close();
                 session_destroy();
