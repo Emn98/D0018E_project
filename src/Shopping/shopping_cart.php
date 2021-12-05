@@ -31,7 +31,6 @@
   $query->fetch();
   $query->close();
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +50,8 @@
       </form> 
       <nav>
         <ul class="nav_menu">
-          <li><a href="/Accounts/site_director.php">My Page</a></li>
           <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
+          <li><a href="/Accounts/site_director.php">My Page</a></li>
         </ul>
       </nav>
       </header>
@@ -143,8 +142,8 @@
             </form>
           </div>
         </div>    
-      <div class="left_side">Left Side</div>
-      <div class="right_side">Right Side</div>
+      <div class="left_side"></div>
+      <div class="right_side"></div>
 	</div>
   </body>
 </html>
