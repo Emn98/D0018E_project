@@ -19,7 +19,7 @@ while($review = $review_result->fetch_assoc()){
   $like_to_dislike_ratio = $review['likes'];
   ?>
   <div class="each_review_div">
-    <label><?php echo $name ?></label><br>
+    <label><?php echo $review_name ?></label><br>
     <label><?php echo $review_score ?></label><br>
     <label><?php echo $review_comment ?></label><br>
     <label><?php echo $like_to_dislike_ratio ?></label><br>
