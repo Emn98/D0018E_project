@@ -46,7 +46,6 @@
           include_once($path);
 
           $product_name = $_POST['product_name'];
-          $_SESSION['quantity'] = $_POST['quantity'];
 
           $query = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
           $query->bind_param("s", $product_name);
@@ -67,7 +66,6 @@
           $stmt->execute();
           $result = $stmt->get_result();
           
-
           echo "<div class='product_details_container'>";
           while ($row = $result->fetch_assoc()) {
             $name   = $row['product_name'];

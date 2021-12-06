@@ -1,6 +1,4 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
-
-
 <?php 
   session_start();
 ?>
@@ -9,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/main_page.css">
+    <link rel="stylesheet" href="Css/main_page.css">
     <link rel="stylesheet" href="Css/category.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
@@ -19,10 +17,12 @@
   <div class="container">
     <header>
       <h1>OFF<span>BRAND</span></h1>
-      <form class="search_bar_form" method="POST" action="/search.php">
-        <input class="search_bar_inp" type="text" name="product_name">
-        <button type="submit" class="search_btn">Search</button>
-      </form> 
+      <div class="search_bar_container">
+        <form class="search_bar_form" method="POST" action="/search.php">
+          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
+          <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
+     </div>
       <nav>
         <ul class="nav_menu">
           <li><a href="/Accounts/site_director.php">My Page</a></li>

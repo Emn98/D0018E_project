@@ -11,11 +11,13 @@
   $path .= "/database.php";
   include_once($path);
 
+  include("delete_cart.php");
 
   session_start();
 
   $cart_id = $_SESSION["cart_id"];
 
+  //Retrive all items associated with the logged in users cart. 
   $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
   $query->bind_param("i", $cart_id);
   $query->execute();
@@ -23,14 +25,13 @@
   $query->fetch();
   $query->close();
 
-
+  //Retrive the total price from the user's cart
   $query = $con->prepare("SELECT total_price FROM CARTS WHERE cart_id=?");
   $query->bind_param("i", $_SESSION["cart_id"]);
   $query->execute();
   $query->bind_result($total_price);
   $query->fetch();
   $query->close();
-
 
 ?>
 <!DOCTYPE html>
@@ -45,14 +46,16 @@
   <div class="container">
     <header>
       <h1>OFF<span>BRAND</span></h1>
-      <form class="search_bar_form" method="POST" action="/search.php">
-        <input class="search_bar_inp" type="text" name="product_name">
-        <button type="submit" class="search_btn">Search</button>
-      </form> 
+      <div class="search_bar_container">
+        <form class="search_bar_form" method="POST" action="/search.php">
+          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
+          <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
+     </div>
       <nav>
         <ul class="nav_menu">
-          <li><a href="/Accounts/site_director.php">My Page</a></li>
           <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
+          <li><a href="/Accounts/site_director.php">My Page</a></li>
         </ul>
       </nav>
       </header>
@@ -135,7 +138,7 @@
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
-            <form class="Delete_product_btn_form" action="delete_cart.php">
+            <form class="Delete_product_btn_form" action="delete_cart_user.php">
               <button>Delete Cart</button>
             </form>
             <form class="buy_product_btn_form" action="buy_cart.php">
@@ -143,8 +146,8 @@
             </form>
           </div>
         </div>    
-      <div class="left_side">Left Side</div>
-      <div class="right_side">Right Side</div>
+      <div class="left_side"></div>
+      <div class="right_side"></div>
 	</div>
   </body>
 </html>

@@ -30,9 +30,16 @@
     <div class="container">
       <header>
         <h1>OFF<span>BRAND</span></h1>
+        <div class="search_bar_container">
+        <form class="search_bar_form" method="POST" action="/search.php">
+          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
+          <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
+        </div>
         <nav>
           <ul class="nav_menu">
             <li><a href="/index.php">Home</a></li>
+            <li><a href="#">Order history</a></li>
             <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
           </ul>
         </nav>
