@@ -1,8 +1,6 @@
 <!-- This page will allowe the admin to delete users -->
 <?php
   
-  echo "test1";
-
   require("log_in_check.php");//Checks so the user is logged in
 
   session_start();
@@ -12,7 +10,6 @@
   $path .= "/database.php";
   include_once($path);
 
-  echo "test2";
 
   $inp = 0;
   
@@ -22,8 +19,6 @@
   $result = $query->get_result();
   $query->fetch();
   $query->close();
-
-  echo "test3";
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +67,6 @@
                     $email_address = $row["email_address"]; 
                     $first_name = $row["first_name"]; 
                     $last_name = $row["last_name"];
-                    print_r($row);
                 
                     if($temp == 1){
                       echo "<tr class='table_row_odd'>";
