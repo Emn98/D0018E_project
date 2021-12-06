@@ -45,14 +45,7 @@
           $path .= "/database.php";
           include_once($path);
 
-          $product_name = $_POST['product_name'];
-
-          $query = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name=?");
-          $query->bind_param("s", $product_name);
-          $query->execute();
-          $query->bind_result($product_id);
-          $query->fetch();
-          $query->close();
+          $product_id = $_POST['product_id'];
 
           $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
           $query->bind_param("i", $product_id);
@@ -61,8 +54,8 @@
           $query->fetch();
           $query->close();
 
-          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name=?");
-          $stmt->bind_param("s", $product_name);
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_id=?");
+          $stmt->bind_param("i", $product_id);
           $stmt->execute();
           $result = $stmt->get_result();
           
