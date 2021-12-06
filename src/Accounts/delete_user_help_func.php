@@ -20,7 +20,7 @@
     echo $user_cart_id;
     echo gettype($user_cart_id);
 
-    if($user_cart_id!="NULL"){//If the user have a cart in the database
+    if($user_cart_id!=NULL){//If the user have a cart in the database
     
       echo "test5";  
       $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
