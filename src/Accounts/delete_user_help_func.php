@@ -7,9 +7,6 @@
 
     echo "test2";
 
-    session_start();
-
-    //Create connection to database
     $path = $_SERVER['DOCUMENT_ROOT'];
     $path .= "/database.php";
     include_once($path);

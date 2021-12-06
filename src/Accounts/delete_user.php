@@ -26,7 +26,7 @@
 
           echo "test1";
 
-          delete_user_cart_admin($_POST["user_id"]);//Delete the cart associated with the user. 
+          delete_user_cart_admin($_POST["user_id"], $con);//Delete the cart associated with the user. 
 
           echo "test9";
 
