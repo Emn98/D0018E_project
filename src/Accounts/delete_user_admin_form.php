@@ -42,7 +42,7 @@
       </header>
         <div class="user_container">
           <div class="search_bar_container">
-            <form class="search_bar_form" method="POST" action="/search.php">
+            <form class="search_bar_form" method="POST" action="">
               <input class="search_bar_inp" type="text" name="product_name" placeholder="Search user...">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
@@ -79,8 +79,6 @@
                       echo "<button class='delete_btn'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
-                      echo "<input type='hidden' name='delete_user_first_name' value=$first_name>";
-                      echo "<input type='hidden' name='delete_user_last_name' value=$last_name>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -95,8 +93,6 @@
                       echo "<button class='delete_btn'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
-                      echo "<input type='hidden' name='delete_user_first_name' value=$first_name>";
-                      echo "<input type='hidden' name='delete_user_last_name' value=$last_name>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 1;

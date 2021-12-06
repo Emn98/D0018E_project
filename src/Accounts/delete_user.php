@@ -18,36 +18,26 @@
 
             //Admin want's to delete a user.
             if(isset($_POST["email"])){
-              if($_POST["email"] == "admin@gmail.com"){//If admin tries to delete the admin profile it wont work.
-                    ?>
-                    <div class='form'>
-                      <h3>you are not allowed to delete the admin profile</h3>
-                      <br>
-                      <a href='/Accounts/admin_page.php'>Go back</a>
-                    </div>
-                    <?php
-                    exit;
-                }else{
-                    $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
-                    $query->bind_param("s", $_POST["email"]);
-                    $query->execute();
-                    if($query->affected_rows == 0){//If no user with that email exists
-                        ?>
-                        <div class='form'>
-                          <h3>No account with this email exist in the database<h3>
-                          <br>
-                          <a href='delete_user_admin_form.php'>Do you want to enter another email?</a>
-                          <br>
-                          <a href='/Accounts/admin_page.php'>Go back</a>
-                        </div>
-                        <?php
-                        $query->close();
-                        exit;
-                    }
-                    $query->close();
-                    $link = "/Accounts/admin_page.php";
+                $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
+                $query->bind_param("s", $_POST["email"]);
+                $query->execute();
+                if($query->affected_rows == 0){//If no user with that email exists
+                ?>
+                <div class='form'>
+                  <h3>No account with this email exist in the database<h3>
+                  <br>
+                  <a href='delete_user_admin_form.php'>Do you want to enter another email?</a>
+                  <br>
+                  <a href='/Accounts/admin_page.php'>Go back</a>
+                </div>
+                <?php
+                $query->close();
+                exit;
                 }
-            }else{//User delete their own account
+                  $query->close();
+                  $link = "/Accounts/delete_user_admin_form.php";
+                
+                }else{//User delete their own account
                 $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
                 $query->bind_param("i", $_SESSION["user_id"]);
                 $query->execute();
@@ -55,7 +45,7 @@
                 session_destroy();
                 $link = "/index.php";
                 }
-?>
+             ?>
             <div class="form">
             <h3>Account deleted successfully</h3>
             <br> 
