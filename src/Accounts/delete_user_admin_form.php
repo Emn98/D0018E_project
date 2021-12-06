@@ -15,8 +15,6 @@
   //If the search bar is used to look for specific accounts. 
   if(isset($_POST["user_name"]) && $_POST["user_name"]!= ""){
 
-    echo "test";
-    
     $search_word = $_POST["user_name"];
     $search_word_prepare = "%$search_word%";
     
@@ -57,7 +55,7 @@
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search user..." required>
+              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search user...">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
           </div>
