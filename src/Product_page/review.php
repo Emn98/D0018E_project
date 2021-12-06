@@ -1,5 +1,9 @@
-<?php
 
+
+<?php
+?>
+<label>This works right?</label>
+<?php
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
