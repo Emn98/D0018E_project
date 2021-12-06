@@ -9,6 +9,7 @@
     </head>
     <body>
       <?php
+        print_r($_POST);
         $user_id = $_POST["delete_user_id"];
         $email = $_POST["delete_user_email"];
       ?>
