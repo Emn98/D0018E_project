@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/Css/main_page.css">
     <link rel="stylesheet" href="/Css/present_products.css">
     <link rel="stylesheet" href="/Css/category.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jstmt/3.5.1/jstmt.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
   </head>
@@ -52,12 +52,12 @@
           $stmt->execute();
           $result = $stmt->get_result();
 
-          $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
-          $query->bind_param("i", $product_id);
-          $query->execute();
-          $result_inventory = $query->get_result();
-          $query->fetch();
-          $query->close();
+          $stmt = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
+          $stmt->bind_param("i", $product_id);
+          $stmt->execute();
+          $result_inventory = $stmt->get_result();
+          $stmt->fetch();
+          $stmt->close();
   
           echo "<div class='product_details_container'>";
           $row = $result->fetch_assoc();
@@ -110,16 +110,17 @@
             this is future best customer review
           </div>
           <div class='customer_reviews_div'>
-            this is future customer reveiw
+            <?php
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/Product_page/review.php";
+          include($path);
+          ?>
+        
           </div>
           <div class='product_details_details_div'>
             <label class='product_name_label'><?php echo $name ?></label>
             <label class='product_name_label'><?php echo $description ?></label>
-          </div>
-        <?php
-          echo "</div>";
-          $con->close();           
-          ?>
+          </div>         
         </div>
       </main>
     </div>
