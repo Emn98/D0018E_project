@@ -14,12 +14,12 @@
         //Check so the user is logged in
         require("log_in_check.php");
 
-        include("delete_user_help_func.php");
-
         //creates connection to database
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
         include_once($path);
+
+        include("delete_user_help_func.php");
 
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
