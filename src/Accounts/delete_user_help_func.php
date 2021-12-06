@@ -14,11 +14,11 @@
 
     echo "test2";
 
-    $user_id = (int) $user_id;
+    $user_id_int = (int) $user_id;
     echo gettype($user_id);
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
-    $query->bind_param("i", $user_id);
+    $query->bind_param("i", $user_id_int);
     $query->execute();
     $query->bind_result($user_cart_id);
     $query->fetch();
