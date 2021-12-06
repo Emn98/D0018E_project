@@ -59,6 +59,7 @@
 
               echo "<div class='wrapper'>";
               while ($row = $result->fetch_assoc()) {
+                $product_id = $row['product_id'];
                 $name   = $row['product_name'];
                 $description = $row['product_description'];
                 $category = $row['category_id'];
@@ -76,7 +77,7 @@
                   <div class='product_price_buy_div'>
                     <label class='product_price_label'>From <?php echo $price ?> kr</label>
                     <form action='/product_details.php' method='post'>
-                      <input type='hidden' name='product_name' value =" <?php echo $name ?>">
+                      <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
                       <button type='submit' class='product_details_button'>Go to product</button>
                     </form>
                   </div>
