@@ -14,10 +14,10 @@
 
   echo "test2";
 
-
-  //Retrive all items associated with the logged in users cart. 
+ $test = 73;
+  
   $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id=?");
-  $query->bind_param("i", 73);
+  $query->bind_param("i", $test);
   $query->execute();
   $result = $query->get_result();
   $query->fetch();
