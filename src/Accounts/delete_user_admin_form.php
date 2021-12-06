@@ -74,6 +74,7 @@
               <tbody>
                 <?php
                   $temp = 1;
+                  $form_id = 0;
                   while ($row = $result->fetch_assoc()) {
                     $user_id = $row["user_id"];
                     $email_address = $row["email_address"]; 
@@ -87,13 +88,14 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php'>";
+                      echo "<form method='POST' action='delete_user_admin_confirm.php' id=$form_id>";
                       echo "<button class='delete_btn'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
+                      $form_id++;
                     }else{
                       echo "<tr class='table_row_even'>";
                       echo "<td>$user_id</td>";
@@ -101,13 +103,14 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php'>";
+                      echo "<form method='POST' action='delete_user_admin_confirm.php' id=$form_id>";
                       echo "<button class='delete_btn'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 1;
+                      $form_id++;
                     }
                   }
                 ?>
