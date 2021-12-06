@@ -24,11 +24,7 @@
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
 
-          echo "test1";
-
           delete_user_cart_admin($_POST["user_id"], $con);//Delete the cart associated with the user. 
-
-          echo "test9";
 
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);
@@ -52,10 +48,8 @@
         }else{//User delete their own account
 
           //Delete the cart if user have one. 
-          $path = $_SERVER['DOCUMENT_ROOT'];
-          $path .= "/Shopping/delete_cart.php";
-          include_once($path);
-
+          delete_user_cart();
+          
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
           $query->bind_param("i", $_SESSION["user_id"]);
           $query->execute();
