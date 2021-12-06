@@ -14,7 +14,7 @@
 
     echo "test2";
 
-    echo $user_id;
+    $user_id = (int) $user_id;
     echo gettype($user_id);
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
