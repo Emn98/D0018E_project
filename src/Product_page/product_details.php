@@ -111,6 +111,7 @@
           </div>
           <div class='customer_reviews_div'>
             <?php
+          $product_id = $_POST['product_id'];
           $path = $_SERVER['DOCUMENT_ROOT'];
           $path .= "/Product_page/review.php";
           include($path);
