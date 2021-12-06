@@ -12,36 +12,37 @@
     $path .= "/database.php";
     include_once($path);
 
-    echo "test2";
+    echo "test3";
 
-    $user_id_int = (int) $user_id;
+    $user_id = (int) $user_id;
     echo gettype($user_id);
+    print_r($con);
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
-    $query->bind_param("i", $user_id_int);
+    $query->bind_param("i", $user_id);
     $query->execute();
     $query->bind_result($user_cart_id);
     $query->fetch();
     $query->close();
 
-    echo "test3";
+    echo "test4";
 
     if(isset($user_cart_id)){//If the user have a cart in the database
     
-      echo "test4";  
+      echo "test5";  
       $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
       $query->bind_param("i", $user_cart_id);
       $query->execute();
       $query->close();
 
-      echo "test5";
+      echo "test6";
     
       $query = $con->prepare("DELETE FROM CARTS WHERE cart_id=?");
       $query->bind_param("i", $user_cart_id);
       $query->execute();
       $query->close();
 
-      echo "test6";
+      echo "test7";
 
       return;
     }else{//If the user dosen't have a cart in the database. 
