@@ -1,6 +1,9 @@
 <!--This page will allow the admin to write in the email of the user
     that the admin want to delete -->
-<?php 
+<?php
+  
+  echo "test";
+  
   require("log_in_check.php");//Checks so the user is logged in
 
   session_start();
@@ -11,7 +14,7 @@
   include_once($path);
 
   //Retrive all items associated with the logged in users cart. 
-  $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM Users WHERE cart_id>?");
+  $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE cart_id>?");
   $query->bind_param("i", 0);
   $query->execute();
   $result = $query->get_result();
