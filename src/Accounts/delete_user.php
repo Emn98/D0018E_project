@@ -21,6 +21,8 @@
 
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
+
+          echo gettype($_POST["email"]);
           
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);
