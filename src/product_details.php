@@ -47,77 +47,76 @@
 
           $product_id = $_POST['product_id'];
 
+          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_id=?");
+          $stmt->bind_param("i", $product_id);
+          $stmt->execute();
+          $result = $stmt->get_result();
+
           $query = $con->prepare("SELECT * FROM PRODUCT_INVENTORY WHERE product_id=?");
           $query->bind_param("i", $product_id);
           $query->execute();
           $result_inventory = $query->get_result();
           $query->fetch();
           $query->close();
-
-          $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_id=?");
-          $stmt->bind_param("i", $product_id);
-          $stmt->execute();
-          $result = $stmt->get_result();
-          
+  
           echo "<div class='product_details_container'>";
-          while ($row = $result->fetch_assoc()) {
-            $name   = $row['product_name'];
-            $description = $row['product_description'];
-            $category = $row['category_id'];
-            $price = $row['price'];
-            $size = $row['size'];
-            $discount = $row['discount'];
-            $picture = $row['picture'];
-            $product_id = $row['product_id'];
-            ?>
-            <div class='product_details_image_div'>
-              <img src ='<?php echo $picture ?>'>
-            </div>
-            <div class='product_details_quantity_div'>
-              <?php
-              $color_arr = array();
+          $row = $result->fetch_assoc();
+          $name   = $row['product_name'];
+          $description = $row['product_description'];
+          $category = $row['category_id'];
+          $price = $row['price'];
+          $size = $row['size'];
+          $discount = $row['discount'];
+          $picture = $row['picture'];
+          $product_id = $row['product_id'];
+          ?>
+          <div class='product_details_image_div'>
+            <img src ='<?php echo $picture ?>'>
+          </div>
+          <div class='product_details_quantity_div'>
+            <?php
+            $color_arr = array();
 
-              echo "<table>".
-                    "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
-              while($row_inventory = $result_inventory->fetch_assoc()){
-                echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
-                array_push($color_arr,$row_inventory['color']);
-              }
-              echo "</table>";
-              ?>
-            </div>
-            <div class='product_details_price_div'>
-              <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
-              <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
-                <div class='form_elements'>
-                  <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
-                  <select name="product_color" id="color_category">
-                  <?php
-                  foreach ($color_arr as $value) {
-                    echo "<option value='$value'>$value</option>";
-                  }
-                  ?>
-                  </select>
-                  <label for='quantity' class='form_label'>Enter Quantity</label>
-                    <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
-                    <button class='form_button'>Buy</button>
-                </div>
-                <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
-                <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
-              </form>
-            </div>
-            <div class='best_customer_review_div'>
-              this is future best customer review
-            </div>
-            <div class='customer_reviews_div'>
-              this is future customer reveiw
-            </div>
-            <div class='product_details_details_div'>
-              <label class='product_name_label'><?php echo $name ?></label>
-              <label class='product_name_label'><?php echo $description ?></label>
-            </div>
-          <?php
-          }
+            echo "<table>".
+                  "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
+            while($row_inventory = $result_inventory->fetch_assoc()){
+              echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
+              array_push($color_arr,$row_inventory['color']);
+            }
+            echo "</table>";
+            ?>
+          </div>
+          <div class='product_details_price_div'>
+            <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
+            <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
+              <div class='form_elements'>
+                <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
+                <select name="product_color" id="color_category">
+                <?php
+                foreach ($color_arr as $value) {
+                  echo "<option value='$value'>$value</option>";
+                }
+                ?>
+                </select>
+                <label for='quantity' class='form_label'>Enter Quantity</label>
+                  <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
+                  <button class='form_button'>Buy</button>
+              </div>
+              <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
+              <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
+            </form>
+          </div>
+          <div class='best_customer_review_div'>
+            this is future best customer review
+          </div>
+          <div class='customer_reviews_div'>
+            this is future customer reveiw
+          </div>
+          <div class='product_details_details_div'>
+            <label class='product_name_label'><?php echo $name ?></label>
+            <label class='product_name_label'><?php echo $description ?></label>
+          </div>
+        <?php
           echo "</div>";
           $con->close();           
           ?>
