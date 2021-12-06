@@ -18,6 +18,8 @@
   $query->fetch();
   $query->close();
 
+  echo "test";
+
 ?>
 <!DOCTYPE html>
   <html>
@@ -65,6 +67,7 @@
                     $email_address = $row["email_address"]; 
                     $first_name = $row["first_name"]; 
                     $last_name = $row["last_name"];
+                    print_r($row);
                 
                     if($temp == 1){
                       echo "<tr class='table_row_odd'>";
