@@ -32,6 +32,7 @@
     $query->fetch();
     $query->close();
   }
+
 ?>
 <!DOCTYPE html>
   <html>
@@ -88,8 +89,8 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' id='$form_id'>";
-                      echo "<button class='delete_btn'>Delete</button>";
+                      echo "<form method='POST' action='delete_user_admin_confirm.php' >";
+                      echo "<button class='delete_btn' type='submit'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
                       echo "</td>";
@@ -103,8 +104,8 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' id='$form_id'>";
-                      echo "<button class='delete_btn'>Delete</button>";
+                      echo "<form method='POST' action='delete_user_admin_confirm.php'>";
+                      echo "<button class='delete_btn' type='submit'>Delete</button>";
                       echo "<input type='hidden' name='delete_user_id' value=$user_id>";
                       echo "<input type='hidden' name='delete_user_email' value=$email_address>";
                       echo "</td>";
