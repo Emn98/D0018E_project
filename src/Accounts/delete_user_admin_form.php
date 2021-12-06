@@ -10,16 +10,25 @@
   $path .= "/database.php";
   include_once($path);
 
-
   $inp = 0;
-  
-  $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>?");
-  $query->bind_param("i", $inp);
-  $query->execute();
-  $result = $query->get_result();
-  $query->fetch();
-  $query->close();
 
+  if(isset($_POST["user_name"]) && $_POST["user_name"]!= ""){
+    $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>? and ");
+    $query->bind_param("i", $inp);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
+  }else{
+    $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>?");
+    $query->bind_param("i", $inp);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
+
+  }
+  
 ?>
 <!DOCTYPE html>
   <html>
@@ -43,7 +52,7 @@
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="product_name" placeholder="Search user...">
+              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search user..." required>
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
           </div>

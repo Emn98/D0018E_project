@@ -11,6 +11,7 @@
   $path .= "/database.php";
   include_once($path);
 
+  include("delete_cart.php");
 
   session_start();
 
@@ -137,7 +138,7 @@
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
-            <form class="Delete_product_btn_form" action="delete_cart.php">
+            <form class="Delete_product_btn_form" action="<?php delete_cart_user() ?>">
               <button>Delete Cart</button>
             </form>
             <form class="buy_product_btn_form" action="buy_cart.php">
