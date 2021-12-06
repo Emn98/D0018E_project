@@ -28,7 +28,7 @@
 
           delete_user_cart_admin($_POST["user_id"]);//Delete the cart associated with the user. 
 
-          echo "test2";
+          echo "test9";
 
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);
