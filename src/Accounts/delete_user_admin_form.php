@@ -1,5 +1,4 @@
-<!--This page will allow the admin to write in the email of the user
-    that the admin want to delete -->
+<!-- This page will allowe the admin to delete users -->
 <?php
   
   echo "test1";
@@ -15,11 +14,10 @@
 
   echo "test2";
 
-  $zero = 73;
 
   //Retrive all items associated with the logged in users cart. 
-  $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE cart_id=?");
-  $query->bind_param("i", $zero);
+  $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>?");
+  $query->bind_param("i", 0);
   $query->execute();
   $result = $query->get_result();
   $query->fetch();
