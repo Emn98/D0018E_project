@@ -7,9 +7,7 @@
 
     echo "test2";
 
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include_once($path);
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
 
     echo "test3";
 
