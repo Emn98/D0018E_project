@@ -2,8 +2,8 @@
     that the admin want to delete -->
 <?php
   
-  echo "test";
-  
+  echo "test1";
+
   require("log_in_check.php");//Checks so the user is logged in
 
   session_start();
@@ -13,6 +13,8 @@
   $path .= "/database.php";
   include_once($path);
 
+  echo "test2";
+
   //Retrive all items associated with the logged in users cart. 
   $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE cart_id>?");
   $query->bind_param("i", 0);
@@ -21,7 +23,7 @@
   $query->fetch();
   $query->close();
 
-  echo "test";
+  echo "test3";
 
 ?>
 <!DOCTYPE html>
