@@ -5,7 +5,7 @@ include($path);
 
 echo $product_id;
 
-$stmt = $con->prepare("SELECT * FROM REVIEWS WHERE product_id=?");
+$stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=?");
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
 $review_result = $stmt->get_result();
