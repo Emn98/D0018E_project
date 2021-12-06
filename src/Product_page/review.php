@@ -1,12 +1,9 @@
-
-
-<?php
-?>
-<label>This works right?</label>
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
+
+echo $product_id;
 
 $stmt = $con->prepare("SELECT * FROM REVIEWS WHERE product_id=?");
 $stmt->bind_param("i", $product_id);
