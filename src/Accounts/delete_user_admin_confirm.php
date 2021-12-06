@@ -16,6 +16,7 @@
           <h3>Would you like to delete user <?php echo $user_id ?> with the email: <?php echo $email ?>?</h3>
           <form method="POST" name="forms" action="delete_user.php">
               <input type="hidden" name="email" value=<?php echo $email ?>>
+              <input type="hidden" name="user_id" value=<?php echo $user_id ?>>
               <button type="submit">Confirm</button>
           </form>
           <form method="POST" action="delete_user_admin_form.php">

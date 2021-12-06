@@ -44,7 +44,6 @@
             $_SESSION["user_id"] = $user_id;
             $_SESSION["user_pwd"] = $hashed_pwd;
 
-
             if($_SESSION["user_id"] != 0){ 
 
               //Retrive the users cart id

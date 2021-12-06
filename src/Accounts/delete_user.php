@@ -14,6 +14,8 @@
         //Check so the user is logged in
         require("log_in_check.php");
 
+        include("delete_user_help_func.php");
+
         //creates connection to database
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/database.php";
@@ -21,7 +23,9 @@
 
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
-          
+
+          delete_user_cart_admin($_POST["user_id"]);//Delete the cart associated with the user. 
+
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);
           $query->execute();

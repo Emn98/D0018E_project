@@ -1,6 +1,6 @@
+<!-- This php script will allow users to delete their shopping carts -->
 <?php  
 
-  
   session_start();
 
   //Create connection to database
