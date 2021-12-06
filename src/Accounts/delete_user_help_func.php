@@ -5,15 +5,10 @@
     get deleted provided the user have one in the database */   
   function delete_user_cart_admin($user_id){
 
-    echo "test2";
-
-    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
-
-    echo "test3";
-
     $user_id = (int) $user_id;
-    echo gettype($user_id);
-    print_r($con);
+
+    //Connect to the database.
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
     $query->bind_param("i", $user_id);
@@ -24,7 +19,7 @@
 
     echo "test4";
 
-    if(isset($user_cart_id)){//If the user have a cart in the database
+    if($user_cart_id!="NULL"){//If the user have a cart in the database
     
       echo "test5";  
       $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
