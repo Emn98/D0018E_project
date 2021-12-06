@@ -17,7 +17,8 @@
     $query->fetch();
     $query->close();
 
-    echo "test4";
+    echo $user_cart_id;
+    echo gettype($user_cart_id);
 
     if($user_cart_id!="NULL"){//If the user have a cart in the database
     
