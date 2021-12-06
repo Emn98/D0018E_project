@@ -12,9 +12,16 @@
 
   $inp = 0;
 
+  //If the search bar is used to look for specific accounts. 
   if(isset($_POST["user_name"]) && $_POST["user_name"]!= ""){
-    $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>? and ");
-    $query->bind_param("i", $inp);
+
+    echo "test";
+    
+    $search_word = $_POST["user_name"];
+    $search_word_prepare = "%$search_word%";
+    
+    $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>? and email_address LIKE ? OR first_name LIKE ? OR Last_name LIKE ?");
+    $query->bind_param("isss", $inp, $search_word_prepare, $search_word_prepare, $search_word_prepare );
     $query->execute();
     $result = $query->get_result();
     $query->fetch();
@@ -26,9 +33,7 @@
     $result = $query->get_result();
     $query->fetch();
     $query->close();
-
   }
-  
 ?>
 <!DOCTYPE html>
   <html>
@@ -40,15 +45,15 @@
     </head>
     <body>
       <div class="container">
-      <header>
-        <h1>OFF<span>BRAND</span></h1>
-        <nav>
-          <ul class="nav_menu">
-            <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
-            <li><a href="/Accounts/site_director.php">My Page</a></li>
-          </ul>
-        </nav>
-      </header>
+        <header>
+          <h1>OFF<span>BRAND</span></h1>
+          <nav>
+            <ul class="nav_menu">
+              <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
+              <li><a href="/Accounts/site_director.php">My Page</a></li>
+            </ul>
+          </nav>
+        </header>
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">

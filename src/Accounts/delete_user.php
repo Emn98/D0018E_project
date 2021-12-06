@@ -23,7 +23,6 @@
 
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
-
           delete_user_cart_admin($_POST["user_id"], $con);//Delete the cart associated with the user. 
 
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
@@ -46,15 +45,15 @@
           $link = "/Accounts/delete_user_admin_form.php";
                 
         }else{//User delete their own account
-
           //Delete the cart if user have one. 
           delete_user_cart();
-          
+
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
           $query->bind_param("i", $_SESSION["user_id"]);
           $query->execute();
           $query->close();
           session_destroy();
+
           $link = "/index.php";
         }
       ?>

@@ -18,13 +18,11 @@
     $query->close();
 
     if($user_cart_id!=NULL){//If the user have a cart in the database
-    
       $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
       $query->bind_param("i", $user_cart_id);
       $query->execute();
       $query->close();
 
-    
       $query = $con->prepare("DELETE FROM CARTS WHERE cart_id=?");
       $query->bind_param("i", $user_cart_id);
       $query->execute();
@@ -49,7 +47,6 @@
 
       //If the user have a cart delete it. 
       if(gettype($_SESSION["cart_id"]) != "NULL" && isset($_SESSION["cart_id"])){
-        
         $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
         $query->bind_param("i", $cart_id);
         $query->execute();
