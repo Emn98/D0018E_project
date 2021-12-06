@@ -24,7 +24,11 @@
         //Admin want's to delete a user.
         if(isset($_POST["email"])){
 
+          echo "test1";
+
           delete_user_cart_admin($_POST["user_id"]);//Delete the cart associated with the user. 
+
+          echo "test2";
 
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);

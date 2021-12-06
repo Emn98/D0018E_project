@@ -10,7 +10,7 @@
     $path .= "/database.php";
     include_once($path);
 
-    $query = $con->prepare("SELECT cart_id FROM CARTs WHERE user_id=?");
+    $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
     $query->bind_param("i", $user_id);
     $query->execute();
     $query->bind_result($user_cart_id);
@@ -33,5 +33,5 @@
         return;
     }
   }
-  
+
 ?>
