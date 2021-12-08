@@ -93,7 +93,7 @@
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
                       echo gettype($email_address);
                       echo gettype($user_id);
-                      echo "<input type='button' value='Delete' onclick='dosomething(\"" . $user_id . $email_address . "\")' class='delete_btn'>";
+                      echo "<input type='button' value='Delete' onclick='dosomething(\"" . $user_id . ','. $email_address . "\")' class='delete_btn'>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -126,7 +126,9 @@
 
       <script>
         function dosomething(val, vall){
-          console.log(val, vall);
+          console.log(val);
+          console.log(vall);
+          
         }
       </script>
     </body>
