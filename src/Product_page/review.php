@@ -1,10 +1,5 @@
 <?php
 
-if(!isset($_SESSION["user_id"])){
-  header("Location: /Accounts/login_page_form.php");
-  exit;
-}
-
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
