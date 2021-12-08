@@ -38,5 +38,9 @@ while($review = $review_result->fetch_assoc()){
   </article>
  <?php 
 }
+
 $con->close();
 ?>
+<form class="add_review_form" method="POST" action="add_review.php">
+<button class="add_review_button"></button>
+</form>
