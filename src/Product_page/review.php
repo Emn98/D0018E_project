@@ -35,7 +35,7 @@ while($review = $review_result->fetch_assoc()){
         <button>down</button>
       </div>
     </div>
-  </div>
+  </article>
  <?php 
 }
 $con->close();
