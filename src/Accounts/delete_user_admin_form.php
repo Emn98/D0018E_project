@@ -126,22 +126,20 @@
       <script>
         function delete_user(id, email){
           if (confirm("Would you like to delete user "+ id + " with the email:" +email)){
-                alert("yes");
-              }
-          $.ajax({
+            $.ajax({
                 type: "POST",
-                url: "delete_user_admin_confirm.php", // 
-                data: {delete_user_id: id,
-                      delete_user_email: email},
-                success: function(data){
-                  window.location.replace("delete_user_admin_confirm.php");
+                url: "delete_user.php", // 
+                data: {user_id: id,
+                       email: email},
+                success: function(){
+                  alert("User deleted successfully!")
                 },
                 error: function(){
                     alert("failure");
                 }
             });
-
-
+                
+          }
         }
       </script>
     </body>
