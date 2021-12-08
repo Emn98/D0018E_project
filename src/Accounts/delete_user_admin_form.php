@@ -89,13 +89,10 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php'>";
-                      echo "<input type='hidden' name='delete_user_id'>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="submit" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
                       <?php
-                      echo "</form>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -127,6 +124,9 @@
       </div>
 
       <script>
+        if (confirm("Would you like to delete user "+ id + " with the email:" +email)){
+          txt="yes";
+        }
         function delete_user(id, email){
           $.ajax({
                 type: "POST",
