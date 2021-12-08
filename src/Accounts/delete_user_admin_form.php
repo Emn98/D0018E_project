@@ -131,8 +131,8 @@
                 url: "delete_user_admin_confirm.php", // 
                 data: {delete_user_id: id,
                       delete_user_email: email},
-                success: function(response){
-                  console.log(response); 
+                success: function(data){
+                  window.location.replace("delete_user_admin_confirm.php");
                 },
                 error: function(){
                     alert("failure");
