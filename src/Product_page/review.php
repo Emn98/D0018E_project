@@ -41,7 +41,8 @@ while($review = $review_result->fetch_assoc()){
 
 $con->close();
 ?>
-<form class="add_review_form" method="POST" action="add_review.php">
+<form class="add_review_form" method="POST" action="add_review_form.php">
   <label>If you want to add a review click here</label>
+  <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
   <button class="add_review_button">Add review</button>
 </form>
