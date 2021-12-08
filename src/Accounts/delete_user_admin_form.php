@@ -132,7 +132,7 @@
                 data: {delete_user_id: id,
                       delete_user_email: email},
                 success: function(data){
-                  window.location.replace("delete_user_admin_confirm.php");
+                  window.location.replace("delete_user_admin_confirm.php")(data);
                 },
                 error: function(){
                     alert("failure");
