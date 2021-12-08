@@ -91,11 +91,11 @@
                       echo "<td>";
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
                       echo "<input type='hidden' name='delete_user_id'>";
-                      echo "</form>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="submit" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
                       <?php
+                      echo "</form>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
