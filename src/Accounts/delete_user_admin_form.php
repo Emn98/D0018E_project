@@ -91,7 +91,7 @@
                       echo "<td>$last_name</td>";
                       echo "<td>";
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
-                      echo "<input type='button' value='Delete' onclick='dosomething($user_id)' class='delete_btn'>";
+                      echo "<input type='button' value='Delete' onclick='dosomething($user_id','$user_id)' class='delete_btn'>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -123,8 +123,8 @@
       </div>
 
       <script>
-        function dosomething(val){
-          console.log(val);
+        function dosomething(val, vall){
+          console.log(val + vall);
         }
       </script>
     </body>
