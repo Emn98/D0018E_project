@@ -124,10 +124,10 @@
       </div>
 
       <script>
-        if (confirm("Would you like to delete user "+ id + " with the email:" +email)){
-          txt="yes";
-        }
         function delete_user(id, email){
+          if (confirm("Would you like to delete user "+ id + " with the email:" +email)){
+                alert("yes");
+              }
           $.ajax({
                 type: "POST",
                 url: "delete_user_admin_confirm.php", // 
