@@ -9,7 +9,7 @@ $path .= "/database.php";
 include_once($path);
 
 $user_id = $_SESSION['user_id'];
-$product_id = $_POST['review_product_id'];
+$product_id = $_POST['product_id'];
 $review_name = $_POST['review_name'];
 $review_score = $_POST['review_score'];
 $review_comment = $_POST['review_comment'];
