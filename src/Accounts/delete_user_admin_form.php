@@ -91,9 +91,8 @@
                       echo "<td>$last_name</td>";
                       echo "<td>";
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
-                      echo gettype($email_address);
-                      echo gettype($user_id);
                       ?>
+                      <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
                       <input type="button" value="Delete" onclick="dosomething('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
                       <?php
                       echo "</td>";
@@ -107,10 +106,10 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' name='user_form'>";
-                      echo "<button class='delete_btn' type='submit'>Delete</button>";
-                      echo "<input type='hidden' name='delete_user_id' value=$user_id>";
-                      echo "<input type='hidden' name='delete_user_email' value=$email_address>";
+                      ?>
+                      <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
+                      <input type="button" value="Delete" onclick="dosomething('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <?php
                       echo "</td>";
                       echo "</tr>";
                       $temp = 1;
