@@ -16,6 +16,9 @@ $review_comment = $_POST['review_comment'];
 $dislikes = 0;
 $likes = 0;
 
+print_r($_POST);
+echo $user_id;
+
 $stmt = $con->prepare("INSERT INTO USER_REVIEWS (user_id, product_id, review_name, review_score, review_comment, dislikes, likes, created_at) VALUES
 (?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
 $stmt->bind_param("iisisii", $user_id, $product_id, $review_name, $review_score, $review_comment, $dislikes, $likes);
