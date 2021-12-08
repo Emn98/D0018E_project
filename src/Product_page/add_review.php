@@ -20,6 +20,6 @@ $stmt = $con->prepare("INSERT INTO USER_REVIEWS (user_id, product_id, review_nam
 $stmt->bind_param("iisisii", $SESSION['user_id'], $product_id, $review_name, $review_score, $review_comment, $dislikes, $likes);
 $stmt->execute();
 
-
+$stmt->close();
 
 ?>

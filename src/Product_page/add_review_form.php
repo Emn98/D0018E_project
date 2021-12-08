@@ -12,7 +12,7 @@
     <div class="product_div">
       <div class="inner_product_div">
         <h1>Add Review Page</h1>
-
+        <label><? echo $_SESSION['user_id'] ?></label>
         <form action="add_review.php" method="post">
         <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
         <label for="review_name">Name</label>
