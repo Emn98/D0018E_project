@@ -3,8 +3,6 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
-echo $product_id;
-
 $stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=?");
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
