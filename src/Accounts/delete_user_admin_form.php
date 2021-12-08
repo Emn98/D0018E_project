@@ -32,7 +32,6 @@
     $query->fetch();
     $query->close();
   }
-
 ?>
 <!DOCTYPE html>
   <html>
@@ -40,7 +39,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="/Css/admin_delete_page.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><!-- Include JQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Include JQuery library -->
       <title>Offbrand.pwr - delete user</title>
     </head>
     <body>
@@ -93,7 +92,7 @@
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="Delete" onclick="dosomething('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -108,7 +107,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="Delete" onclick="dosomething('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -126,9 +125,19 @@
       </div>
 
       <script>
-        function dosomething(val, vall){
-          console.log(val);
-          console.log(vall);
+        function delete_user(id, email){
+          $.ajax({
+                type: "POST",
+                url: "delete_user_admin_confirm.php", // 
+                data: {user_id: id},
+                success: function(){
+                  window.location.replace(delete_user_admin_confirm.php); 
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+
 
         }
       </script>
