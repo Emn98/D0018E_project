@@ -124,8 +124,8 @@
 
       <script>
         function dosomething(val1, val2){
-          console.log(val1);
-          console.log(val2);
+          console.log(val1 + val2);
+          
 
         }
       </script>
