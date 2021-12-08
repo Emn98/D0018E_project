@@ -130,7 +130,7 @@
                 type: "POST",
                 url: "delete_user_admin_confirm.php", // 
                 data: {delete_user_id: id,
-                       delete_user_email: email},
+                      delete_user_email: email},
                 success: function(response){
                   console.log(response); 
                 },
