@@ -1,6 +1,11 @@
 <?php 
 session_start();
 
+if(!isset($_SESSION["user_id"])){
+    header("Location: /Accounts/login_page_form.php");
+    exit;
+  }
+
 function RemoveSpecialChar($str) {
   
     // Using str_replace() function 
