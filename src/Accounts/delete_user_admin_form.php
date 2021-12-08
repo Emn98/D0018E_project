@@ -129,7 +129,7 @@
           $.ajax({
                 type: "POST",
                 url: "delete_user_admin_confirm.php", // 
-                data: {user_id: id},
+                data: {delete_user_id: id},
                 success: function(){
                   window.location.replace("delete_user_admin_confirm.php"); 
                 },
