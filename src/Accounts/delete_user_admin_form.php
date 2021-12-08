@@ -93,7 +93,9 @@
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
                       echo gettype($email_address);
                       echo gettype($user_id);
-                      echo '<input type="button" value="Delete" onclick="dosomething(&quot;div'.$user_id.'&quot;)" class="delete_btn">';
+                      ?>
+                      <input type="button" value="Delete" onclick="dosomething()" class="delete_btn">
+                      <?php
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
