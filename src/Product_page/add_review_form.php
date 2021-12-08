@@ -13,8 +13,8 @@
       <div class="inner_product_div">
         <h1>Add Review Page</h1>
         <label><?php echo $_SESSION['user_id'] ?></label>
-        <form action="add_review.php" method="post">
-        <input type="hidden" name="review_product_id" value="<?php echo $product_id ?>">
+        <form action="add_review.php" method="POST">
+        <input type="hidden" name="product_id" value="<?php echo $_POST['product_id'] ?>">
         <label for="review_name">Name</label>
         <input type="text" id="name" name="review_name" placeholder="review name" required><br>
         <label for="review_score">Review score</label>
@@ -24,7 +24,7 @@
         <button type="submit" class="btn">Send</button>    
         </form>
 
-        <form action="/index.php" method="post">
+        <form action="/index.php" method="POST">
           <button type="submit" class="btn">Return to home</button>
         </form>
       </div>
