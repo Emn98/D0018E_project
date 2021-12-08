@@ -94,7 +94,7 @@
                       echo gettype($email_address);
                       echo gettype($user_id);
                       ?>
-                      <input type="button" value="Delete" onclick="dosomething()" class="delete_btn">
+                      <input type="button" value="Delete" onclick="dosomething(<?php echo $user_id ?>)" class="delete_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -127,9 +127,8 @@
       </div>
 
       <script>
-        function dosomething(val, vall){
+        function dosomething(val){
           console.log(val);
-          console.log(vall);
 
         }
       </script>
