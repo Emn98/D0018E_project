@@ -132,7 +132,9 @@
                 data: {user_id: id,
                        email: email},
                 success: function(){
-                  alert("User deleted successfully!")
+                  alert("User deleted successfully!");
+                  location.reload();
+
                 },
                 error: function(){
                     alert("failure");
