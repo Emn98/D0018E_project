@@ -40,6 +40,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="/Css/admin_delete_page.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><!-- Include JQuery library -->
       <title>Offbrand.pwr - delete user</title>
     </head>
     <body>
@@ -89,10 +90,8 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' name='user_form'>";
-                      echo "<button class='delete_btn' type='submit'>Delete</button>";
-                      echo "<input type='hidden' name='delete_user_id' value=$user_id>";
-                      echo "<input type='hidden' name='delete_user_email' value=$email_address>";
+                      echo "<form method='POST' action='delete_user_admin_confirm.php'>";
+                      echo "<input type='button' value='1' onclick='dosomething(this.value)' class='delete_btn'>";
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -122,6 +121,12 @@
         <div class="left_side"></div>
         <div class="right_side"></div>
       </div>
+
+      <script>
+        function dosomething(val){
+          console.log(val);
+        }
+      </script>
     </body>
   </html>
         
