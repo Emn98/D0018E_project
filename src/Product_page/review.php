@@ -13,7 +13,7 @@ $stmt->fetch();
 
 
 while($review = $review_result->fetch_assoc()){
-  $review_name = $review['name'];
+  $review_name = $review['review_name'];
   $review_score = $review['review_score'];
   $review_created_at = $review['created_at'];
   $review_comment = $review['review_comment'];
