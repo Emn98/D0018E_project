@@ -38,7 +38,7 @@ grid-area:inner_left_side;
 grid-area:inner_right_side;
 }
 
-header{
+.top_nav_bar{
 background-color: white;
 width: cover;
 grid-area: header;
@@ -50,12 +50,12 @@ padding: 20px 5% ;
 
 
 
-header li, a{
+.top_nav_bar li, a{
 font-size: 18px;
 color: black;
 }
 
-header h1{
+.top_nav_bar h1{
 margin-right: auto;
 padding-right: auto;
 font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
