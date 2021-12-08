@@ -90,6 +90,7 @@
                       echo "<td>$last_name</td>";
                       echo "<td>";
                       echo "<form method='POST' action='delete_user_admin_confirm.php'>";
+                      echo "<input type='hidden' name='delete_user_id'>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
                       <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
@@ -132,7 +133,7 @@
                 data: {delete_user_id: id,
                       delete_user_email: email},
                 success: function(data){
-                  window.location.replace("delete_user_admin_confirm.php")(data);
+                  window.location.replace("delete_user_admin_confirm.php");
                 },
                 error: function(){
                     alert("failure");
