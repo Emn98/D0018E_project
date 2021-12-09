@@ -127,8 +127,7 @@
             $.ajax({
                 type: "POST",
                 url:  "delete_user.php", // 
-                data: {user_id: id,
-                       email: email},
+                data: {user_id: id},                
                 success: function(){
                   alert("User deleted successfully!");
                   location.reload();

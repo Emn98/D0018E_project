@@ -19,37 +19,29 @@
         $path .= "/database.php";
         include_once($path);
 
+        //Inlcide help functions
         include("delete_user_help_func.php");
 
         //Admin want's to delete a user.
-        if(isset($_POST["email"])){
-          delete_user_cart_admin($_POST["user_id"], $con);//Delete the cart associated with the user. 
+        if(isset($_POST["user_id"])){
+          $user_id = $_POST["user_id"];
+
+          delete_user_cart($user_id);//Delete the cart associated with the user.
+          delete_user_orders($user_id);//Delete all orders associated with the user.  
 
           $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
           $query->bind_param("s", $_POST["email"]);
           $query->execute();
-          
-          if($query->affected_rows == 0){//If no user with that email exists
-            echo "div class='form'>";
-            echo "<h3>No account with this email exist in the database<h3>";
-            echo "<br>";
-            echo "<a href='delete_user_admin_form.php'>Do you want to enter another email?</a>";
-            echo "<br>";
-            echo "<a href='/Accounts/admin_page.php'>Go back</a>";
-            echo "</di>";
-            $query->close();
-            exit;
-          }
-
           $query->close();
-          $link = "/Accounts/delete_user_admin_form.php";
                 
         }else{//User delete their own account
-          //Delete the cart if user have one. 
-          delete_user_cart();
+          $user_id = $_SESSION["user_id"];
+ 
+          delete_user_cart($user_id);//Delete the cart associated with the user.
+          delete_user_orders($user_id);//Delete all orders associated with the user. 
 
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
-          $query->bind_param("i", $_SESSION["user_id"]);
+          $query->bind_param("i", $user_id);
           $query->execute();
           $query->close();
           session_destroy();
