@@ -27,6 +27,11 @@ body {
   grid-template-rows: 0.2fr 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: auto;
 }
 
 header{
