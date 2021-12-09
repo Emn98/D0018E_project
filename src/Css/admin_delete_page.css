@@ -15,6 +15,7 @@ body {
 }
 
 .container{
+  min-height: 100%;
   background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
