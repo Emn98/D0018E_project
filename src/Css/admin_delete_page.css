@@ -14,13 +14,13 @@ body {
 .container{
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
-  grid-template-rows: 0.2fr 7fr;
+  grid-template-rows: 12rem 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
 }
 
 header{
-max-height: 3rem;  
+max-height: 12rem;  
 background-color: white;
 width: cover;
 grid-area: header;
