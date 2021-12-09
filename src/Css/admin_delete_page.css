@@ -20,6 +20,7 @@ body {
 }
 
 header{
+max-height: 0.2fr;  
 background-color: white;
 width: cover;
 grid-area: header;
