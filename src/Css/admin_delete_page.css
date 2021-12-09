@@ -14,7 +14,7 @@ body {
 .container{
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
-  grid-template-rows: 7rem 7fr;
+  grid-template-rows: 6rem 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
 }
