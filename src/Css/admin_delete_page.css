@@ -6,14 +6,14 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500;
-    background-image: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%);
-    background-repeat: no-repeat;
+    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%);
+   
     
 
 }
