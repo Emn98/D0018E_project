@@ -12,7 +12,7 @@ html {
 body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500;
-    background: linear-gradient( #bea7aa, #a8aebf, #87a7bf);
+    background: linear-gradient( #bea7aa, #a8aebf, #87a7bf) fixed;
    
     
 
