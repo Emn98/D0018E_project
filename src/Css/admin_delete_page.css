@@ -11,9 +11,7 @@ html {
 
 body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
-    font-weight: 500;
-    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
-   
+    font-weight: 500; 
 }
 
 .container{
@@ -75,7 +73,6 @@ color: #0088a9;
 .container .user_container{
   grid-area: user_container;
   background: rgba(255, 255, 255, 0.5);
-  overflow: auto; 
 }
 
 .search_bar_container{
