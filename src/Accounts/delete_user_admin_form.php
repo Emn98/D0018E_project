@@ -1,6 +1,5 @@
 <!-- This page will allowe the admin to delete users -->
 <?php
-  
   require("log_in_check.php");//Checks so the user is logged in
 
   session_start();
@@ -122,28 +121,24 @@
         <div class="left_side"></div>
         <div class="right_side"></div>
       </div>
-
       <script>
         function delete_user(id, email){
-          if (confirm("Would you like to delete user "+ id + " with the email:" +email)){
+          if (confirm("Would you like to delete user "+ id + " with the email: " + email)){
             $.ajax({
                 type: "POST",
-                url: "delete_user.php", // 
+                url:  "delete_user.php", // 
                 data: {user_id: id,
                        email: email},
                 success: function(){
                   alert("User deleted successfully!");
                   location.reload();
-
                 },
                 error: function(){
                     alert("failure");
                 }
             });
-                
           }
         }
       </script>
     </body>
-  </html>
-        
+  </html>      

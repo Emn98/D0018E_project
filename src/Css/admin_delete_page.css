@@ -16,7 +16,6 @@ body {
 .container{
   display:grid;
   height: 100vh;
-  
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
   grid-template-rows: 0.2fr 7fr;
   grid-template-areas: "header header header header"
@@ -72,8 +71,8 @@ color: #0088a9;
 
 .container .user_container{
   grid-area: user_container;
-  max-height: initial; 
   background: rgba(255, 255, 255, 0.5);
+  overflow: auto; 
 }
 
 .search_bar_container{
