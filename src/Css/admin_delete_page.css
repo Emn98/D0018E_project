@@ -10,13 +10,12 @@ html {
 }
 
 body {
+    background: linear-gradient(#b5e48c, #457b9d);
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500; 
 }
 
 .container{
-  min-height: 100%;
-  background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
   grid-template-rows: 0.2fr 7fr;
