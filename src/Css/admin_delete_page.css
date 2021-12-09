@@ -12,11 +12,12 @@ html {
 body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500;
-    background: linear-gradient( #bea7aa, #a8aebf, #87a7bf) fixed;
+    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
    
 }
 
 .container{
+  background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
   grid-template-rows: 0.2fr 7fr;
