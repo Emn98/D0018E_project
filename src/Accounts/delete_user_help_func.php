@@ -46,7 +46,7 @@
     $query->fetch();
     $query->close();
 
-    if($user_order_id!=NULL){//If the user have a cart in the database
+    if($user_order_id!=NULL){//If the user have any orders in the database
       $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE user_id=?");
       $query->bind_param("i", $user_id);
       $query->execute();
