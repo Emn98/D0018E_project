@@ -1,6 +1,5 @@
 <!-- This page will allowe the admin to delete users -->
 <?php
-  
   require("log_in_check.php");//Checks so the user is logged in
 
   session_start();
@@ -39,6 +38,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="/Css/admin_delete_page.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Include JQuery library -->
       <title>Offbrand.pwr - delete user</title>
     </head>
     <body>
@@ -88,10 +88,10 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' id='$form_id'>";
-                      echo "<button class='delete_btn'>Delete</button>";
-                      echo "<input type='hidden' name='delete_user_id' value=$user_id>";
-                      echo "<input type='hidden' name='delete_user_email' value=$email_address>";
+                      ?>
+                      <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
+                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <?php
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
@@ -103,10 +103,10 @@
                       echo "<td>$first_name</td>";
                       echo "<td>$last_name</td>";
                       echo "<td>";
-                      echo "<form method='POST' action='delete_user_admin_confirm.php' id='$form_id'>";
-                      echo "<button class='delete_btn'>Delete</button>";
-                      echo "<input type='hidden' name='delete_user_id' value=$user_id>";
-                      echo "<input type='hidden' name='delete_user_email' value=$email_address>";
+                      ?>
+                      <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
+                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <?php
                       echo "</td>";
                       echo "</tr>";
                       $temp = 1;
@@ -121,6 +121,24 @@
         <div class="left_side"></div>
         <div class="right_side"></div>
       </div>
+      <script>
+        function delete_user(id, email){
+          if (confirm("Would you like to delete user "+ id + " with the email: " + email)){
+            $.ajax({
+                type: "POST",
+                url:  "delete_user.php", // 
+                data: {user_id: id,
+                       email: email},
+                success: function(){
+                  alert("User deleted successfully!");
+                  location.reload();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+          }
+        }
+      </script>
     </body>
-  </html>
-        
+  </html>      

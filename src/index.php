@@ -15,7 +15,7 @@
   </head>
   <body>
   <div class="container">
-    <header>
+    <header class="top_nav_bar">
       <h1>OFF<span>BRAND</span></h1>
       <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
@@ -29,7 +29,7 @@
           <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
         </ul>
       </nav>
-      </header>
+    </header>
       <main>
         <div class="inner_left_side">
         <?php 

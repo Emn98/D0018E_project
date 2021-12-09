@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="top_nav_bar">
         <h1><a href="/index.php"> OFF<span>BRAND</span> </a></h1>
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name">
@@ -27,7 +27,7 @@
             <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
           </ul>
         </nav>
-        </header>
+      </header>
         <main>
           <div class="inner_left_side">  
             <?php 
@@ -59,6 +59,7 @@
 
               echo "<div class='wrapper'>";
               while ($row = $result->fetch_assoc()) {
+                $product_id = $row['product_id'];
                 $name   = $row['product_name'];
                 $description = $row['product_description'];
                 $category = $row['category_id'];
@@ -75,8 +76,8 @@
                   <label class='product_name_label'><?php echo $description ?></label>
                   <div class='product_price_buy_div'>
                     <label class='product_price_label'>From <?php echo $price ?> kr</label>
-                    <form action='/product_details.php' method='post'>
-                      <input type='hidden' name='product_name' value = <?php echo $name ?>>
+                    <form action='/Product_page/product_details.php' method='post'>
+                      <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
                       <button type='submit' class='product_details_button'>Go to product</button>
                     </form>
                   </div>

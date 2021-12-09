@@ -14,9 +14,6 @@ require("check_admin.php");
       
       <?php
 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
@@ -32,20 +29,11 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        // IF PRODUCT_EXIST-> INSERT PRODUCT_INVENTORY -> done
-        // INSERT PRODUCTS -> INSERT PRODUCT_INVENTORY -> done
-
-        echo $product_name;
-
         $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ? LIMIT 1");
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->bind_result($product_name_exists);
         $stmt->fetch();
-        
-
-        print_r($_POST);
-        echo "<br>" . "this is product_name: "  . $product_name_exists;
 
         if($product_name_exists == ""){
           $stmt->close();
@@ -71,13 +59,7 @@ require("check_admin.php");
         $stmt->close();
 
         }
-        
-        
 
-
-        
-        // perform query
-    
       ?>
 
     <form action="add_product_form.php" method="post">
