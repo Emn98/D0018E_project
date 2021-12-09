@@ -42,9 +42,13 @@
         }else{//User delete their own account
           $user_id = $_SESSION["user_id"];
  
+          echo "1";
           delete_user_cart($user_id);//Delete the cart associated with the user.
+          echo "2";
           delete_user_orders($user_id);//Delete all orders associated with the user.
-          delete_user_reviews($user_id);//Delete all reviews associated with the user. 
+          echo "3";
+          delete_user_reviews($user_id);//Delete all reviews associated with the user.
+          echo "4";  
 
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
           $query->bind_param("i", $user_id);
