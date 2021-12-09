@@ -6,13 +6,13 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500;
-    background-image: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
+    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -27,11 +27,6 @@ body {
   grid-template-rows: 0.2fr 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-y: auto;
 }
 
 header{
