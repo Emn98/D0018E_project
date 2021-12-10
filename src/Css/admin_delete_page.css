@@ -116,7 +116,7 @@ color: #0088a9;
   margin-top: 1.3rem;
   margin-right: 1rem;
   margin-left: 1rem;
-  min-height: fill;
+  min-height: inherit;
    
 }
 
