@@ -116,7 +116,7 @@ color: #0088a9;
   margin-top: 1.3rem;
   margin-right: 1rem;
   margin-left: 1rem;
-  padding-bottom: 1.2rem;
+  height: calc(100% - 6rem);
    
 }
 
