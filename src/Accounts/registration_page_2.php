@@ -15,7 +15,6 @@
     $post_code  = $_POST["post_code"];
     $city       = $_POST["city"];
     $care_of_address = $_POST["care_of_address"];
-    $sha_pwd = sha1($pwd);
 
       //Checks so the user have written the same password twice
     if($_POST["pwd"] == $_POST["pwd2"]){
@@ -27,6 +26,7 @@
       $email_exist->close();
 
       if ($email_addres_exists == "") { // Account creation successfull
+        $sha_pwd = sha1($email_addres.$pwd);//Salt password with email address
         $query   = $con->prepare("INSERT INTO USERS (first_name, last_name, email_address, t_number, address_1, pwd, address_2, 
         city, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
         $query -> bind_param("sssssssss", $first_name, $last_name, $email_addres, $t_number, $addres, $sha_pwd, $care_of_address, $city, $post_code);
