@@ -14,7 +14,7 @@ body {
 .container{
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
-  grid-template-rows: 6rem 7fr;
+  grid-template-rows: 4.5rem 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
 }
@@ -70,7 +70,7 @@ color: #0088a9;
 .container .user_container{
   grid-area: user_container;
   background: rgba(255, 255, 255, 0.5);
-  min-height: calc(100vh - 6rem);
+  min-height: calc(100vh - 4.5rem);
 }
 
 .search_bar_container{
