@@ -88,12 +88,11 @@ margin-left: 0.3rem;
 }
 
 .admin_menu{
-list-style: none;
+list-style:square;
 }
 
 .admin_menu li{
 margin-bottom: 0.4rem;
-display: inline-block;
 padding: 0px 0.3rem;
 } 
 
