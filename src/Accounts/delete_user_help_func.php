@@ -6,7 +6,7 @@
     $user_id = (int) $user_id;
 
     //Connect to the database.
-    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
     $query->bind_param("i", $user_id);
@@ -37,7 +37,7 @@
     $user_id = (int) $user_id;
 
     //Connect to the database.
-    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
       $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE user_id=?");
       $query->bind_param("i", $user_id);
@@ -55,7 +55,7 @@
     $user_id = (int) $user_id;
 
     //Connect to the database.
-    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
     $query = $con->prepare("DELETE FROM USER_REVIEWS WHERE user_id=?");
     $query->bind_param("i", $user_id);
@@ -63,6 +63,5 @@
     $query->close();
 
     return;
-
   }   
 ?>
