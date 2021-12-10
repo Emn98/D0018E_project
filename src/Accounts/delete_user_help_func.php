@@ -39,16 +39,27 @@
     //Connect to the database.
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
-      $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE user_id=?");
-      $query->bind_param("i", $user_id);
+    $query = $con->prepare("SELECT order_id FROM ORDERS WHERE user_id=?");
+    $query->bind_param("i", $user_id);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
+
+    while ($row = $result->fetch_assoc()) {
+      $order_id = $row["order_id"];
+
+      $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE order_id=?");
+      $query->bind_param("i", $order_id);
       $query->execute();
       $query->close();
 
-      $query = $con->prepare("DELETE FROM ORDERS WHERE user_id=?");
-      $query->bind_param("i", $user_id);
+      $query = $con->prepare("DELETE FROM ORDERS WHERE order_id=?");
+      $query->bind_param("i", $order_id);
       $query->execute();
       $query->close();
-      return;
+    }
+    return;
   }
 
   function delete_user_reviews($user_id){
