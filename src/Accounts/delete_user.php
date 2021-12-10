@@ -24,7 +24,7 @@
 
         //Admin want's to delete a user.
         if(isset($_POST["user_id"])){
-          $user_id = $_POST["user_id"];
+          $user_id = (int) $_POST["user_id"];
 
           echo "1";
           //delete_user_cart($user_id);//Delete the cart associated with the user.
@@ -34,8 +34,8 @@
           //delete_user_reviews($user_id);//Delete all reviews associated with the user.
           echo "4";  
 
-          $query = $con->prepare("DELETE FROM USERS WHERE email_address=?");
-          $query->bind_param("s", $_POST["email"]);
+          $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
+          $query->bind_param("i", $user_id);
           $query->execute();
           $query->close();
                 
