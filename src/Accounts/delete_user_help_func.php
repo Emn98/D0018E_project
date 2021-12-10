@@ -39,14 +39,6 @@
     //Connect to the database.
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
 
-    $query = $con->prepare("SELECT order_id FROM ORDERS WHERE user_id=?");
-    $query->bind_param("i", $user_id);
-    $query->execute();
-    $query->bind_result($user_order_id);
-    $query->fetch();
-    $query->close();
-
-    if($user_order_id!=NULL){//If the user have any orders in the database
       $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE user_id=?");
       $query->bind_param("i", $user_id);
       $query->execute();
@@ -57,10 +49,6 @@
       $query->execute();
       $query->close();
       return;
-
-    }else{//If the user dosen't have any reviews in the database. 
-      return;
-    }
   }
 
   function delete_user_reviews($user_id){
@@ -69,23 +57,12 @@
     //Connect to the database.
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
 
-    $query = $con->prepare("SELECT review_id FROM USER_REVIEWS WHERE user_id=?");
+    $query = $con->prepare("DELETE FROM USER_REVIEWS WHERE user_id=?");
     $query->bind_param("i", $user_id);
     $query->execute();
-    $query->bind_result($user_review_id);
-    $query->fetch();
     $query->close();
 
-    if($user_review_id!=NULL){//If the user have a cart in the database
-      $query = $con->prepare("DELETE FROM USER_REVIEWS WHERE user_id=?");
-      $query->bind_param("i", $user_id);
-      $query->execute();
-      $query->close();
+    return;
 
-      return;
-
-    }else{//If the user dosen't have any reviews in the database. 
-      return;
-    }
   }   
 ?>

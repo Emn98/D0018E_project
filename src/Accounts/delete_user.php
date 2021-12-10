@@ -55,14 +55,12 @@
           $query->execute();
           $query->close();
           session_destroy();
-
-          $link = "/index.php";
         }
       ?>
       <div class="form">
         <h3>Account deleted successfully</h3>
         <br> 
-        <a href=<?php echo $link;?>>Click here to continue</a>
+        <a href="/index.php">Click here to continue</a>
       </div>
     </body>
   </html>
