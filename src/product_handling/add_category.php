@@ -16,9 +16,9 @@
   include_once($path);  
 
   //Check to see if the category already exists
-  $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
-  //$cat_already_exists->bind_param("s", $cat_name);
-  //$cat_already_exists->execute();
+  $cat_already_exists = $$con->prepare("SELECT category_id FROM CATEGORIES WHERE category_name=?");
+  $cat_already_exists->bind_param("s", $cat_name);
+  $cat_already_exists->execute();
   //$cat_already_exists->bind_results($category_name_exists);
   //$cat_already_exists->fetch();
   //$cat_already_exists->close();
