@@ -2,14 +2,14 @@
 <?php 
 
   //Checks so the admin is logged in
-  require("check_admin.php");  
+  //require("check_admin.php");  
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/database.php";
   include_once($path);
 
-  $cat_name = $_POST["category_name"];
+  $cat_name = $_POST["category_description"];
   $cat_description = $_POST["category_description"];
 
   //Check to see if the category already exists
