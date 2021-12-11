@@ -4,17 +4,16 @@
   //Checks so the admin is logged in
   require("check_admin.php");  
 
-  //creates connection to database
-  $path = $_SERVER['DOCUMENT_ROOT'];
-  $path .= "/database.php";
-  include_once($path);
-
   $cat_name = $_POST["category_name"];
   $cat_description = $_POST["category_description"];
 
   echo($cat_name);
   echo(gettype($cat_name));
   echo($cat_description);
+
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path);  
 
   //Check to see if the category already exists
   $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
