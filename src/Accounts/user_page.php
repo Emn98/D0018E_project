@@ -75,15 +75,12 @@
             </tr> 
             <?php
               if($address_2 != ""){//Only displays the care-of-address if one is set.
-                ?> 
-                <tr>
-                <th class='category'>Care-Of-Address<th>
-                </tr>
-                <tr>
-                <th class='value'><?php $address_2 ?><th>
-                </tr>
-              <?php
-              }else{}
+                echo "<tr>";
+                echo "<th class='category'>Care-Of-Address<th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th class='value'>$address_2<th>";
+                echo "</tr>";
             ?>
             <tr>
               <th class="category">City</th>
