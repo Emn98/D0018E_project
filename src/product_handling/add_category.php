@@ -9,7 +9,7 @@
   $path .= "/database.php";
   include_once($path);
 
-  $cat_name = $_POST["category_description"];
+  $cat_name = $_POST["category_name"];
   $cat_description = $_POST["category_description"];
 
   //Check to see if the category already exists
