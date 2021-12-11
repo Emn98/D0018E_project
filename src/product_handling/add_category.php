@@ -13,6 +13,7 @@
   $cat_description = $_POST["category_description"];
 
   echo($cat_name);
+  echo(gettype($cat_name));
   echo($cat_description);
 
   //Check to see if the category already exists
@@ -24,6 +25,7 @@
   $cat_already_exists->close();
 
   echo $category_name_exists;
+  echo "testssssssssss";
 
   if($category_name_exists==""){ //The category don't already exists. Create new category
     $query= $con->prepare("INSERT INTO CATEGORIES (category_name, category_description) VALUES (?, ?)");
