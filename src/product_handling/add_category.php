@@ -12,6 +12,9 @@
   $cat_name = $_POST["category_name"];
   $cat_description = $_POST["category_description"];
 
+  echo($cat_name);
+  echo($cat_description);
+
   //Check to see if the category already exists
   $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
   $cat_already_exists->bind_param("s", $cat_name);
