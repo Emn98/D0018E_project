@@ -81,6 +81,7 @@
                 echo "<tr>";
                 echo "<th class='value'>'$address_2'<th>";
                 echo "</tr>";
+              }  
             ?>
             <tr>
               <th class="category">City</th>
