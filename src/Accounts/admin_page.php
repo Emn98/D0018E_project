@@ -1,6 +1,10 @@
 <!-- This page will display the admin frontend for our site -->
 <?php 
-  require("log_in_check.php");
+
+  //Confirm that the admin is indeed logged in. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/product_handling/check_admin.php";
+  include_once($path);
 ?>
 <!DOCTYPE html>
   <html lang="en">
