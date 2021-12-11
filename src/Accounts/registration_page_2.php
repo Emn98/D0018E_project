@@ -47,8 +47,7 @@
                   <p class='link'>Click here to <a href='registration_page_2.php'>register with another email</a>.</p>
                 </div>
                 <?php
-                Dont_draw_out_form();
-                
+                Dont_draw_out_form();    
         }
         }else{//If the repeated password dosent match the first submitted one
           ?>
