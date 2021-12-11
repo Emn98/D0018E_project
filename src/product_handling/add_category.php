@@ -2,7 +2,7 @@
 <?php 
 
   //Checks so the admin is logged in
-  //require("check_admin.php");  
+  require("check_admin.php");  
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
@@ -13,7 +13,7 @@
   $cat_description = $_POST["category_description"];
 
   //Check to see if the category already exists
-  $cat_already_exists = $con->prepare("SELECT category_name WHERE category_name=?");
+  $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
   $cat_already_exists->bind_param("s", $cat_name);
   $cat_already_exists->execute();
   $cat_already_exists->bind_results($category_name);
