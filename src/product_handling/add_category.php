@@ -35,7 +35,7 @@
  <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Css/reg_page_2.php">
+    <link rel="stylesheet" href="/Css/add_category_response_style.css">
     <title>My Page - Offbrand.pwr</title>
   </head>
   <body>
