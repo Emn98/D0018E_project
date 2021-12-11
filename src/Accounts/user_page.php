@@ -1,10 +1,9 @@
 <!-- This will act as the userpage for our website --> 
 <?php
-  require("log_in_check.php");
-
   session_start();
 
-  include("/Accounts/log_in_check.php");
+  //Check so the user is logged in
+  require("/Accounts/log_in_check.php");
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];

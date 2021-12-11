@@ -1,6 +1,10 @@
 <!-- This page will allowe the admin to delete users -->
 <?php
-  require("log_in_check.php");//Checks so the user is logged in
+  
+  //Confirm that the admin is indeed logged in. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/product_handling/check_admin.php";
+  include_once($path);
 
   session_start();
 
