@@ -1,9 +1,8 @@
 <?php 
-
   //Checks so the admin is logged in
-  //require("admin_check.php");
-
+  require("check_admin.php");
 ?>
+<!-- This site will allow the admin to add categories to the site -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +20,7 @@
         </div>
         <div class="form_elements">
           <label for="category_description" class="form_label">Category</label>
-          <textarea id="category_description" name="category_description" class="category_input_text" placeholder="Category description" maxlength="255" require></textarea>
+          <textarea id="category_description" name="category_description" class="category_input_text" placeholder="Category description" maxlength="255" required></textarea>
         </div>
          <button class="form_button">Submit</button>  
       </form>
