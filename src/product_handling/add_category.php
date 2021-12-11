@@ -19,11 +19,13 @@
   $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
   $cat_already_exists->bind_param("s", $cat_name);
   $cat_already_exists->execute();
-  $cat_already_exists->bind_results($category_name);
+  $cat_already_exists->bind_results($category_name_exists);
   $cat_already_exists->fetch();
   $cat_already_exists->close();
 
-  if($category_name==""){ //The category don't already exists. Create new category
+  echo $category_name_exists;
+
+  if($category_name_exists==""){ //The category don't already exists. Create new category
     $query= $con->prepare("INSERT INTO CATEGORIES (category_name, category_description) VALUES (?, ?)");
     $query-> bind_param("ss", $cat_name, $cat_description);
     $query->execute();
