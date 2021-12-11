@@ -16,9 +16,9 @@
   include_once($path);  
 
   //Check to see if the category already exists
-  $cat_already_exists = $$con->prepare("SELECT category_id FROM CATEGORIES WHERE category_name=?");
-  $cat_already_exists->bind_param("s", $cat_name);
-  $cat_already_exists->execute();
+  //$cat_already_exists = $$con->prepare("SELECT category_id FROM CATEGORIES WHERE category_name=?");
+  //$cat_already_exists->bind_param("s", $cat_name);
+  //$cat_already_exists->execute();
   //$cat_already_exists->bind_results($category_name_exists);
   //$cat_already_exists->fetch();
   //$cat_already_exists->close();
@@ -26,15 +26,15 @@
   //echo $category_name_exists;
   echo "testssssssssss";
 
-  if($category_name_exists==""){ //The category don't already exists. Create new category
+  //if($category_name_exists==""){ //The category don't already exists. Create new category
     $query= $con->prepare("INSERT INTO CATEGORIES (category_name, category_description) VALUES (?, ?)");
     $query-> bind_param("ss", $cat_name, $cat_description);
     $query->execute();
     $query->close();
     display_creation_success();
-  }else{
-    display_creation_failure();
-  }
+  //}else{
+    //display_creation_failure();
+  //}
 ?>
 <!DOCTYPE html>
  <html lang="en">
