@@ -17,13 +17,13 @@
 
   //Check to see if the category already exists
   $cat_already_exists = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name=?");
-  $cat_already_exists->bind_param("s", $cat_name);
-  $cat_already_exists->execute();
-  $cat_already_exists->bind_results($category_name_exists);
-  $cat_already_exists->fetch();
-  $cat_already_exists->close();
+  //$cat_already_exists->bind_param("s", $cat_name);
+  //$cat_already_exists->execute();
+  //$cat_already_exists->bind_results($category_name_exists);
+  //$cat_already_exists->fetch();
+  //$cat_already_exists->close();
 
-  echo $category_name_exists;
+  //echo $category_name_exists;
   echo "testssssssssss";
 
   if($category_name_exists==""){ //The category don't already exists. Create new category
