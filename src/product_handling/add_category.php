@@ -15,14 +15,13 @@
   $email_exist = $con->prepare("SELECT category_name FROM CATEGORIES WHERE category_name = ?");
   $email_exist->bind_param("s", $cat_name);
   $email_exist->execute();
-  $email_exist->bind_result($email_addres_exists);
+  $email_exist->bind_result($category_name_exists);
   $email_exist->fetch();
   $email_exist->close();
 
   //echo $category_name_exists;
-  echo "testssssssssss";
-
-  if($email_addres_exists==""){ //The category don't already exists. Create new category
+ 
+  if($category_name_exists==""){ //The category don't already exists. Create new category
     $query= $con->prepare("INSERT INTO CATEGORIES (category_name, category_description) VALUES (?, ?)");
     $query-> bind_param("ss", $cat_name, $cat_description);
     $query->execute();
@@ -36,7 +35,7 @@
  <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Css/delete_user_response.php">
+    <link rel="stylesheet" href="/Css/reg_page_2.php">
     <title>My Page - Offbrand.pwr</title>
   </head>
   <body>
