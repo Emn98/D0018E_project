@@ -20,6 +20,8 @@
   $cat_already_exists->fetch();
   $cat_already_exists->close();
 
+  echo(gettype($category_id));
+
   if($category_id==NULL){
       echo "works";
   }
