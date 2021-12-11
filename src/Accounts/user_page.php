@@ -83,7 +83,7 @@
                 <th class='value'><?php $address_2 ?><th>
                 </tr>
               <?php
-              }
+              }else{}
             ?>
             <tr>
               <th class="category">City</th>
