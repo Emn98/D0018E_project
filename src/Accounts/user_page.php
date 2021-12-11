@@ -79,7 +79,7 @@
                 echo "<th class='category'>Care-Of-Address<th>";
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th class='value'>$address_2<th>";
+                echo "<th class='value'>'$address_2'<th>";
                 echo "</tr>";
             ?>
             <tr>
