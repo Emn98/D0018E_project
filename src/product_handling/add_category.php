@@ -13,14 +13,14 @@
   $cat_description = $_POST["category_description"];
 
   //Check to see if the category already exists
-  $cat_already_exists = $con->prepare("SELECT category_id WHERE category_name=?");
+  $cat_already_exists = $con->prepare("SELECT category_name WHERE category_name=?");
   $cat_already_exists->bind_param("s", $cat_name);
   $cat_already_exists->execute();
-  $cat_already_exists->bind_results($category_id);
+  $cat_already_exists->bind_results($category_name);
   $cat_already_exists->fetch();
   $cat_already_exists->close();
 
-  if($category_id==NULL){ //The category don't already exists. Create new category
+  if($category_name==""){ //The category don't already exists. Create new category
     $query= $con->prepare("INSERT INTO CATEGORIES (category_name, category_description) VALUES (?, ?)");
     $query-> bind_param("ss", $cat_name, $cat_description);
     $query->execute();
