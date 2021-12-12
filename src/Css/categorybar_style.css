@@ -1,11 +1,12 @@
 .category_container{
+  margin-top: 0.2rem;
   width: 14rem;
   margin-left: -0.09rem;
   
 }
 
 table{
-  margin-top: 1rem;
+  
   width: 100%;
 }
 
