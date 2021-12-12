@@ -1,0 +1,39 @@
+.category_container{
+  width: 12.5rem;
+  margin-left: -0.09rem;
+  
+}
+
+table{
+  width: 100%;
+}
+
+.category_btn{
+  width: 100%;
+  height: 1.7rem;
+  padding: 0.3rem;
+  font-weight: bold;
+  background: white;
+  margin-top: -0.2rem;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+}
+
+.category_btn:hover{
+  background: lightgrey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

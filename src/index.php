@@ -41,7 +41,14 @@
         <div class="inner_right_side">Items go here</div>
       </main>
       <div class="left_side">Left Side</div>
-      <div class="right_side">Right Side</div>
+      <div class="right_side">Right Side
+      <?php 
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/Category/categories_file2.php";
+        include($path);
+      ?>
+
+      </div>
 	</div>
   </body>
 </html>

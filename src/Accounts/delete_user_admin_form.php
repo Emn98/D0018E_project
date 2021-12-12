@@ -78,7 +78,6 @@
               <tbody>
                 <?php
                   $temp = 1;
-                  $form_id = 0;
                   while ($row = $result->fetch_assoc()) {
                     $user_id = $row["user_id"];
                     $email_address = $row["email_address"]; 
@@ -99,7 +98,6 @@
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
-                      $form_id++;
                     }else{
                       echo "<tr class='table_row_even'>";
                       echo "<td>$user_id</td>";
