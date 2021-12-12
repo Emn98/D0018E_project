@@ -2,19 +2,13 @@
 <?php
   session_start();
 
-  echo"test1";
-
   //Check so the user is logged in
-  //require("/Accounts/log_in_check.php");
-
-  echo"test2";
+  include("/Accounts/log_in_check.php");
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/database.php";
   include_once($path);
-
-  echo "test3";
 
   //Retrive the users data from the database
   $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
