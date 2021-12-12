@@ -2,6 +2,8 @@
 <?php
   session_start();
 
+  echo"test";
+
   //Check so the user is logged in
   require("/Accounts/log_in_check.php");
 
