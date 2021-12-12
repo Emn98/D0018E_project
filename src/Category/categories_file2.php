@@ -1,5 +1,4 @@
 <?php 
-
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/database.php";
@@ -29,12 +28,27 @@
                 
                 echo "<tr>";
            ?>
-                <th> <input type="button" value="<?php echo $category_name;?>" class="category_btn"> </th>
+                <th> <input type="button" value="<?php echo $category_name;?>" onclick="search_product('<?php echo $category_id ?>')"  class="category_btn"> </th>
            <?php
                 echo "</tr>";
               }
            ?>
        </table>
      </div>
-</body> 
-  
+  </body>
+  <script>
+    function search_product(id){
+            $.ajax({
+                type: "POST",
+                url:  "/Category/category.php",  
+                data: {category_id: id},                
+                success: function(){
+                  $('.redirect').submit();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+          }
+      </script> 
+</html>  
