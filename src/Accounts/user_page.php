@@ -10,6 +10,8 @@
   $path .= "/database.php";
   include_once($path);
 
+  echo "test";
+
   //Retrive the users data from the database
   $query = $con->prepare("SELECT first_name, last_name, email_address, t_number, address_1, address_2, city, postal_code FROM USERS WHERE user_id=?");
   $query->bind_param("s", $_SESSION["user_id"]);
