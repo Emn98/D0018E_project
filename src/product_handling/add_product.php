@@ -37,7 +37,7 @@ require("check_admin.php");
         if($product_name_exists == ""){
           $stmt->close();
         $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, discount, picture)
-          VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
+          VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?)");
 
         $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $discount, $picture);
         $stmt->execute();
