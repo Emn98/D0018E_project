@@ -46,8 +46,6 @@ require("check_admin.php");
         <input type="text" id="color" name="color" placeholder="color" required><br>
         <label for="price">Price</label>
         <input type="text" id="price" name="price" placeholder="price" required><br>
-        <label for="size">Size</label>
-        <input type="text" id="size" name="size" placeholder="size" required><br>  
         <label for="discount">Discount</label>
         <input type="text" id="discount" name="discount" placeholder="discount" required><br>
         <label for="picture">Picture</label>

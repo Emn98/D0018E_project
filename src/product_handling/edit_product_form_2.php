@@ -57,8 +57,6 @@ require("check_admin.php");
             </select>
             <label for="price">Price</label>
             <input type="text" id="price" name="price" placeholder="price" value="<?php echo $p_info['price'] ?>" required><br>
-            <label for="size">Size</label>
-            <input type="text" id="size" name="size" placeholder="size" value="<?php echo $p_info['size'] ?>" required><br>
             <label for="discount">Discount</label>
             <input type="text" id="discount" name="discount" placeholder="discount" value="<?php echo $p_info['discount'] ?>" required><br>
             <label for="picture">Picture</label>

@@ -19,7 +19,6 @@ require("check_admin.php");
         $category = $_POST['category'];
         $quantity = $_POST['quantity'];
         $price = $_POST['price'];
-        $size = $_POST['size'];
         $color = $_POST['color'];
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
@@ -37,10 +36,10 @@ require("check_admin.php");
 
         if($product_name_exists == ""){
           $stmt->close();
-        $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, size, discount, picture)
+        $stmt = $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, discount, picture)
           VALUES (?, ?, (SELECT category_id FROM CATEGORIES WHERE category_name=?), ?, ?, ?, ?)");
 
-        $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $size, $discount, $picture);
+        $stmt->bind_param("sssiiis", $product_name, $product_description, $category, $price, $discount, $picture);
         $stmt->execute();
         $stmt->close();
 

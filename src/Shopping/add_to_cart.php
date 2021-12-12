@@ -5,7 +5,7 @@
   //Check so the user have a cart. 
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Shopping/check_if_user_have_cart.php";
-  require($path);
+  include($path);
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
@@ -84,11 +84,3 @@
              <p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>
              </div>";
 ?>
-
-
-
-
-
-
-
-
