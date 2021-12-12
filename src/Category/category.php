@@ -45,6 +45,8 @@
 
             $category_id = (int)$_POST['category_id'];
 
+            echo $category_id;
+
             $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
             $stmt->bind_param("i", $category_id);
