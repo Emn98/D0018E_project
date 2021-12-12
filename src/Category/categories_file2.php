@@ -38,17 +38,9 @@
   </body>
   <script>
     function search_product(id){
-            $.ajax({
-                type: "POST",
-                url:  "/Category/category.php",  
-                data: {category_id: id},                
-                success: function(){
-                  $('.redirect').submit();
-                },
-                error: function(){
-                    alert("failure");
-                }
-            });
-          }
-      </script> 
+      var link = id;
+      $('.post').attr("value",link);
+      $('.redirect').submit(); 
+    }
+  </script> 
 </html>  
