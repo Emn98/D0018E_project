@@ -38,6 +38,7 @@
   </body>
   <script>
     function search_product(id){
+      console.log("rly");
       var link = id;
       $('.post').attr("value",link);
       $('.redirect').submit(); 
