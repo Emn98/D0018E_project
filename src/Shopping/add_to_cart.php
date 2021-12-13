@@ -18,7 +18,6 @@
   $cart_id = $_SESSION["cart_id"];
 
 
-
   //Check the database if product already in cart
   $query = $con->prepare("SELECT quantity FROM CART_ITEMS WHERE cart_id=? AND product_id=? AND color=?");
   $query->bind_param("iis", $cart_id, $product_id, $product_color);

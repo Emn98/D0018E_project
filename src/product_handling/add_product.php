@@ -28,11 +28,14 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
+        echo"test1";
+
         $stmt = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ? LIMIT 1");
         $stmt->bind_param("s", $product_name);
         $stmt->execute();
         $stmt->bind_result($product_name_exists);
         $stmt->fetch();
+        echo"test2";
 
         if($product_name_exists == ""){
           $stmt->close();
@@ -56,7 +59,6 @@ require("check_admin.php");
         $stmt->bind_param("sis", $product_name, $quantity, $color);
         $stmt->execute();
         $stmt->close();
-
         }
 
       ?>

@@ -45,8 +45,6 @@
 
             $category_id = (int)$_POST['category_id'];
 
-            echo $category_id;
-
             $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
 
             $stmt->bind_param("i", $category_id);
@@ -93,8 +91,8 @@
             ?>
           </div>
         </main>
-        <div class="left_side">Left Side</div>
-        <div class="right_side">Right Side</div>
+        <div class="left_side"></div>
+        <div class="right_side"></div>
     </div>
   </body>
 </html>
