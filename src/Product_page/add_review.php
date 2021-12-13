@@ -19,7 +19,7 @@ function RemoveSpecialChar($str) {
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
-include_once($path);
+include($path);
 
 $user_id = $_SESSION['user_id'];
 $product_id = $_POST['product_id'];
