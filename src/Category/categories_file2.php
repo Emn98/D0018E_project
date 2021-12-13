@@ -28,7 +28,9 @@
                 
                 echo "<tr>";
            ?>
-                <th> <input type="button" value="<?php echo $category_name;?>" onclick="search_product('<?php echo $category_id ?>')"  class="category_btn"> </th>
+                <form method="post" action="/Category/category.php" name="redirect" class="redirect"> 
+                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="search_product('<?php echo $category_id ?>')"  class="category_btn"> </th>
+              </form>
            <?php
                 echo "</tr>";
               }
