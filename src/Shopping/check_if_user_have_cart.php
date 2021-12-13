@@ -3,7 +3,7 @@ if not it will create one for him/her -->
 <?php
 
   session_start();
-  
+
   echo "test 1";
   //Check so the user is logged in.  
   $path = $_SERVER['DOCUMENT_ROOT'];
@@ -28,6 +28,7 @@ if not it will create one for him/her -->
     $query -> bind_param("i", $user_id);
     $query -> execute();
     $query->close();
+    echo "test 5";
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
     $query -> bind_param("i", $user_id);
@@ -35,6 +36,8 @@ if not it will create one for him/her -->
     $query->bind_result($cart_id);
     $query->fetch();
     $query->close();
+
+    echo "test 6";
 
     $_SESSION["cart_id"] = $cart_id;
   }
