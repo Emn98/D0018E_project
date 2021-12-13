@@ -41,7 +41,7 @@
   <script>
     function search_product(id){
       var category_id = id;
-      $('.post').attr("value",category_id);
+      $('.post').attr("onclick",category_id);
       $('.redirect').submit(); 
     }
   </script> 
