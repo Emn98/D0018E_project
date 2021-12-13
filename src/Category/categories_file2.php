@@ -20,7 +20,8 @@
   </head>
    <body>
      <div class="category_container">
-       <table>
+       <form method="post" action="/Category/category.php" name="redirect">
+         <table>
            <?php
               while ($row = $result->fetch_assoc()) {
                 $category_id = $row["category_id"];
@@ -28,13 +29,13 @@
                 
                 echo "<tr>";
            ?>
-
                   <th> <input type="button" value="<?php echo $category_name;?>" onclick="search_product('<?php echo $category_id ?>')"  class="category_btn"> </th>
            <?php
                 echo "</tr>";
               }
            ?>
-       </table>
+         </table>
+       </form> 
      </div>
   </body>
   <script>
