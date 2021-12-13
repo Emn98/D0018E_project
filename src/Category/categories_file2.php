@@ -41,7 +41,7 @@
   <script>
     function search_product(id){
       var link = id;
-      $('.post').attr("",link);
+      $('.post').attr("value",link);
       $('.redirect').submit(); 
     }
   </script> 
