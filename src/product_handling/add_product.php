@@ -79,7 +79,7 @@ require("check_admin.php");
           $query->close();
 
           //Check if the color already exists
-          $query = $con->prepare("SELECT color FROM CATEGORIES WHERE product_id = ?");
+          $query = $con->prepare("SELECT color FROM PRODUCT_INVENTORY WHERE product_id = ?");
           $query->bind_param("i", $product_id);
           $query->execute();
           $query->bind_result($product_color_exists);
