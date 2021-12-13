@@ -25,8 +25,6 @@ require("check_admin.php");
         $path .= "/database.php";
         include_once($path);
 
-        echo"test1";
-
         //Check to see if the category already exists
         $query = $con->prepare("SELECT product_name FROM PRODUCTS WHERE product_name = ?");
         $query->bind_param("s", $product_name);
@@ -71,6 +69,7 @@ require("check_admin.php");
           echo "</div>";
         }else{//The product already exists. 
 
+          echo "test1";
           //Retrive the id of the product
           $query = $con->prepare("SELECT product_id FROM PRODUCTS WHERE product_name = ?");
           $query->bind_param("s", $product_name);
@@ -88,6 +87,7 @@ require("check_admin.php");
           $query->close();
 
           if($product_color_exists==""){
+            echo "test2";
             $query= $con->prepare("INSERT INTO PRODUCT_INVENTORY (product_id, quantity, color) VALUES (?, ?, ?)");
             $query-> bind_param("iis", $product_id, $quantity, $color);
             $query->execute();
@@ -99,7 +99,7 @@ require("check_admin.php");
             echo "</div>";
           }else{
             echo "<div class='form'>";
-            echo "<h3>Error! No product have been added.</h3><br/>";
+            echo "<h3>Error! No product have been added since both this product+color combination already exists.</h3><br/>";
             echo "<p class='link'>Click here to <a href='/product_handling/add_product_form.php'>continue!</a>.</p>";
             echo "</div>";
           }
