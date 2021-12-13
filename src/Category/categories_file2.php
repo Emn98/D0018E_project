@@ -20,7 +20,7 @@
   </head>
    <body>
      <div class="category_container">
-       <form method="post" action="/Category/category.php" name="redirect">
+     <form method="post" action="/Category/category.php" name="redirect" class="redirect">
          <table>
            <?php
               while ($row = $result->fetch_assoc()) {
