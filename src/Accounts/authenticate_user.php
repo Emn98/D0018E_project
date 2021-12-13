@@ -46,7 +46,7 @@
 
             if($_SESSION["user_id"] != 0){ 
 
-              //Retrive the users cart id
+              //Retrive the users cart id if he/she has one. 
               $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
               $query->bind_param("i", $user_id);
               $query->execute();
@@ -54,8 +54,9 @@
               $query->fetch();
               $query->close();
 
-              $_SESSION["cart_id"] = $cart_id;
-
+              if($cart_id >= 0){
+                  $_SESSION["cart_id"] = $cart_id;
+              }
               header("Location: user_page.php");//if user logged in go to user page.
               exit;
             }else{
