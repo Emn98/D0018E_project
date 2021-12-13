@@ -47,10 +47,6 @@ if($count == 0){
   $stmt->execute();
   $stmt->close();
 
-} else{
-  ?>
-  <script>alert("already have a review for this product with this user")</script>
-  <?php
 }
 header("Location: /index.php");
 exit;
