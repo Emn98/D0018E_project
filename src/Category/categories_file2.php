@@ -41,8 +41,11 @@
   <script>
     function search_product(id){
       var link = id;
-      $('.post').attr("value",link);
+      $.post("/Category/category.php",
+      {category_id: id},
+      );
       $('.redirect').submit(); 
+
     }
   </script> 
 </html>  
