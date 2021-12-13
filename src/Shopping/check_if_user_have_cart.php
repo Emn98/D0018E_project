@@ -4,7 +4,7 @@ if not it will create one for him/her -->
   //Check so the user is logged in.  
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Accounts/log_in_check.php";
-  require($path);
+  include($path);
 
   session_start();
 

@@ -34,21 +34,17 @@
         <div class="inner_left_side">
         <?php 
             $path = $_SERVER['DOCUMENT_ROOT'];
-            $path .= "/Category/categories_file.html";
+            $path .= "/Category/categories_file2.php";
             include($path);
+            //$path = $_SERVER['DOCUMENT_ROOT'];
+            //$path .= "/Category/categories_file.html";
+            //include($path);
             ?>
         </div>
         <div class="inner_right_side">Items go here</div>
       </main>
       <div class="left_side"></div>
-      <div class="right_side">
-      <?php 
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/Category/categories_file2.php";
-        include($path);
-      ?>
-
-      </div>
+      <div class="right_side"></div>
 	</div>
   </body>
 </html>
