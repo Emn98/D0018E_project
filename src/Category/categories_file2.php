@@ -38,8 +38,8 @@
   </body>
   <script>
     function search_product(id){
-      var link = id;
-      $('.post').attr("/Category/category.php",link);
+      var value = id;
+      $.post("/Category/category.php",value);
       $('.redirect').submit(); 
     }
   </script> 
