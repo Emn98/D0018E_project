@@ -21,6 +21,7 @@
    <body>
      <div class="category_container">
      <form method="post" action="/Category/category.php" name="redirect" class="redirect">
+     <input type="hidden" class="post" name="category_id" value="">
          <table>
            <?php
               while ($row = $result->fetch_assoc()) {
@@ -41,7 +42,7 @@
   <script>
     function search_product(id){
       var category_id = id;
-      $.post("category_id", category_id);
+      $('.post').attr("value",category_id);
       $('.redirect').submit(); 
     }
   </script> 
