@@ -40,9 +40,8 @@
   </body>
   <script>
     function search_product(id){
-      var link = id;
-      console.log(id);
-      $('.post').attr("value",link);
+      var category_id = id;
+      $('.post').attr("category_id",category_id);
       $('.redirect').submit(); 
     }
   </script> 
