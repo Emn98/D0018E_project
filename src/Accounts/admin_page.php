@@ -1,6 +1,9 @@
 <!-- This page will display the admin frontend for our site -->
 <?php 
-  require("log_in_check.php");
+  //Confirm that the admin is indeed logged in. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/product_handling/check_admin.php";
+  include_once($path);
 ?>
 <!DOCTYPE html>
   <html lang="en">
@@ -25,10 +28,12 @@
             <h1>Welcome Admin</h1>
             <h2>Admin Menu</h2>
             <ul class="admin_menu">
+              <li><a href='/product_handling/add_category_form.php'>Add Category</a></li>
               <li><a href='/product_handling/add_product_form.php'>Add Product</a></li>
-              <li><a href='/product_handling/edit_product_form.php'>Edit product</a></li>
-              <li><a href='/product_handling/remove_product_form.php'>Remove product</a></li>
-              <li><a href='/Accounts/delete_user_admin_form.php'>Delete user</a></li>
+              <li><a href='/product_handling/edit_product_form.php'>Edit Product</a></li>
+              <li><a href='/product_handling/remove_product_form.php'>Remove Product</a></li>
+              <li><a href='/Accounts/delete_user_admin_form.php'>Delete User(s)</a></li>
+              <li><a href='#'>View All Orders</a></li>
             </ul>
           </div>
         </main>

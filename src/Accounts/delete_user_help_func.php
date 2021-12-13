@@ -1,14 +1,12 @@
 <!-- This php page includes help functions for deleting user -->
 <?php 
 
-  /*This function will delete the shopping cart for a user admin is about to...
-   delete provided the user have one in the database */   
-  function delete_user_cart_admin($user_id){
-
+  /*This function will delete a shopping cart associated to a user*/
+  function delete_user_cart($user_id){
     $user_id = (int) $user_id;
 
     //Connect to the database.
-    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
     $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
     $query->bind_param("i", $user_id);
@@ -35,33 +33,46 @@
     }
   }
 
-  /*This function will delete the shopping cart for a user about to...
-    delete his or hers account provided the user have one in the database */   
-    function delete_user_cart(){
-      session_start();
+  function delete_user_orders($user_id){
+    $user_id = (int) $user_id;
 
-      //Connect to the database.
-      $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","Website");
+    //Connect to the database.
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
-      $cart_id = $_SESSION["cart_id"];
+    $query = $con->prepare("SELECT order_id FROM ORDERS WHERE user_id=?");
+    $query->bind_param("i", $user_id);
+    $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
+    $query->close();
 
-      //If the user have a cart delete it. 
-      if(gettype($_SESSION["cart_id"]) != "NULL" && isset($_SESSION["cart_id"])){
-        $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
-        $query->bind_param("i", $cart_id);
-        $query->execute();
-        $query->close();
-        
-        $query = $con->prepare("DELETE FROM CARTS WHERE cart_id=?");
-        $query->bind_param("i", $cart_id);
-        $query->execute();
-        $query->close();
-        
-        unset($_SESSION["cart_id"]);//Reset cart_id variable
-        
-        return;
-      }else{
-          return;
-      }
+    while ($row = $result->fetch_assoc()) {
+      $order_id = $row["order_id"];
+
+      $query = $con->prepare("DELETE FROM ORDER_ITEMS WHERE order_id=?");
+      $query->bind_param("i", $order_id);
+      $query->execute();
+      $query->close();
+
+      $query = $con->prepare("DELETE FROM ORDERS WHERE order_id=?");
+      $query->bind_param("i", $order_id);
+      $query->execute();
+      $query->close();
     }
+    return;
+  }
+
+  function delete_user_reviews($user_id){
+    $user_id = (int) $user_id;
+
+    //Connect to the database.
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
+    $query = $con->prepare("DELETE FROM USER_REVIEWS WHERE user_id=?");
+    $query->bind_param("i", $user_id);
+    $query->execute();
+    $query->close();
+
+    return;
+  }   
 ?>

@@ -1,6 +1,10 @@
 <!-- This page will allowe the admin to delete users -->
 <?php
-  require("log_in_check.php");//Checks so the user is logged in
+  
+  //Confirm that the admin is indeed logged in. 
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/product_handling/check_admin.php";
+  include_once($path);
 
   session_start();
 
@@ -74,7 +78,6 @@
               <tbody>
                 <?php
                   $temp = 1;
-                  $form_id = 0;
                   while ($row = $result->fetch_assoc()) {
                     $user_id = $row["user_id"];
                     $email_address = $row["email_address"]; 
@@ -95,7 +98,6 @@
                       echo "</td>";
                       echo "</tr>";
                       $temp = 0;
-                      $form_id++;
                     }else{
                       echo "<tr class='table_row_even'>";
                       echo "<td>$user_id</td>";
@@ -127,8 +129,7 @@
             $.ajax({
                 type: "POST",
                 url:  "delete_user.php", // 
-                data: {user_id: id,
-                       email: email},
+                data: {user_id: id},                
                 success: function(){
                   alert("User deleted successfully!");
                   location.reload();

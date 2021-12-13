@@ -4,7 +4,7 @@ if not it will create one for him/her -->
   //Check so the user is logged in.  
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Accounts/log_in_check.php";
-  require($path);
+  include($path);
 
   session_start();
 
@@ -16,7 +16,7 @@ if not it will create one for him/her -->
   $user_id = $_SESSION["user_id"];
 
   //Check if the user have a shopping cart in the database
-  if(gettype($_SESSION["cart_id"]) == "NULL" || !isset($_SESSION["cart_id"])){
+  if(gettype($_SESSION["cart_id"]) == NULL || !isset($_SESSION["cart_id"])){
     $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");//If not create the cart
     $query -> bind_param("i", $user_id);
     $query -> execute();

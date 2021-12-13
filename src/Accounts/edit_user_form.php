@@ -87,6 +87,7 @@
             <input type="password" id="new_password_2" name="new_password_2" placeholder="Confirm New Password" class="edit_user_inp" required>
             <label class="form_label" for="new_password_2">Confirm New Password</label>
           </div>
+          <input type="hidden" name="change_pwd_email" value="<?php echo $email_address ?>"> 
           <button class="form_button">Save Changes</button>
         </form>
         <form class="delete_user_form" method="" action="/Accounts/delete_user.php">

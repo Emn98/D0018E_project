@@ -65,7 +65,6 @@
           $description = $row['product_description'];
           $category = $row['category_id'];
           $price = $row['price'];
-          $size = $row['size'];
           $discount = $row['discount'];
           $picture = $row['picture'];
           $product_id = $row['product_id'];

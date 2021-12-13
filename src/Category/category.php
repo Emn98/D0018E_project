@@ -91,8 +91,8 @@
             ?>
           </div>
         </main>
-        <div class="left_side">Left Side</div>
-        <div class="right_side">Right Side</div>
+        <div class="left_side"></div>
+        <div class="right_side"></div>
     </div>
   </body>
 </html>

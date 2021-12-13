@@ -5,7 +5,7 @@
   //Check so the user have a cart. 
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/Shopping/check_if_user_have_cart.php";
-  require($path);
+  include($path);
 
   //creates connection to database
   $path = $_SERVER['DOCUMENT_ROOT'];
@@ -16,7 +16,6 @@
   $product_id = $_POST['product_id'];
   $product_color = $_POST['product_color'];
   $cart_id = $_SESSION["cart_id"];
-
 
 
   //Check the database if product already in cart
@@ -84,11 +83,3 @@
              <p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>
              </div>";
 ?>
-
-
-
-
-
-
-
-

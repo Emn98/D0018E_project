@@ -1,9 +1,8 @@
 <!-- This will act as the userpage for our website --> 
 <?php
-  require("log_in_check.php");
-
   session_start();
 
+  //Check so the user is logged in
   include("/Accounts/log_in_check.php");
 
   //creates connection to database
@@ -75,15 +74,13 @@
             </tr> 
             <?php
               if($address_2 != ""){//Only displays the care-of-address if one is set.
-                ?> 
-                <tr>
-                <th class='category'>Care-Of-Address<th>
-                </tr>
-                <tr>
-                <th class='value'><?php $address_2 ?><th>
-                </tr>
-              <?php
-              }
+                echo "<tr>";
+                echo "<th class='category'>Care-Of-Address<th>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<th class='value'>$address_2<th>";
+                echo "</tr>";
+              }  
             ?>
             <tr>
               <th class="category">City</th>

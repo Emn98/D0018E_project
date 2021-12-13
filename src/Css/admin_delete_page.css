@@ -5,25 +5,22 @@
     padding: 0;
 }
 
-html {
-  min-height: 100%;
-}
-
 body {
+    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
     font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
     font-weight: 500; 
 }
 
 .container{
-  background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
   display:grid;
   grid-template-columns: 0.5fr 1.6fr 0.8fr 0.5fr ;
-  grid-template-rows: 0.2fr 7fr;
+  grid-template-rows: 4.5rem 7fr;
   grid-template-areas: "header header header header"
    "left_side user_container user_container right_side";
 }
 
 header{
+max-height: 7rem;  
 background-color: white;
 width: cover;
 grid-area: header;
@@ -73,6 +70,7 @@ color: #0088a9;
 .container .user_container{
   grid-area: user_container;
   background: rgba(255, 255, 255, 0.5);
+  min-height: calc(100vh - 4.5rem);
 }
 
 .search_bar_container{
@@ -135,6 +133,7 @@ table{
   padding: 0.2rem;
   border: 1px solid darkgrey;
   border-radius: 10px;
+  margin-bottom: 1rem;
 
 }
 
