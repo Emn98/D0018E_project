@@ -30,7 +30,7 @@
                 
                 echo "<tr>";
            ?>
-                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="search_product('<?php echo $category_id ?>')"  class="category_btn"> </th>
+                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="go_to_category('<?php echo $category_id ?>')"  class="category_btn"> </th>
            <?php
                 echo "</tr>";
               }
@@ -40,10 +40,11 @@
      </div>
   </body>
   <script>
-    function search_product(id){
+    //This function will 
+    function go_to_category(id){
       var category_id = id;
-      $('.post').attr("value",category_id);
-      $('.redirect').submit(); 
+      $('.post').attr("value",category_id);//Insert the value of the category into the form on line 24. 
+      $('.redirect').submit(); //Submit the form. 
     }
   </script> 
 </html>  
