@@ -19,20 +19,20 @@ if not it will create one for him/her -->
 
   echo "test 3";
 
-  $user_id = $_SESSION["user_id"];
+  $user_id = (int) $_SESSION["user_id"];
 
   //Check if the user have a shopping cart in the database
   if(gettype($_SESSION["cart_id"]) == NULL || !isset($_SESSION["cart_id"])){
     echo "test 4";
-    $query = $con->prepare("INSERT INTO CARTS (user_id) VALUE(?)");//If not create the cart
-    $query -> bind_param("i", $user_id);
-    $query -> execute();
+    $query= $con->prepare("INSERT INTO CARTS (user_id) VALUES (?)");
+    $query-> bind_param("i", $user_id);
+    $query->execute();
     $query->close();
     echo "test 5";
 
-    $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id=?");
-    $query -> bind_param("i", $user_id);
-    $query -> execute();
+    $query = $con->prepare("SELECT cart_id FROM CARTS WHERE user_id = ?");
+    $query->bind_param("s", $user_id);
+    $query->execute();
     $query->bind_result($cart_id);
     $query->fetch();
     $query->close();
