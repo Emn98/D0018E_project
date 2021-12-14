@@ -67,32 +67,7 @@
             $query->close();
           }
         }
-        //Retrive the price of the product
-        $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
-        $query->bind_param("i", $product_id);
-        $query->execute();
-        $query->bind_result($product_price);
-        $query->fetch();
-        $query->close();
-
-        $query = $con->prepare("SELECT total_price, total_quantity FROM CARTS WHERE cart_id=?");
-        $query -> bind_param("i",  $cart_id);
-        $query -> execute();
-        $query->bind_result($total_price, $total_quantity);
-        $query->fetch();
-        $query->close();
-
-        if($quantity_in_cart != ""){
-          $new_total_quantity = $total_quantity + $quantity - $quantity_in_cart;
-        }else{
-          $new_total_quantity = $total_quantity + $quantity;
-        }
-
-        $query = $con->prepare("UPDATE CARTS SET total_quantity=? WHERE cart_id=?");
-        $query -> bind_param("ii", $new_total_quantity, $cart_id);
-        $query -> execute();
-        $query->close();
-
+       
         echo "<div class='form'>";
         echo "<h3>Product has been added to cart.</h3><br/>";
         echo "<p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>";

@@ -42,6 +42,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/shopping_cart_page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Include JQuery library -->
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -168,5 +169,23 @@
       <div class="left_side"></div>
       <div class="right_side"></div>
 	</div>
+  <script>
+    function remove_item(id, color){
+      $.ajax({
+          type: "POST",
+          url:  "alter_cart_func.php", 
+          data: {product_id: id,
+                 color: color,
+                 remove: 1
+                },                
+          success: function(){
+            location.reload();
+          },
+          error: function(){
+            alert("failure");
+                }
+            });
+          }
+      </script>
   </body>
 </html>
