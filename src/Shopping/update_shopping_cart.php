@@ -16,7 +16,7 @@
             $query->fetch();
             $query->close();
 
-            $calc_total_price = 0;
+            $calc_total_price = (float) 0;
 
             while ($row = $result->fetch_assoc()) {
                 $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");

@@ -79,16 +79,16 @@
               <?php
                 $temp = 1;
                while ($row = $result->fetch_assoc()) {
-                $query = $con->prepare("SELECT price, picture, product_name FROM PRODUCTS WHERE product_id=?");
+                $query = $con->prepare("SELECT price, discount, picture, product_name FROM PRODUCTS WHERE product_id=?");
                 $query->bind_param("i", $row["product_id"]);
                 $query->execute();
-                $query->bind_result($product_price, $picture, $product_name);
+                $query->bind_result($product_price, $discount, $picture, $product_name);
                 $query->fetch();
                 $query->close();
 
                 $color = $row["color"];
                 $quantity = $row["quantity"];
-                $sub_total = $quantity * $product_price;
+                $sub_total = $quantity * ($product_price*(1-$discount));
                 
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
