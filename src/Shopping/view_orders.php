@@ -14,36 +14,23 @@ $user_id = $_SESSION["user_id"];
 
 if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
 
-    $search_word = $_POST["purchase_date"];
-    $search_word_prepare = "%$search_word%";
+  $search_word = $_POST["purchase_date"];
+  $search_word_prepare = "%$search_word%";
     
-    $query = $con->prepare("SELECT order_id, purchase_date FROM USERS WHERE user_id=? and purchase_date LIKE ?");
-    $query->bind_param("is", $user_id, $search_word_prepare);
-    $query->execute();
-    $result = $query->get_result();
-    $query->fetch();
-    $query->close();
-    echo"test if sats";
-  }//else{
-    //$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id>?");
-    //$query->bind_param("i", $user_id);
-    //$query->execute();
-    //$result = $query->get_result();
-    //$query->fetch();
-    //$query->close();
-    //echo"test else sats";
-  //}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//Retrive all orders associated with the logged in user. 
-$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
-$query->bind_param("i", $user_id);
-$query->execute();
-$result = $query->get_result();
-$query->fetch();
-$query->close();
+  $query = $con->prepare("SELECT order_id, purchase_date FROM USERS WHERE user_id=? and purchase_date LIKE ?");
+  $query->bind_param("is", $user_id, $search_word_prepare);
+  $query->execute();
+  $result = $query->get_result();
+  $query->fetch();
+  $query->close();
+}else{
+  //Retrive all orders associated with the logged in user. 
+  $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+  $query->bind_param("i", $user_id);
+  $query->execute();
+  $result = $query->get_result();
+  $query->fetch();
+  $query->close();}
 
 $temp = 1;
 $form_id = 0;
