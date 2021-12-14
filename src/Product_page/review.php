@@ -49,7 +49,8 @@ while($review = $review_result->fetch_assoc()){
   $comment_result = $stmt1->bind_result();
   $stmt1->fetch();
   
-  echo "test";
+  echo "test ";
+  echo $review_id;
 
   while($comment = $comment_result->fetch_assoc()){
     $comment_name = $comment['comment_name'];
@@ -78,6 +79,7 @@ while($review = $review_result->fetch_assoc()){
 
   echo "test2";
   $stmt1->close();
+  /*
   ?>
   <form class="add_comment_form" method="POST" action="add_comment_form.php">
   <label>If you want to add a comment click here</label>
@@ -85,6 +87,7 @@ while($review = $review_result->fetch_assoc()){
   <button class="add_comment_button">Add comment</button>
   </form>
   <?php
+  */
 }
 
 $stmt->close();
