@@ -75,7 +75,6 @@ while($review = $review_result->fetch_assoc()){
   }
 
   $stmt->close();
-  /*
   ?>
   <form class="add_comment_form" method="POST" action="add_comment_form.php">
   <label>If you want to add a comment click here</label>
@@ -83,7 +82,6 @@ while($review = $review_result->fetch_assoc()){
   <button class="add_comment_button">Add comment</button>
   </form>
   <?php
-  */
 }
 
 $stmt->close();
