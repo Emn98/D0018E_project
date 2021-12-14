@@ -139,7 +139,12 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$sub_total$</td>";
+                  if($sub_total_discount!=0){
+                    echo "<td><strike>$sub_total$</strike> <br>";
+                    echo "<p style='color:red';>$sub_total_discount$</p> </td>";
+                  }else{
+                    echo "<td>$sub_total$</td>";
+                  }
                   echo "</tr>";
                   $temp = 1;
                 }
