@@ -84,7 +84,7 @@
 
         if($quantity_in_cart != ""){
           $new_total_price = $total_price - ($quantity_in_cart *$product_price); 
-          $new_total_price = $total_price + ($product_price * $quantity);
+          $new_total_price = $new_total_price + ($product_price * $quantity);
           $new_total_quantity = $total_quantity + $quantity - $quantity_in_cart;
         }else{
           $new_total_quantity = $total_quantity + $quantity;
@@ -99,7 +99,7 @@
         echo "<div class='form'>";
         echo "<h3>Product has been added to cart.</h3><br/>";
         echo "<p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>";
-        echo "class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>";
+        echo "<p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>";
         echo "</div>";
       }
     ?>
