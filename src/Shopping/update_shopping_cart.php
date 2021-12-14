@@ -1,11 +1,5 @@
 <?php
 
-    //1:Get all cart items assosciated with the users cart. 
-    //2: Check of Total_price is empty then go trhough and add all cart items. 
-    //3: If total price is not empyu then go through and check if a discount have been made and update the total price. 
-    //4: Send the product array and total price to the frontend. 
-
-
     function update_shopping_cart_total(){
         if(gettype($_SESSION["cart_id"]) != NULL && isset($_SESSION["cart_id"])){
 
@@ -36,7 +30,7 @@
             }
 
             $query = $con->prepare("UPDATE CARTS SET total_price=? WHERE cart_id=?");
-            $query -> bind_param("iii", $calc_total_price, $cart_id);
+            $query -> bind_param("fi", $calc_total_price, $cart_id);
             $query -> execute();
             $query->close();
         }

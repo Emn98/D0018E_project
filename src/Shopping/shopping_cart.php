@@ -13,7 +13,10 @@
 
   session_start();
 
-  include("update_shopping_cart.php")
+  include("update_shopping_cart.php");
+
+  update_shopping_cart_total();
+
 
 
   $cart_id = $_SESSION["cart_id"];
@@ -28,7 +31,7 @@
 
   //Retrive the total price from the user's cart
   $query = $con->prepare("SELECT total_price FROM CARTS WHERE cart_id=?");
-  $query->bind_param("i", $_SESSION["cart_id"]);
+  $query->bind_param("f", $_SESSION["cart_id"]);
   $query->execute();
   $query->bind_result($total_price);
   $query->fetch();
