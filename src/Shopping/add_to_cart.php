@@ -30,16 +30,32 @@
     if($quantity_in_cart != ""){
       $quantity = $quantity + $quantity_in_cart;
 
-      $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=? AND color=?");
-      $query -> bind_param("iiis", $quantity , $product_id, $cart_id, $product_color);
-      $query -> execute();
-      $query->close();
+      if($quantity > 99){
+        $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=? AND color=?");
+        $query -> bind_param("iiis", 99 , $product_id, $cart_id, $product_color);
+        $query -> execute();
+        $query->close();
+      }else{
+        $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=? AND color=?");
+        $query -> bind_param("iiis", $quantity , $product_id, $cart_id, $product_color);
+        $query -> execute();
+        $query->close();
+      }
     }else{//If the item don't already exist in user's cart. 
+      if($quantity > 99){
+        $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
+        VALUES(?,?,?,?)"); 
+        $query -> bind_param("iiis",$cart_id, $product_id, 99, $product_color);
+        $query -> execute();
+        $query->close();
+
+      }else{
         $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
         VALUES(?,?,?,?)"); 
         $query -> bind_param("iiis",$cart_id, $product_id, $quantity, $product_color);
         $query -> execute();
         $query->close();
+      }
     }
 
     //Retrive the price of the product
@@ -60,15 +76,6 @@
     $new_total_quantity = $total_quantity + $quantity;
     $new_total_price = $total_price + ($product_price * $quantity);
 
-    echo $total_price;
-    echo $total_quantity;
-    echo $quantity;
-    echo $product_price;
-    echo gettype($total_quantity);
-    echo gettype($total_price);
-    echo $new_total_quantity;
-    echo $new_total_price;
-  
     $query = $con->prepare("UPDATE CARTS SET total_quantity=?, total_price=? WHERE cart_id=?");
     $query -> bind_param("iii", $new_total_quantity, $new_total_price, $cart_id);
     $query -> execute();
