@@ -43,11 +43,11 @@ while($review = $review_result->fetch_assoc()){
   $path .= "/database.php";
   include($path);
 
-  $stmt1 = $con->prepare("SELECT * FROM USER_COMMENTS WHERE review_id=?");
-  $stmt1->bind_param("i", $review_id);
-  $stmt1->execute();
-  $comment_result = $stmt1->bind_result();
-  $stmt1->fetch();
+  $stmt = $con->prepare("SELECT * FROM USER_COMMENTS WHERE review_id=?");
+  $stmt->bind_param("i", $review_id);
+  $stmt->execute();
+  $comment_result = $stmt->bind_result();
+  $stmt->fetch();
   
 
   while($comment = $comment_result->fetch_assoc()){
@@ -75,8 +75,8 @@ while($review = $review_result->fetch_assoc()){
     <?php
 
   }
-  $stmt1->close();
-} 
+}
+$stmt->close(); 
   ?>
   <form class="add_comment_form" method="POST" action="add_comment_form.php">
   <label>If you want to add a comment click here</label>
