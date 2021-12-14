@@ -75,6 +75,8 @@ while($review = $review_result->fetch_assoc()){
     </article>
     <?php
   }
+
+  echo "test2";
   $stmt1->close();
   ?>
   <form class="add_comment_form" method="POST" action="add_comment_form.php">
