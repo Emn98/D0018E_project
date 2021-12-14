@@ -112,10 +112,8 @@
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
                   if($sub_total_discount!=0){
-                    echo "<td><strike>$sub_total$<strike></td>";
-                    echo "<br>";
-                    echo "<td>$sub_total_discount$</td>";
-
+                    echo "<td><strike>$sub_total$ <strike></td>";
+                    echo "<td style='color:red';>$sub_total_discount$</td>";
                   }else{
                     echo "<td>$sub_total$</td>";
                   }
