@@ -17,6 +17,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/Css/categorybar_style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
   </head>
    <body>
      <div class="category_container">
