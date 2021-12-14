@@ -75,8 +75,8 @@ while($review = $review_result->fetch_assoc()){
     <?php
 
   }
-  $stmt1->close();
-} 
+}
+$stmt->close(); 
   ?>
   <form class="add_comment_form" method="POST" action="add_comment_form.php">
   <label>If you want to add a comment click here</label>
