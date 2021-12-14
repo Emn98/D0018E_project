@@ -141,7 +141,7 @@
                   echo "<td style='white-space: nowrap';>";
                   ?>
                   <div class="quantity_stuff">
-                  <button>-</button>
+                  <button class="add_btn">-</button>
                   <p><?php echo $quantity; ?></p>
                   <button>+</button>
                   </div>

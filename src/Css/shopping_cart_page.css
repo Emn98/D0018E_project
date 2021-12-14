@@ -283,3 +283,8 @@ td p{
 .remove_btn:hover{
   background: lightgrey;
 }
+
+.add_btn{
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
