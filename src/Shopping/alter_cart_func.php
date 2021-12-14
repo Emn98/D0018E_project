@@ -16,7 +16,7 @@
       print_r($_POST);
       
       $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=? AND product_id=? AND color=?");
-      $query->bind_param("i", $cart_id, $product_id, $color);
+      $query->bind_param("iis", $cart_id, $product_id, $color);
       $query->execute();
       $query->close();
   }
