@@ -113,7 +113,6 @@
               </div>
               <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
               <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
-              <input type='hidden' name='discount' value='<?php echo $discount ?>'>
             </form>
           </div>
           <div class='best_customer_review_div'>

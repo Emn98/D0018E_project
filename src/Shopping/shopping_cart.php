@@ -80,12 +80,21 @@
                 $query = $con->prepare("SELECT price, discount, picture, product_name FROM PRODUCTS WHERE product_id=?");
                 $query->bind_param("i", $row["product_id"]);
                 $query->execute();
-                $query->bind_result($product_price, $discount, $picture, $product_name);
+                $query->bind_result($product_price, $discount_price, $picture, $product_name);
                 $query->fetch();
                 $query->close();
 
                 $color = $row["color"];
                 $quantity = $row["quantity"];
+
+                $sub_total = 0;
+                $sub_total_discount= 0;
+
+                $sub_total = $quantity*$product_price;
+                if($discount_price != 0){
+                  
+                  $sub_total_discount = $quantity*$discount_price;
+                }
                 
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
@@ -102,7 +111,14 @@
                   echo "</td>";
                   echo "<td>$color</td>";
                   echo "<td>$quantity</td>";
-                  echo "<td>$sub_total$</td>";
+                  if($sub_total_discount!=0){
+                    echo "<td><strike>$sub_total$<strike></td>";
+                    echo "<br>";
+                    echo "<td>$sub_total_discount$</td>";
+
+                  }else{
+                    echo "<td>$sub_total$</td>";
+                  }
                   echo "</tr>";
                   $temp = 0;
                 }else{
