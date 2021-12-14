@@ -35,6 +35,14 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+//Retrive all orders associated with the logged in user. 
+$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+$query->bind_param("i", $user_id);
+$query->execute();
+$result = $query->get_result();
+$query->fetch();
+$query->close();
+
 $temp = 1;
 $form_id = 0;
 
