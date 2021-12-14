@@ -23,6 +23,7 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
     $result = $query->get_result();
     $query->fetch();
     $query->close();
+    echo"test if sats";
   }else{
     $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id>?");
     $query->bind_param("i", $user_id);
@@ -30,23 +31,23 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
     $result = $query->get_result();
     $query->fetch();
     $query->close();
+    echo"test else sats";
   }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //Retrive all orders associated with the logged in user. 
-//$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
-//$query->bind_param("i", $user_id);
-//$query->execute();
-//$result = $query->get_result();
-//$query->fetch();
-//$query->close();
+$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+$query->bind_param("i", $user_id);
+$query->execute();
+$result = $query->get_result();
+$query->fetch();
+$query->close();
 
 $temp = 1;
 $form_id = 0;
 
-echo "test";
 while ($row = $result->fetch_assoc()) {
     $order_id = $row["order_id"];
     $purchase_date = $row["purchase_date"];
