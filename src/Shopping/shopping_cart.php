@@ -138,7 +138,7 @@
                   echo"</div>";
                   echo "</td>";
                   echo "<td>$color</td>";
-                  echo "<td style='white-space: nowrap';>";
+                  echo "<td>";
                   ?>
                   <div class="quantity_stuff">  
                   <button>-</button><p><?php echo $quantity; ?></p><button></button>
