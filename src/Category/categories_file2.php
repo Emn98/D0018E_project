@@ -17,7 +17,6 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/Css/categorybar_style.css">
-    <script language="JavaScript" type="text/javascript" src="/javascript.js"></script>
   </head>
    <body>
      <div class="category_container">
@@ -39,5 +38,12 @@
          </table>
        </form> 
      </div>
+     <script>
+       function go_to_category(id){
+        var category_id = id;
+        $('.post').attr("value",category_id);//Insert the value of the category into the form on line 24. 
+       $('.redirect').submit(); //Submit the form. 
+       }
+     </script>
   </body>
 </html>  
