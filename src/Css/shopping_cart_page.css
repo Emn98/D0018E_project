@@ -196,7 +196,7 @@ td p{
   background: rgba(255, 255, 255, 0);
   box-sizing: border-box;
   width: cover;
-  height: 14rem;
+  height: 10rem;
   margin-top: 5.5rem;
   margin-right: 1rem;
   border-radius: 10px;
@@ -253,7 +253,7 @@ td p{
 .buy_btn{
   float: right;
   margin-right: 1.6rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   padding: 5px;
   background-color: #F0F8FF;
   opacity: 0.95;
