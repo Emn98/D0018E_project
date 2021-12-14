@@ -286,8 +286,14 @@ td p{
 
 .modi_btn_plus{
   padding: 2px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .modi_btn_minus{
   padding: 3px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
