@@ -116,7 +116,7 @@
                   echo "<td>";
                   ?>
                   <button class="modi_btn_plus">+</button>
-                  <p style="margin-left:0.2rem";><?php echo $quantity; ?></p>
+                  <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
                   <button class="modi_btn_minus">-</button>
                   <?php
                   echo "</td>";
@@ -147,7 +147,7 @@
                   echo "<td>";
                   ?>
                   <button class="modi_btn_plus">+</button>
-                  <p><?php echo $quantity; ?></p>
+                  <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
                   <button class="modi_btn_minus">-</button>
                   <?php
                   echo "</td>";
