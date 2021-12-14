@@ -27,6 +27,7 @@
                 $query->close();
 
                 $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*(1-$product_discount)));
+                echo $calc_total_price;
             }
 
             $query = $con->prepare("UPDATE CARTS SET total_price=? WHERE cart_id=?");
