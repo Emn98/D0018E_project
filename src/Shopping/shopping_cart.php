@@ -153,7 +153,6 @@
                 echo '<button class="delete_btn">Delete Cart</button>';
                 echo '</form>';
               }
-            
             ?>
           </div>
         </div>
@@ -168,7 +167,7 @@
             </table>
             <div class="buy_btn_cont">
             <form class="buy_product_btn_form" action="buy_cart.php">
-              <button class="buy_btn">Purchase Products</button>
+              <button class="buy_btn">Purchase</button>
             </form>
             </div>
           </div>
