@@ -62,10 +62,11 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
             </form>
           </div>
           <div class="inner_user_container">
-            <h2>Order id</h2>
+            <h2>Orders</h2>
             <table>
               <thead>
                 <tr>
+                  <th>Order id</th>
                   <th>Purchase Date</th>
                   <th></th>
                 </tr>
