@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/Css/present_products.css">
     <link rel="stylesheet" href="/Css/category.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jstmt/3.5.1/jstmt.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
   </head>
   <body>
