@@ -138,13 +138,11 @@
                   echo"</div>";
                   echo "</td>";
                   echo "<td>$color</td>";
-                  echo "<td style='white-space: nowrap';>";
+                  echo "<td>";
                   ?>
-                  <div class="quantity_stuff">
-                  <button class="add_btn">-</button>
+                  <button class="add_btn">+</button>
                   <p><?php echo $quantity; ?></p>
                   <button>+</button>
-                  </div>
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
