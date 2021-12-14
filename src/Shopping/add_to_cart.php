@@ -76,7 +76,7 @@
     
   }
   //Retrive the price of the product
-  $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
+ /* $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
   $query->bind_param("i", $product_id);
   $query->execute();
   $query->bind_result($product_price);
@@ -114,5 +114,6 @@
    <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
    <p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>
    </div>";
+  */
   }
 ?>
