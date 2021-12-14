@@ -196,9 +196,10 @@ td p{
   background: rgba(255, 255, 255, 0);
   box-sizing: border-box;
   width: cover;
-  height: 25rem;
+  height: 14rem;
   margin-top: 5.5rem;
   margin-right: 1rem;
+  border-radius: 10px;
   background-color: white;
 }
 
