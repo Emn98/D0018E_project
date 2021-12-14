@@ -57,7 +57,7 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="purchase_date" placeholder="Search Purchase Date...">
+              <input class="search_bar_inp" type="timestamp" name="purchase_date" placeholder="Search Purchase Date...">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
           </div>
