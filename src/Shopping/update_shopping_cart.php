@@ -21,17 +21,22 @@
                 $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
                 $query->bind_param("i", $row["product_id"]);
                 $query->execute();
-                $query->bind_result($product_price, $product_discount);
+                $query->bind_result($product_price, $discount_price);
                 $query->fetch();
                 $query->close();
 
-                $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*(1-$product_discount)));
+                if($discount_price != 0){
+                    $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*$product_price));
+
+                }else{
+                    $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*$discount_price));
+                }
             }
 
             echo $calc_total_price;
 
             $query = $con->prepare("UPDATE CARTS SET total_price=? WHERE cart_id=?");
-            $query -> bind_param("fi", $calc_total_price, $cart_id);
+            $query -> bind_param("Ii", $calc_total_price, $cart_id);
             $query -> execute();
             $query->close();
         }
