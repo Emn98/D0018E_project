@@ -12,8 +12,8 @@
   include_once($path); 
 
   //If a user have come from a product_site. 
-  if(isset("quantity") && isset("product_id") && isset("product_color")){
-    $quantity = $_POST['quantity'];
+  if(isset($_POST["product_id"])){
+    $quantity = (int) $_POST['quantity'];
     $product_id = $_POST['product_id'];
     $product_color = $_POST['product_color'];
     $cart_id = $_SESSION["cart_id"];
@@ -77,7 +77,7 @@
   }
   echo "test1";
   //Retrive the price of the product
- $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
+  $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
   $query->bind_param("i", $product_id);
   $query->execute();
   $query->bind_result($product_price);
