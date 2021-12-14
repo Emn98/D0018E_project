@@ -267,3 +267,10 @@ td p{
  .buy_btn:hover {
   background: lightgrey;
 }
+
+
+.remove_btn{
+  color: transparent;
+  margin-top: 0.5rem;
+  color: red;
+}
