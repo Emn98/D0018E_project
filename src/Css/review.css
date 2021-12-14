@@ -1,0 +1,9 @@
+article{
+    background-color: white;
+    border-style:solid;
+    border-color:red;
+}
+.each_comment{
+    border-color:yellowgreen;
+    margin-left:10px;
+}

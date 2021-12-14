@@ -27,13 +27,15 @@ $comment_comment = RemoveSpecialChar($_POST['comment_comment']);
 $dislikes = 0;
 $likes = 0;
 
+print_r($_POST);
+
 $stmt = $con->prepare("INSERT INTO USER_COMMENTS (review_id, comment_name, comment_comment, dislikes, likes, created_at) VALUES
 (?,?,?,?,?, CURRENT_TIMESTAMP)");
-$stmt->bind_param("iisisii", $review_id, $comment_name, $comment_comment, $dislikes, $likes);
+$stmt->bind_param("issii", $review_id, $comment_name, $comment_comment, $dislikes, $likes);
 $stmt->execute();
 $stmt->close();
 
 
-header("Location: /index.php");
-exit;
+//header("Location: /index.php");
+//exit;
 ?>

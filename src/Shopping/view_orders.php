@@ -41,6 +41,7 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="/Css/admin_delete_page.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Include JQuery library -->
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
       <title>Offbrand.pwr - Orders</title>
     </head>
     <body>
@@ -57,9 +58,20 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="timestamp" name="purchase_date" placeholder="Search Purchase Date...">
+              <input class="search_bar_inp" type="text" name="purchase_date" placeholder="Search Purchase Date...">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
+            <form class="view_order_details" method="POST" action="/Shopping/view_order_details.php">
+              <input type=hidden class=script name=order_id value="">
+            </form>
+            <script>
+              function go_to_order_details(id){
+              var order_id = id;
+              console.log(id);
+              $('.script').attr("value",order_id);//Insert the value of the category into the form on line 65. 
+              $('.view_order_details').submit(); //Submit the form. 
+              }
+     </script>
           </div>
           <div class="inner_user_container">
             <h2>Orders</h2>
@@ -89,7 +101,7 @@ while ($row = $result->fetch_assoc()) {
         echo "<td>";
         ?> 
         <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-        <input type="button" action="view_order_details.php" class="view_order_btn">
+        <input type="button" value="View" onclick="go_to_order_details('<?php echo $order_id ?>')" class="view_btn">
         <?php
         echo "</td>";
         echo "</tr>";
@@ -101,7 +113,7 @@ while ($row = $result->fetch_assoc()) {
         echo "<td>";
         ?> 
         <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-        <input type="button" action="view_order_details.php" class="view_order_btn">
+        <input type="button" value="View" onclick="go_to_order_details('<?php echo $order_id ?>')" class="view_btn">
         <?php
         echo "</td>";
         echo "</tr>";
