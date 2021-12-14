@@ -37,6 +37,8 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
 
 $temp = 1;
 $form_id = 0;
+
+echo "test";
 while ($row = $result->fetch_assoc()) {
     $order_id = $row["order_id"];
     $purchase_date = $row["purchase_date"];
