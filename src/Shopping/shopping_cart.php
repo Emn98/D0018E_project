@@ -138,7 +138,13 @@
                   echo"</div>";
                   echo "</td>";
                   echo "<td>$color</td>";
-                  echo "<td>$quantity</td>";
+                  echo "<td>";
+                  ?>
+                  <button>-</button>
+                  <p><?php echo $quantity; ?></p>
+                  <button>+</button>
+                  <?php
+                  echo "</td>";
                   if($sub_total_discount!=0){
                     echo "<td><strike>$sub_total$</strike> <br>";
                     echo "<p style='color:red';>$sub_total_discount$</p> </td>";
