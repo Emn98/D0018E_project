@@ -190,6 +190,7 @@ td p{
   grid-area: shopping_cart_info;
   background: rgba(255, 255, 255, 0.5);
   width: cover;
+  background: white;
 }
 
 .in_shopping_cart_info{
