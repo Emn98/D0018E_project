@@ -190,7 +190,6 @@ td p{
   grid-area: shopping_cart_info;
   background: rgba(255, 255, 255, 0.5);
   width: cover;
-  background: white;
 }
 
 .in_shopping_cart_info{
@@ -200,7 +199,6 @@ td p{
   height: cover;
   margin-top: 5.5rem;
   margin-right: 1rem;
-  background: white;
 }
 
 .in_shopping_cart_info h3{
