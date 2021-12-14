@@ -31,8 +31,9 @@
       $quantity = $quantity + $quantity_in_cart;
 
       if($quantity > 99){
+        $quantity = 99;
         $query = $con->prepare("UPDATE CART_ITEMS SET quantity=? WHERE product_id=? AND cart_id=? AND color=?");
-        $query -> bind_param("iiis", 99 , $product_id, $cart_id, $product_color);
+        $query -> bind_param("iiis",$quantity, $product_id, $cart_id, $product_color);
         $query -> execute();
         $query->close();
       }else{
@@ -43,12 +44,12 @@
       }
     }else{//If the item don't already exist in user's cart. 
       if($quantity > 99){
+        $quantity = 99;
         $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
         VALUES(?,?,?,?)"); 
-        $query -> bind_param("iiis",$cart_id, $product_id, 99, $product_color);
+        $query -> bind_param("iiis",$cart_id, $product_id, $quantity, $product_color);
         $query -> execute();
         $query->close();
-
       }else{
         $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
         VALUES(?,?,?,?)"); 
@@ -57,7 +58,6 @@
         $query->close();
       }
     }
-
     //Retrive the price of the product
     $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
     $query->bind_param("i", $product_id);
