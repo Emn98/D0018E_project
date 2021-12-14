@@ -4,12 +4,12 @@ session_start();
 
 $order_id = $_POST['order_id'];
 
-$query = $con->prepare("SELECT product_id, quantity, color FROM ORDER_ITEMS WHERE order_id=?");
-$query->bind_param("i", $order_id);
-$query->execute();
-$order_result = $query->get_result();
-$query->fetch();
-$query->close();
+//$query = $con->prepare("SELECT product_id, quantity, color FROM ORDER_ITEMS WHERE order_id=?");
+//$query->bind_param("i", $order_id);
+//$query->execute();
+//$order_result = $query->get_result();
+//$query->fetch();
+//$query->close();
 
 $temp=1;
 echo "test 1";
