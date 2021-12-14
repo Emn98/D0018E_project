@@ -83,16 +83,13 @@
         $query->close();
 
         if($quantity_in_cart != ""){
-          $new_total_price = $total_price - ($quantity_in_cart *$product_price); 
-          $new_total_price = $new_total_price + ($product_price * $quantity);
           $new_total_quantity = $total_quantity + $quantity - $quantity_in_cart;
         }else{
           $new_total_quantity = $total_quantity + $quantity;
-          $new_total_price = $total_price + ($product_price * $quantity);
         }
 
-        $query = $con->prepare("UPDATE CARTS SET total_quantity=?, total_price=? WHERE cart_id=?");
-        $query -> bind_param("ifi", $new_total_quantity, $new_total_price, $cart_id);
+        $query = $con->prepare("UPDATE CARTS SET total_quantity=? WHERE cart_id=?");
+        $query -> bind_param("ii", $new_total_quantity, $cart_id);
         $query -> execute();
         $query->close();
 

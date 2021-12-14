@@ -88,7 +88,7 @@
           <div class='product_details_price_div'>
             <?php 
               if($discount==0){
-                echo "<label class='product_details_price_label'>Current Price:$price </label>"; 
+                echo "<label class='product_details_price_label'>Current Price: $price </label>"; 
               }else{
                 echo "<label>Price<strike>$price$</strike></label>";
                 echo "<br>"; 
