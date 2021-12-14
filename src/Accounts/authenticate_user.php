@@ -54,7 +54,7 @@
               $query->fetch();
               $query->close();
 
-              if($cart_id >= 0){
+              if($cart_id >= 0){//Set the cart_id if one exists
                   $_SESSION["cart_id"] = $cart_id;
               }
               header("Location: user_page.php");//if user logged in go to user page.

@@ -11,7 +11,7 @@
   $cart_id = $_SESSION["cart_id"];
 
   //If the user have a cart delete it. 
-  if(gettype($_SESSION["cart_id"]) != "NULL" && isset($_SESSION["cart_id"])){
+  if(gettype($_SESSION["cart_id"]) != NULL && isset($_SESSION["cart_id"])){
     
     $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
     $query->bind_param("i", $cart_id);

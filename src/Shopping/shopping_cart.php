@@ -11,9 +11,10 @@
   $path .= "/database.php";
   include_once($path);
 
-  include("delete_cart.php");
-
   session_start();
+
+  include("update_shopping_cart.php")
+
 
   $cart_id = $_SESSION["cart_id"];
 
