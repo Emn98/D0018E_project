@@ -226,3 +226,18 @@ td p{
 .total_price{
   font-size: 18px;
 }
+
+.delete_btn{
+  padding: 7px;
+  font-size: 14px;
+  font-weight: bolder;
+  float: right;
+  background: red;
+  cursor: pointer;
+  transition: background 0.2s ease 0s;
+  border: 1px solid red;
+}
+
+.delete_btn:hover{
+  background: darkred;
+}
