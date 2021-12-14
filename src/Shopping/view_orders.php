@@ -31,6 +31,47 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
   $result = $query->get_result();
   $query->fetch();
   $query->close();}
+}
+
+?>
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="/Css/admin_delete_page.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Include JQuery library -->
+      <title>Offbrand.pwr - Orders</title>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1>OFF<span>BRAND</span></h1>
+          <nav>
+            <ul class="nav_menu">
+              <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
+              <li><a href="/Accounts/site_director.php">My Page</a></li>
+            </ul>
+          </nav>
+        </header>
+        <div class="user_container">
+          <div class="search_bar_container">
+            <form class="search_bar_form" method="POST" action="">
+              <input class="search_bar_inp" type="text" name="purchase_date" placeholder="Search Purchase Date...">
+              <button type="submit"><i class="fa fa-search"></i>Search</button>
+            </form>
+          </div>
+          <div class="inner_user_container">
+            <h2>Order id</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Purchase Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
 
 $temp = 1;
 $form_id = 0;
