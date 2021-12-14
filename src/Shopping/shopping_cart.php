@@ -86,7 +86,6 @@
 
                 $color = $row["color"];
                 $quantity = $row["quantity"];
-                $sub_total = $quantity * ($product_price*(1-$discount));
                 
                 if($temp == 1){
                   echo "<tr class='table_row_odd'>";
