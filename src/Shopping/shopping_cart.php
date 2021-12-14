@@ -15,7 +15,7 @@
 
   include("update_shopping_cart.php");
 
-  //update_shopping_cart_total();
+  update_shopping_cart_total();
 
   $cart_id = $_SESSION["cart_id"];
 
