@@ -1,5 +1,4 @@
 <?php
-
     function update_shopping_cart_total(){
         if(gettype($_SESSION["cart_id"]) != NULL && isset($_SESSION["cart_id"])){
 
@@ -32,7 +31,7 @@
             echo $calc_total_price;
 
             $query = $con->prepare("UPDATE CARTS SET total_price=? WHERE cart_id=?");
-            $query -> bind_param("fi", $calc_total_price, $_SESSION["cart_id"]);
+            $query -> bind_param("fi", $calc_total_price, $cart_id);
             $query -> execute();
             $query->close();
         }
