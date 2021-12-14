@@ -66,8 +66,9 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
             <table>
               <thead>
                 <tr>
-                  <th>Order id</th>
+                  <th>Order Id</th>
                   <th>Purchase Date</th>
+                  <th>View Details</th>
                   <th></th>
                 </tr>
               </thead>
