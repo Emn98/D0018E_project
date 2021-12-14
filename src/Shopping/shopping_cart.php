@@ -117,7 +117,7 @@
                   ?>
                   <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <input type="button" class="modi_btn_plus" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
+                  <input type="button" class="modi_btn_minus" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
