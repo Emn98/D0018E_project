@@ -34,7 +34,6 @@
       $query -> bind_param("iiis", $quantity , $product_id, $cart_id, $product_color);
       $query -> execute();
       $query->close();
-    }
     }else{//If the item don't already exist in user's cart. 
         $query = $con->prepare("INSERT INTO CART_ITEMS (cart_id, product_id, quantity, color) 
         VALUES(?,?,?,?)"); 
