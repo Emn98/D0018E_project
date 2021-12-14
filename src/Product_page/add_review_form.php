@@ -18,7 +18,6 @@ if(!isset($_SESSION["user_id"])){
     <div class="product_div">
       <div class="inner_product_div">
         <h1>Add Review Page</h1>
-        <label><?php echo $_SESSION['user_id'] ?></label>
         <form action="add_review.php" method="POST">
         <input type="hidden" name="product_id" value="<?php echo $_POST['product_id'] ?>">
         <label for="review_name">Name</label>

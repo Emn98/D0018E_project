@@ -9,9 +9,11 @@ $stmt->bind_param("i", $product_id);
 $stmt->execute();
 $review_result = $stmt->get_result();
 $stmt->fetch();
+$stmt->close();
 
 
 while($review = $review_result->fetch_assoc()){
+  $review_id = $review['review_id'];
   $review_name = $review['review_name'];
   $review_score = $review['review_score'];
   $review_created_at = $review['created_at'];
@@ -35,10 +37,54 @@ while($review = $review_result->fetch_assoc()){
       </div>
     </div>
   </article>
- <?php 
+  <?php
+
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include($path);
+
+  $stmt = $con->prepare("SELECT * FROM USER_COMMENTS WHERE review_id=?");
+  $stmt->bind_param("i", $review_id);
+  $stmt->execute();
+  $comment_result = $stmt->bind_result();
+  $stmt->fetch();
+  
+
+  while($comment = $comment_result->fetch_assoc()){
+    $comment_name = $comment['comment_name'];
+    $comment_created_at = $comment['created_at'];
+    $comment_comment = $comment['comment_comment'];
+    $comment_like_to_dislike_ratio = $comment['likes'] - $comment['dislikes'];
+    ?>
+    <article class="each_comment">
+      <header>
+        <div>
+        <label><?php echo $comment_name ?></label>
+        </div>
+        <time datetime="<?php echo $comment_created_at ?>"><?php echo $comment_created_at ?></time>
+      </header>
+      <p><?php echo $comment_comment ?></p>
+      <div>
+        <div>
+          <button>up</button>
+          <label><?php echo $comment_like_to_dislike_ratio ?></label>
+          <button>down</button>
+        </div>
+      </div>
+    </article>
+    <?php
+  }
+  $stmt->close(); 
+  ?>
+  <form class="add_comment_form" method="POST" action="add_comment_form.php">
+  <label>If you want to add a comment click here</label>
+  <input type="hidden" name="review_id" value="<?php echo $review_id ?>">
+  <button class="add_comment_button">Add comment</button>
+  </form>
+  <?php
 }
 
-$con->close();
+$stmt->close();
 ?>
 <form class="add_review_form" method="POST" action="add_review_form.php">
   <label>If you want to add a review click here</label>
