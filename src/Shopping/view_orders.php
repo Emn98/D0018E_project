@@ -62,13 +62,12 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
             <form class="view_order_details" method="POST" action="/Shopping/view_order_details.php">
-              <input type=hidden class=script name=order_id value="">
+              <input type=hidden class=script_id name=order_id value="">
             </form>
             <script>
               function go_to_order_details(id){
               var order_id = id;
-              console.log(id);
-              $('.script').attr("value",order_id);//Insert the value of the category into the form on line 65. 
+              $('.script_id').attr("value",order_id);//Insert the value of the category into the form on line 65. 
               $('.view_order_details').submit(); //Submit the form. 
               }
      </script>
