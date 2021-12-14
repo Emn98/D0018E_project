@@ -105,7 +105,9 @@
                   <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
-                  echo "<small>remove</small>";
+                  ?>
+                    <input type="button" value="Remove" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
+                  <?php
                   echo"</div>";
                   echo"</div>";
                   echo "</td>";
@@ -128,7 +130,9 @@
                  <?php
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
-                  echo "<small>remove</small>";
+                  ?>
+                    <input type="button" value="Remove" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
+                  <?php  
                   echo"</div>";
                   echo"</div>";
                   echo "</td>";
