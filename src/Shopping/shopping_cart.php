@@ -165,10 +165,10 @@
                 <td class="total_label">Total:</td>
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
-              <form class="buy_product_btn_form" action="buy_cart.php">
+            </table>
+            <form class="buy_product_btn_form" action="buy_cart.php">
               <button class="buy_btn">Purchase Products</button>
             </form>
-            </table>
           </div>
         </div>    
       <div class="left_side"></div>
