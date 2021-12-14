@@ -171,12 +171,13 @@
 	</div>
   <script>
     function remove_item(id, color){
+      var re = 1;
       $.ajax({
           type: "POST",
           url:  "alter_cart_func.php", 
           data: {product_id: id,
                  color: color,
-                 remove: 1
+                 remove: re
                 },                
           success: function(){
             location.reload();
