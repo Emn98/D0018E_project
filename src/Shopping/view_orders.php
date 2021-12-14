@@ -100,7 +100,7 @@ while ($row = $result->fetch_assoc()) {
         echo "<td>";
         ?> 
         <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-        <input type="button" value="View" onclick="go_to_order_details('<?php echo $order_id ?>,')" class="view_btn">
+        <input type="button" value="View" onclick="go_to_order_details('<?php echo $order_id ?>')" class="view_btn">
         <?php
         echo "</td>";
         echo "</tr>";
