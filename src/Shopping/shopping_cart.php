@@ -147,6 +147,9 @@
               ?>
               </tbody>
             </table>
+            <form class="Delete_product_btn_form" action="delete_cart_user.php">
+              <button class="delete_btn">Delete Cart</button>
+            </form>
           </div>
         </div>
         <div class="shopping_cart_info">
@@ -158,9 +161,7 @@
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
-            <form class="Delete_product_btn_form" action="delete_cart_user.php">
-              <button>Delete Cart</button>
-            </form>
+
             <form class="buy_product_btn_form" action="buy_cart.php">
               <button>Purchase Products</button>
             </form>
