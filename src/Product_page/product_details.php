@@ -86,7 +86,15 @@
             ?>
           </div>
           <div class='product_details_price_div'>
-            <label class='product_details_price_label'>Current Price: <?php echo $price ?> </label>
+            <?php 
+              if($discount=0){
+                echo "<label class='product_details_price_label'>Current Price:$price </label>"; 
+              }else{
+                "<label class='product_details_price_label' style='color:red';>:$discount </label>"; 
+              }
+            
+            ?>
+
             <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
               <div class='form_elements'>
                 <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
@@ -103,6 +111,7 @@
               </div>
               <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
               <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
+              <input type='hidden' name='discount' value='<?php echo $discount ?>'>
             </form>
           </div>
           <div class='best_customer_review_div'>
