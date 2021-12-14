@@ -66,7 +66,7 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
             </form>
             <script>
               function go_to_order_details(id){
-              var $order_id = id;
+              var order_id = id;
               console.log(id);
               $('.script').attr("value",order_id);//Insert the value of the category into the form on line 65. 
               $('.view_order_details').submit(); //Submit the form. 
