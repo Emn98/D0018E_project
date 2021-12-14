@@ -10,7 +10,7 @@
 
             //Retrive all items associated with the logged in users cart. 
             $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
-            $query->bind_param("i", $cart_id);
+            $query->bind_param("i", $_SESSION["cart_id"]);
             $query->execute();
             $result = $query->get_result();
             $query->fetch();
@@ -30,7 +30,7 @@
             }
 
             $query = $con->prepare("UPDATE CARTS SET total_price=? WHERE cart_id=?");
-            $query -> bind_param("fi", $calc_total_price, $cart_id);
+            $query -> bind_param("fi", $calc_total_price, $_SESSION["cart_id"]);
             $query -> execute();
             $query->close();
         }
