@@ -38,7 +38,7 @@ while($review = $review_result->fetch_assoc()){
     </div>
   </article>
   <?php
-
+  /*
   $path = $_SERVER['DOCUMENT_ROOT'];
   $path .= "/database.php";
   include($path);
@@ -81,11 +81,15 @@ while($review = $review_result->fetch_assoc()){
   <input type="hidden" name="review_id" value="<?php echo $review_id ?>">
   <button class="add_comment_button">Add comment</button>
   </form>
-  <?php
+  */
+  
+
 }
 
 $stmt->close();
+
 ?>
+
 <form class="add_review_form" method="POST" action="add_review_form.php">
   <label>If you want to add a review click here</label>
   <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
