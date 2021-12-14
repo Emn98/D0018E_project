@@ -15,7 +15,7 @@
             $query->fetch();
             $query->close();
 
-            $calc_total_price = (float) 0;
+            $calc_total_price = 0;
 
             while ($row = $result->fetch_assoc()) {
                 $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
@@ -26,10 +26,10 @@
                 $query->close();
 
                 if($discount_price != 0){
-                    $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*$product_price));
+                    $calc_total_price = $calc_total_price + ($row["quantity"]*($discount_price));
 
                 }else{
-                    $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price*$discount_price));
+                    $calc_total_price = $calc_total_price + ($row["quantity"]*($product_price));
                 }
             }
 
