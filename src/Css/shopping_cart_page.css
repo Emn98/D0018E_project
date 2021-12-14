@@ -270,9 +270,16 @@ td p{
 
 
 .remove_btn{
-  background: grey;
-  padding: 2px;
-  margin-top: 0.5rem;
+  margin-top: 2rem;
+  padding: 5px;
+  background-color: #F0F8FF;
+  opacity: 0.95;
   color: black;
-  border-style:none;
+  cursor: pointer;
+  border: 1px inline;
+  border-radius: 0.25rem;
+}
+
+.remove_btn:hover{
+  background: lightgrey;
 }
