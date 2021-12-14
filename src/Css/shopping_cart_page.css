@@ -288,12 +288,14 @@ td p{
   padding: 2px;
   cursor: pointer;
   background: transparent;
+  font-size: 15px;
   border: none;
 }
 
 .modi_btn_minus{
   padding: 3px;
   cursor: pointer;
+  font-size: 15px;
   background: transparent;
   border: none;
 }
