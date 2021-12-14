@@ -75,13 +75,16 @@
     }
     
   }
+  echo "test1";
   //Retrive the price of the product
- /* $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
+ $query = $con->prepare("SELECT price FROM PRODUCTS WHERE product_id=?");
   $query->bind_param("i", $product_id);
   $query->execute();
   $query->bind_result($product_price);
   $query->fetch();
   $query->close();
+
+  echo "test2";
 
   $query = $con->prepare("SELECT total_price, total_quantity FROM CARTS WHERE cart_id=?");
   $query -> bind_param("i",  $cart_id);
@@ -90,9 +93,13 @@
   $query->fetch();
   $query->close();
 
+  echo "test3";
+
    
   $new_total_quantity = $total_quantity + $quantity;
   $new_total_price = $total_price + ($product_price * $quantity);
+
+  echo "test4";
 
    echo $total_price;
    echo $total_quantity;
@@ -103,7 +110,7 @@
    echo $new_total_quantity;
    echo $new_total_price;
 
-
+  /*
    $query = $con->prepare("UPDATE CARTS SET total_quantity=?, total_price=? WHERE cart_id=?");
    $query -> bind_param("iii", $new_total_quantity, $new_total_price, $cart_id);
    $query -> execute();
