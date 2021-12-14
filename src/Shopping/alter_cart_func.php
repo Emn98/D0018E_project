@@ -8,7 +8,7 @@
   include_once($path);
 
   //If the remove product function have been called. 
-  if(isset($_POST["remove"])){
+  if(isset($_POST["delete"])){
       $product_id = $_POST["product_id"];
       $color = $_POST["color"];
       $cart_id = $_SESSION["cart_id"];

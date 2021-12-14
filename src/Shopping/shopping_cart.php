@@ -107,7 +107,7 @@
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
                   ?>
-                    <input type="button" value="Remove" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
+                    <input type="button" value="Remove" onclick="delete_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
                   <?php
                   echo"</div>";
                   echo"</div>";
@@ -117,7 +117,7 @@
                   ?>
                   <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <input type="button" class="modi_btn_plus" value="-" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
+                  <input type="button" class="modi_btn_plus" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
@@ -138,7 +138,7 @@
                   echo "<div class='product_info'>";
                   echo "<p>$product_name</p>";
                   ?>
-                    <input type="button" value="Remove" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
+                    <input type="button" value="Remove" onclick="delete_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>')" class="remove_btn">
                   <?php  
                   echo"</div>";
                   echo"</div>";
@@ -148,7 +148,7 @@
                   ?>
                   <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <input type="button" class="modi_btn_plus" value="-" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
+                  <input type="button" class="modi_btn_minu" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
@@ -193,14 +193,14 @@
       <div class="right_side"></div>
 	</div>
   <script>
-    function remove_item(id, color){
+    function delete_item(id, color){
       var re = 1;
       $.ajax({
           type: "POST",
           url:  "alter_cart_func.php", 
           data: {product_id: id,
                  color: color,
-                 remove: re
+                 delete: re
                 },                
           success: function(response){
             location.reload();
