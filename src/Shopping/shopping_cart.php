@@ -140,9 +140,11 @@
                   echo "<td>$color</td>";
                   echo "<td>";
                   ?>
+                  <div class="quantity_stuff">
                   <button>-</button>
                   <p><?php echo $quantity; ?></p>
                   <button>+</button>
+                  </div>
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
