@@ -109,8 +109,7 @@
    echo gettype($total_price);
    echo $new_total_quantity;
    echo $new_total_price;
-
-  /*
+  
    $query = $con->prepare("UPDATE CARTS SET total_quantity=?, total_price=? WHERE cart_id=?");
    $query -> bind_param("iii", $new_total_quantity, $new_total_price, $cart_id);
    $query -> execute();
@@ -121,6 +120,6 @@
    <p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>
    <p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>
    </div>";
-  */
+  
   }
 ?>
