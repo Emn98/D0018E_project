@@ -61,7 +61,7 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
               <input class="search_bar_inp" type="text" name="purchase_date" placeholder="Search Purchase Date...">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
-            <form class="view_order_details" method="POST" action="/view_order_details.php">
+            <form class="view_order_details" method="POST" action="/Shopping/view_order_details.php">
               <input type=hidden class=script name=order_id value="">
             </form>
             <script>
