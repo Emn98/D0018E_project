@@ -285,6 +285,6 @@ td p{
 }
 
 .add_btn{
-  left: 20rem;
-  bottom: 0.5rem;
+  padding: 1px;
+  
 }
