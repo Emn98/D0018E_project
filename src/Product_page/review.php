@@ -46,7 +46,7 @@ while($review = $review_result->fetch_assoc()){
   $stmt1 = $con->prepare("SELECT * FROM USER_COMMENTS WHERE review_id=?");
   $stmt1->bind_param("i", $review_id);
   $stmt1->execute();
-  $comment_result = $stmt1->bind_result();
+  $comment_result = $stmt1->get_result();
   $stmt1->fetch();
   
   echo "test ";
