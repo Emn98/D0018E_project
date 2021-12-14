@@ -243,6 +243,12 @@ td p{
   background: darkred;
 }
 
+
+.buy_btn_cont{
+  width: cover;
+  background: white;
+}
+
 .buy_btn{
   float: right;
   margin-right: 1.6rem;

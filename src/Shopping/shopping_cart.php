@@ -166,9 +166,11 @@
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
+            <div class="buy_btn_cont">
             <form class="buy_product_btn_form" action="buy_cart.php">
               <button class="buy_btn">Purchase Products</button>
             </form>
+            </div>
           </div>
         </div>    
       <div class="left_side"></div>
