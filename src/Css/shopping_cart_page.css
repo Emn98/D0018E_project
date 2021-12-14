@@ -284,6 +284,10 @@ td p{
   background: lightgrey;
 }
 
-.modi_btn{
+.modi_btn_plus{
   padding: 2px;
+}
+
+.modi_btn_minus{
+  padding: 3px;
 }
