@@ -115,9 +115,9 @@
                   echo "<td>$color</td>";
                   echo "<td>";
                   ?>
-                  <button class="modi_btn_plus">+</button>
+                  <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <button class="modi_btn_minus">-</button>
+                  <input type="button" class="modi_btn_plus" value="-" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
@@ -146,9 +146,9 @@
                   echo "<td>$color</td>";
                   echo "<td>";
                   ?>
-                  <button class="modi_btn_plus">+</button>
+                  <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <button class="modi_btn_minus">-</button>
+                  <input type="button" class="modi_btn_plus" value="-" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
