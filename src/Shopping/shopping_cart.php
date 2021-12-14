@@ -147,9 +147,14 @@
               ?>
               </tbody>
             </table>
-            <form class="Delete_product_btn_form" action="delete_cart_user.php">
-              <button class="delete_btn">Delete Cart</button>
-            </form>
+            <?php 
+              if($total_price != 0){//Display delete brn if there is stuff in cart
+                echo '<form class="Delete_product_btn_form" action="delete_cart_user.php">';
+                echo '<button class="delete_btn">Delete Cart</button>';
+                echo '</form>';
+              }
+            
+            ?>
           </div>
         </div>
         <div class="shopping_cart_info">
@@ -161,9 +166,8 @@
                 <td class="total_price"><?php echo$total_price;?>$</td>
               </tr>
             </table>
-
             <form class="buy_product_btn_form" action="buy_cart.php">
-              <button>Purchase Products</button>
+              <button class="buy_btn">Purchase Products</button>
             </form>
           </div>
         </div>    

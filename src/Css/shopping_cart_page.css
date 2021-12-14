@@ -241,3 +241,21 @@ td p{
 .delete_btn:hover{
   background: darkred;
 }
+
+.buy_btn{
+  float: right;
+  margin-right: 1.6rem;
+  margin-top: -3rem;
+  padding: 0.4rem 1.5rem;
+  background-color: #F0F8FF;
+  opacity: 0.95;
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+  border: 1px inline;
+  border-radius: 0.25rem;
+}
+
+ .buy_btn:hover {
+  background: lightgrey;
+}
