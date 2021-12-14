@@ -181,7 +181,6 @@
                 },                
           success: function(response){
             console.log(response);
-            location.reload();
           },
           error: function(){
             alert("failure");
