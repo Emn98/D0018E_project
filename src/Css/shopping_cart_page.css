@@ -196,6 +196,7 @@ td p{
   background: rgba(255, 255, 255, 0);
   box-sizing: border-box;
   width: cover;
+  height: cover;
   margin-top: 5.5rem;
   margin-right: 1rem;
   background: white;
@@ -246,6 +247,7 @@ td p{
   float: right;
   margin-right: 1.6rem;
   margin-top: 1.5rem;
+  padding: 5px;
   background-color: #F0F8FF;
   opacity: 0.95;
   color: black;
