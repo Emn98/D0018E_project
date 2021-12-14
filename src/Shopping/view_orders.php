@@ -24,15 +24,15 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
     $query->fetch();
     $query->close();
     echo"test if sats";
-  }else{
-    $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id>?");
-    $query->bind_param("i", $user_id);
-    $query->execute();
-    $result = $query->get_result();
-    $query->fetch();
-    $query->close();
-    echo"test else sats";
-  }
+  }//else{
+    //$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id>?");
+    //$query->bind_param("i", $user_id);
+    //$query->execute();
+    //$result = $query->get_result();
+    //$query->fetch();
+    //$query->close();
+    //echo"test else sats";
+  //}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
