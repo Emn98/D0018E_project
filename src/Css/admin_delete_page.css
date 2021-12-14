@@ -156,8 +156,8 @@ tbody td{
 }
 
 .delete_btn{
-  padding: 7px;
-  font-size: 14px;
+  padding: 3px;
+  font-size: 12px;
   font-weight: bolder;
   background: red;
   cursor: pointer;
