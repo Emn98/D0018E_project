@@ -32,7 +32,7 @@ require("check_admin.php");
               while($row = $result->fetch_assoc()){
                 $product_id = $row['product_id'];
                 $product_name = $row['product_name'];
-                echo "<option value='$product_id'>" . $product_name  . "</option>";
+                echo "<option name ='product_id' value='$product_id'>" . $product_name  . "</option>";
               }
               $con->close();
               
