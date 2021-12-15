@@ -25,7 +25,7 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
-echo $result;
+echo "$result";
 
 if($result == ""){
   while($row = $result->fetch_assoc()) {
@@ -87,8 +87,6 @@ if($result == ""){
       <h3><a href="/index.php">Click here to return to the front page</a></h3>
   </body>
 </html>
-<?php
-
 }else{
   ?>
 <!DOCTYPE html>
