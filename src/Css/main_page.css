@@ -143,8 +143,8 @@ opacity: 1;
 .card {
   margin-top: 0.6rem;
   float: left;
-  max-width: 16rem;
-  max-height: 4rem;
+  max-width: 24%;
+  max-height: 12%;
   margin-left: 0.8rem;  
   text-align: center;
   font-family: arial;
