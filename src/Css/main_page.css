@@ -184,7 +184,8 @@ opacity: 1;
 }
 
 .card img{
-  height: 8rem;
+  width: 200;
+  height: 250;
 }
 .description{
   text-align: left;
