@@ -14,47 +14,42 @@ require("check_admin.php");
       <div class="inner_product_div">
         <h1>Add Product Page</h1>
 
-        <form action="add_product.php" method="post">
-        <label for="product_name">Name</label>
-        <input type="text" id="name" name="product_name" placeholder="product name" required><br>
-        <label for="product_description">Description</label>
-        <input type="text" id="description" name="product_description" placeholder="product description" required><br>    
-        <label for="category">Category</label>
-        <select name="category" id="category">
-        <?php
+        <form action="/Product_handling/add_new_color_product_form.php" method="post">
+            <label for="product_name">Name</label>
+            <select name="product_name" id="product_name">
+            <?php
 
-          $path = $_SERVER['DOCUMENT_ROOT'];
-          $path .= "/database.php";
-          include_once($path);
+              $path = $_SERVER['DOCUMENT_ROOT'];
+              $path .= "/database.php";
+              include_once($path);
 
-          $stmt = $con->prepare("SELECT * FROM CATEGORIES");
-          
-          $stmt->execute();
+              $stmt = $con->prepare("SELECT * FROM PRODUCTS");
+              
+              $stmt->execute();
 
-          $result = $stmt->get_result();
- 
-          while($row = $result->fetch_assoc()){
-            $category_name = $row['category_name'];
-            echo "<option value='$category_name'>$category_name</option>";
-          }
-          
-         ?>
-         </select>
-        <label for="quantity">Quantity</label>
-        <input type="text" id="quantity" name="quantity" placeholder="quantity" required><br>
-        <label for="color">Color</label>
-        <input type="text" id="color" name="color" placeholder="color" required><br>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" placeholder="price" required><br>
-        <label for="discount">Discount</label>
-        <input type="text" id="discount" name="discount" placeholder="discount" required><br>
-        <label for="picture">Picture</label>
-        <input type="text" id="picture" name="picture" placeholder="picture url" required><br>
-        <button type="submit" class="btn">Send</button>
+              $result = $stmt->get_result();
+    
+              while($row = $result->fetch_assoc()){
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                echo "<option value='$product_id'>" . $product_name  . "</option>";
+              }
+              $con->close();
+              
+            ?>
+            </select>
+
+            <label>Press this to add a new color to existing product</label>
+            <button type="submit" class="btn">Return</button>
+        </form>
+
+        <form action="/Product_handling/add_product_form_2.php" method="post">
+            <label>Press this to add a new product</label>
+            <button type="submit" class="btn">Return</button>
         </form>
 
         <form action="/Accounts/admin_page.php" method="post">
-          <button type="submit" class="btn">Return</button>
+            <button type="submit" class="btn">Return</button>
         </form>
       </div>
     </div>
