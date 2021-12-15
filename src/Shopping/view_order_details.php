@@ -26,12 +26,12 @@ while ($row = $order_result->fetch_assoc()) {
     $quantity = $row["quantity"];
     $color = $row["color"];
                 echo"test 2";
-    //$query2 = $con->prepare("SELECT product_name, price, discount, picture FROM PRODUCTS WHERE product_id=?");
-    //$query2->bind_param("i", $product_id);
-    //$query2->execute();
-    //$query2->bind_result($product_name, $price, $discount, $picture);
-    //$query2->fetch();
-    //$query2->close();
+    $query2 = $con->prepare("SELECT product_name, price, discount, picture FROM PRODUCTS WHERE product_id=?");
+    $query2->bind_param("i", $product_id);
+    $query2->execute();
+    $query2->bind_result($product_name, $price, $discount, $picture);
+    $query2->fetch();
+    $query2->close();
     echo"test 3";
     if($temp == 1){
         echo "<tr class='table_row_odd'>";
