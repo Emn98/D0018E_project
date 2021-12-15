@@ -42,6 +42,7 @@ require($path);
                   <th>Color</th>
                   <th>Quantity</th>
                   <th>Subtotal</th>
+                  <th>Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -83,6 +84,8 @@ while ($row = $order_result->fetch_assoc()) {
         }else{
             echo "<td>$discount</td>"; 
         }
+        $total_price = $price * $quantity;
+        echo "<td>$total_price</td>";
         echo "<td>";
         echo "</td>";
         echo "</tr>";
