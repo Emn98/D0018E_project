@@ -116,7 +116,7 @@
             </form>
           </div>
           <div class='best_customer_review_div'>
-            <h2>Best Customer Review</h2>
+            <h3>Voted Best Review</h3>
             <?php
             $product_id = $_POST['product_id'];
             $path = $_SERVER['DOCUMENT_ROOT'];
@@ -125,7 +125,7 @@
             ?>
           </div>
           <div class='customer_reviews_div'>
-            <h2>All Customer Reviews</h2>
+            <h3>Customer Reviews</h3>
             <?php
             $product_id = $_POST['product_id'];
             $path = $_SERVER['DOCUMENT_ROOT'];
