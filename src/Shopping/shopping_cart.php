@@ -223,7 +223,6 @@
                  add: temp
                 },                
           success: function(response){
-            console.log(response)
             location.reload();
           },
           error: function(){
@@ -231,7 +230,30 @@
                 }
             });
         }
-      }    
-      </script>
+      }
+      
+      function remove_item(id, color, quantity){
+        if(quantity==1){
+          delete_item(id,color);
+        }else{
+          var temp = 1;
+          $.ajax({
+          type: "POST",
+          url:  "alter_cart_func.php", 
+          data: {product_id: id,
+                 color: color,
+                 quantity: quantity,
+                 remove: temp
+                },                
+          success: function(response){
+            location.reload();
+          },
+          error: function(){
+            alert("failure");
+                }
+            });
+        }
+      }
+    </script>
   </body>
 </html>
