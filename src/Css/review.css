@@ -10,11 +10,11 @@ article{
     border-color:yellowgreen;
     margin-left:10px;
 }
-.add_comment_button{
+.add_review_form{
     margin-left: auto; 
     margin-right: 0;
 }
-.add_review_button{
+.add_comment_form{
     margin-left: auto; 
     margin-right: 0;
 }
