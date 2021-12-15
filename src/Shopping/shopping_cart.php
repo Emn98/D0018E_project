@@ -214,13 +214,13 @@
       function add_item(id, color, quantity){
         if(quantity<100){
           var temp = 1;
-          quantity = quantity-1;
+          new_quantity = quantity+1;
           $.ajax({
           type: "POST",
           url:  "alter_cart_func.php", 
           data: {product_id: id,
                  color: color,
-                 quantity: quantity,
+                 quantity: new_quantity,
                  add: temp
                 },                
           success: function(response){
