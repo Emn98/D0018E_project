@@ -5,16 +5,19 @@ article{
 .each_review{
     border-color:red;
     margin: 5px;
+    
 }
 .each_comment{
     border-color:yellowgreen;
     margin:5px;
     margin-left:10px;
+    padding: 5px;
 }
 .only_review_div{
     border-style:solid;
     border-color:lightblue;
     margin:5px;
+    padding: 5px;
 }
 .add_comment_div{
     margin:5px;
