@@ -25,6 +25,8 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
+echo $result;
+
 if($result == ""){
   while($row = $result->fetch_assoc()) {
 
