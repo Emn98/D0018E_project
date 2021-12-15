@@ -39,13 +39,13 @@ require("check_admin.php");
             ?>
             </select>
 
-            <label>Press this to add a new color to existing product</label>
-            <button type="submit" class="btn">Return</button>
+            <label>Press this to add a new color to existing product</label><br>
+            <button type="submit" class="btn">Go</button>
         </form>
 
         <form action="/Product_handling/add_product_form_2.php" method="post">
-            <label>Press this to add a new product</label>
-            <button type="submit" class="btn">Return</button>
+            <label>Press this to add a new product</label><br>
+            <button type="submit" class="btn">Go</button>
         </form>
 
         <form action="/Accounts/admin_page.php" method="post">
