@@ -15,6 +15,42 @@ $cart_id = $_SESSION["cart_id"];
 $user_id = $_SESSION["user_id"];
 $order_id = $_SESSION["order_id"];
 
+//Start_transaction;
+
+$query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
+$query2->bind_param("i", $cart_id);
+$query2->execute();
+$result = $query2->get_result();
+//$query2->bind_result($product_id, $quantity, $color);
+$query2->fetch();
+$query2->close();
+
+while($row = $order_result->fetch_assoc()) {
+  $product_id = $row["product_id"];
+  $quantity = $row["quantity"];
+  $color = $row["color"];
+
+  $query2 = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=? and color=?" );
+  $query2->bind_param("is", $product_id, $color);
+  $query2->execute();
+  $query2->bind_result($stock_quantity);
+  $query2->fetch();
+  $query2->close();
+
+  $new_quantity = $stock_quantity - $quantity;
+
+  if($new_quantity > 0){
+    $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
+    $stmt->bind_param("iis", $quantity, $product_id, $color);
+    $stmt->execute();
+    $con->close();
+  }else{
+    echo"Sorry item is not in stock";
+    exit;
+  }
+}
+
+
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
