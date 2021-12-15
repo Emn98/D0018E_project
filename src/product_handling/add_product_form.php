@@ -14,7 +14,7 @@ require("check_admin.php");
       <div class="inner_product_div">
         <h1>Add Product Page</h1>
 
-        <form action="/Product_handling/add_new_color_product_form.php" method="post">
+        <form action="add_new_color_product_form.php" method="post">
             <label for="product_name">Name</label>
             <select name="product_name" id="product_name">
             <?php
@@ -43,7 +43,7 @@ require("check_admin.php");
             <button type="submit" class="btn">Go</button>
         </form>
 
-        <form action="/Product_handling/add_product_form_2.php" method="post">
+        <form action="add_product_form_2.php" method="post">
             <label>Press this to add a new product</label><br>
             <button type="submit" class="btn">Go</button>
         </form>

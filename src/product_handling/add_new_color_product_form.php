@@ -14,7 +14,7 @@ require("check_admin.php");
       <div class="inner_product_div">
         <h1>Add Product Page</h1>
 
-        <form action="/Product_handling/add_new_color_product.php" method="post">
+        <form action="add_new_color_product.php" method="post">
         <input type="hidden" value="<?php echo $_POST['product_id'] ?>"> 
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="quantity" required><br>
