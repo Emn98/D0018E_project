@@ -33,7 +33,7 @@
               <li><a href='/product_handling/edit_product_form.php'>Edit Product</a></li>
               <li><a href='/product_handling/remove_product_form.php'>Remove Product</a></li>
               <li><a href='/Accounts/delete_user_admin_form.php'>Delete User(s)</a></li>
-              <li><a href='#'>View All Orders</a></li>
+              <li><a href='/Accounts/view_all_orders.php'>View All Orders</a></li>
             </ul>
           </div>
         </main>

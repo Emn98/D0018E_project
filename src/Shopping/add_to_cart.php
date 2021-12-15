@@ -71,6 +71,7 @@
         echo "<div class='form'>";
         echo "<h3>Product has been added to cart.</h3><br/>";
         echo "<p class='link'>Click here to <a href='/Shopping/shopping_cart.php'>go to Cart</a>.</p>";
+        echo "<br>";
         echo "<p class='link'>Click here to <a href='/index.php'>continue shopping</a>.</p>";
         echo "</div>";
       }

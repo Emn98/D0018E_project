@@ -90,7 +90,7 @@
               if($discount==0){
                 echo "<label class='product_details_price_label'>Current Price: $price </label>"; 
               }else{
-                echo "<label>Price<strike>$price$</strike></label>";
+                echo "<label>Price:<strike> $price$</strike></label>";
                 echo "<br>"; 
                 echo "<label class='product_details_price_label' style='color:red';>Current price: $discount </label>"; 
               }
@@ -99,7 +99,7 @@
 
             <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
               <div class='form_elements'>
-                <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='<?php echo $product_quantity ?>' required>
+                <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='99' required>
                 <select name="product_color" id="color_category">
                 <?php
                 foreach ($color_arr as $value) {
