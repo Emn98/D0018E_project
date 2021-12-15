@@ -92,7 +92,7 @@
               }else{
                 echo "<label>Price:<strike> $price$</strike></label>";
                 echo "<br>"; 
-                echo "<label class='product_details_price_label' style='color:red';>Current price: $discount </label>"; 
+                echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>"; 
               }
             
             ?>

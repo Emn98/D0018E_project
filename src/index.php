@@ -70,7 +70,7 @@
               $img = $row["picture"];
               ?>
               <div class="card">
-                <img src="<?php echo $img; ?>" width="200" height="250">
+                <img src="<?php echo $img; ?>" width="170" height="200">
                 <h2><?php echo $product_name; ?></h2>
                 <p class="description"><?php echo $product_description; ?></p>
                 <?php 
