@@ -2,6 +2,14 @@
 
 session_start();
 
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/database.php";
+include_once($path);
+
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= "/Accounts/log_in_check.php";
+require($path);
+
 $order_id = $_POST['order_id'];
 
 $query = $con->prepare("SELECT product_id, quantity, color FROM ORDER_ITEMS WHERE order_id=?");
