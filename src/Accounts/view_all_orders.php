@@ -133,7 +133,7 @@
         <div class="right_side"></div>
       </div>
       <script>
-        function go_to_product(id){
+        function view(id){
           var order_id = id;
           $('.form_inp').attr("value",order_id);//Insert the value of the category into the form on line 24. 
           $('.view_order').submit(); //Submit the form. 
