@@ -52,6 +52,9 @@
         </div>
         <div class="inner_right_side" style="display: block;">
           <div class="latest_products">
+            <form class="view_product" method="POST" action="/Product_page.php">
+              <input type="hidden" class="form_inp" value="" name="product_id">
+            </form>
             <?php 
             $temp = 0;
             while ($row = $recently_added->fetch_assoc()) {
@@ -70,12 +73,12 @@
                   if($discount==0){
                 echo "<p class='price'>$$price </p>"; 
               }else{
-                echo "<p class='price'><strike> $$price$</strike></p>"; 
+                echo "<p class='price'><strike> $$price</strike></p>"; 
                 echo "<p class='price' style='color:red';>$$discount <p>"; 
               }
             ?>
-              <button>View</button>
-              </div>
+            <input type="button" value="View" onclick="go_to_product('<?php echo $product_id ?>')"  class="view_btn">
+            </div>
               <?php  
               if($temp ==4){
                 echo "<br>";
@@ -90,5 +93,14 @@
       <div class="right_side">
       </div>
 	</div>
+    <script> 
+      function go_to_product(id){
+        var product_id = id;
+        $('.form_inp').attr("value",product_id);//Insert the value of the category into the form on line 24. 
+       $('.view_product').submit(); //Submit the form. 
+       }
+  
+    </script>
+
   </body>
 </html>
