@@ -70,7 +70,7 @@
           $product_id = $row['product_id'];
           ?>
           <div class='product_details_image_div'>
-            <img src ='<?php echo $picture ?>'>
+            <img src ='<?php echo $picture?>' width="200" height="250">
           </div>
           <div class='product_details_quantity_div'>
             <?php
