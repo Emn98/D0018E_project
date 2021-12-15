@@ -76,7 +76,7 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
         if($discount==0){
-            echo echo "<td>$price</td>"; 
+            echo "<td>$price</td>"; 
         }else{
             echo "<td>$discount</td>"; 
         }
