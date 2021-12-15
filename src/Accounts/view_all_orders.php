@@ -76,6 +76,9 @@
                 </tr>
               </thead>
               <tbody>
+                <form class="form_inp" action="/Shopping/view_order_details.php" method="POST">
+                  <input type="hidden" class="view_order" name="order_id" value="">
+                </form>
                 <?php
                   $temp = 1;
                   while ($row = $result->fetch_assoc()) {
@@ -99,7 +102,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="View" onclick="view('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="view_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $order_id ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -113,7 +116,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="View" onclick="view('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="view_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $order_id ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -130,22 +133,11 @@
         <div class="right_side"></div>
       </div>
       <script>
-        function delete_user(id, email){
-          if (confirm("Would you like to delete user "+ id + " with the email: " + email)){
-            $.ajax({
-                type: "POST",
-                url:  "delete_user.php", // 
-                data: {user_id: id},                
-                success: function(){
-                  alert("User deleted successfully!");
-                  location.reload();
-                },
-                error: function(){
-                    alert("failure");
-                }
-            });
-          }
-        }
+        function go_to_product(id){
+          var order_id = id;
+          $('.form_inp').attr("value",order_id);//Insert the value of the category into the form on line 24. 
+          $('.view_order').submit(); //Submit the form. 
+       }
       </script>
     </body>
   </html>      
