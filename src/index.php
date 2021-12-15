@@ -48,11 +48,11 @@
     </header>
       <main>
         <div class="inner_left_side">
-        <?php 
-            $path = $_SERVER['DOCUMENT_ROOT'];
-            $path .= "/Category/categories_file2.php";
-            include($path);
-            ?>
+          <?php 
+          $path = $_SERVER['DOCUMENT_ROOT'];
+          $path .= "/Category/categories_file2.php";
+          include($path);
+          ?>
         </div>
         <div class="inner_right_side" style="display: block;">
           <div class="latest_products">
