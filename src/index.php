@@ -60,7 +60,6 @@
               <input type="hidden" class="form_inp" value="" name="product_id">
             </form>
             <?php 
-            $temp = 0;
             while ($row = $recently_added->fetch_assoc()) {
               $product_name = $row["product_name"];
               $product_id = $row["product_id"];
@@ -83,12 +82,7 @@
             ?>
             <input type="button" value="View" onclick="go_to_product('<?php echo $product_id ?>')"  class="view_btn">
             </div>
-              <?php  
-              if($temp ==4){
-                //echo "<br>";
-                $temp =0;
-              }
-              $temp++;
+            <?php  
             }
             ?>
           </div>

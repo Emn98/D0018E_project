@@ -80,7 +80,6 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
                   <th>Order Id</th>
                   <th>Purchase Date</th>
                   <th>View Details</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
