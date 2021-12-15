@@ -1,7 +1,11 @@
 article{
     background-color: white;
     border-style:solid;
+}
+.each_review{
     border-color:red;
+    padding-left: 5px;
+    padding-right:5px;
 }
 .each_comment{
     border-color:yellowgreen;
