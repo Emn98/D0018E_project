@@ -75,7 +75,6 @@ while ($row = $order_result->fetch_assoc()) {
         ?>
         <img src ='<?php echo $picture ?>' alt="product"/>
         <?php
-        //echo "<div class='product_info'>";
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
@@ -90,6 +89,8 @@ while ($row = $order_result->fetch_assoc()) {
         $temp = 0;
     }else{
         echo "<tr class='table_row_even'>";
+        echo "<td>";
+        echo "<div class='product_display'>";
         ?>
         <img src =<?php echo $picture ?>>
         <?php
