@@ -135,6 +135,7 @@
       <script>
         function view(id){
           var order_id = id;
+          alert(order_id);
           $('.form_inp').attr("value",order_id);//Insert the value of the category into the form on line 24. 
           $('.view_order').submit(); //Submit the form. 
        }
