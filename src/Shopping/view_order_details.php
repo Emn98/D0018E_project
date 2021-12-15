@@ -80,11 +80,12 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
         if($discount==0){
+            $total_price = $price * $quantity;
             echo "<td>$price</td>"; 
         }else{
+            $total_price = $discount * $quantity;
             echo "<td>$discount</td>"; 
         }
-        $total_price = $price * $quantity;
         echo "<td>$total_price</td>";
         echo "<td>";
         echo "</td>";
@@ -101,8 +102,10 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
         if($discount==0){
+            $total_price = $price * $quantity;
             echo "<td>$price</td>"; 
         }else{
+            $total_price = $discount * $quantity;
             echo "<td>$discount</td>"; 
         }
         $total_price = $price * $quantity;
