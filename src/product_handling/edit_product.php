@@ -77,12 +77,16 @@ require("check_admin.php");
         echo "<br>";
         echo $sql;
 
-        //$con->beginTransaction();
+        $stmt = $con->prepare("START TRANSACTION");
+        $stmt->execute();
+        $stmt->close();
 
         $stmt = $con->prepare($sql);
         $stmt->execute();
+        $stmt->close();
 
-        //$con->commit();
+        $stmt = $con->prepare("COMMIT");
+        $stmt->execute();
         $stmt->close();
         
       ?>
