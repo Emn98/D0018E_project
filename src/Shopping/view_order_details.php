@@ -105,6 +105,8 @@ while ($row = $order_result->fetch_assoc()) {
         }else{
             echo "<td>$discount</td>"; 
         }
+        $total_price = $price * $quantity;
+        echo "<td>$total_price</td>";
         echo "<td>";
         echo "</td>";
         echo "</tr>";
