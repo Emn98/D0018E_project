@@ -81,6 +81,6 @@ unset($_SESSION["order_id"]);//Reset order_id variable
   </head>
   <body>
       <h2>Item(s) Purchased</h2>
-      <h3><a href="/index.php">Click Here To Return To The Front Page</a></h3>
+      <h3><a href="/index.php">Click here to return to the front page</a></h3>
   </body>
 </html>
