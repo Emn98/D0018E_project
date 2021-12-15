@@ -116,15 +116,20 @@
             </form>
           </div>
           <div class='best_customer_review_div'>
-            this is future best customer review
+            <?php
+            $product_id = $_POST['product_id'];
+            $path = $_SERVER['DOCUMENT_ROOT'];
+            $path .= "/Product_page/best_review.php";
+            include($path);
+            ?>
           </div>
           <div class='customer_reviews_div'>
             <?php
-          $product_id = $_POST['product_id'];
-          $path = $_SERVER['DOCUMENT_ROOT'];
-          $path .= "/Product_page/review.php";
-          include($path);
-          ?>
+            $product_id = $_POST['product_id'];
+            $path = $_SERVER['DOCUMENT_ROOT'];
+            $path .= "/Product_page/review.php";
+            include($path);
+            ?>
         
           </div>
           <div class='product_details_details_div'>
