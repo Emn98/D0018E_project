@@ -85,7 +85,7 @@
             </div>
               <?php  
               if($temp ==4){
-                echo "<br>";
+                //echo "<br>";
                 $temp =0;
               }
               $temp++;
