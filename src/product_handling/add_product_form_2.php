@@ -14,7 +14,7 @@ require("check_admin.php");
       <div class="inner_product_div">
         <h1>Add Product Page</h1>
 
-        <form action="/Product_handling/add_product.php" method="post">
+        <form action="/product_handling/add_product.php" method="post">
         <label for="product_name">Name</label>
         <input type="text" id="name" name="product_name" placeholder="product name" required><br>
         <label for="product_description">Description</label>
