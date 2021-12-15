@@ -36,6 +36,7 @@
     $query->close();
   }
 
+  //If the remove one item button have been pressed
   if(isset($_POST["remove"])){
     $product_id = $_POST["product_id"];
     $color = $_POST["color"];
