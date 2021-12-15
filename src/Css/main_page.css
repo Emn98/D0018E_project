@@ -145,9 +145,6 @@ opacity: 1;
 .card {
   margin-top: 0.6rem;
   float: left;
-  width: auto;
-  width: 140px;
-  height: 200px;
   margin-left: 0.5rem;
   background: white;   
   text-align: center;
