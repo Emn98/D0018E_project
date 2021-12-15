@@ -25,8 +25,6 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
-echo "$result";
-
 if($result == ""){
   while($row = $result->fetch_assoc()) {
 
@@ -74,6 +72,23 @@ if($result == ""){
   unset($_SESSION["order_id"]);//Reset order_id variable
 
   ?>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="/Css/shopping_cart_page.css">
+      <title>Offbrand.pwr</title>
+    </head>
+    <body>
+        <h2>Item(s) Purchased</h2>
+        <h3><a href="/index.php">Click here to return to the front page</a></h3>
+    </body>
+  </html>
+  <?php
+
+}else{
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,20 +102,6 @@ if($result == ""){
       <h3><a href="/index.php">Click here to return to the front page</a></h3>
   </body>
 </html>
-}else{
-  ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/shopping_cart_page.css">
-    <title>Offbrand.pwr</title>
-  </head>
-  <body>
-      <h2>No items in shopping cart</h2>
-      <h3><a href="/index.php">Click here to return to the front page</a></h3>
-  </body>
-</html>
+<?php
 }
-
+?>
