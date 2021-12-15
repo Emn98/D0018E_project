@@ -49,7 +49,7 @@ while($row = $result->fetch_assoc()) {
     $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
     $stmt->bind_param("iis", $new_quantity, $product_id, $color);
     $stmt->execute();
-    $con->close();
+    $stmt->close();
   }else{
     echo"Sorry item is not in stock";
     exit;
