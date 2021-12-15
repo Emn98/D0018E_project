@@ -66,14 +66,26 @@
                 <img src="<?php echo $img; ?>">
                 <h2><?php echo $product_name; ?></h2>
                 <p class="description"><?php echo $product_description; ?></p>
+                <?php 
+                  if($discount==0){
+                echo "<p class='price'>Current Price: $price </p>"; 
+              }else{
+                echo "<p class='price'>Price:<strike> $price$</strike></p>";
+                echo "<br>"; 
+                echo "<p class='price' style='color:red';>Current price: $discount <p>"; 
+              }
+            
+            ?>
+                
                 <button>View</button>
               </div>
             <?php  
             }
             ?>
-
-            
           </div>
+          <br>
+          <div class="Top ">
+
 
         </div>
       </main>
