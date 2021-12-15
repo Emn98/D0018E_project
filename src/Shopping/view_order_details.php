@@ -75,8 +75,13 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
-        echo "<td>$price</td>";
-        echo "<td>$discount</td>";
+        if($discount==0){
+            echo "<label class='product_details_price_label'>Current Price: $price </label>"; 
+        }else{
+            echo "<label>Price:<strike> $price$</strike></label>";
+            echo "<br>"; 
+            echo "<label class='product_details_price_label' style='color:red';>Current price: $discount </label>"; 
+        }
         echo "<td>";
         echo "</td>";
         echo "</tr>";
