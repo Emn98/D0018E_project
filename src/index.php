@@ -68,7 +68,7 @@
                 <p class="description"><?php echo $product_description; ?></p>
                 <?php 
                   if($discount==0){
-                echo "<p class='price'>Current Price: $$price </p>"; 
+                echo "<p class='price'>$$price </p>"; 
               }else{
                 echo "<p class='price'><strike> $$price$</strike></p>"; 
                 echo "<p class='price' style='color:red';>$$discount <p>"; 
