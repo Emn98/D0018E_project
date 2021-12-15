@@ -71,8 +71,8 @@
                 <tr>
                   <th>Order Id</th>
                   <th>User Id</th>
-                  <th style="margin-left: 0.5rem";>Email</th>
-                  <th style="margin-left: 0.5rem";>Purchase Date</th>
+                  <th>Email</th>
+                  <th>Purchase Date</th>
                   <th></th>
                 </tr>
               </thead>
@@ -100,7 +100,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -114,7 +114,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="Delete" onclick="delete_user('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="delete_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $user_id ?>', '<?php echo $email_address ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
