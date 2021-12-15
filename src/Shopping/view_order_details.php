@@ -92,8 +92,11 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
-        echo "<td>$price</td>";
-        echo "<td>$discount</td>";
+        if($discount==0){
+            echo "<td>$price</td>"; 
+        }else{
+            echo "<td>$discount</td>"; 
+        }
         echo "<td>";
         echo "</td>";
         echo "</tr>";
