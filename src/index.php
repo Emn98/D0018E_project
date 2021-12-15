@@ -8,7 +8,7 @@
   include_once($path);
 
   //Retrive info from the 4 latest added product
-  $query = $con->prepare("SELECT product_id, product_name, product_description, price, discount, picture FROM PRODUCTS ORDER BY product_id DESC LIMIT 5");
+  $query = $con->prepare("SELECT product_id, product_name, product_description, price, discount, picture FROM PRODUCTS ORDER BY product_id DESC LIMIT 20");
   $query->execute();
   $recently_added = $query->get_result();
   $query->fetch();
@@ -51,9 +51,9 @@
             ?>
         </div>
         <div class="inner_right_side" style="display: block;">
-        <h3>Newly added</h3>
           <div class="latest_products">
             <?php 
+            $temp = 0;
             while ($row = $recently_added->fetch_assoc()) {
               $product_name = $row["product_name"];
               $product_id = $row["product_id"];
@@ -73,20 +73,18 @@
                 echo "<p class='price'><strike> $$price$</strike></p>"; 
                 echo "<p class='price' style='color:red';>$$discount <p>"; 
               }
-            
             ?>
-                
-                <button>View</button>
+              <button>View</button>
               </div>
-            <?php  
+              <?php  
+              if($temp ==4){
+                echo "<br>";
+                $temp =0;
+              }
+              $temp++;
             }
             ?>
           </div>
-          <br>
-          <div class="Top ">
-
-
-        </div>
       </main>
       <div class="left_side"></div>
       <div class="right_side">
