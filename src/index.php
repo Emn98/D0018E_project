@@ -1,6 +1,19 @@
 <!-- This will serve as the main page for our e-comerce site offbrand.pwr-->
 <?php 
   session_start();
+
+  //creates connection to database
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $path .= "/database.php";
+  include_once($path);
+
+  //Retrive info from the 4 latest added product
+  $query = $con->prepare("SELECT product_id, product_name, product_description, price, discount, picture FROM PRODUCTS ORDER BY product_id DESC LIMIT 5");
+  $query->execute();
+  $recently_added = $query->get_result();
+  $query->fetch();
+  $query->close();
+
 ?>
 <!DOCTYPE html>
   <html lang="en">
@@ -8,7 +21,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="Css/main_page.css">
-    <link rel="stylesheet" href="Css/category.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
@@ -16,7 +28,7 @@
   <body>
   <div class="container">
     <header class="top_nav_bar">
-      <h1>OFF<span>BRAND</span></h1>
+      <h1>OFFBRAND</h1>
       <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
@@ -38,37 +50,29 @@
             include($path);
             ?>
         </div>
-        <div class="inner_right_side">
+        <div class="inner_right_side" style="display: block;">
         <h3>Newly added</h3>
           <div class="latest_products">
-            <div class="card">
-  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
-  <h3>Test</h3>
-  <p>Some text about the jeans..</p>
-  <p class="price">$19.99</p>
-  <p><button>Buy</button></p>
-            </div>
-            <div class="card">
-  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
-  <h3>Test</h3>
-  <p>Some text about the jeans..</p>
-  <p class="price">$19.99</p>
-  <p><button>Buy</button></p>
-            </div>
-            <div class="card">
-  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
-  <h3>Test</h3>
-  <p>Some text about the jeans..</p>
-  <p class="price">$19.99</p>
-  <p><button>Buy</button></p>
-            </div>
-            <div class="card">
-  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
-  <h3>Test</h3>
-  <p>Some text about the jeans..</p>
-  <p class="price">$19.99</p>
-  <p><button>Buy</button></p>
-            </div>
+            <?php 
+            while ($row = $recently_added->fetch_assoc()) {
+              $product_name = $row["product_name"];
+              $product_id = $row["product_id"];
+              $product_description = $row["product_description"];
+              $price = $row["price"];
+              $discount = $row["discount"];
+              $img = $row["picture"];
+              ?>
+              <div class="card">
+                <img src="'<?php echo $img; ?>'">
+                <h2><?php echo $product_name; ?></h2>
+                <p class="description"><?php echo $product_description; ?></p>
+                <button>View</button>
+              </div>
+            <?php  
+            }
+            ?>
+
+            
           </div>
 
         </div>
