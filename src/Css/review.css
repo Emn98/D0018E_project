@@ -35,4 +35,7 @@ article{
     margin:5px;
     display: flex; 
     justify-content: end;
+}.like_ratio_div label{
+    margin-left:5px;
+    margin-right:5px;
 }
