@@ -16,7 +16,7 @@ if not it will create one for him/her -->
   $user_id = (int) $_SESSION["user_id"];
 
   //Check if the user have a shopping cart in the database
-  if(gettype($_SESSION["cart_id"]) == NULL || !isset($_SESSION["cart_id"])){
+  if(gettype($_SESSION["cart_id"]) == NULL || !isset($_SESSION["cart_id"]) && $user_id != 0){
     $query= $con->prepare("INSERT INTO CARTS (user_id) VALUES (?)");
     $query-> bind_param("i", $user_id);
     $query->execute();
