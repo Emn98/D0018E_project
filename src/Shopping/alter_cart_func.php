@@ -25,7 +25,7 @@
     if(isset($_POST["add"])){
       $product_id = $_POST["product_id"];
       $color = $_POST["color"];
-      $new_quantity = $_POST["quantity"];
+      $new_quantity = (int) $_POST["quantity"];
       $cart_id = $_SESSION["cart_id"];
 
       print_r($_POST);
