@@ -73,14 +73,10 @@ while ($row = $order_result->fetch_assoc()) {
         <img src =<?php echo $picture ?>>
         <?php
         echo "<td>$product_name</td>";
+        echo "<td>$color</td>";
+        echo "<td>$quantity</td>";
         echo "<td>$price</td>";
         echo "<td>$discount</td>";
-        echo "<td>";
-        echo "</td>";
-        echo "</tr>";
-
-        echo "<td>$quantity</td>";
-        echo "<td>$color</td>";
         echo "<td>";
         echo "</td>";
         echo "</tr>";
@@ -91,14 +87,10 @@ while ($row = $order_result->fetch_assoc()) {
         <img src =<?php echo $picture ?>>
         <?php
         echo "<td>$product_name</td>";
+        echo "<td>$color</td>";
+        echo "<td>$quantity</td>";
         echo "<td>$price</td>";
         echo "<td>$discount</td>";
-        echo "<td>";
-        echo "</td>";
-        echo "</tr>";
-
-        echo "<td>$quantity</td>";
-        echo "<td>$color</td>";
         echo "<td>";
         echo "</td>";
         echo "</tr>";
