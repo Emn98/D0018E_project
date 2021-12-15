@@ -71,8 +71,8 @@
                 <tr>
                   <th>Order Id</th>
                   <th>User Id</th>
-                  <th>Email</th>
-                  <th>Purchase Date</th>
+                  <th style="margin-left: 0.5rem";>Email</th>
+                  <th style="margin-left: 0.5rem";>Purchase Date</th>
                   <th></th>
                 </tr>
               </thead>
