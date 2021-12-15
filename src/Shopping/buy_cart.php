@@ -46,14 +46,14 @@ while($row = $result->fetch_assoc()) {
 
   if($new_quantity > 0){
     echo"In IF line 48";
-    $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
+    $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET new_quantity=? WHERE product_id=? AND color=?");
     $stmt->bind_param("iis", $quantity, $product_id, $color);
     $stmt->execute();
     $con->close();
-  }else{
-    echo"Sorry item is not in stock";
-    exit;
-  }
+  }//else{
+   // echo"Sorry item is not in stock";
+   // exit;
+  //}
 }
 
 echo"After while line 59";
