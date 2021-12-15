@@ -11,10 +11,12 @@ article{
     margin-left:10px;
 }
 .add_comment_div{
+    margin:5px;
     display: flex; 
-    justify-content: space-around;
+    justify-content: end;
 }
 .add_review_div{
+    margin:5px;
     display: flex; 
-    justify-content: space-around;
+    justify-content: end;
 }
