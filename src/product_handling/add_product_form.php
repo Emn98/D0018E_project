@@ -16,7 +16,7 @@ require("check_admin.php");
 
         <form action="add_new_color_product_form.php" method="post">
             <label for="product_name">Name</label>
-            <select name="product_name" id="product_name">
+            <select name="product_id" id="product_name">
             <?php
 
               $path = $_SERVER['DOCUMENT_ROOT'];
@@ -32,7 +32,7 @@ require("check_admin.php");
               while($row = $result->fetch_assoc()){
                 $product_id = $row['product_id'];
                 $product_name = $row['product_name'];
-                echo "<option name ='product_id' value='$product_id'>" . $product_name  . "</option>";
+                echo "<option value='$product_id'>" . $product_name  . "</option>";
               }
               $con->close();
               
