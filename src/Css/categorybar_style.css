@@ -25,9 +25,8 @@ table{
 }
 
 input.category_btn{
-  padding-left: 70px;
+  width:100%;
   text-align: center;
-  padding-right: 70px;
   font-style: italic;
   font-size: 17px;
 }
