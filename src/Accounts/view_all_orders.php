@@ -102,7 +102,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="View" onclick="view('<?php echo $order_id ?>')" class="view_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $order_id; ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
@@ -116,7 +116,7 @@
                       echo "<td>";
                       ?>
                       <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
-                      <input type="button" value="View" onclick="view('<?php echo $order_id ?>')" class="view_btn">
+                      <input type="button" value="View" onclick="view('<?php echo $order_id; ?>')" class="view_btn">
                       <?php
                       echo "</td>";
                       echo "</tr>";
