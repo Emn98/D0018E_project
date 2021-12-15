@@ -27,7 +27,7 @@ $query2->close();
 
 echo"Before While line 28";
 
-while($row = $order_result->fetch_assoc()) {
+while($row = $result->fetch_assoc()) {
 
   echo"In While line 32";
 
