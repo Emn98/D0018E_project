@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="container">
-    <header>
+    <header class="top_nav_bar">
       <h1>OFF<span>BRAND</span></h1>
       <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
