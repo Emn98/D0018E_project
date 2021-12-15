@@ -76,8 +76,8 @@
                 </tr>
               </thead>
               <tbody>
-                <form class="form_inp" action="/Shopping/view_order_details.php" method="POST">
-                  <input type="hidden" class="view_order" name="order_id" value="">
+                <form class="view_order" action="/Shopping/view_order_details.php" method="POST">
+                  <input type="hidden" class="form_inp" name="order_id" value="">
                 </form>
                 <?php
                   $temp = 1;
