@@ -12,6 +12,7 @@ article{
     margin-left:10px;
 }¨
 .only_review_div{
+    border-style:solid;
     border-color:lightblue;
     margin:5px;
 }
