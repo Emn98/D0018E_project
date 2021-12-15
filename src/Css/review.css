@@ -11,7 +11,7 @@ article{
 .each_comment{
     border-color:yellowgreen;
     margin:5px;
-    margin-left:10px;
+    margin-left:15px;
     padding: 5px;
 }
 .only_review_div{
