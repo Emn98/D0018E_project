@@ -76,7 +76,7 @@ while($review = $review_result->fetch_assoc()){
     
     $stmt->close();
     ?>
-    <div class="comment_button_div">
+    <div class="add_comment_div">
       <form class="add_comment_form" method="POST" action="add_comment_form.php">
       <input type="hidden" name="review_id" value="<?php echo $review_id ?>">
       <button class="add_comment_button">Add comment</button>
@@ -89,7 +89,7 @@ while($review = $review_result->fetch_assoc()){
 $stmt->close();
 
 ?>
-<div class="review_button_div">
+<div class="add_review_div">
 <form class="add_review_form" method="POST" action="add_review_form.php">
   <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
   <button class="add_review_button">Add review</button>
