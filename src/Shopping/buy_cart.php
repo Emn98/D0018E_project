@@ -57,6 +57,8 @@ while($row = $result->fetch_assoc()) {
 }
 
 echo"After while line 59";
+echo"$order_id           $cart_id     ";
+
 
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("ii", $order_id, $cart_id);
