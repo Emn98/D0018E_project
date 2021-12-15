@@ -41,7 +41,6 @@ while($row = $result->fetch_assoc()) {
   $new_quantity = $stock_quantity - $quantity;
 
   if($new_quantity > 0){
-    echo"In IF line 48";
     $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
     $stmt->bind_param("iis", $new_quantity, $product_id, $color);
     $stmt->execute();
