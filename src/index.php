@@ -52,7 +52,7 @@
         </div>
         <div class="inner_right_side" style="display: block;">
           <div class="latest_products">
-            <form class="view_product" method="POST" action="/Product_page.php">
+            <form class="view_product" method="POST" action="/Product_page/product_details.php">
               <input type="hidden" class="form_inp" value="" name="product_id">
             </form>
             <?php 
@@ -99,8 +99,6 @@
         $('.form_inp').attr("value",product_id);//Insert the value of the category into the form on line 24. 
        $('.view_product').submit(); //Submit the form. 
        }
-  
     </script>
-
   </body>
 </html>
