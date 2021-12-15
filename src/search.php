@@ -46,6 +46,7 @@
             include_once($path);
 
             $product_name = $_POST['product_name'];
+            $search_word = "%$product_name%";
 
             if($product_name == ""){
               $stmt = $con->prepare("SELECT * FROM PRODUCTS");
@@ -53,7 +54,7 @@
 
               $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_name LIKE ?");
 
-              $stmt->bind_param("s", $product_name);
+              $stmt->bind_param("s", $search_word);
             }
 
             $stmt->execute();
