@@ -42,7 +42,7 @@ require("check_admin.php");
         
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, discount=?,
         picture=? WHERE product_name=?");
-        $stmt->bind_param("sssiiiss", $new_product_name, $product_description, $category, $price, $discount, $picture, $old_product_name);
+        $stmt->bind_param("sssiiss", $new_product_name, $product_description, $category, $price, $discount, $picture, $old_product_name);
         $stmt->execute();
         $stmt->close();
 
