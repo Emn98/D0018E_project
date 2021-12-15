@@ -18,16 +18,15 @@
   //If the search bar is used to look for specific accounts. 
   if(isset($_POST["user_name"]) && $_POST["user_name"]!= ""){
 
-    /*$search_word = $_POST["user_name"];
-    $search_word_prepare = "%$search_word%";
-    
-    $query = $con->prepare("SELECT user_id, email_address, first_name, last_name FROM USERS WHERE user_id>? and email_address LIKE ? OR first_name LIKE ? OR Last_name LIKE ?");
-    $query->bind_param("isss", $inp, $search_word_prepare, $search_word_prepare, $search_word_prepare );
+    $search_word = (int)$_POST["user_name"];
+
+    $query = $con->prepare("SELECT user_id, order_id, purchase_date FROM ORDERS WHERE user_id=? or order_id=?");
+    $query->bind_param("ii", $search_word,$search_word);
     $query->execute();
     $result = $query->get_result();
     $query->fetch();
     $query->close();
-    */
+    
   }else{
     $query = $con->prepare("SELECT user_id, order_id, purchase_date FROM ORDERS WHERE user_id>?");
     $query->bind_param("i", $inp);
@@ -60,7 +59,7 @@
         <div class="user_container">
           <div class="search_bar_container">
             <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search user...">
+              <input class="search_bar_inp" type="text" name="user_name" placeholder="Search by user id or order id">
               <button type="submit"><i class="fa fa-search"></i>Search</button>
             </form>
           </div>
