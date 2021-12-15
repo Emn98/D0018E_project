@@ -98,7 +98,7 @@ if($result == ""){
     <title>Offbrand.pwr</title>
   </head>
   <body>
-      <h2>Item(s) Purchased</h2>
+      <h2>No items in cart</h2>
       <h3><a href="/index.php">Click here to return to the front page</a></h3>
   </body>
 </html>
