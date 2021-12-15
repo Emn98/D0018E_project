@@ -41,13 +41,5 @@ while($review = $review_result->fetch_assoc()){
     </article>
   <?php
 }
-
 $stmt->close();
-
 ?>
-<div class="add_review_div">
-<form class="add_review_form" method="POST" action="add_review_form.php">
-  <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
-  <button class="add_review_button">Add review</button>
-</div>
-</form>
