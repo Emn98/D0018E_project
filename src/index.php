@@ -63,7 +63,7 @@
               $img = $row["picture"];
               ?>
               <div class="card">
-                <img src="'<?php echo $img; ?>'">
+                <img src="<?php echo $img; ?>">
                 <h2><?php echo $product_name; ?></h2>
                 <p class="description"><?php echo $product_description; ?></p>
                 <button>View</button>
