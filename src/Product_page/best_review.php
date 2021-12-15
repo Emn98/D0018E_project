@@ -31,7 +31,7 @@ while($review = $review_result->fetch_assoc()){
             </header>
             <p><?php echo $review_comment ?></p>
             <div>
-                <div>
+                <div class="like_ratio_div">
                     <button>up</button>
                     <label><?php echo $like_to_dislike_ratio ?></label>
                     <button>down</button>

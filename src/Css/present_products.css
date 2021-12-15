@@ -51,6 +51,10 @@
    grid-area: image;
    border-style: solid;
 }
+.product_details_image_div img{
+   display:flex;
+   justify-content: space-around;
+}
 .product_details_quantity_div{
    grid-area: quant;
    border-style: solid;
@@ -84,7 +88,7 @@
    'image image image image image price'
    'b_rew b_rew b_rew b_rew b_rew revew'
    'det det det det det revew';
-   grid-gap: 0px;
+   grid-gap: 10px;
    padding: 0px;
 }
 
