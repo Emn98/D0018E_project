@@ -31,3 +31,8 @@ article{
     display: flex; 
     justify-content: end;
 }
+.like_ratio_div{
+    margin:5px;
+    display: flex; 
+    justify-content: end;
+}
