@@ -24,7 +24,6 @@ require("check_admin.php");
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
         $price = $_POST['price'];
-        $size = $_POST['size'];
         $discount = $_POST['discount'];
         $picture = $_POST['picture'];
         $color_arr = $_POST['color'];
@@ -38,16 +37,17 @@ require("check_admin.php");
         include($path);
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
+
+      
         
-        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, size=?, discount=?,
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?, discount=?,
         picture=? WHERE product_name=?");
-        $stmt->bind_param("sssiiiss", $new_product_name, $product_description, $category, $price, $size, $discount, $picture, $old_product_name);
+        $stmt->bind_param("sssiiiss", $new_product_name, $product_description, $category, $price, $discount, $picture, $old_product_name);
         $stmt->execute();
         $stmt->close();
 
-        
-        //XD WILL THIS WORK
-        
+
+
         $sql = "UPDATE PRODUCT_INVENTORY
          SET color = 
          CASE ";
@@ -77,8 +77,12 @@ require("check_admin.php");
         echo "<br>";
         echo $sql;
 
+        $con->beginTransaction();
+
         $stmt = $con->prepare($sql);
         $stmt->execute();
+
+        $con->commit();
         $stmt->close();
         
       ?>
