@@ -1,6 +1,7 @@
 article{
     background-color: white;
     border-style:solid;
+    border-radius: 10%;
 }
 .each_review{
     border-color:red;
@@ -15,6 +16,7 @@ article{
 }
 .only_review_div{
     border-style:solid;
+    border-radius: 10%;
     border-color:lightblue;
     margin:5px;
     padding: 5px;
