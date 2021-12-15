@@ -95,7 +95,7 @@
                       echo "<tr class='table_row_odd'>";
                       echo "<td>$order_id</td>";
                       echo "<td>$user_id</td>";
-                      echo "<td>$email_Address</td>";
+                      echo "<td>$email_address</td>";
                       echo "<td>$purchase_date</td>";
                       echo "<td>";
                       ?>
@@ -109,7 +109,7 @@
                       echo "<tr class='table_row_even'>";
                       echo "<td>$order_id</td>";
                       echo "<td>$user_id</td>";
-                      echo "<td>$email_Address</td>";
+                      echo "<td>$email_address</td>";
                       echo "<td>$purchase_date</td>";                     
                       echo "<td>";
                       ?>
