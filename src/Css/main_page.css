@@ -146,8 +146,8 @@ opacity: 1;
   margin-top: 0.6rem;
   float: left;
   width: auto;
-  width: 200;
-  height: 250;
+  width: 140px;
+  height: 200px;
   margin-left: 0.5rem;
   background: white;   
   text-align: center;
@@ -184,8 +184,8 @@ opacity: 1;
 }
 
 .card img{
-  width: 200;
-  height: 250;
+  width: 140px;
+  height: 200px;
 }
 .description{
   text-align: left;
