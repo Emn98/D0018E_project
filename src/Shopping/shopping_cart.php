@@ -148,7 +148,7 @@
                   ?>
                   <input type="button" class="modi_btn_plus" value="+" onclick="add_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <p style="margin-left:0.1rem";><?php echo $quantity; ?></p>
-                  <input type="button" class="modi_btn_minu" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
+                  <input type="button" class="modi_btn_minus" value="-" onclick="remove_item('<?php echo $row['product_id'] ?>', '<?php echo $color ?>', '<?php echo $quantity ?>' )">
                   <?php
                   echo "</td>";
                   if($sub_total_discount!=0){
@@ -194,15 +194,15 @@
 	</div>
   <script>
     function delete_item(id, color){
-      var re = 1;
+      var temp = 1;
       $.ajax({
           type: "POST",
           url:  "alter_cart_func.php", 
           data: {product_id: id,
                  color: color,
-                 delete: re
+                 delete: temp
                 },                
-          success: function(response){
+          success: function(){
             location.reload();
           },
           error: function(){
@@ -210,6 +210,29 @@
                 }
             });
           }
+
+      function add_item(id, color, quantity){
+        if(quantity<100){
+          var temp = 1;
+          quantity = quantity-1;
+          $.ajax({
+          type: "POST",
+          url:  "alter_cart_func.php", 
+          data: {product_id: id,
+                 color: color,
+                 quantity: quantity,
+                 add: temp
+                },                
+          success: function(response){
+            console.log(response)
+            location.reload();
+          },
+          error: function(){
+            alert("failure");
+                }
+            });
+        }
+      }    
       </script>
   </body>
 </html>
