@@ -25,11 +25,7 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
-echo"Before While line 28";
-
 while($row = $result->fetch_assoc()) {
-
-  echo"In While line 32";
 
   $product_id = $row["product_id"];
   $quantity = $row["quantity"];
@@ -56,16 +52,11 @@ while($row = $result->fetch_assoc()) {
   }
 }
 
-echo"After while line 59";
-echo"$order_id           $cart_id     ";
-
-
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
 $query->close();
 
-echo"After query line 66";
 
 $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("i", $cart_id);
