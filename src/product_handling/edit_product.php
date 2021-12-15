@@ -77,16 +77,16 @@ require("check_admin.php");
         echo "<br>";
         echo $sql;
 
-        //$con->query("START TRANSACTION");
+        $con->query("START TRANSACTION");
 
         $result = $con->query($sql);
-        /*
+        
         if($result){
           $con->query("COMMIT");
         } else {
           $con->query("ROLLBACK");
         }
-        */
+        
       ?>
       
 
