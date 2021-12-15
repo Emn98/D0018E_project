@@ -53,7 +53,7 @@
 }
 .product_details_image_div img{
    display:flex;
-   justify-content: space-around;
+   margin:auto;
 }
 .product_details_quantity_div{
    grid-area: quant;
