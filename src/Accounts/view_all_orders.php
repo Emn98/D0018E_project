@@ -82,9 +82,8 @@
                   while ($row = $result->fetch_assoc()) {
                     $user_id = $row["user_id"];
                     $order_id = $row["order_id"]; 
-                    $purchase_date = $row["first_name"]; 
+                    $purchase_date = $row["purchase_date"]; 
 
-                    //Retrive the users data from the database
                     $query = $con->prepare("SELECT email_address FROM USERS WHERE user_id=?");
                     $query->bind_param("i", $user_id);
                     $query->execute();
