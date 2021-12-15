@@ -46,14 +46,14 @@ while($row = $result->fetch_assoc()) {
 
   if($new_quantity > 0){
     echo"In IF line 48";
-    $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET new_quantity=? WHERE product_id=? AND color=?");
-    $stmt->bind_param("iis", $quantity, $product_id, $color);
+    $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
+    $stmt->bind_param("iis", $new_quantity, $product_id, $color);
     $stmt->execute();
     $con->close();
-  }//else{
-   // echo"Sorry item is not in stock";
-   // exit;
-  //}
+  }else{
+    echo"Sorry item is not in stock";
+    exit;
+  }
 }
 
 echo"After while line 59";
@@ -62,6 +62,8 @@ $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity,
 $query->bind_param("ii", $order_id, $cart_id);
 $query->execute();
 $query->close();
+
+echo"After query line 66";
 
 $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("i", $cart_id);
