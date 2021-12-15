@@ -4,8 +4,7 @@ article{
 }
 .each_review{
     border-color:red;
-    padding-left: 5px;
-    padding-right:5px;
+    margin: 5px;
 }
 .each_comment{
     border-color:yellowgreen;
