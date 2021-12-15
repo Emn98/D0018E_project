@@ -69,9 +69,12 @@ while ($row = $order_result->fetch_assoc()) {
     $query2->close();
     if($temp == 1){
         echo "<tr class='table_row_odd'>";
+        echo "<td>";
+        echo "<div class='product_display'>";
         ?>
-        <img src =<?php echo $picture ?>>
+        <img src ='<?php echo $picture ?>' alt="product"/>
         <?php
+        //echo "<div class='product_info'>";
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
