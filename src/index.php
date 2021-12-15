@@ -33,16 +33,45 @@
       <main>
         <div class="inner_left_side">
         <?php 
-            //$path = $_SERVER['DOCUMENT_ROOT'];
-            //$path .= "/Category/categories_file.html";
-            //include($path);
-
             $path = $_SERVER['DOCUMENT_ROOT'];
             $path .= "/Category/categories_file2.php";
             include($path);
             ?>
         </div>
-        <div class="inner_right_side">Items go here</div>
+        <div class="inner_right_side">
+        <h3>Newly added</h3>
+          <div class="latest_products">
+            <div class="card">
+  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
+  <h3>Test</h3>
+  <p>Some text about the jeans..</p>
+  <p class="price">$19.99</p>
+  <p><button>Buy</button></p>
+            </div>
+            <div class="card">
+  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
+  <h3>Test</h3>
+  <p>Some text about the jeans..</p>
+  <p class="price">$19.99</p>
+  <p><button>Buy</button></p>
+            </div>
+            <div class="card">
+  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
+  <h3>Test</h3>
+  <p>Some text about the jeans..</p>
+  <p class="price">$19.99</p>
+  <p><button>Buy</button></p>
+            </div>
+            <div class="card">
+  <img src="https://www.logitechg.com/content/dam/gaming/en/products/pro-gaming-mouse/plasma-hero-hero.png" alt="Denim Jeans" style="width:100%">
+  <h3>Test</h3>
+  <p>Some text about the jeans..</p>
+  <p class="price">$19.99</p>
+  <p><button>Buy</button></p>
+            </div>
+          </div>
+
+        </div>
       </main>
       <div class="left_side"></div>
       <div class="right_side">

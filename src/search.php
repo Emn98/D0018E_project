@@ -34,7 +34,7 @@
           <div class="inner_left_side">
           <?php 
             $path = $_SERVER['DOCUMENT_ROOT'];
-            $path .= "/Category/categories_file.html";
+            $path .= "/Category/categories_file2.php";
             include($path);
             ?>
           </div>
