@@ -25,7 +25,12 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
+echo"Before While line 28";
+
 while($row = $order_result->fetch_assoc()) {
+
+  echo"In While line 32";
+
   $product_id = $row["product_id"];
   $quantity = $row["quantity"];
   $color = $row["color"];
@@ -40,6 +45,7 @@ while($row = $order_result->fetch_assoc()) {
   $new_quantity = $stock_quantity - $quantity;
 
   if($new_quantity > 0){
+    echo"In IF line 48";
     $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
     $stmt->bind_param("iis", $quantity, $product_id, $color);
     $stmt->execute();
@@ -50,6 +56,7 @@ while($row = $order_result->fetch_assoc()) {
   }
 }
 
+echo"After while line 59";
 
 $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
 $query->bind_param("ii", $order_id, $cart_id);
