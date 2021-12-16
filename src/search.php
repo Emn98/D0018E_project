@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
     <link rel="stylesheet" href="/Css/present_products.css">
-    <link rel="stylesheet" href="/Css/category.css">
+    <link rel="stylesheet" href="/Css/product_card_style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
@@ -60,35 +60,30 @@
             $stmt->execute();
 
             $result = $stmt->get_result();
-
-            echo "<div class='wrapper'>";
             while ($row = $result->fetch_assoc()) {
-                $name   = $row['product_name'];
-                $description = $row['product_description'];
-                $category = $row['category_id'];
-                $quantity   = $row['quantity'];
-                $price = $row['price'];
-                $size = $row['size'];
-                $color = $row['color'];
-                $discount = $row['discount'];
-                $picture = $row['picture'];
-                ?>
-                <div class='list_product_div'>
-                  <img src ='<?php echo $picture ?>' width = '200' height = '250'>
-                  <label class='product_name_label'><?php echo $name ?></label>
-                  <label class='product_name_label'><?php echo $description ?></label>
-                  <div class='product_price_buy_div'>
-                    <label class='product_price_label'>From <?php echo $price ?> kr</label>
-                    <form action='/Product_page/product_details.php' method='post'>
-                      <input type='hidden' name='product_name' value = <?php echo $name ?>>
-                      <button type='submit' class='product_details_button'>Go to product</button>
-                    </form>
-                  </div>
-                </div>
-                <?php
+              $product_name = $row["product_name"];
+              $product_id = $row["product_id"];
+              $product_description = $row["product_description"];
+              $price = $row["price"];
+              $discount = $row["discount"];
+              $img = $row["picture"];
+              ?>
+              <div class="card">
+                <img src="<?php echo $img; ?>" width="170" height="200">
+                <h2><?php echo $product_name; ?></h2>
+                <p class="description"><?php echo $product_description; ?></p>
+                <?php 
+                  if($discount==0){
+                echo "<p class='price'>$$price </p>"; 
+              }else{
+                echo "<p class='price'><strike> $$price</strike></p>"; 
+                echo "<p class='price' style='color:red';>$$discount <p>"; 
+              }
+            ?>
+            <input type="button" value="View" onclick="go_to_product('<?php echo $product_id ?>')"  class="view_btn">
+            </div>
+            <?php  
             }
-            echo "</div>";
-
             $con->close();
             
             ?>
