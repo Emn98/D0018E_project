@@ -20,7 +20,7 @@ if(!$cart_is_empty){
 
   
   /* Start transaction */
-mysqli_begin_transaction($mysqli);
+mysqli_begin_transaction($con);
 
 try { 
     update_shopping_cart_total();
