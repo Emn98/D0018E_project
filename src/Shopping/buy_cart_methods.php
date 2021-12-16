@@ -7,7 +7,7 @@ function get_product_info_cart_items($cart_id){
     $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query->bind_param("i", $cart_id);
     $query->execute();
-    $result = $query2->get_result();
+    $result = $query->get_result();
     $query->fetch();
     $query->close();
     return $result;
