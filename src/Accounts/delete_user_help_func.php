@@ -79,15 +79,25 @@
   }   
   function delete_user_comments($user_id){
     $user_id = (int) $user_id;
-
+    
     //Connect to the database.
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
-    $query = $con->prepare("DELETE FROM USER_COMMENTS WHERE user_id=?");
+    $query = $con->prepare("SELECT review_id FROM USER_REVIEWS WHERE user_id=?");
     $query->bind_param("i", $user_id);
     $query->execute();
+    $result = $query->get_result();
+    $query->fetch();
     $query->close();
 
+    while ($row = $result->fetch_assoc()) {
+      $review_id = $row["review_id"];
+
+      $query = $con->prepare("DELETE FROM USER_COMMENTS WHERE review_id=?");
+      $query->bind_param("i", $user_id);
+      $query->execute();
+      $query->close();
+    }   
     return;
-  }   
+  }
 ?>
