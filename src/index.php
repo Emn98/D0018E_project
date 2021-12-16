@@ -93,10 +93,10 @@
       </div>
 	</div>
     <script> 
-      function go_to_product(id){
-        var product_id = id;
-        $('.form_inp').attr("value",product_id);//Insert the value of the category into the form on line 24. 
-        $('.view_product').submit(); //Submit the form. 
+      function go_to_product(id){//This function will submit the form making the user go to
+        var product_id = id;     //the product page. 
+        $('.form_inp').attr("value",product_id);
+        $('.view_product').submit();
        }
     </script>
   </body>
