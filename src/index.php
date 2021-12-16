@@ -40,7 +40,7 @@
         <ul class="nav_menu">
           <li><a href="/Accounts/site_director.php">My Page</a></li>
           <?php 
-            if($_SESSION["user_id"] != 0){
+            if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display shopping cart to admin
               echo '<li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>';
             }
           ?>
