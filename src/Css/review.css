@@ -40,5 +40,6 @@ article{
     margin-right:5px;
 }
 .delete_button{
-    background-color:crimson;
+    background-color:red;
+    margin-top:0.3 rem;
 }
