@@ -15,7 +15,7 @@
     <body>
       <div class="container">
         <header>
-          <h1 onclick=<href="/index.php"></href>>OFFBRAND</h1>
+          <h1 onclick="go_to_start()" style="cursor: pointer;">OFFBRAND</h1>
           <nav>
             <ul class="nav_menu">
               <li><a href="/index.php">Home</a></li>
@@ -38,5 +38,13 @@
           </div>
         </main>
 	    </div>
+      <?php
+      function go_to_start(){
+        header("Location /index.php");
+        exit;
+      }
+      
+      
+      ?>
     </body>
   </html>
