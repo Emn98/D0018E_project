@@ -21,6 +21,7 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
+$user_id = $_SESSION['user_id'];
 $review_id = $_POST['review_id'];
 $comment_name = RemoveSpecialChar($_POST['comment_name']);
 $comment_comment = RemoveSpecialChar($_POST['comment_comment']);
@@ -29,9 +30,9 @@ $likes = 0;
 
 print_r($_POST);
 
-$stmt = $con->prepare("INSERT INTO USER_COMMENTS (review_id, comment_name, comment_comment, dislikes, likes, created_at) VALUES
+$stmt = $con->prepare("INSERT INTO USER_COMMENTS (review_id, user_id, comment_name, comment_comment, dislikes, likes, created_at) VALUES
 (?,?,?,?,?, CURRENT_TIMESTAMP)");
-$stmt->bind_param("issii", $review_id, $comment_name, $comment_comment, $dislikes, $likes);
+$stmt->bind_param("iissii", $review_id, $user_id, $comment_name, $comment_comment, $dislikes, $likes);
 $stmt->execute();
 $stmt->close();
 
