@@ -4,6 +4,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
+$user_id = $_SESSION["user_id"];
+
 $stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=?");
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
