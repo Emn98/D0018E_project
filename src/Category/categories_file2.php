@@ -32,7 +32,7 @@
                 
                 echo "<tr>";
            ?>
-                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="go_to_category('<?php echo $category_id ?>,<?php echo $category_name?>')"  class="category_btn"> </th>
+                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="go_to_category('<?php echo $category_id ?>','<?php echo $category_name?>')"  class="category_btn"> </th>
            <?php
                 echo "</tr>";
               }
