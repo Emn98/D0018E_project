@@ -15,7 +15,7 @@
     <body>
       <div class="container">
         <header>
-          <h1 onclick="go_to_start()" style="cursor: pointer;">OFFBRAND</h1>
+          <h1 onclick="go_to_start()" style='cursor: pointer; font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif; '>OFFBRAND</h1>
           <nav>
             <ul class="nav_menu">
               <li><a href="/index.php">Home</a></li>
