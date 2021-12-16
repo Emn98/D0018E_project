@@ -17,10 +17,10 @@ if(!$cart_is_empty){
   $order_id = $_SESSION["order_id"];
 
   
-  try {  
-    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  
-    $con->beginTransaction();
+  /* Start transaction */
+mysqli_begin_transaction($mysqli);
+
+try { 
 
     $query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query2->bind_param("i", $cart_id);
@@ -52,7 +52,7 @@ if(!$cart_is_empty){
         $stmt->close();
       }else{
         echo"Sorry item is not in stock";
-        //$con->rollBack();
+        mysqli_rollback($mysqli);
       }
     }
 
@@ -75,12 +75,13 @@ if(!$cart_is_empty){
     unset($_SESSION["cart_id"]);//Reset cart_id variable
     unset($_SESSION["order_id"]);//Reset order_id variable
 
-    $con->commit();
-    
-  } catch (Exception $e) {
-    $con->rollBack();
-    echo "Something went wrong: " . $e->getMessage();
-  }
+    /* If code reaches this point without errors then commit the data in the database */
+    mysqli_commit($mysqli);
+} catch (mysqli_sql_exception $exception) {
+    mysqli_rollback($mysqli);
+    echo "Something went wrong";
+    throw $exception;
+}
 
   ?>
   <!DOCTYPE html>
