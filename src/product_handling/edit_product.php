@@ -67,6 +67,8 @@ require("check_admin.php");
           
         $sql .= ")";
 
+        echo "<br>";
+
         $con->query("START TRANSACTION");
 
         $result = $con->query($sql);
