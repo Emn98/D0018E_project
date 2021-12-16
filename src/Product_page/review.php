@@ -14,6 +14,7 @@ $stmt->close();
 
 while($review = $review_result->fetch_assoc()){
   $review_id = $review['review_id'];
+  $review_user_id = $review['user_id'];
   $review_name = $review['review_name'];
   $review_score = $review['review_score'];
   $review_created_at = $review['created_at'];
@@ -31,6 +32,11 @@ while($review = $review_result->fetch_assoc()){
       </header>
       <p><?php echo $review_comment ?></p>
       <div>
+        <?php 
+        if($review_user_id == $user_id){
+          echo "<button class='delete_button'>delete</button>";
+        }
+        ?>
         <div class="like_ratio_div">
           <button>up</button>
           <label><?php echo $like_to_dislike_ratio ?></label>
@@ -65,6 +71,11 @@ while($review = $review_result->fetch_assoc()){
         </header>
         <p><?php echo $comment_comment ?></p>
         <div>
+          <?php
+          if($review_user_id == $user_id){
+            echo "<button class='delete_button'>delete</button>";
+          }
+          ?>
           <div class="like_ratio_div">
             <button>up</button>
             <label><?php echo $comment_like_to_dislike_ratio ?></label>

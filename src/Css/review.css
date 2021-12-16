@@ -39,3 +39,6 @@ article{
     margin-left:5px;
     margin-right:5px;
 }
+.delete_button{
+    background-color:crimson;
+}
