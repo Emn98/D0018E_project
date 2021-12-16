@@ -104,7 +104,7 @@ while($review = $review_result->fetch_assoc()){
 }
 
 $stmt->close();
-
+if($user_id != 0){
 ?>
 <div class="add_review_div">
 <form class="add_review_form" method="POST" action="add_review_form.php">
@@ -112,7 +112,9 @@ $stmt->close();
   <button class="add_review_button">Add review</button>
 </div>
 </form>
-
+<?php
+}
+?>
 <script>
         function delete_review(id){
           if (confirm("Would you like to delete review?")){
