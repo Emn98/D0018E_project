@@ -52,7 +52,7 @@ if(!$cart_is_empty){
         $stmt->close();
       }else{
         echo"Sorry item is not in stock";
-        $con->rollBack();
+        //$con->rollBack();
       }
     }
 
