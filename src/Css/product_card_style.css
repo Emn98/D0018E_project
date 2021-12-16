@@ -46,6 +46,7 @@
   }
   
   .card .h2{
+    text-align: left;
     width: 200px; 
     white-space: nowrap;
     overflow: hidden;
