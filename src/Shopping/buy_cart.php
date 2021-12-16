@@ -53,6 +53,7 @@ try {
       }else{
         echo"Sorry item is not in stock";
         mysqli_rollback($mysqli);
+        exit;
       }
     }
 
