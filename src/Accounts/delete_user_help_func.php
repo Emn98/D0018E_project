@@ -68,10 +68,12 @@
     //Connect to the database.
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
+    echo "före";
     $query = $con->prepare("DELETE FROM USER_REVIEWS WHERE user_id=?");
     $query->bind_param("i", $user_id);
     $query->execute();
     $query->close();
+    echo "efter";
 
     return;
   }   
