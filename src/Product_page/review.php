@@ -35,8 +35,11 @@ while($review = $review_result->fetch_assoc()){
       <p><?php echo $review_comment ?></p>
       <div>
         <?php
-        echo $user_id .  " and his friend" . $review_user_id;
-        
+        if($review_user_id == $user_id || $user_id == 0){
+          ?>
+          <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">Delete</button>
+          <?php
+        }
         ?>
         <div class="like_ratio_div">
           <button>up</button>
@@ -77,7 +80,7 @@ while($review = $review_result->fetch_assoc()){
           <?php
           if($comment_user_id == $user_id || $user_id == 0){
             ?>
-            <button class="delete_button" value="Delete" onclick="delete_comment('<?php echo $comment_id ?>')">delete</button>
+            <button class="delete_button" value="Delete" onclick="delete_comment('<?php echo $comment_id ?>')">Delete</button>
             <?php
           }
           ?>
