@@ -124,7 +124,8 @@ $stmt->close();
                   alert("Review deleted successfully!");
                   location.reload();
                 },
-                error: function(){
+                error: function(response){
+                    console.log(response)
                     alert("failure");
                 }
             });
