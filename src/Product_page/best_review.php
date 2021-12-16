@@ -31,6 +31,13 @@ while($review = $review_result->fetch_assoc()){
             </header>
             <p><?php echo $review_comment ?></p>
             <div>
+            <?php
+            if($review_user_id == $user_id || $user_id == 0){
+            ?>
+            <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>
+            <?php
+            }
+            ?>
                 <div class="like_ratio_div">
                     <button>up</button>
                     <label><?php echo $like_to_dislike_ratio ?></label>
