@@ -109,7 +109,11 @@
                 </select>
                 <label for='quantity' class='form_label'>Enter Quantity</label>
                   <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
-                  <button class='form_button'>Buy</button>
+                  <?php 
+                    if($_SESSION["user_id"]!=0){
+                      echo "<button class='form_button'>Buy</button>";
+                    }
+                  ?>
               </div>
               <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
               <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
@@ -132,7 +136,6 @@
             $path .= "/Product_page/review.php";
             include($path);
             ?>
-        
           </div>
           <div class='product_details_details_div'>
             <label class='product_name_label'><?php echo $name ?></label>
