@@ -38,8 +38,8 @@
           </div>
           <div class="inner_right_side">
           <form class="view_product" method="POST" action="/Product_page/product_details.php">
-              <input type="hidden" class="form_inp" value="" name="product_id">
-            </form>
+            <input type="hidden" class="form_inp" value="" name="product_id">
+          </form>
           <?php
 
             $path = $_SERVER['DOCUMENT_ROOT'];
