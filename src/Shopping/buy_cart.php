@@ -11,25 +11,21 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/Shopping/check_if_user_have_order.php";
 require($path);
 
-$cart_id = $_SESSION["cart_id"];
-$user_id = $_SESSION["user_id"];
-$order_id = $_SESSION["order_id"];
+if(!$cart_is_empty){
+  $cart_id = $_SESSION["cart_id"];
+  $user_id = $_SESSION["user_id"];
+  $order_id = $_SESSION["order_id"];
 
-//Start_transaction;
+  //Start_transaction;
+  $query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
+  $query2->bind_param("i", $cart_id);
+  $query2->execute();
+  $result = $query2->get_result();
+  //$query2->bind_result($product_id, $quantity, $color);
+  $query2->fetch();
+  $query2->close();
 
-$query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
-$query2->bind_param("i", $cart_id);
-$query2->execute();
-$result = $query2->get_result();
-//$query2->bind_result($product_id, $quantity, $color);
-$query2->fetch();
-$query2->close();
-
-$row = $result->fetch_assoc();
-$test_if_empty = $row["product_id"];
-echo "$test_if_empty";
-//Fix result so if cart is empty dont add products
-if($test_if_empty != ""){
+  //Fix result so if cart is empty dont add products
   while($row = $result->fetch_assoc()) {
 
     $product_id = $row["product_id"];
@@ -90,22 +86,5 @@ if($test_if_empty != ""){
     </body>
   </html>
   <?php
-
-}else{
-  ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Css/shopping_cart_page.css">
-    <title>Offbrand.pwr</title>
-  </head>
-  <body>
-      <h2>No items in cart</h2>
-      <h3><a href="/index.php">Click here to return to the front page</a></h3>
-  </body>
-</html>
-<?php
 }
 ?>
