@@ -50,6 +50,7 @@
 .product_details_image_div{
    grid-area: image;
    border-style: solid;
+   background-color: white;
 }
 .product_details_image_div img{
    display:flex;
@@ -59,15 +60,18 @@
    grid-area: quant;
    border-style: solid;
    overflow:auto;
+   background-color: white;
 
 }
 .product_details_price_div{
    grid-area: price;
    border-style: solid;
+   background-color: white;
 }
 .best_customer_review_div{
    grid-area: b_rew;
    border-style: solid;
+   background-color: white;
 }
 .customer_reviews_div{
    grid-area: revew;
@@ -77,6 +81,7 @@
 .product_details_details_div{
    grid-area: det;
    border-style: solid;
+   background-color: white;
 }
 
 .product_details_container{
