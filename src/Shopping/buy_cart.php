@@ -43,6 +43,7 @@ try {
       $new_quantity = $stock_quantity - $quantity;
 
       echo "$stock_quantity";
+      echo "$quantity";
 
       if($new_quantity >= 0){
         update_product_inventory_quantity($product_id, $color);
