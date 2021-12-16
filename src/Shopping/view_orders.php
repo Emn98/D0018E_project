@@ -12,26 +12,14 @@ require($path);
 
 $user_id = $_SESSION["user_id"];
 
-if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
+//Retrive all orders associated with the logged in user. 
+$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+$query->bind_param("i", $user_id);
+$query->execute();
+$result = $query->get_result();
+$query->fetch();
+$query->close();
 
-  $search_word = $_POST["purchase_date"];
-  $search_word_prepare = "%$search_word%";
-    
-  $query = $con->prepare("SELECT order_id, purchase_date FROM USERS WHERE user_id=? and purchase_date LIKE ?");
-  $query->bind_param("is", $user_id, $search_word_prepare);
-  $query->execute();
-  $result = $query->get_result();
-  $query->fetch();
-  $query->close();
-}else{
-  //Retrive all orders associated with the logged in user. 
-  $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
-  $query->bind_param("i", $user_id);
-  $query->execute();
-  $result = $query->get_result();
-  $query->fetch();
-  $query->close();
-}
 
 ?>
 <!DOCTYPE html>
@@ -55,11 +43,6 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
           </nav>
         </header>
         <div class="user_container">
-          <div class="search_bar_container">
-            <form class="search_bar_form" method="POST" action="">
-              <input class="search_bar_inp" type="text" name="purchase_date" placeholder="Search Purchase Date...">
-              <button type="submit"><i class="fa fa-search"></i>Search</button>
-            </form>
             <form class="view_order_details" method="POST" action="/Shopping/view_order_details.php">
               <input type=hidden class=script_id name=order_id value="">
             </form>
