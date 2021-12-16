@@ -31,7 +31,7 @@ include("check_admin.php");
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
 
-        mysqli_begin_transaction($mysqli);
+        mysqli_begin_transaction($con);
 
         try{
 
@@ -73,9 +73,9 @@ include("check_admin.php");
 
           $con->query($sql);
           
-          mysqli_commit($mysqli);
+          mysqli_commit($con);
         } catch (mysqli_sql_exception $exception) {
-            mysqli_rollback($mysqli);
+            mysqli_rollback($con);
             echo "Something went wrong";
             throw $exception;
         }
