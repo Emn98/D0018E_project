@@ -43,7 +43,7 @@
             ?>
           </div>
           <div class="inner_right_side">
-          <h2 class="title_header"><?php echo $search_word; ?></h2>
+          <h2 class="title_header"><?php echo $_POST['product_name']; ?></h2>
           <form class="view_product" method="POST" action="/Product_page/product_details.php">
             <input type="hidden" class="form_inp" value="" name="product_id">
           </form>
