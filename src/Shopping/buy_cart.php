@@ -17,10 +17,10 @@ if(!$cart_is_empty){
   $order_id = $_SESSION["order_id"];
 
   
-  //try {  
-    //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  try {  
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
-    //$con->beginTransaction();
+    $con->beginTransaction();
 
     $query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query2->bind_param("i", $cart_id);
@@ -77,10 +77,10 @@ if(!$cart_is_empty){
 
     $con->commit();
     
-//} catch (Exception $e) {
-//  $con->rollBack();
-//  echo "Something went wrong: " . $e->getMessage();
-//}
+  } catch (Exception $e) {
+    $con->rollBack();
+    echo "Something went wrong: " . $e->getMessage();
+  }
 
   ?>
   <!DOCTYPE html>
