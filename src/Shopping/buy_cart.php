@@ -24,11 +24,9 @@ if(!$cart_is_empty){
 mysqli_begin_transaction($con);
 
 try { 
-    update_shopping_cart_total();
-    echo "1 ";
+    update_shopping_cart_total($con);
 
-    $result = get_product_info_cart_items($cart_id);
-    echo "2 ";
+    $result = get_product_info_cart_items($con, $cart_id);
 
     //Fix result so if cart is empty dont add products
     while($row = $result->fetch_assoc()) {
@@ -37,23 +35,17 @@ try {
       $quantity = $row["quantity"];
       $color = $row["color"];
 
-      $stock_quantity = get_quantity_product_inventory($product_id, $color);
-      echo "3 ";
+      $stock_quantity = get_quantity_product_inventory($con, $product_id, $color);
 
       $new_quantity = $stock_quantity - $quantity;
 
-      echo "$stock_quantity";
-      echo "$quantity";
-
       if($new_quantity >= 0){
-        echo"ooga booga";
-        update_product_inventory_quantity($new_quantity, $product_id, $color);
-        echo"test";
+        update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
       }else{
-        $no_items_in_order = get_amount_of_order_items($order_id);
+        $no_items_in_order = get_amount_of_order_items($con, $order_id);
 
         if($no_items_in_order == 0){
-          delete_from_orders($order_id);
+          delete_from_orders($con, $order_id);
         }
         echo"Sorry item is not in stock";
         mysqli_rollback($con);
@@ -77,11 +69,11 @@ try {
       }
     }
 
-    insert_into_order_items($order_id, $cart_id);
+    insert_into_order_items($con, $order_id, $cart_id);
 
-    delete_from_cart_items($cart_id);
+    delete_from_cart_items($con, $cart_id);
 
-    delete_from_carts($cart_id);
+    delete_from_carts($con, $cart_id);
 
     unset($_SESSION["cart_id"]);//Reset cart_id variable
     unset($_SESSION["order_id"]);//Reset order_id variable
