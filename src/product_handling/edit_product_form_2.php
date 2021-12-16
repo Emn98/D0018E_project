@@ -31,8 +31,8 @@ require("check_admin.php");
             $p_info = $result->fetch_assoc();
             ?>
             <label for="new_product_name">New product name</label>
-            <input type="text" id="new_product_name" name="new_product_name" value=<?php echo $p_info['product_name'] ?>>
-            <input type="hidden" id="product_id" name="product_id" value=<?php echo $p_info['product_id'] ?>>
+            <input type="text" id="new_product_name" name="new_product_name" value="<?php echo $p_info['product_name'] ?>">
+            <input type="hidden" id="product_id" name="product_id" value="<?php echo $p_info['product_id'] ?>">
             <label for="product_description">Description</label>
             <input type="text" id="description" name="product_description" placeholder="product description" value="<?php echo $p_info['product_description'] ?>" required><br>
             <label for="category">Category</label>
