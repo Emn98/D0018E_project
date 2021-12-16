@@ -94,7 +94,7 @@
       $review_id = $row["review_id"];
 
       $query = $con->prepare("DELETE FROM USER_COMMENTS WHERE review_id=?");
-      $query->bind_param("i", $user_id);
+      $query->bind_param("i", $review_id);
       $query->execute();
       $query->close();
     }   
