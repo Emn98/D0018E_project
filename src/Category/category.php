@@ -38,6 +38,9 @@
             ?>
           </div>
           <div class="inner_right_side">
+          <form class="view_product" method="POST" action="/Product_page/product_details.php">
+              <input type="hidden" class="form_inp" value="" name="product_id">
+            </form>
           <?php
 
             $path = $_SERVER['DOCUMENT_ROOT'];
@@ -91,6 +94,12 @@
         <div class="right_side"></div>
     </div>
     <script>
+      function go_to_product(id){//This function will submit the form making the user go to
+        var product_id = id;     //the product page. 
+        $('.form_inp').attr("value",product_id);
+        $('.view_product').submit();
+      }
+
       function go_to_start(){
       window.location.href = "/index.php";
       exit;
