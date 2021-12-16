@@ -46,7 +46,6 @@ try {
         if($no_items_in_order == 0){
           delete_from_orders($con, $order_id);
         }
-        echo"Sorry item is not in stock";
         mysqli_rollback($con);
 
         ?>
@@ -59,7 +58,7 @@ try {
             <title>Offbrand.pwr</title>
           </head>
           <body>
-              <h2></h2>
+              <h2>Sorry item is not in stock</h2>
               <h3><a href="/index.php">Click here to return to the front page</a></h3>
           </body>
         </html>
