@@ -16,10 +16,12 @@
     <div class="container">
       <header class="top_nav_bar">
       <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
+      <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
-          <input class="search_bar_inp" type="text" name="product_name">
-          <button type="submit" class="search_btn">Search</button>
-        </form> 
+          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
+          <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
+     </div>
         <nav>
           <ul class="nav_menu">
             <li><a href="/Accounts/site_director.php">My Page</a></li>
