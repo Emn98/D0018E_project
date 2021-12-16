@@ -25,7 +25,7 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
-echo "$result->fetch_assoc()";
+echo $result->fetch_assoc();
 //Fix result so if cart is empty dont add products
 if($result == ""){
   while($row = $result->fetch_assoc()) {
