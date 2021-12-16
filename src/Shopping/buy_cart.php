@@ -25,9 +25,11 @@ $result = $query2->get_result();
 $query2->fetch();
 $query2->close();
 
-echo $result->fetch_assoc();
+$row = $result->fetch_assoc();
+$test_if_empty = $row["product_id"];
+echo "$test_if_empty";
 //Fix result so if cart is empty dont add products
-if($result == ""){
+if($test_if_empty == ""){
   while($row = $result->fetch_assoc()) {
 
     $product_id = $row["product_id"];
