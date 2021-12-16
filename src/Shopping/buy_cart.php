@@ -25,8 +25,10 @@ mysqli_begin_transaction($con);
 
 try { 
     update_shopping_cart_total();
+    echo "1 ";
 
     $result = get_product_info_cart_items($cart_id);
+    echo "2 ";
 
     //Fix result so if cart is empty dont add products
     while($row = $result->fetch_assoc()) {
@@ -36,6 +38,7 @@ try {
       $color = $row["color"];
 
       $stock_quantity = get_quantity_product_inventory($product_id, $color);
+      echo "3 ";
 
       $new_quantity = $stock_quantity - $quantity;
 
