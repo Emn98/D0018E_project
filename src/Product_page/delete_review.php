@@ -11,11 +11,11 @@ include_once($path);
 
 $review_id = $_POST['review_id'];
 
-$stmt = $con->prepare("DELETE * FROM USER_COMMENTS WHERE review_id=?");
+$stmt = $con->prepare("DELETE FROM USER_COMMENTS WHERE review_id=?");
 $stmt->bind_param("i", $review_id);
 $stmt->execute();
 
-$stmt = $con->prepare("DELETE * FROM USER_REVIEWS WHERE review_id=?");
+$stmt = $con->prepare("DELETE FROM USER_REVIEWS WHERE review_id=?");
 $stmt->bind_param("i", $review_id);
 $stmt->execute();
 
