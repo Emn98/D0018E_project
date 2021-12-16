@@ -14,6 +14,7 @@ $stmt->close();
 
 while($review = $review_result->fetch_assoc()){
     $review_id = $review['review_id'];
+    $review_user_id = $review['user_id'];
     $review_name = $review['review_name'];
     $review_score = $review['review_score'];
     $review_created_at = $review['created_at'];
