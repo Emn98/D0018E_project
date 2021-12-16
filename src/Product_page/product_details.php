@@ -26,7 +26,11 @@
         <nav>
           <ul class="nav_menu">
             <li><a href="/Accounts/site_director.php">My Page</a></li>
-            <li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>
+            <?php 
+            if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display shopping cart to admin
+              echo '<li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>';
+            }
+            ?>
           </ul>
         </nav>
       </header>
@@ -114,7 +118,7 @@
                 <label for='quantity' class='form_label'>Enter Quantity</label>
                   <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
                   <?php 
-                    if($_SESSION["user_id"]!=0){
+                    if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
                       echo "<button class='form_button'>Buy</button>";
                     }
                   ?>
