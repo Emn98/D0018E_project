@@ -45,7 +45,7 @@
         var category_id = id;
         var category_name = name;
         $('.category_id').attr("value",category_id);//Insert value in form on line 25.
-        $('.category_name').attr("value",categry_name);//Insert value in form on line 26.
+        $('.category_name').attr("value",category_name);//Insert value in form on line 26.
         $('.redirect').submit(); //Submit the form. 
        }
      </script>
