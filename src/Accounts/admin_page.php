@@ -38,13 +38,11 @@
           </div>
         </main>
 	    </div>
-      <?php
+      <script>
       function go_to_start(){
-        header("Location /index.php");
+        window.location.href = "/index.php";
         exit;
       }
-      
-      
-      ?>
+      </script>
     </body>
   </html>
