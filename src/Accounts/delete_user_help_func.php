@@ -75,4 +75,17 @@
 
     return;
   }   
+  function delete_user_comments($user_id){
+    $user_id = (int) $user_id;
+
+    //Connect to the database.
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
+    $query = $con->prepare("DELETE FROM USER_COMMENTS WHERE user_id=?");
+    $query->bind_param("i", $user_id);
+    $query->execute();
+    $query->close();
+
+    return;
+  }   
 ?>
