@@ -28,7 +28,7 @@
   <body>
     <div class="container">
       <header>
-        <h1>OFF<span>BRAND</span></h1>
+      <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
         <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
@@ -37,7 +37,6 @@
         </div>
         <nav>
           <ul class="nav_menu">
-            <li><a href="/index.php">Home</a></li>
             <li><a href="/Shopping/view_orders.php">Order history</a></li>
             <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
           </ul>
@@ -101,5 +100,11 @@
         </div>
       </main>
 	  </div>
+    <script>
+      function go_to_start(){
+        window.location.href = "/index.php";
+        exit;
+      }
+    </script>
   </body>
 </html>

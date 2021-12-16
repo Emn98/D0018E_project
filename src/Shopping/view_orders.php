@@ -47,11 +47,10 @@ if(isset($_POST["purchase_date"]) && $_POST["purchase_date"]!= ""){
     <body>
       <div class="container">
         <header>
-          <h1>OFF<span>BRAND</span></h1>
+        <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
           <nav>
             <ul class="nav_menu">
-              <li><a href="/index.php"><i class="fa fa-sign-out"></i>Home</a></li>
-              <li><a href="/Accounts/site_director.php">My Page</a></li>
+              <li><a href="/Accounts/site_director.php">Back</a></li>
             </ul>
           </nav>
         </header>
@@ -120,3 +119,9 @@ while ($row = $result->fetch_assoc()) {
   }
 
 ?>
+<script>
+  function go_to_start(){
+    window.location.href = "/index.php";
+    exit;
+  }
+</script>

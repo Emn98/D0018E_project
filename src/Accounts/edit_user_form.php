@@ -28,11 +28,10 @@
     <body>
     <div class="container">
       <header>
-        <h1>OFF<span>BRAND</span></h1>
+      <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
         <nav>
           <ul class="nav_menu">
-            <li><a href="/Accounts/user_page.php">Go Back</a></li>
-            <li><a href="log_out.php"><i class="fa fa-sign-out"></i> Log out</a></li>
+            <li><a href="/Accounts/user_page.php">Back</a></li>
           </ul>
         </nav>
       </header>
@@ -98,6 +97,12 @@
       </main>
 	</div>
   </body>
+  <script>
+    function go_to_start(){
+      window.location.href = "/index.php";
+      exit;
+    }
+    </script>
 </html>
 
 

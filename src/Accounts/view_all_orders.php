@@ -51,7 +51,7 @@
         <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
           <nav>
             <ul class="nav_menu">
-              <li><a href="/Accounts/site_director.php">My Page</a></li>
+              <li><a href="/Accounts/site_director.php">Back</a></li>
             </ul>
           </nav>
         </header>
