@@ -14,7 +14,7 @@ body {
 .container{
 display:grid;
 height:100vh;
-grid-template-columns: 0.5fr 2fr 0.5fr;
+grid-template-columns: 0.25fr 2fr 0.25fr;
 grid-template-rows: 0.2fr 8fr;
 grid-template-areas: "header header header"
  "left_side main right_side";
