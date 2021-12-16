@@ -45,8 +45,7 @@
     text-overflow: ellipsis;
   }
   
-  .card .h2{
-    text-align: left;
+  .card h2{
     width: 200px; 
     white-space: nowrap;
     overflow: hidden;
