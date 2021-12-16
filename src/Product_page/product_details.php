@@ -45,6 +45,8 @@
           $path .= "/database.php";
           include_once($path);
 
+          $user_id = $_SESSION['user_id'];
+
           $product_id = $_POST['product_id'];
 
           $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE product_id=?");
