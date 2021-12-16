@@ -12,13 +12,13 @@ require($path);
 
 $user_id = $_SESSION["user_id"];
 
-//Retrive all orders associated with the logged in user. 
-$query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
-$query->bind_param("i", $user_id);
-$query->execute();
-$result = $query->get_result();
-$query->fetch();
-$query->close();
+  //Retrive all orders associated with the logged in user. 
+  $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+  $query->bind_param("i", $user_id);
+  $query->execute();
+  $result = $query->get_result();
+  $query->fetch();
+  $query->close();
 
 
 ?>
@@ -43,6 +43,7 @@ $query->close();
           </nav>
         </header>
         <div class="user_container">
+          <div class="search_bar_container">
             <form class="view_order_details" method="POST" action="/Shopping/view_order_details.php">
               <input type=hidden class=script_id name=order_id value="">
             </form>
