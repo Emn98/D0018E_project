@@ -11,6 +11,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/Shopping/check_if_user_have_order.php";
 require($path);
 
+include("update_shopping_cart.php");
+
 if(!$cart_is_empty){
   $cart_id = $_SESSION["cart_id"];
   $user_id = $_SESSION["user_id"];
@@ -21,6 +23,7 @@ if(!$cart_is_empty){
 mysqli_begin_transaction($mysqli);
 
 try { 
+    update_shopping_cart_total();
 
     $query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query2->bind_param("i", $cart_id);
@@ -51,8 +54,37 @@ try {
         $stmt->execute();
         $stmt->close();
       }else{
+        $query = $con->prepare("SELECT COUNT(*) FROM ORDER_ITEMS WHERE order_id=?" );
+        $query->bind_param("i", $order_id);
+        $query->execute();
+        $query->bind_result($no_items_in_order);
+        $query->fetch();
+        $query->close();
+
+        if($no_items_in_order == 0){
+          $query = $con->prepare("DELETE FROM ORDERS WHERE order_id=?");
+          $query->bind_param("i", $order_id);
+          $query->execute();
+          $query->close();
+        }
         echo"Sorry item is not in stock";
         mysqli_rollback($mysqli);
+
+        ?>
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="stylesheet" href="/Css/shopping_cart_page.css">
+            <title>Offbrand.pwr</title>
+          </head>
+          <body>
+              <h2></h2>
+              <h3><a href="/index.php">Click here to return to the front page</a></h3>
+          </body>
+        </html>
+        <?php
         exit;
       }
     }
