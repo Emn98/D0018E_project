@@ -4,6 +4,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
+$user_id = $_SESSION["user_id"];
+
 $stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=?");
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
@@ -33,11 +35,8 @@ while($review = $review_result->fetch_assoc()){
       <p><?php echo $review_comment ?></p>
       <div>
         <?php
-        if($review_user_id == $user_id || $user_id == 0){
-          ?>
-          <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>
-          <?php
-        }
+        echo $user_id .  " and his friend" . $review_user_id;
+        
         ?>
         <div class="like_ratio_div">
           <button>up</button>
@@ -60,6 +59,7 @@ while($review = $review_result->fetch_assoc()){
 
     while($comment = $comment_result->fetch_assoc()){
       $comment_id = $comment['comment_id'];
+      $comment_user_id = $comment['user_id'];
       $comment_name = $comment['comment_name'];
       $comment_created_at = $comment['created_at'];
       $comment_comment = $comment['comment_comment'];
@@ -75,7 +75,7 @@ while($review = $review_result->fetch_assoc()){
         <p><?php echo $comment_comment ?></p>
         <div>
           <?php
-          if($review_user_id == $user_id || $user_id == 0){
+          if($comment_user_id == $user_id || $user_id == 0){
             ?>
             <button class="delete_button" value="Delete" onclick="delete_comment('<?php echo $comment_id ?>')">delete</button>
             <?php
