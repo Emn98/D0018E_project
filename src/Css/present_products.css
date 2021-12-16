@@ -49,7 +49,7 @@
 
 .product_details_image_div{
    grid-area: image;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
 }
 .product_details_image_div img{
@@ -58,29 +58,29 @@
 }
 .product_details_quantity_div{
    grid-area: quant;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    overflow:auto;
    background-color: white;
 
 }
 .product_details_price_div{
    grid-area: price;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
 }
 .best_customer_review_div{
    grid-area: b_rew;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
 }
 .customer_reviews_div{
    grid-area: revew;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
 }
 .product_details_details_div{
    grid-area: det;
-   border-style: solid;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
 }
 
