@@ -22,7 +22,8 @@
    <body>
      <div class="category_container">
      <form method="post" action="/Category/category.php" name="redirect" class="redirect">
-     <input type="hidden" class="post" name="category_id" value="">
+     <input type="hidden" class="category_id" name="category_id" value="">
+     <input type="hidden" class="category_name" name="category_name" value="">
          <table>
            <?php
               while ($row = $result->fetch_assoc()) {
@@ -31,7 +32,7 @@
                 
                 echo "<tr>";
            ?>
-                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="go_to_category('<?php echo $category_id ?>')"  class="category_btn"> </th>
+                  <th> <input type="button" value="<?php echo $category_name;?>" onclick="go_to_category('<?php echo $category_id ?>,<?php echo $category_name?>')"  class="category_btn"> </th>
            <?php
                 echo "</tr>";
               }
@@ -40,10 +41,12 @@
        </form> 
      </div>
      <script>
-       function go_to_category(id){
+       function go_to_category(id, name){
         var category_id = id;
-        $('.post').attr("value",category_id);//Insert the value of the category into the form on line 24. 
-       $('.redirect').submit(); //Submit the form. 
+        var category_name = name;
+        $('.category_id').attr("value",category_id);//Insert value in form on line 25.
+        $('.category_name').attr("value",categry_name);//Insert value in form on line 26.
+        $('.redirect').submit(); //Submit the form. 
        }
      </script>
   </body>

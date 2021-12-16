@@ -29,7 +29,7 @@
             if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display shopping cart to admin
               echo '<li><a href="/Shopping/shopping_cart.php">Shopping cart</a></li>';
             }
-          ?>
+            ?>
           </ul>
         </nav>
       </header>
@@ -42,6 +42,7 @@
             ?>
           </div>
           <div class="inner_right_side">
+          <h2 class="recently_added"><?php echo $_POST["category_name"]?></h2>
           <form class="view_product" method="POST" action="/Product_page/product_details.php">
             <input type="hidden" class="form_inp" value="" name="product_id">
           </form>
