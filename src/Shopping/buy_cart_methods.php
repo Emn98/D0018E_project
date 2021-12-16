@@ -30,6 +30,7 @@ function get_quantity_product_inventory($product_id, $color){
 }
 
 function update_product_inventory_quantity($new_quantity, $product_id, $color){
+    echo"test upodate";
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
     $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
