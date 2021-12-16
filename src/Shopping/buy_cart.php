@@ -18,7 +18,7 @@ if(!$cart_is_empty){
 
   
   try {  
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
     $con->beginTransaction();
 
@@ -77,10 +77,10 @@ if(!$cart_is_empty){
 
     $con->commit();
     
-} catch (Exception $e) {
-  $con->rollBack();
-  echo "Something went wrong: " . $e->getMessage();
-}
+  } catch (Exception $e) {
+    $con->rollBack();
+    echo "Something went wrong: " . $e->getMessage();
+  }
 
   ?>
   <!DOCTYPE html>
