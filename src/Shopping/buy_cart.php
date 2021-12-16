@@ -46,7 +46,8 @@ try {
       echo "$quantity";
 
       if($new_quantity >= 0){
-        update_product_inventory_quantity($product_id, $color);
+        echo"ooga booga";
+        update_product_inventory_quantity($new_quantity, $product_id, $color);
         echo"test";
       }else{
         $no_items_in_order = get_amount_of_order_items($order_id);
