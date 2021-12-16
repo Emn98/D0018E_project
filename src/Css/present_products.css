@@ -96,6 +96,7 @@
    'det det det det det revew';
    grid-gap: 10px;
    padding: 0px;
+   margin-top: 0.6rem;
 }
 
 .product_details_quantity_div table tr td{
