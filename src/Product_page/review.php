@@ -26,7 +26,7 @@ while($review = $review_result->fetch_assoc()){
       <header>
         <div>
         <label><?php echo $review_name ?></label>
-        <label><?php echo $review_score ?></label>
+        <label><?php echo "Score $review_score/5" ?></label>
         </div>
         <time datetime="<?php echo $review_created_at ?>"><?php echo $review_created_at ?></time>
       </header>
