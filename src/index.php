@@ -95,7 +95,7 @@
       function go_to_product(id){
         var product_id = id;
         $('.form_inp').attr("value",product_id);//Insert the value of the category into the form on line 24. 
-       $('.view_product').submit(); //Submit the form. 
+        $('.view_product').submit(); //Submit the form. 
        }
     </script>
   </body>
