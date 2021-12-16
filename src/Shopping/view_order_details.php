@@ -26,7 +26,13 @@ require($path);
       <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
       <nav>
         <ul class="nav_menu">
-          <li><a href="/Accounts/site_director.php">Back</a></li>
+          <?php
+            if($_SESSION["user_id"]==0){
+              echo '<li><a href="/Accounts/view_all_orders.php">Back</a></li>';
+            }else{
+              echo ' <li><a href="/Accounts/site_director.php">Back</a></li>';
+            } 
+          ?>
         </ul>
       </nav>
       </header>
