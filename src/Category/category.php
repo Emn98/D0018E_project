@@ -57,7 +57,7 @@
             if (mysqli_num_rows($result)==0) {
               echo ("No products matching this category");
             } else {
-              while ($row = $recently_added->fetch_assoc()) {
+              while ($row = $result->fetch_assoc()) {
                 $product_name = $row["product_name"];
                 $product_id = $row["product_id"];
                 $product_description = $row["product_description"];
