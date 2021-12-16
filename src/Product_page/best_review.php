@@ -4,6 +4,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
+$user_id = $_SESSION['user_id'];
+
 $stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=? ORDER BY (likes - dislikes) DESC LIMIT 1");
 $stmt->bind_param("i", $product_id);
 $stmt->execute();
@@ -33,7 +35,7 @@ while($review = $review_result->fetch_assoc()){
             <p><?php echo $review_comment ?></p>
             <div>
             <?php
-            if($review_user_id == $user_id || $user_id == 0){
+            if($user_id == $review_user_id || $user_id == 0){
             ?>
             <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>
             <?php
