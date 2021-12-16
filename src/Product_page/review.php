@@ -32,9 +32,11 @@ while($review = $review_result->fetch_assoc()){
       </header>
       <p><?php echo $review_comment ?></p>
       <div>
-        <?php 
+        <?php
         if($review_user_id == $user_id){
-          echo "<button class='delete_button'>delete</button>";
+          ?>
+          <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>";
+          <?php
         }
         ?>
         <div class="like_ratio_div">
@@ -57,6 +59,7 @@ while($review = $review_result->fetch_assoc()){
     $stmt->fetch();
 
     while($comment = $comment_result->fetch_assoc()){
+      $comment_id = $comment['comment_id'];
       $comment_name = $comment['comment_name'];
       $comment_created_at = $comment['created_at'];
       $comment_comment = $comment['comment_comment'];
@@ -73,7 +76,9 @@ while($review = $review_result->fetch_assoc()){
         <div>
           <?php
           if($review_user_id == $user_id){
-            echo "<button class='delete_button'>delete</button>";
+            ?>
+            <button class="delete_button" value="Delete" onclick="delete_comment('<?php echo $comment_id ?>')">delete</button>";
+            <?php
           }
           ?>
           <div class="like_ratio_div">
@@ -107,3 +112,38 @@ $stmt->close();
   <button class="add_review_button">Add review</button>
 </div>
 </form>
+
+<script>
+        function delete_review(id){
+          if (confirm("Would you like to delete review?")){
+            $.ajax({
+                type: "POST",
+                url:  "delete_review.php", // 
+                data: {review_id: id},                
+                success: function(){
+                  alert("Review deleted successfully!");
+                  location.reload();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+          }
+        }
+        function delete_comment(id){
+          if (confirm("Would you like to delete comment?")){
+            $.ajax({
+                type: "POST",
+                url:  "delete_comment.php", // 
+                data: {comment_id: id},                
+                success: function(){
+                  alert("Comment deleted successfully!");
+                  location.reload();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+          }
+        }
+</script>
