@@ -39,3 +39,7 @@ article{
     margin-left:5px;
     margin-right:5px;
 }
+.delete_button{
+    margin-top:0.1rem;
+    color:crimson;
+}
