@@ -36,7 +36,7 @@ require("check_admin.php");
         $stmt->bind_param("ssiiisi", $product_name, $product_description, $category, $price, $discount, $picture, $product_id);
         $stmt->execute();
         $stmt->close();
-
+        /*
         $sql = "UPDATE PRODUCT_INVENTORY
          SET color = 
          CASE ";
@@ -75,7 +75,7 @@ require("check_admin.php");
         } else {
           $con->query("ROLLBACK");
         }
-        
+       */ 
       ?>
       
 
