@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <header class="top_nav_bar">
-        <h1><a href="/index.php"> OFF<span>BRAND</span> </a></h1>
+        <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name">
           <button type="submit" class="search_btn">Search</button>
@@ -146,5 +146,11 @@
         </div>
       </main>
     </div>
+    <script>
+      function go_to_start(){
+      window.location.href = "/index.php";
+      exit;
+      }
+    </script>
   </body>
 </html>
