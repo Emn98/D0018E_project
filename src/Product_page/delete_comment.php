@@ -20,7 +20,7 @@
 
         $comment_id = $_POST['comment_id'];
 
-        $stmt = $con->prepare("DELETE * FROM USER_COMMENTS WHERE comment_id=?");
+        $stmt = $con->prepare("DELETE FROM USER_COMMENTS WHERE comment_id=?");
         $stmt->bind_param("i", $comment_id);
         $stmt->execute();
 
