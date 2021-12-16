@@ -12,11 +12,8 @@ require("check_admin.php");
 
     <title>Edit Product</title>  
   </head>
-  <body>
-      
+  <body>   
       <?php
-
-        print_r($_POST);
         
         $product_id = $_POST['product_id'];
         $product_name = $_POST['new_product_name'];
@@ -69,8 +66,6 @@ require("check_admin.php");
         }
           
         $sql .= ")";
-        echo "<br>";
-        echo $sql;
 
         $con->query("START TRANSACTION");
 
