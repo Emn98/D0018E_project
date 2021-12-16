@@ -43,10 +43,11 @@ try {
       }else{
         $no_items_in_order = get_amount_of_order_items($con, $order_id);
 
+        mysqli_rollback($con);
+
         if($no_items_in_order == 0){
           delete_from_orders($con, $order_id);
         }
-        mysqli_rollback($con);
 
         ?>
         <!DOCTYPE html>
