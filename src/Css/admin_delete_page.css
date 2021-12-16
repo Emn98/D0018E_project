@@ -6,9 +6,9 @@
 }
 
 body {
-    background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
-    font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
-    font-weight: 500; 
+  background: linear-gradient(to bottom right, #bea7aa 0%, #a8aebf 67%, #87a7bf 100%) fixed;
+  font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+  font-weight: lighter;
 }
 
 .container{
