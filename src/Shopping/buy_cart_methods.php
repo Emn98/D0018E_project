@@ -1,10 +1,11 @@
 <?php
     
 //Connect to database
-$con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+//$con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
 function get_product_info_cart_items(int $cart_id){
     $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     echo"test begin";
     $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query->bind_param("i", $cart_id);
@@ -17,6 +18,8 @@ function get_product_info_cart_items(int $cart_id){
 } 
 
 function get_quantity_product_inventory($product_id, $color){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $query2 = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=? and color=?" );
     $query2->bind_param("is", $product_id, $color);
     $query2->execute();
@@ -27,6 +30,8 @@ function get_quantity_product_inventory($product_id, $color){
 }
 
 function update_product_inventory_quantity($new_quantity, $product_id, $color){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
     $stmt->bind_param("iis", $new_quantity, $product_id, $color);
     $stmt->execute();
@@ -34,6 +39,8 @@ function update_product_inventory_quantity($new_quantity, $product_id, $color){
 }
 
 function get_amount_of_order_items($order_id){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $query = $con->prepare("SELECT COUNT(*) FROM ORDER_ITEMS WHERE order_id=?" );
     $query->bind_param("i", $order_id);
     $query->execute();
@@ -44,6 +51,8 @@ function get_amount_of_order_items($order_id){
 }
 
 function delete_from_orders($order_id){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $query = $con->prepare("DELETE FROM ORDERS WHERE order_id=?");
     $query->bind_param("i", $order_id);
     $query->execute();
@@ -51,6 +60,8 @@ function delete_from_orders($order_id){
 }
 
 function insert_into_order_items($order_id, $cart_id){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
     $query->bind_param("ii", $order_id, $cart_id);
     $query->execute();
@@ -58,6 +69,8 @@ function insert_into_order_items($order_id, $cart_id){
 }
 
 function delete_from_cart_items($cart_id){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+
     $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
     $query->bind_param("i", $cart_id);
     $query->execute();
@@ -65,6 +78,8 @@ function delete_from_cart_items($cart_id){
 }
 
 function delete_from_carts($cart_id){
+    $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
+    
     $query = $con->prepare("DELETE FROM CARTS WHERE cart_id=?");
     $query->bind_param("i", $cart_id);
     $query->execute();
