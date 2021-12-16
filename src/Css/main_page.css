@@ -138,3 +138,8 @@ opacity: 1;
 .inner_right_side{
   align-content: space-between;
 }
+
+.recently_added{
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+}

@@ -56,7 +56,7 @@
           ?>
         </div>
         <div class="inner_right_side" style="display: block;">
-          <h2>Recently Added</h2>
+          <h2 class="recently_added">Recently Added</h2>
           <div class="latest_products">
             <form class="view_product" method="POST" action="/Product_page/product_details.php">
               <input type="hidden" class="form_inp" value="" name="product_id">
