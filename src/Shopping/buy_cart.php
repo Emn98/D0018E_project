@@ -20,7 +20,7 @@ if(!$cart_is_empty){
 
   
   /* Start transaction */
-mysqli_begin_transaction($mysqli);
+mysqli_begin_transaction($con);
 
 try { 
     update_shopping_cart_total();
@@ -68,7 +68,7 @@ try {
           $query->close();
         }
         echo"Sorry item is not in stock";
-        mysqli_rollback($mysqli);
+        mysqli_rollback($con);
 
         ?>
         <!DOCTYPE html>
@@ -109,9 +109,9 @@ try {
     unset($_SESSION["order_id"]);//Reset order_id variable
 
     /* If code reaches this point without errors then commit the data in the database */
-    mysqli_commit($mysqli);
+    mysqli_commit($con);
 } catch (mysqli_sql_exception $exception) {
-    mysqli_rollback($mysqli);
+    mysqli_rollback($con);
     echo "Something went wrong";
     throw $exception;
 }
