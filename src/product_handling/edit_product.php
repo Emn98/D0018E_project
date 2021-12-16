@@ -30,13 +30,18 @@ require("check_admin.php");
         include($path);
 
         // UPDATE PRODUCTS -> UPDATE PRODUCT_INVENTORY -> done
-        $con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
+        $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=? WHERE product_id=?");
+        $stmt->bind_param("si", $product_name, $product_id);
+        $stmt->execute();
+        $stmt->close();
+        /*
         $stmt = $con->prepare("UPDATE PRODUCTS SET product_name=?, product_description=?, category_id=(SELECT category_id FROM CATEGORIES WHERE category_name=?), price=?,
          discount=?, picture=? WHERE product_id=?");
         $stmt->bind_param("ssiiisi", $product_name, $product_description, $category, $price, $discount, $picture, $product_id);
         $stmt->execute();
         $stmt->close();
+        */
         /*
         $sql = "UPDATE PRODUCT_INVENTORY
          SET color = 
