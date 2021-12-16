@@ -12,6 +12,7 @@ $path .= "/Shopping/check_if_user_have_order.php";
 require($path);
 
 include("update_shopping_cart.php");
+include("buy_cart_methods.php");
 
 if(!$cart_is_empty){
   $cart_id = $_SESSION["cart_id"];
@@ -25,12 +26,7 @@ mysqli_begin_transaction($con);
 try { 
     update_shopping_cart_total();
 
-    $query2 = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
-    $query2->bind_param("i", $cart_id);
-    $query2->execute();
-    $result = $query2->get_result();
-    $query2->fetch();
-    $query2->close();
+    get_product_info_cart_items($cart_id)
 
     //Fix result so if cart is empty dont add products
     while($row = $result->fetch_assoc()) {
@@ -39,33 +35,19 @@ try {
       $quantity = $row["quantity"];
       $color = $row["color"];
 
-      $query2 = $con->prepare("SELECT quantity FROM PRODUCT_INVENTORY WHERE product_id=? and color=?" );
-      $query2->bind_param("is", $product_id, $color);
-      $query2->execute();
-      $query2->bind_result($stock_quantity);
-      $query2->fetch();
-      $query2->close();
+      get_quantity_product_inventory($product_id, $color)
 
       $new_quantity = $stock_quantity - $quantity;
 
+      echo "$stock_quantity";
+
       if($new_quantity >= 0){
-        $stmt = $con->prepare("UPDATE PRODUCT_INVENTORY SET quantity=? WHERE product_id=? AND color=?");
-        $stmt->bind_param("iis", $new_quantity, $product_id, $color);
-        $stmt->execute();
-        $stmt->close();
+        update_product_inventory_quantity($product_id, $color)
       }else{
-        $query = $con->prepare("SELECT COUNT(*) FROM ORDER_ITEMS WHERE order_id=?" );
-        $query->bind_param("i", $order_id);
-        $query->execute();
-        $query->bind_result($no_items_in_order);
-        $query->fetch();
-        $query->close();
+        get_amount_of_order_items($order_id)
 
         if($no_items_in_order == 0){
-          $query = $con->prepare("DELETE FROM ORDERS WHERE order_id=?");
-          $query->bind_param("i", $order_id);
-          $query->execute();
-          $query->close();
+          delete_from_orders($order_id)
         }
         echo"Sorry item is not in stock";
         mysqli_rollback($con);
@@ -89,21 +71,11 @@ try {
       }
     }
 
-    $query = $con->prepare("INSERT INTO ORDER_ITEMS (order_id, product_id, quantity, color) SELECT ?, product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?");
-    $query->bind_param("ii", $order_id, $cart_id);
-    $query->execute();
-    $query->close();
+    insert_into_order_items($order_id, $cart_id)
 
+    delete_from_cart_items($cart_id)
 
-    $query = $con->prepare("DELETE FROM CART_ITEMS WHERE cart_id=?");
-    $query->bind_param("i", $cart_id);
-    $query->execute();
-    $query->close();
-
-    $query = $con->prepare("DELETE FROM CARTS WHERE cart_id=?");
-    $query->bind_param("i", $cart_id);
-    $query->execute();
-    $query->close();
+    delete_from_carts($cart_id)
 
     unset($_SESSION["cart_id"]);//Reset cart_id variable
     unset($_SESSION["order_id"]);//Reset order_id variable
