@@ -29,8 +29,9 @@
          
           delete_user_cart($user_id);//Delete the cart associated with the user.
           delete_user_orders($user_id);//Delete all orders associated with the user.
-          delete_user_reviews($user_id);//Delete all reviews associated with the user.
           delete_user_comments($user_id);//Delete all comments associated with the user.
+          delete_user_reviews($user_id);//Delete all reviews associated with the user.
+          
             
 
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
@@ -43,8 +44,9 @@
  
           delete_user_cart($user_id);//Delete the cart associated with the user.
           delete_user_orders($user_id);//Delete all orders associated with the user.
-          delete_user_reviews($user_id);//Delete all reviews associated with the user.
           delete_user_comments($user_id);//Delete all comments associated with the user.
+          delete_user_reviews($user_id);//Delete all reviews associated with the user.
+          
             
           $query = $con->prepare("DELETE FROM USERS WHERE user_id=?");
           $query->bind_param("i", $user_id);
