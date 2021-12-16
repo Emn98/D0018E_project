@@ -186,3 +186,10 @@ opacity: 1;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.card .h2{
+  width: 200px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
