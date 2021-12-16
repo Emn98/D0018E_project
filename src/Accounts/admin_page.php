@@ -15,7 +15,7 @@
     <body>
       <div class="container">
         <header>
-          <h1>OFF<span>BRAND</span></h1>
+          <h1 onclick=<href="/index.php"></href>>OFFBRAND</h1>
           <nav>
             <ul class="nav_menu">
               <li><a href="/index.php">Home</a></li>
