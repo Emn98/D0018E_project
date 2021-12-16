@@ -14,18 +14,17 @@ require($path);
 include("update_shopping_cart.php");
 include("buy_cart_methods.php");
 
+update_shopping_cart_total();
+
 if(!$cart_is_empty){
   $cart_id = $_SESSION["cart_id"];
   $user_id = $_SESSION["user_id"];
   $order_id = $_SESSION["order_id"];
-
   
   /* Start transaction */
 mysqli_begin_transaction($con);
 
 try { 
-    update_shopping_cart_total($con);
-
     $result = get_product_info_cart_items($con, $cart_id);
 
     //Fix result so if cart is empty dont add products
