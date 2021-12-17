@@ -45,6 +45,8 @@ if(!$cart_is_empty){
 
         mysqli_rollback($con);
 
+        delete_from_orders($con, $order_id);
+
         ?>
         <!DOCTYPE html>
         <html lang="en">
