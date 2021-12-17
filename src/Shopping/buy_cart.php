@@ -22,9 +22,9 @@ if(!$cart_is_empty){
   $order_id = $_SESSION["order_id"];
   
   /* Start transaction */
-mysqli_begin_transaction($con);
+  mysqli_begin_transaction($con);
 
-try { 
+  try { 
     $result = get_product_info_cart_items($con, $cart_id);
 
     //Fix result so if cart is empty dont add products
@@ -41,7 +41,7 @@ try {
       if($new_quantity >= 0){
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
       }else{
-        $no_items_in_order = get_amount_of_order_items($con, $order_id);
+        //$no_items_in_order = get_amount_of_order_items($con, $order_id);
 
         mysqli_rollback($con);
 
@@ -75,11 +75,11 @@ try {
 
     /* If code reaches this point without errors then commit the data in the database */
     mysqli_commit($con);
-} catch (mysqli_sql_exception $exception) {
+  } catch (mysqli_sql_exception $exception) {
     mysqli_rollback($con);
     echo "Something went wrong";
     throw $exception;
-}
+    }
 
   ?>
   <!DOCTYPE html>
