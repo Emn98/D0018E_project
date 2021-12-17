@@ -41,7 +41,6 @@ if(!$cart_is_empty){
       if($new_quantity >= 0){
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
       }else{
-        //$no_items_in_order = get_amount_of_order_items($con, $order_id);
 
         mysqli_rollback($con);
 
