@@ -18,7 +18,7 @@
 
         $input_email = $_POST["email"];
         $input_pwd = $_POST["password"];
-        $hashed_pwd = sha1($input_email.$input_pwd);
+        $hashed_pwd = sha1($input_pwd);
     
         $query = $con->prepare("SELECT user_id FROM USERS WHERE email_address=? and pwd=?");
         $query->bind_param("ss", $input_email, $hashed_pwd);

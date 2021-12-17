@@ -26,7 +26,7 @@
             <a href='/Accounts/edit_user_form.php'>try again</a>
           </div>
           <?php
-        }elseif($stored_pwd != sha1($email_address.$old_pwd)){//If the user entered the wrong old password.
+        }elseif($stored_pwd != sha1($old_pwd)){//If the user entered the wrong old password.
           ?>
           <div class='wrong_old_pwd_container'>
             <h1>The old password does not match the current saved password for this user.</h1>
@@ -40,7 +40,7 @@
           $path .= "/database.php";
           include_once($path);
 
-          $hased_new_pwd = sha1($email_address.$new_pwd_1);
+          $hased_new_pwd = sha1($new_pwd_1);
 
           $query = $con->prepare("UPDATE USERS SET pwd=? WHERE user_id=?");
           $query->bind_param("ss", $hased_new_pwd, $user_id);

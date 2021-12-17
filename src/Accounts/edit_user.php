@@ -38,15 +38,6 @@
           $stmt->execute();
           $con->close();
 
-          $hased_new_pwd = sha1($email_address.$_SESSION["user_pwd"]);
-
-          $query = $con->prepare("UPDATE USERS SET pwd=? WHERE user_id=?");
-          $query->bind_param("ss", $hased_new_pwd, $_SESSION["user_id"]) ;
-          $query->execute();
-          $query->close();
-
-          $_SESSION["user_pwd"] = $hased_new_pwd;
-
           echo "<div class='form'>";
           echo "<h3>The information have been successfully changed.</h3>";
           echo "<p class='link'>Click here to <a href='/Accounts/user_page.php'>continue</a>.</p>";
