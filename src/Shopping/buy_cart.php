@@ -47,6 +47,7 @@ try {
 
         if($no_items_in_order == 0){
           delete_from_orders($con, $order_id);
+          echo"how";
         }
 
         ?>
