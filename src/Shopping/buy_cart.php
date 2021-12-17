@@ -45,11 +45,6 @@ try {
 
         mysqli_rollback($con);
 
-        if($no_items_in_order == 0){
-          delete_from_orders($con, $order_id);
-          echo"how";
-        }
-
         ?>
         <!DOCTYPE html>
         <html lang="en">
