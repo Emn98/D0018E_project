@@ -41,7 +41,7 @@
           $hased_new_pwd = sha1($email_address.$_SESSION["user_pwd"]);
 
           $query = $con->prepare("UPDATE USERS SET pwd=? WHERE user_id=?");
-          $query->bind_param("ss", $hased_new_pwd, $user_id);
+          $query->bind_param("ss", $hased_new_pwd, $_SESSION["user_id"]) ;
           $query->execute();
           $query->close();
 
