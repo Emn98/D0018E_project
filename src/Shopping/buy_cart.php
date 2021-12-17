@@ -47,6 +47,8 @@ if(!$cart_is_empty){
 
         delete_from_orders($con, $order_id);
 
+        unset($_SESSION["order_id"]);//Reset order_id variable
+
         ?>
         <!DOCTYPE html>
         <html lang="en">
