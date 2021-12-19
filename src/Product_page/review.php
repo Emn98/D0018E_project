@@ -221,6 +221,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
         echo"this3";
         return TRUE;
       } else{
+        echo $link['user_linked'];
         echo"this4";
         return FALSE;
       }
