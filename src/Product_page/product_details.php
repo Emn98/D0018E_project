@@ -95,22 +95,9 @@
             ?>
           </div>
           <div class='product_details_price_div'>
-            <div class="input_details">
-              <div class="price_div">
-                <?php 
-                  if($discount==0){
-                    echo "<label class='product_details_price_label'>$price$</label>"; 
-                  }else{
-                    echo "<label><strike> $price$</strike></label>";
-                    echo "<br>"; 
-                    echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
-                    echo "<br>"; 
-                  }
-                
-                ?>
-              </div>
-              <div class='form_elements'>
-                <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
+            <div class="input_details">      
+              <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
+                <div class='form_elements'>
                   <label for='quantity' class='form_label'>Enter Quantity</label><br>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='99' required><br>
                   <label for='color_category' class='form_label'>Pick Color</label><br>
@@ -121,16 +108,28 @@
                   }
                   ?>
                   </select><br>
-                  <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
+                </div>
+                <div class="price_div">
                   <?php 
-                    if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
-                      echo "<button class='form_button'>Add to Shopping cart</button>";
+                    if($discount==0){
+                      echo "<label class='product_details_price_label'>$price$</label>"; 
+                    }else{
+                      echo "<label><strike> $price$</strike></label>";
+                      echo "<br>"; 
+                      echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
+                      echo "<br>"; 
                     }
                   ?>
-                  <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
-                  <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
-                </form>
-              </div>
+                </div>
+                <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
+                <?php 
+                  if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
+                    echo "<button class='form_button'>Add to Shopping cart</button>";
+                  }
+                ?>
+                <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
+                <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
+              </form>
             </div>
           </div>
           <div class='best_customer_review_div'>
