@@ -205,16 +205,20 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $path .= "/database.php";
     include($path);
 
+    echo"this";
+
     $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
     $stmt->bind_param("ii",$u_id, $r_id);
     $stmt->execute();
     $has_liked = $stmt->get_result();
     $stmt->fetch();
     $stmt->close();
-
+    
+    echo"this2";
     if($has_liked){
       $link = $has_liked->fetch_assoc();
       if(!$link['user_liked']){
+        echo"this3";
         return TRUE;
       } else{
         return FALSE;
