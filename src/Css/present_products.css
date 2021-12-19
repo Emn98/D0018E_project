@@ -157,6 +157,7 @@ button{
    grid-template-areas:
    'form price price'
    'form price price';
+   margin: 1.0rem;
    
 
 }
