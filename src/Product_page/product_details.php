@@ -112,9 +112,10 @@
                 <div class="price_div">
                   <?php 
                     if($discount==0){
-                      echo "<label class='product_details_price_label'>$price$</label>"; 
+                      echo "<label class='product_details_price_label'>$price$</label>";
+                      echo "<br>"; 
                     }else{
-                      echo "<label><strike> $price$</strike></label>";
+                      echo "<label class='product_details_price_label'><strike> $price$</strike></label>";
                       echo "<br>"; 
                       echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
                       echo "<br>"; 
