@@ -63,7 +63,7 @@
           ?>
         </div>
         <div class="inner_right_side">
-          <div class="recently_added_div style="display: block;">
+          <div class="recently_added_div" style="display: block;">
             <h2 class="title_header">Recently Added</h2>
             <div class="latest_products">
               <form class="view_product" method="POST" action="/Product_page/product_details.php">
