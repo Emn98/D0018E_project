@@ -184,7 +184,6 @@ if($user_id != 0){
                 url:  "add_dislike.php", // 
                 data: {user_id: u_id, review_id: r_id},                
                 success: function(){
-                  alert("dislike added successfully!");
                   location.reload();
                 },
                 error: function(){
