@@ -42,9 +42,21 @@ while($review = $review_result->fetch_assoc()){
         }
         ?>
         <div class="like_ratio_div">
-          <button><i class="fa fa-thumbs-up"></i></button>
+          <?php
+          if(!has_pressed_like_button($user_id, $review_id,1)){
+            echo "<button onclick='add_like($user_id, $review_id)'><i class='fa fa-thumbs-up'></i></button>";
+          } else{
+            echo "<button><i class='fa fa-thumbs-up'></i></button>";
+          }
+          ?>
           <label><?php echo $like_to_dislike_ratio ?></label>
-          <button><i class="fa fa-thumbs-down"></i></button>
+          <?php
+          if(!has_pressed_like_button($user_id, $review_id,0)){
+            echo "<button onclick='add_dislike($user_id, $review_id)'><i class='fa fa-thumbs-down'></i></button>";
+          } else{
+            echo "<button><i class='fa fa-thumbs-down'></i></button>";
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -152,4 +164,87 @@ if($user_id != 0){
             });
           }
         }
+
+        function add_like($u_id, $r_id){
+          $.ajax({
+                type: "POST",
+                url:  "add_like.php", // 
+                data: {user_id: u_id, review_id: r_id},                
+                success: function(){
+                  alert("like added successfully!");
+                  location.reload();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
+        function add_dislike($u_id, $r_id){
+          $.ajax({
+                type: "POST",
+                url:  "add_dislike.php", // 
+                data: {user_id: u_id, review_id: r_id},                
+                success: function(){
+                  alert("dislike added successfully!");
+                  location.reload();
+                },
+                error: function(){
+                    alert("failure");
+                }
+            });
+        }
 </script>
+
+<?php
+
+function has_pressed_like_button($u_id, $r_id, $decide){
+  if($decide == 1){
+    //user pressed like button
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/database.php";
+    include($path);
+
+    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
+    $stmt->bind_param("ii",$u_id, $r_id);
+    $stmt->execute();
+    $has_liked = $stmt->get_result();
+    $stmt->fetch();
+    $stmt->close();
+
+    if($has_liked){
+      $link = $has_liked->fetch_assoc();
+      if(!$link['user_liked']){
+        return TRUE;
+      } else{
+        return FALSE;
+      }
+    } else{
+      return TRUE;
+    }
+  } else{
+    //user pressed dislike button
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/database.php";
+    include($path);
+
+    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
+    $stmt->bind_param("ii",$u_id, $r_id);
+    $stmt->execute();
+    $has_liked = $stmt->get_result();
+    $stmt->fetch();
+    $stmt->close();
+
+    if($has_liked){
+      $link = $has_liked->fetch_assoc();
+      if(!$link['user_disliked']){
+        return TRUE;
+      } else{
+        return FALSE;
+      }
+    } else{
+        return TRUE;
+      }
+  }
+}
