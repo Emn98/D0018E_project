@@ -51,7 +51,6 @@ $query->close();
 </div>
 <div class="highest_rating_div">
     <h2 class="title_header">Highest rating</h2>
-    <h2 class="title_header">Recently Added</h2>
     <div class="latest_products">  
         <?php 
         while ($row = $highest_rated->fetch_assoc()) {
