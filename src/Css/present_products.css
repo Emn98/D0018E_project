@@ -163,8 +163,8 @@ button{
 .input_details form{
    display: grid;
    grid-template-areas:
-   'form button'
-   'form price';
+   'form price'
+   'form button';
    margin: 1.0rem;
    
 
