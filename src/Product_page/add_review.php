@@ -61,7 +61,8 @@ if($count == 0){
   echo "this2";
 
 }
-//
+/*
 header("Location: /index.php");
 exit;
+*/
 ?>
