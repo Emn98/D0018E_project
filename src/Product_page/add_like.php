@@ -28,8 +28,12 @@
         $stmt->bind_result($result);
         $stmt->fetch();
         $stmt->close();
-        /*
+        
         if($result > 0){
+            ?><script>
+                alert("here");
+            </script>
+            <?php
             $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_liked=? WHERE user_id=? AND review_id=?");
             $stmt->bind_param("iii", 1, $user_id, $review_id);
             $stmt->execute();
