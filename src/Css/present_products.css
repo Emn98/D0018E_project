@@ -104,16 +104,23 @@
    width:80%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.product_details_quantity_div table tr {
+.product_details_quantity_div table thead tr {
    background-color: #009879;
    color: #ffffff;
    text-align: left;
 }
-
-
 .product_details_quantity_div table th,
 .product_details_quantity_div table td {
     padding: 6px 10px;
+}
+.product_details_quantity_div table tbody tr {
+   border-bottom: 1px solid #dddddd;
+}
+.product_details_quantity_div table tbody tr:nth-of-type(even) {
+   background-color: #f3f3f3;
+}
+.product_details_quantity_div table tbody tr:last-of-type {
+   border-bottom: 2px solid #009879;
 }
 
 button{
