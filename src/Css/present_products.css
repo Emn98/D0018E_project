@@ -160,7 +160,7 @@ button{
    justify-content: center;
    align-items: center;
 }
-.price_div label{
+.price_div h2{
    font-family: ElkjopHeadline-Regular,sans-serif;
    font-weight: 400;
 }
