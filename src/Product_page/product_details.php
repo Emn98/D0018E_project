@@ -102,14 +102,16 @@
                 }else{
                   echo "<label>Price:<strike> $price$</strike></label>";
                   echo "<br>"; 
-                  echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>"; 
+                  echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
+                  echo "<br>"; 
                 }
               
               ?>
 
               <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
                 <div class='form_elements'>
-                  <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='99' required>
+                  <label for='quantity' class='form_label'>Enter Quantity</label>
+                  <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='99' required><br>
                   <select name="product_color" id="color_category">
                   <?php
                   foreach ($color_arr as $value) {
@@ -117,13 +119,12 @@
                   }
                   ?>
                   </select>
-                  <label for='quantity' class='form_label'>Enter Quantity</label>
-                    <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
-                    <?php 
-                      if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
-                        echo "<button class='form_button'>Add to Shopping Cart</button>";
-                      }
-                    ?>
+                  <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
+                  <?php 
+                    if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
+                      echo "<button class='form_button'>Add to Shopping cart</button>";
+                    }
+                  ?>
                 </div>
                 <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
                 <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
