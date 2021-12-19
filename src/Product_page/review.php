@@ -43,7 +43,7 @@ while($review = $review_result->fetch_assoc()){
         ?>
         <div class="like_ratio_div">
           <?php
-          if(!has_pressed_like_button($user_id, $review_id,1)){
+          if(has_pressed_like_button($user_id, $review_id,1)){
             echo "<button onclick='add_like($user_id, $review_id)'><i class='fa fa-thumbs-up'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-up'></i></button>";
@@ -51,7 +51,7 @@ while($review = $review_result->fetch_assoc()){
           ?>
           <label><?php echo $like_to_dislike_ratio ?></label>
           <?php
-          if(!has_pressed_like_button($user_id, $review_id,0)){
+          if(has_pressed_like_button($user_id, $review_id,0)){
             echo "<button onclick='add_dislike($user_id, $review_id)'><i class='fa fa-thumbs-down'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-down'></i></button>";
@@ -213,23 +213,19 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $r = $stmt->get_result();
     $stmt->fetch();
     $stmt->close();
-    
-    $has_liked = $r->fetch_assoc();
-    echo"this2";
-    echo $has_liked['user_liked'];
-    if($has_liked['user_liked']){
-      if($has_liked['user_liked']){
+
+    if(mysqli_num_rows($r)==0) {
+        return TRUE;
+    } else{
+      
+      $like_row = $r->fetch_assoc();
+
+      if($like_row['user_liked']){
         echo"this3";
         return TRUE;
-      } else{
-        echo $has_liked['user_liked'];
-        echo"this4";
-        return FALSE;
       }
-    } else{
-      echo "this5";
-      return TRUE;
     }
+
   } else{
     //user pressed dislike button
 
