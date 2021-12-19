@@ -43,7 +43,7 @@ while($review = $review_result->fetch_assoc()){
         ?>
         <div class="like_ratio_div">
           <?php
-          if(!has_pressed_like_button($user_id, $review_id,1)){
+          if(has_pressed_like_button($user_id, $review_id,1)){
             echo "<button onclick='add_like($user_id, $review_id)'><i class='fa fa-thumbs-up'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-up'></i></button>";
