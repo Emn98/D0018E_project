@@ -215,7 +215,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $stmt->close();
 
     if(mysqli_num_rows($r)==0) {
-        return TRUE;
+        return FALSE;
     } else{
       
       $like_row = $r->fetch_assoc();
