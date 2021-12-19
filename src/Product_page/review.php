@@ -223,6 +223,8 @@ function has_pressed_like_button($u_id, $r_id, $decide){
       if($like_row['user_liked']){
         echo"this3";
         return TRUE;
+      } else{
+        return FALSE;
       }
     }
 
