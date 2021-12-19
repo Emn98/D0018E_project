@@ -42,9 +42,9 @@ while($review = $review_result->fetch_assoc()){
         }
         ?>
         <div class="like_ratio_div">
-          <button>up</button>
+          <button><i class="fa fa-thumbs-up"></i></button>
           <label><?php echo $like_to_dislike_ratio ?></label>
-          <button>down</button>
+          <button><i class="fa fa-thumbs-down"></i></button>
         </div>
       </div>
     </div>
@@ -85,9 +85,9 @@ while($review = $review_result->fetch_assoc()){
           }
           ?>
           <div class="like_ratio_div">
-            <button><i class="fas fa-thumbs-up"></i></button>
+            <button><i class="fa fa-thumbs-up"></i></button>
             <label><?php echo $comment_like_to_dislike_ratio ?></label>
-            <button><i class="fas fa-thumbs-up"></i></button>
+            <button><i class="fa fa-thumbs-down"></i></button>
           </div>
         </div>
       </article>
