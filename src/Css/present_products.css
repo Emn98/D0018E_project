@@ -160,6 +160,10 @@ button{
    justify-content: center;
    align-items: center;
 }
+.price_div label{
+   font-family: ElkjopHeadline-Regular,sans-serif;
+   font-weight: 400;
+}
 
 .input_details form{
    display: grid;
@@ -186,8 +190,4 @@ button{
    display: inline-block;
    font-size: 16px;
    margin-top:10px;
- }
- .input_details h2{
-   font-family: ElkjopHeadline-Regular,sans-serif;
-   font-weight: 400;
  }
