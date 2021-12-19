@@ -99,8 +99,8 @@
    margin-top: 0.6rem;
 }
 .product_details_quantity_div table{
-   border-style:collapse;
-   margin:0.3rem;
+   border-collapse: collapse;
+   margin: 0.3rem;
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
