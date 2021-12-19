@@ -119,7 +119,7 @@
                     echo "<option value='$value'>$value</option>";
                   }
                   ?>
-                  </select>
+                  </select><br>
                   <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
                   <?php 
                     if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
