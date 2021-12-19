@@ -15,7 +15,7 @@ $query->close();
 ?>
 
 
-<div class="recently_added_div" style="display: block;">
+<div class="recently_added_div">
     <h2 class="title_header">Recently Added</h2>
     <div class="latest_products">
         <form class="view_product" method="POST" action="/Product_page/product_details.php">
@@ -49,7 +49,7 @@ $query->close();
         ?>
     </div>
 </div>
-<div class="highest_rating_div" style="display: block;">
+<div class="highest_rating_div">
     <h2 class="title_header">Highest rating</h2>
     <div class="latest_products">
         <form class="view_product" method="POST" action="/Product_page/product_details.php">
