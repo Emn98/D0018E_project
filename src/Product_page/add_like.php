@@ -21,6 +21,8 @@
         $user_id = $_POST['user_id'];
         $review_id = $_POST['review_id'];
         $result = 0;
+        $zero = 0;
+        $one = 1;
         
         $stmt = $con->prepare("SELECT COUNT(*) FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
         $stmt->bind_param("ii", $user_id, $review_id);
@@ -36,12 +38,12 @@
             $stmt->close();
             
         } else{
-            /*
-            $stmt = $con->prepare("INSERT INTO `USER_LIKES_REVIEW`(`user_id`, `review_id`, `user_disliked`, `user_liked`) VALUES (?,?,?,?)");
-            $stmt->bind_param("iiii", $user_id, $review_id, 0, 1);
+            
+            $stmt = $con->prepare("INSERT INTO USER_LIKES_REVIEW (user_id, review_id, user_disliked, user_liked) VALUES(?,?,?,?)");
+            $stmt->bind_param("iiii", $user_id, $review_id, $zero, $one);
             $stmt->execute();
             $stmt->close();
-            */
+            
         }
         
         $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+1) WHERE review_id=?");
