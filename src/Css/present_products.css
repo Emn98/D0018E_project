@@ -186,3 +186,7 @@ button{
    font-size: 16px;
    margin-top:10px;
  }
+ .input_details h2{
+   font-family: ElkjopHeadline-Regular,sans-serif;
+   font-weight: 400;
+ }
