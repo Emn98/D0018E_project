@@ -105,7 +105,7 @@
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .product_details_quantity_div table thead tr {
-   background-color: #009879;
+   background-color: #6ED1F5;
    color: #ffffff;
    text-align: left;
 }
@@ -120,7 +120,7 @@
    background-color: #f3f3f3;
 }
 .product_details_quantity_div table tbody tr:last-of-type {
-   border-bottom: 2px solid #009879;
+   border-bottom: 2px solid #6ED1F5;
 }
 
 button{
