@@ -21,7 +21,7 @@
         <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
-          <button type="submit"><i class="fa fa-search"></i>Search</button>
+          <button type="submit"><i class="fa fa-search"></i></button>
         </form>
      </div>
         <nav>
