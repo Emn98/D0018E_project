@@ -179,7 +179,7 @@ if($user_id != 0){
                 }
             });
         }
-        function add_dislike($u_id, $r_id){
+        function add_dislike(u_id, r_id){
           $.ajax({
                 type: "POST",
                 url:  "add_dislike.php", // 
