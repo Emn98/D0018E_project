@@ -146,6 +146,9 @@ button{
 .form_elements{
    grid-area: form;
 }
+.form_elements label{
+   margin:0.3rem;
+}
 .price_div{
    grid-area: price;
 
