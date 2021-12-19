@@ -216,12 +216,12 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     
     $has_liked = $r->fetch_assoc();
     echo"this2";
-    if($has_liked){
+    if($has_liked['user_liked']){
       if($has_liked['user_liked']){
         echo"this3";
         return TRUE;
       } else{
-        echo $link['user_linked'];
+        echo $link['user_liked'];
         echo"this4";
         return FALSE;
       }
