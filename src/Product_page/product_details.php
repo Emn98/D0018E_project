@@ -86,12 +86,12 @@
             $color_arr = array();
 
             echo "<table>".
-                  "<tr><td>Available Colors</td><td>Available Quantity</td></tr>"; 
+                  "<thead><tr><td>Available Colors</td><td>Available Quantity</td></tr></thead><tbody>"; 
             while($row_inventory = $result_inventory->fetch_assoc()){
               echo "<tr><td>" . $row_inventory['color'] . "</td><td>" . $row_inventory['quantity'] . "</td></tr>";
               array_push($color_arr,$row_inventory['color']);
             }
-            echo "</table>";
+            echo "</tbody></table>";
             ?>
           </div>
           <div class='product_details_price_div'>
