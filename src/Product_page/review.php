@@ -225,6 +225,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
         return FALSE;
       }
     } else{
+      echo "this5";
       return TRUE;
     }
   } else{
