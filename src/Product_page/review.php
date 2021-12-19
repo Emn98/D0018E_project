@@ -43,7 +43,7 @@ while($review = $review_result->fetch_assoc()){
         ?>
         <div class="like_ratio_div">
           <?php
-          if(has_pressed_like_button($user_id, $review_id,1)){
+          if(!has_pressed_like_button($user_id, $review_id,1)){
             echo "<button onclick='add_like($user_id, $review_id)'><i class='fa fa-thumbs-up'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-up'></i></button>";
@@ -51,7 +51,7 @@ while($review = $review_result->fetch_assoc()){
           ?>
           <label><?php echo $like_to_dislike_ratio ?></label>
           <?php
-          if(has_pressed_like_button($user_id, $review_id,0)){
+          if(!has_pressed_like_button($user_id, $review_id,0)){
             echo "<button onclick='add_dislike($user_id, $review_id)'><i class='fa fa-thumbs-down'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-down'></i></button>";
@@ -217,7 +217,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     echo"this2";
     if($has_liked){
       $link = $has_liked->fetch_assoc();
-      if(!$link['user_liked']){
+      if($link['user_liked']){
         echo"this3";
         return TRUE;
       } else{
@@ -242,7 +242,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
 
     if($has_liked){
       $link = $has_liked->fetch_assoc();
-      if(!$link['user_disliked']){
+      if($link['user_disliked']){
         return TRUE;
       } else{
         return FALSE;
