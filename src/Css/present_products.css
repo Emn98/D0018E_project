@@ -98,16 +98,10 @@
    padding: 0px;
    margin-top: 0.6rem;
 }
-
-.product_details_quantity_div table tr td{
-   border-style:solid;
-}
-
-.product_details_quantity_div td{
-   padding:5px;
-}
 .product_details_quantity_div table{
-   border-radius:5px;
+   border-style:collapse;
+   margin:0.3rem;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 button{
