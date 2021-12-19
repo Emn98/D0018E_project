@@ -210,10 +210,11 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
     $stmt->bind_param("ii",$u_id, $r_id);
     $stmt->execute();
-    $has_liked = $stmt->get_result();
+    $r = $stmt->get_result();
     $stmt->fetch();
     $stmt->close();
     
+    $has_liked = $r->fetch_assoc();
     echo"this2";
     if($has_liked){
       $link = $has_liked->fetch_assoc();
