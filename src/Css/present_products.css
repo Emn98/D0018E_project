@@ -149,6 +149,7 @@ button{
 }
 .price_div{
    grid-area: price;
+   width:100%;
 }
 
 .input_details{
