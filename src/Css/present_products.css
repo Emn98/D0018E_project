@@ -145,11 +145,9 @@ button{
 
 .form_elements{
    grid-area: form;
-   width:50%;
 }
 .price_div{
    grid-area: price;
-   width:100%;
 
    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
    display: -ms-flexbox;  /* TWEENER - IE 10 */
