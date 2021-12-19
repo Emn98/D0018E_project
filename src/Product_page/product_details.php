@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/Css/present_products.css">
     <link rel="stylesheet" href="/Css/category.css">
     <link rel="stylesheet" href="/Css/review.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jstmt/3.5.1/jstmt.min.js" type="text/javascript"></script>
     <title>Offbrand.pwr</title>
   </head>
