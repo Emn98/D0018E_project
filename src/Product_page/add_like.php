@@ -20,13 +20,14 @@
 
         $user_id = $_POST['user_id'];
         $review_id = $_POST['review_id'];
-        /*
+        $result = 0;
+        
         $stmt = $con->prepare("SELECT COUNT(*) FROM USER_LIKES_REVIEW WHERE user_id = ? AND review_id=?");
         $stmt->bind_param("ii", $user_id, $review_id);
         $stmt->bind_result($result);
         $stmt->execute();
         $stmt->close();
-        */
+        
         if($result > 0){
             $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_liked=? WHERE user_id = ? AND review_id=?");
             $stmt->bind_param("iii", 1, $user_id, $review_id);
