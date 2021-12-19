@@ -41,6 +41,7 @@ $stmt->fetch();
 $stmt->close();
 
 if($count == 0){
+  echo"this0";
   $stmt = $con->prepare("INSERT INTO USER_REVIEWS (user_id, product_id, review_name, review_score, review_comment, dislikes, likes, created_at) VALUES
   (?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
   $stmt->bind_param("iisisii", $user_id, $product_id, $review_name, $review_score, $review_comment, $dislikes, $likes);
@@ -51,6 +52,7 @@ if($count == 0){
   $stmt->bind_param("i", $product_id);
   $stmt->execute();
   $stmt->bind_result($average_score);
+  $stmt->fetch();
   $stmt->close();
 
   echo "this:";
