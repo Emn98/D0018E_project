@@ -51,7 +51,7 @@ while($review = $review_result->fetch_assoc()){
           ?>
           <label><?php echo $like_to_dislike_ratio ?></label>
           <?php
-          if(!has_pressed_like_button($user_id, $review_id,0)){
+          if(has_pressed_like_button($user_id, $review_id,0)){
             echo "<button onclick='add_dislike($user_id, $review_id)'><i class='fa fa-thumbs-down'></i></button>";
           } else{
             echo "<button><i class='fa fa-thumbs-down'></i></button>";
