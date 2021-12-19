@@ -53,12 +53,13 @@ if($count == 0){
   $stmt->bind_result($average_score);
   $stmt->close();
 
-  echo "this";  
+  echo "this:";
+  echo $average_score;  
   $stmt = $con->prepare("UPDATE PRODUCTS SET average_score=? WHERE product_id=?");
   $stmt->bind_param("di", $average_score, $product_id);
   $stmt->execute();
   $stmt->close();
-  echo "this2";
+  echo "this2:";
 
 }
 /*
