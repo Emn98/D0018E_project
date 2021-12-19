@@ -63,18 +63,26 @@
    background-color: white;
 
    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -ms-flexbox;  /* TWEENER - IE 10 */
-  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+   display: -ms-flexbox;  /* TWEENER - IE 10 */
+   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   
-  justify-content: center;
-  align-items: center;
+   justify-content: center;
+   align-items: center;
 
 }
 .product_details_price_div{
    grid-area: price;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    background-color: white;
+
+   display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+   display: -ms-flexbox;  /* TWEENER - IE 10 */
+   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+   justify-content: center;
+   align-items: center;
 }
 .best_customer_review_div{
    grid-area: b_rew;
@@ -133,4 +141,10 @@
 
 button{
    cursor: pointer;
+}
+
+.input_details{
+   margin: 1.0rem;
+   width:80%;
+
 }
