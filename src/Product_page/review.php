@@ -221,6 +221,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
         echo"this3";
         return TRUE;
       } else{
+        echo"this4";
         return FALSE;
       }
     } else{
@@ -245,6 +246,7 @@ function has_pressed_like_button($u_id, $r_id, $decide){
       if($link['user_disliked']){
         return TRUE;
       } else{
+        
         return FALSE;
       }
     } else{
