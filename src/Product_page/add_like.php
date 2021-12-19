@@ -38,13 +38,13 @@
             $stmt->execute();
             $stmt->close();
         }
-        /*
-        $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = likes+1 WHERE user_id = ? AND review_id=?");
+        
+        $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+1) WHERE review_id=?");
         $stmt->bind_param("ii",$user_id, $review_id);
         $stmt->execute();
         $stmt->close();
 
-        */
+        
         ?>
         <div class="form">
         <h3>Comment deleted successfully</h3>
