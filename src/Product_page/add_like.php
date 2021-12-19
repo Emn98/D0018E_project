@@ -24,8 +24,9 @@
         
         $stmt = $con->prepare("SELECT COUNT(*) FROM USER_LIKES_REVIEW WHERE user_id = ? AND review_id=?");
         $stmt->bind_param("ii", $user_id, $review_id);
-        $stmt->bind_result($result);
         $stmt->execute();
+        $stmt->bind_result($result);
+        $stmt->fetch();
         $stmt->close();
         /*
         if($result > 0){
