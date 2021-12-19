@@ -165,7 +165,7 @@ if($user_id != 0){
           }
         }
 
-        function add_like($u_id, $r_id){
+        function add_like(u_id, r_id){
           $.ajax({
                 type: "POST",
                 url:  "add_like.php", // 
