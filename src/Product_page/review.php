@@ -85,7 +85,7 @@ while($review = $review_result->fetch_assoc()){
           }
           ?>
           <div class="like_ratio_div">
-            <button>up</button>
+            <button><i class="fas fa-thumbs-up"></i></button>
             <label><?php echo $comment_like_to_dislike_ratio ?></label>
             <button><i class="fas fa-thumbs-up"></i></button>
           </div>
