@@ -112,11 +112,11 @@
                 <div class="price_div">
                   <?php 
                     if($discount==0){
-                      echo "<label class='product_details_price_label'>$price$</label>";
+                      echo "<h2 class='product_details_price_label'>$price$</h2>";
                     }else{
-                      echo "<label class='product_details_price_label'><strike> $price$</strike></label>";
-                      echo "<label>"; 
-                      echo "<label class='product_details_price_label' style='color:red';>$discount$ </label>";
+                      echo "<h2 class='product_details_price_label'><strike> $price$</strike></h2>";
+                      echo "<br>"; 
+                      echo "<h2 class='product_details_price_label' style='color:red';>$discount$ </h2>";
                     }
                   ?>
                   </div>
