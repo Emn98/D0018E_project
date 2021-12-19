@@ -157,8 +157,11 @@ button{
    grid-template-areas:
    'form price price'
    'form price price';
+   
+
+}
+.input_details{
    margin: 1.0rem;
    width:80%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
 }
