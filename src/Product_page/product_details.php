@@ -96,20 +96,21 @@
           </div>
           <div class='product_details_price_div'>
             <div class="input_details">
-              <?php 
-                if($discount==0){
-                  echo "<label class='product_details_price_label'>Current Price: $price </label>"; 
-                }else{
-                  echo "<label>Price:<strike> $price$</strike></label>";
-                  echo "<br>"; 
-                  echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
-                  echo "<br>"; 
-                }
-              
-              ?>
-
-              <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
-                <div class='form_elements'>
+              <div class="price_div">
+                <?php 
+                  if($discount==0){
+                    echo "<label class='product_details_price_label'>$price$</label>"; 
+                  }else{
+                    echo "<label><strike> $price$</strike></label>";
+                    echo "<br>"; 
+                    echo "<label class='product_details_price_label' style='color:red';>Current price: $discount$ </label>";
+                    echo "<br>"; 
+                  }
+                
+                ?>
+              </div>
+              <div class='form_elements'>
+                <form class='buy_button' method='POST' action='/Shopping/add_to_cart.php'>
                   <label for='quantity' class='form_label'>Enter Quantity</label><br>
                   <input type='number' id='quantity' name='quantity' class='purschase_input' placeholder='Quantity' min='0' max='99' required><br>
                   <label for='color_category' class='form_label'>Pick Color</label><br>
@@ -126,10 +127,10 @@
                       echo "<button class='form_button'>Add to Shopping cart</button>";
                     }
                   ?>
-                </div>
-                <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
-                <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
-              </form>
+                  <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
+                  <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
+                </form>
+              </div>
             </div>
           </div>
           <div class='best_customer_review_div'>
