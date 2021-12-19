@@ -205,8 +205,6 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $path .= "/database.php";
     include($path);
 
-    echo"this";
-
     $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
     $stmt->bind_param("ii",$u_id, $r_id);
     $stmt->execute();
@@ -221,7 +219,6 @@ function has_pressed_like_button($u_id, $r_id, $decide){
       $like_row = $r->fetch_assoc();
 
       if($like_row['user_liked']){
-        echo"this3";
         return TRUE;
       } else{
         return FALSE;
@@ -238,20 +235,21 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
     $stmt->bind_param("ii",$u_id, $r_id);
     $stmt->execute();
-    $has_liked = $stmt->get_result();
+    $r = $stmt->get_result();
     $stmt->fetch();
     $stmt->close();
 
-    if($has_liked){
-      $link = $has_liked->fetch_assoc();
-      if($link['user_disliked']){
+    if(mysqli_num_rows($r)==0) {
+        return FALSE;
+    } else{
+      
+      $like_row = $r->fetch_assoc();
+
+      if($like_row['user_disliked']){
         return TRUE;
       } else{
-        
         return FALSE;
       }
-    } else{
-        return TRUE;
-      }
+    }
   }
 }
