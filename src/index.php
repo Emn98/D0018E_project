@@ -8,7 +8,7 @@
   include_once($path);
 
   //Retrive info from the 4 latest added product
-  $query = $con->prepare("SELECT product_id, product_name, product_description, price, discount, picture FROM PRODUCTS ORDER BY product_id DESC LIMIT 20");
+  $query = $con->prepare("SELECT * FROM PRODUCTS ORDER BY product_id DESC LIMIT 20");
   $query->execute();
   $recently_added = $query->get_result();
   $query->fetch();
