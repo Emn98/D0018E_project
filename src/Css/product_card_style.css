@@ -1,4 +1,5 @@
 .card {
+    grid-area:card;
     margin-top: 0.6rem;
     float: left;
     margin-left: 0.5rem;
