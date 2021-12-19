@@ -99,11 +99,15 @@
    margin-top: 0.6rem;
 }
 .product_details_quantity_div table{
-   display:flex;
    border-collapse: collapse;
    margin: 1.5rem;
    width:80%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.product_details_quantity_div table th,
+.product_details_quantity_div table td {
+    padding: 12px 15px;
 }
 
 button{
