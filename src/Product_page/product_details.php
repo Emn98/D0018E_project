@@ -121,14 +121,14 @@
                       echo "<br>"; 
                     }
                   ?>
-                
+                  </div>
                   <input type='hidden' id='product_id' name='product_id' class='register_input' value='<?php echo $product_id ?>'>
                   <?php 
                     if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] != 0){//Don't display buy button to admin
                       echo "<button class='form_button'>Add to Shopping cart</button>";
                     }
                   ?>
-                </div>
+                
                 <input type='hidden' name='product_id' value ='<?php echo $product_id ?>'>
                 <input type='hidden' name='product_quantity' value ='<?php echo $product_quantity ?>'>
               </form>
