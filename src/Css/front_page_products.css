@@ -2,3 +2,17 @@
     display: grid;
     grid-template-columns: repeat(6,1fr);
 }
+.recently_added_div{
+    grid-area: recently_added;
+}
+.highest_rating_div{
+    grid-area: higest_rating;
+}
+
+.inner_right_side{
+    display:grid;
+    grid-template-areas: 
+    'recently_added'
+    'higest_rating';
+}
+
