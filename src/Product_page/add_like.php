@@ -39,12 +39,12 @@
             $stmt->execute();
             $stmt->close();
         }
-        /*
+        
         $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+1) WHERE review_id=?");
         $stmt->bind_param("i", $review_id);
         $stmt->execute();
         $stmt->close();
-        */
+        
         
         ?>
         <div class="form">
