@@ -152,7 +152,7 @@ button{
    width:100%;
 }
 
-.input_details{
+.input_details form{
    display: grid;
    grid-template-areas:
    'form price price'
