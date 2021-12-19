@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/Css/main_page.css">
     <link rel="stylesheet" href="/Css/product_card_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/javascript.js"></script>
     <title>Offbrand.pwr</title>
   </head>
   <body>
@@ -19,7 +19,7 @@
       <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
-          <button type="submit"><i class="fa fa-search"></i>Search</button>
+          <button type="submit"><i class="fa fa-search"></i></button>
         </form>
      </div>
         <nav>
