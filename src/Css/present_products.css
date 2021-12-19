@@ -159,6 +159,7 @@ button{
   
    justify-content: center;
    align-items: center;
+   flex-direction: column;
 }
 .price_div h2{
    font-family: ElkjopHeadline-Regular,sans-serif;
