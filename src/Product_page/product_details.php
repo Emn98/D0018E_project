@@ -107,7 +107,7 @@
                     echo "<option value='$value'>$value</option>";
                   }
                   ?>
-                  </select><br>
+                  </select>
                 </div>
                 <div class="price_div">
                   <?php 
