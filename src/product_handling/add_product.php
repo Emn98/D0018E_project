@@ -44,7 +44,7 @@ require("check_admin.php");
           $query->close();
 
           //Insert the new product into the database
-          $query= $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, discount, picture) VALUES (?, ?, ?, ?, ?, ?)");
+          $query= $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, discount, picture) VALUES (?, ?, ?, ?, ?, ?,5.0)");
           $query-> bind_param("ssiiis", $product_name, $product_description, $category_id, $price, $discount, $picture);
           $query->execute();
           $query->close();

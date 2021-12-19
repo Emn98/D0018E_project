@@ -46,6 +46,18 @@ if($count == 0){
   $stmt->bind_param("iisisii", $user_id, $product_id, $review_name, $review_score, $review_comment, $dislikes, $likes);
   $stmt->execute();
   $stmt->close();
+  
+  $stmt = $con->prepare("SELECT AVG(review_score) FROM USER_REVIEWS WHERE product_id=?");
+  $stmt->bind_param("i", $product_id);
+  $stmt->execute();
+  $stmt->bind_result($average_score);
+  $stmt->close();
+
+  $stmt = $con->prepare("UPDATE PRODUCTS SET average_score=? WHERE product_id=?");
+  $stmt->bind_param("di", $average_score, $product_id);
+  $stmt->execute();
+  $stmt->close();
+  
 
 }
 header("Location: /index.php");
