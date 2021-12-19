@@ -30,21 +30,30 @@
         $stmt->close();
         
         if($result > 0){
-            ?><script>
-                alert("here");
-            </script>
-            <?php
+            
+            $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+1) WHERE review_id=?");
+            $stmt->bind_param("i", $review_id);
+            $stmt->execute();
+            $stmt->close();
+            /*
             $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_liked=? WHERE user_id=? AND review_id=?");
             $stmt->bind_param("iii", 1, $user_id, $review_id);
             $stmt->execute();
-            $stmt->close(); 
+            $stmt->close();
+            */ 
         } else{
+            $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+2) WHERE review_id=?");
+            $stmt->bind_param("i", $review_id);
+            $stmt->execute();
+            $stmt->close();
+            /*
             $stmt = $con->prepare("INSERT INTO USER_LIKES_REVIEW (user_id, review_id, user_disliked, user_liked) VALUES (?,?,?,?)");
             $stmt->bind_param("iiii", $user_id, $review_id, 0, 1);
             $stmt->execute();
             $stmt->close();
+            */
         }
-        */
+        
         $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes+1) WHERE review_id=?");
         $stmt->bind_param("i", $review_id);
         $stmt->execute();
