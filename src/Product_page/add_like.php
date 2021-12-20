@@ -36,7 +36,7 @@
           $row = $r->fetch_assoc();
 
           $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=?, user_liked=? WHERE user_id=? AND review_id=?");
-          $stmt->bind_param("iii", $zero, $one, $user_id, $review_id);
+          $stmt->bind_param("iiii", $zero, $one, $user_id, $review_id);
           $stmt->execute();
           $stmt->close();
           
