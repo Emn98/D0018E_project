@@ -42,17 +42,14 @@ while($review = $review_result->fetch_assoc()){
                 }
                 ?>
                 <div class="like_ratio_div">
-                    <?php
-                        $path = $_SERVER['DOCUMENT_ROOT'];
-                        $path .= "/Product_page/review_like_logic.php";
-                        include($path);
-                        
-                    ?>
+                    <button><i class="fa fa-thumbs-up"></i></button>
+                    <label><?php echo $like_to_dislike_ratio ?></label>
+                    <button><i class="fa fa-thumbs-down"></i></button>
                 </div>
             </div>
         </div>
     </article>
-    <?php
+  <?php
 }
 $stmt->close();
 ?>
