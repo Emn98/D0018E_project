@@ -20,6 +20,7 @@
 
         $user_id = $_POST['user_id'];
         $review_id = $_POST['review_id'];
+        $type= $_POST['type'];
         $result = 0;
         $zero = 0;
         $one = 1;
@@ -31,38 +32,55 @@
         $stmt->fetch();
         $stmt->close();
         
-        if(mysqli_num_rows($r)>0) {
+        //check if its add or remove dislike ($type)
+        if($type==1){
+          if(mysqli_num_rows($r)>0) {
 
-            $row = $r->fetch_assoc();
+              $row = $r->fetch_assoc();
 
-            $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=?, user_liked=? WHERE user_id=? AND review_id=?");
-            $stmt->bind_param("iiii", $one, $zero, $user_id, $review_id);
-            $stmt->execute();
-            $stmt->close();
-
-            if($row['user_liked']){
-              $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes-1) WHERE review_id=?");
-              $stmt->bind_param("i", $review_id);
-              $stmt->execute(
-
-              );
+              //set dislike=1, like=0
+              $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=?, user_liked=? WHERE user_id=? AND review_id=?");
+              $stmt->bind_param("iiii", $one, $zero, $user_id, $review_id);
+              $stmt->execute();
               $stmt->close();
-              }
-            
+
+              //remove like if review had already been liked
+              if($row['user_liked']){
+                $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes-1) WHERE review_id=?");
+                $stmt->bind_param("i", $review_id);
+                $stmt->execute(
+
+                );
+                $stmt->close();
+                }
+              
+          } else{
+              //add a link between user and review for dislikes if there is non already  
+              $stmt = $con->prepare("INSERT INTO USER_LIKES_REVIEW (user_id, review_id, user_disliked, user_liked) VALUES(?,?,?,?)");
+              $stmt->bind_param("iiii", $user_id, $review_id, $one, $zero);
+              $stmt->execute();
+              $stmt->close();
+              
+          }
+          // add dislike to review
+          $stmt = $con->prepare("UPDATE USER_REVIEWS SET dislikes = (dislikes+1) WHERE review_id=?");
+          $stmt->bind_param("i", $review_id);
+          $stmt->execute();
+          $stmt->close();
         } else{
-            
-            $stmt = $con->prepare("INSERT INTO USER_LIKES_REVIEW (user_id, review_id, user_disliked, user_liked) VALUES(?,?,?,?)");
-            $stmt->bind_param("iiii", $user_id, $review_id, $one, $zero);
-            $stmt->execute();
-            $stmt->close();
-            
+
+          //set dislike=0, like=0
+          $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=?, user_liked=? WHERE user_id=? AND review_id=?");
+          $stmt->bind_param("iiii", $zero, $zero, $user_id, $review_id);
+          $stmt->execute();
+          $stmt->close();
+
+          //remove dislike from review
+          $stmt = $con->prepare("UPDATE USER_REVIEWS SET dislikes = (dislikes-1) WHERE review_id=?");
+          $stmt->bind_param("i", $review_id);
+          $stmt->execute();
+          $stmt->close();
         }
-        
-        $stmt = $con->prepare("UPDATE USER_REVIEWS SET dislikes = (dislikes+1) WHERE review_id=?");
-        $stmt->bind_param("i", $review_id);
-        $stmt->execute();
-        $stmt->close();
-        
         
         ?>
         <div class="form">
