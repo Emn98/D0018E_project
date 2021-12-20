@@ -44,7 +44,7 @@ while($review = $review_result->fetch_assoc()){
         <div class="like_ratio_div">
           <?php
             $path = $_SERVER['DOCUMENT_ROOT'];
-            $path .= "/Product_page/like_review.php";
+            $path .= "/Product_page/review_like_logic.php";
             include($path);
           ?>
         </div>
