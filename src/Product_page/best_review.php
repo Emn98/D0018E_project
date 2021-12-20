@@ -36,9 +36,9 @@ while($review = $review_result->fetch_assoc()){
             <div>
                 <?php
                 if($user_id == $review_user_id && isset($user_id) || $user_id == 0 && isset($user_id)){
-                ?>
-                <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>
-                <?php
+                    ?>
+                    <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">delete</button>
+                    <?php
                 }
                 ?>
                 <div class="like_ratio_div">
@@ -46,12 +46,13 @@ while($review = $review_result->fetch_assoc()){
                         $path = $_SERVER['DOCUMENT_ROOT'];
                         $path .= "/Product_page/review_like_logic.php";
                         include($path);
+                        
                     ?>
                 </div>
             </div>
         </div>
     </article>
-  <?php
+    <?php
 }
 $stmt->close();
 ?>
