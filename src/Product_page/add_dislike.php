@@ -27,15 +27,25 @@
         $stmt = $con->prepare("SELECT COUNT(*) FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
         $stmt->bind_param("ii", $user_id, $review_id);
         $stmt->execute();
-        $stmt->bind_result($result);
+        $r = $stmt->get_result();
         $stmt->fetch();
         $stmt->close();
         
-        if($result > 0){
-            $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=? WHERE user_id=? AND review_id=?");
-            $stmt->bind_param("iii", $one, $user_id, $review_id);
+        if(mysqli_num_rows($r)>0) {
+
+            $row = $r->fetch_assoc();
+
+            $stmt = $con->prepare("UPDATE USER_LIKES_REVIEW SET user_disliked=?, user_liked=? WHERE user_id=? AND review_id=?");
+            $stmt->bind_param("iii", $one, $zero, $user_id, $review_id);
             $stmt->execute();
             $stmt->close();
+
+            if($row['user_liked']){
+              $stmt = $con->prepare("UPDATE USER_REVIEWS SET likes = (likes-1) WHERE review_id=?");
+              $stmt->bind_param("i", $review_id);
+              $stmt->execute();
+              $stmt->close();
+              }
             
         } else{
             
