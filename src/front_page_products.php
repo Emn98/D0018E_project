@@ -1,6 +1,7 @@
 <?php
-
-$query = $con->prepare("SELECT * FROM PRODUCTS ORDER BY product_id DESC LIMIT 20");
+$not_deleted=0;
+$query = $con->prepare("SELECT * FROM PRODUCTS AND CATEGORIES ORDER BY product_id DESC LIMIT 20 AND WHERE is_deleted=?");
+$query->bind_param("i",$not_deleted);
 $query->execute();
 $recently_added = $query->get_result();
 $query->fetch();
