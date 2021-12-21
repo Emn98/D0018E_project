@@ -4,7 +4,7 @@
 //$con = mysqli_connect("localhost","phpmyadmin","Offbrand123$","website");
 
 function get_product_info_cart_items($con, $cart_id){
-    $query = $con->prepare("SELECT product_id, quantity, color, total_price FROM CART_ITEMS WHERE cart_id=?" );
+    $query = $con->prepare("SELECT product_id, quantity, color FROM CART_ITEMS WHERE cart_id=?" );
     $query->bind_param("i", $cart_id);
     $query->execute();
     $result = $query->get_result();
