@@ -9,7 +9,7 @@ if(isset($_POST["remove"])){
   $category_name = $_POST["category_to_delete"];
   
   $query = $con->prepare("UPDATE CATEGORIES SET is_deleted=? WHERE category_name=?");
-  $query -> bind_param("is",1, $category_name);
+  $query -> bind_param("is","1", $category_name);
   $query -> execute();
   $query->close();
 
