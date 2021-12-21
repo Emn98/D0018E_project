@@ -74,7 +74,7 @@ $query->close();
                     }else{
                         echo '<i class="fa fa-star"></i>';
                     }
-                    $average_score =- 1;
+                    $average_score -= 1;
                 }
                ?>   
               </div> 
