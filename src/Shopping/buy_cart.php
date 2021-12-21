@@ -88,6 +88,10 @@ if(!$cart_is_empty){
       echo"$order_id";
       echo"      ";
       echo"$product_id";
+      echo"      ";
+      echo"$price";
+      echo"      ";
+      echo"$discount";
 
       if($discount == 0){
           $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
