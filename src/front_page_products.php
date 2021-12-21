@@ -72,7 +72,7 @@ $query->close();
                     }elseif($average_score >= 0.5 && $average_score < 1){
                         echo '<i class="fa fa-star-half-o" style="color:orange;"></i>';
                     }else{
-                        echo '<i class="fa fa-star" style="color:white;"></i>';
+                        echo '<i class="fa fa-star" style="color:white;border:1px solid black;"></i>';
                     }
                     $average_score -= 1;
                 }
