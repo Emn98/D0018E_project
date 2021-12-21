@@ -40,6 +40,4 @@ if(isset($_POST["reinstate"]) && $_POST["category_to_reinstate"]!=""){
 
 header("Location: handle_categories_form.php");
 exit;  
-
-
 ?>

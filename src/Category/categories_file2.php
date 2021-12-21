@@ -6,7 +6,7 @@
 
   $inp = 0;
 
-  $query = $con->prepare("SELECT category_id, category_name FROM CATEGORIES WHERE category_id>=?");
+  $query = $con->prepare("SELECT category_id, category_name, is_deleted FROM CATEGORIES WHERE category_id>=?");
   $query->bind_param("i", $inp);
   $query->execute();
   $result = $query->get_result();
@@ -27,6 +27,10 @@
          <table>
            <?php
               while ($row = $result->fetch_assoc()) {
+                $is_deleted = $row["is_deleted"];
+                if($is_deleted == 1){
+                  continue;
+                }
                 $category_id = $row["category_id"];
                 $category_name = $row["category_name"];
                 
