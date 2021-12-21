@@ -50,4 +50,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }  
+  } 
+  
+  .show_score{
+    float: left;
+  }
