@@ -21,7 +21,7 @@
     <header class="top_nav_bar">
       <h1>OFFBRAND</h1>
       <div class="search_bar_container">
-        <form class="search_bar_form" method="POST" action="/search.php">
+        <form class="search_bar_form" method="POST" action="/search.php" autocomplete="OFF">
           <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>

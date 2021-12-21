@@ -6,7 +6,7 @@ $recently_added = $query->get_result();
 $query->fetch();
 $query->close();
 
-$query = $con->prepare("SELECT * FROM PRODUCTS ORDER BY average_score DESC LIMIT 20");
+$query = $con->prepare("SELECT * FROM PRODUCTS  WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) ORDER BY average_score DESC LIMIT 20");
 $query->execute();
 $highest_rated = $query->get_result();
 $query->fetch();
