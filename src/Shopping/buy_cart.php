@@ -72,7 +72,28 @@ if(!$cart_is_empty){
 
     insert_into_order_items($con, $order_id, $cart_id);
 
-    update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id);
+    $get_product_id = update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id);
+    while($row = $get_product_id->fetch_assoc()) {
+
+      $product_id = $row["product_id"];
+
+      $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
+      $query->bind_param("ii", $price, $discount);
+      $query->execute();
+      $query->close();
+
+      if($discount == 0){
+          $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
+          $stmt->bind_param("iis", $price, $order_id, $product_id);
+          $stmt->execute();
+          $stmt->close();
+      }else{
+          $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
+          $stmt->bind_param("iis", $discount, $order_id, $product_id);
+          $stmt->execute();
+          $stmt->close();
+      }
+  }
 
     delete_from_cart_items($con, $cart_id);
 
