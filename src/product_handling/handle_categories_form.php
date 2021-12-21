@@ -43,6 +43,18 @@ $result = $stmt->get_result();
           ?>    
         </select>
       </form>    
-    </div>    
+    </div>
+    <?php
+    while($row = $result->fetch_assoc()){
+      $category_name = $row['category_name'];
+      $is_deleted    = $row['is_deleted'];
+      
+      if($is_deleted==0){
+          not_deleted($category_name);
+      }else{
+          deleted($category_name);
+      }
+    }  
+    ?>    
   </body>    
 </html>
