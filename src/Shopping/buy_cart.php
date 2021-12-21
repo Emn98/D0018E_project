@@ -33,6 +33,7 @@ if(!$cart_is_empty){
       $product_id = $row["product_id"];
       $quantity = $row["quantity"];
       $color = $row["color"];
+      $total_price = $row["total_price"];
 
       $stock_quantity = get_quantity_product_inventory($con, $product_id, $color);
 
@@ -40,6 +41,8 @@ if(!$cart_is_empty){
 
       if($new_quantity >= 0){
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
+
+        insert_purchase_price_into_CART_ITEMS($con, $product_id);
       }else{
 
         mysqli_rollback($con);
@@ -68,6 +71,8 @@ if(!$cart_is_empty){
     }
 
     insert_into_order_items($con, $order_id, $cart_id);
+
+    update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id)
 
     delete_from_cart_items($con, $cart_id);
 
