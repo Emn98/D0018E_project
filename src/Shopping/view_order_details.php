@@ -56,7 +56,7 @@ require($path);
 
 $order_id = $_POST['order_id'];
 
-$query = $con->prepare("SELECT product_id, quantity, color FROM ORDER_ITEMS WHERE order_id=?");
+$query = $con->prepare("SELECT product_id, quantity, color, purchase_price FROM ORDER_ITEMS WHERE order_id=?");
 $query->bind_param("i", $order_id);
 $query->execute();
 $order_result = $query->get_result();
@@ -68,10 +68,11 @@ while ($row = $order_result->fetch_assoc()) {
     $product_id = $row["product_id"];
     $quantity = $row["quantity"];
     $color = $row["color"];
-    $query2 = $con->prepare("SELECT product_name, price, discount, picture FROM PRODUCTS WHERE product_id=?");
+    $purchase_price = $row["purchase_price"];
+    $query2 = $con->prepare("SELECT product_name, picture FROM PRODUCTS WHERE product_id=?");
     $query2->bind_param("i", $product_id);
     $query2->execute();
-    $query2->bind_result($product_name, $price, $discount, $picture);
+    $query2->bind_result($product_name, $picture);
     $query2->fetch();
     $query2->close();
     if($temp == 1){
@@ -84,13 +85,8 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
-        if($discount==0){
-            $total_price = $price * $quantity;
-            echo "<td>$price</td>"; 
-        }else{
-            $total_price = $discount * $quantity;
-            echo "<td>$discount</td>"; 
-        }
+        echo "<td>$purchase_price</td>";
+        $total_price = $purchase_price * $quantity;
         echo "<td>$total_price</td>";
         echo "<td>";
         echo "</td>";
@@ -106,14 +102,8 @@ while ($row = $order_result->fetch_assoc()) {
         echo "<td>$product_name</td>";
         echo "<td>$color</td>";
         echo "<td>$quantity</td>";
-        if($discount==0){
-            $total_price = $price * $quantity;
-            echo "<td>$price</td>"; 
-        }else{
-            $total_price = $discount * $quantity;
-            echo "<td>$discount</td>"; 
-        }
-        $total_price = $price * $quantity;
+        echo "<td>$purchase_price</td>";
+        $total_price = $purchase_price * $quantity;
         echo "<td>$total_price</td>";
         echo "<td>";
         echo "</td>";
