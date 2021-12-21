@@ -29,6 +29,7 @@
             <h2>Admin Menu</h2>
             <ul class="admin_menu">
               <li><a href='/product_handling/add_category_form.php'>Add Category</a></li>
+              <li><a href='/product_handling/handle_categories_form.php'>Remove/Reinstate Category</a></li>
               <li><a href='/product_handling/add_product_form.php'>Add Product</a></li>
               <li><a href='/product_handling/edit_product_form.php'>Edit Product</a></li>
               <li><a href='/product_handling/remove_product_form.php'>Remove Product</a></li>
