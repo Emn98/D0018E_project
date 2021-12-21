@@ -85,6 +85,10 @@ if(!$cart_is_empty){
       $query->execute();
       $query->close();
 
+      echo"$order_id";
+      echo"      ";
+      echo"$product_id";
+
       if($discount == 0){
           $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
           $stmt->bind_param("iii", $price, $order_id, $product_id);
