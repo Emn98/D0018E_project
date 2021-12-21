@@ -81,8 +81,10 @@ if(!$cart_is_empty){
       $product_id = $row["product_id"];
 
       $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
-      $query->bind_param("ii", $price, $discount);
+      $query->bind_param("i", $product_id);
       $query->execute();
+      $query->bind_result($price, $discount);
+      $query->fetch();
       $query->close();
 
       echo"$order_id";
