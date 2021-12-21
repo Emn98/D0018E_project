@@ -1,6 +1,6 @@
 <?php
 
-$query = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) ORDER BY product_id LIMIT 20");
+$query = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) ORDER BY product_id DESC LIMIT 20");
 $query->execute();
 $recently_added = $query->get_result();
 $query->fetch();
