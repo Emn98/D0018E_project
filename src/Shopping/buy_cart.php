@@ -84,12 +84,12 @@ if(!$cart_is_empty){
 
       if($discount == 0){
           $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
-          $stmt->bind_param("iis", $price, $order_id, $product_id);
+          $stmt->bind_param("iii", $price, $order_id, $product_id);
           $stmt->execute();
           $stmt->close();
       }else{
           $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
-          $stmt->bind_param("iis", $discount, $order_id, $product_id);
+          $stmt->bind_param("iii", $discount, $order_id, $product_id);
           $stmt->execute();
           $stmt->close();
       }
