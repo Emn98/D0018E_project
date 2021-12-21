@@ -54,6 +54,20 @@ function insert_into_order_items($con, $order_id, $cart_id){
     $query->close();
 }
 
+function update_total_price_into_ORDER($con, $cart_id, $order_id){
+    $query = $con->prepare("SELECT total_price FROM CARTS WHERE cart_id=?" );
+    $query->bind_param("i", $cart_id);
+    $query->execute();
+    $query->bind_result($total_price);
+    $query->fetch();
+    $query->close();
+
+    $stmt = $con->prepare("UPDATE ORDERS SET total_price=? WHERE order_id=?");
+    $stmt->bind_param("i", $total_price, $order_id);
+    $stmt->execute();
+    $stmt->close();
+}
+
 function update_purchase_price_into_ORDER_ITEMS($con, $cart_id){
     $query = $con->prepare("SELECT product_id FROM CART_ITEMS WHERE cart_id=?" );
     $query->bind_param("i", $cart_id);
