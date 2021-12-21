@@ -62,6 +62,8 @@ function update_total_price_into_ORDER($con, $cart_id, $order_id){
     $query->fetch();
     $query->close();
 
+    echo"$total_price";
+
     $stmt = $con->prepare("UPDATE ORDERS SET total_price=? WHERE order_id=?");
     $stmt->bind_param("i", $total_price, $order_id);
     $stmt->execute();
