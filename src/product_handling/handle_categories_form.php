@@ -16,7 +16,7 @@ $deleted_categories=array();
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Css/add_category_style.css">
+    <link rel="stylesheet" href="/Css/handle_category_style.css">
     <title>Edit category - Offbrand.pwr</title>
   </head>
   <body>
@@ -42,7 +42,7 @@ $deleted_categories=array();
       <br>
       <form class="category_handle" method="POST" action="handle_categories.php">
         <h2>Reinstate deleted category</h2>
-        <label for="category_to_reinstate">Choose categort to reinstate</label>
+        <label for="category_to_reinstate">Choose category to reinstate</label>
         <select name="category_to_reinstate">Reinstate category
           <?php
           foreach ($deleted_categories as $value) {
