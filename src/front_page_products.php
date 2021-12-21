@@ -63,8 +63,10 @@ $query->close();
         $average_score=$row["average_score"];
         ?>
         <div class="card">
-            <p class="show_score">Score:<?php echo $average_score;?>/5</p>
-            <img src="<?php echo $img; ?>" width="170" height="200">
+            <div class="img_cont">
+              <p class="show_score">Score:<?php echo $average_score;?>/5</p>
+              <img src="<?php echo $img; ?>" width="170" height="200">
+            </div>
             <h2><?php echo $product_name; ?></h2>
             <p class="description"><?php echo $product_description; ?></p>
             <?php 
