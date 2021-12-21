@@ -72,7 +72,7 @@ if(!$cart_is_empty){
 
     insert_into_order_items($con, $order_id, $cart_id);
 
-    update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id)
+    update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id);
 
     delete_from_cart_items($con, $cart_id);
 
