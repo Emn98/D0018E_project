@@ -35,6 +35,7 @@ $result2 = $stmt->get_result();
           }
           ?>    
         </select>
+        <button type="submit" class="submit_btn">Submit</button>
       </form>
       <br>
       <form class="category_handle" method="POST" action="handle_categories.php">
@@ -51,6 +52,10 @@ $result2 = $stmt->get_result();
           }
           ?>    
         </select>
+        <button type="submit" class="submit_btn">Submit</button>
+      </form>
+      <form class="go_back_form" method="" action="/Accounts/admin_page.php">
+        <button class="back_btn" type="submit">Go Back</button>    
       </form>    
     </div>
   </body>    
