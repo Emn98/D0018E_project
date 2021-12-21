@@ -56,4 +56,8 @@
     position: relative;
   }
   
+  .stars{
+    float: left;
+    margin-left: 0.1rem;
+  }
 
