@@ -71,7 +71,7 @@ if(!$cart_is_empty){
     }
 
     insert_into_order_items($con, $order_id, $cart_id);
-
+    echo "test thirde";
     $get_product_id = update_purchase_price_into_ORDER_ITEMS($con, $cart_id);
     echo "test first";
     while($row = $get_product_id->fetch_assoc()) {
