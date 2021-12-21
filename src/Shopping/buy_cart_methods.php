@@ -61,7 +61,6 @@ function update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id){
     $result = $query->get_result();
     $query->fetch();
     $query->close();
-    $result;
 
     while($row = $result->fetch_assoc()) {
 
