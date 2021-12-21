@@ -58,6 +58,10 @@ select{
   cursor: pointer;
 }
 
+option{
+    cursor: pointer;
+}
+
 .submit_btn{
   float: right;
   margin-top: 15px;
