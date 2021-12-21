@@ -44,7 +44,7 @@ $deleted_categories=array();
       <form class="category_handle" method="POST" action="handle_categories.php">
         <h2>Reinstate deleted category</h2>
         <label for="category_to_reinstate">Choose category to reinstate</label>
-        <select name="category_to_reinstate">Reinstate category
+        <select name="category_to_reinstate" require>Reinstate category
           <?php
           foreach ($deleted_categories as $value) {
             echo "<option value='$value'>$value</option>";
