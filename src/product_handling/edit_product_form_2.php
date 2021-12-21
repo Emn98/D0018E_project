@@ -44,14 +44,16 @@ require("check_admin.php");
             include($path);
 
             $stmt = $con->prepare("SELECT * FROM CATEGORIES");
-            
             $stmt->execute();
-
             $result = $stmt->get_result();
 
             while($row = $result->fetch_assoc()){
-            $category_name = $row['category_name'];
-            echo "<option value='$category_name'>$category_name</option>";
+              $is_deleted = $row["is_deleted"];
+              if($is_deleted==1){
+                continue;
+              }  
+              $category_name = $row['category_name'];
+              echo "<option value='$category_name'>$category_name</option>";
             }
             $con->close();
             ?>
