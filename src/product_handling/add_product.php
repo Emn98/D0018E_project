@@ -14,6 +14,7 @@ require("check_admin.php");
         $product_name = $_POST['product_name'];
         $product_description = $_POST['product_description'];
         $category = $_POST['category'];
+        $default_average_score = 5;
         $quantity = $_POST['quantity'];
         $price = $_POST['price'];
         $color = $_POST['color'];
@@ -45,7 +46,7 @@ require("check_admin.php");
 
           //Insert the new product into the database
           $query= $con->prepare("INSERT INTO PRODUCTS (product_name, product_description, category_id, price, discount, picture) VALUES (?, ?, ?, ?, ?, ?,5.0)");
-          $query-> bind_param("ssiiis", $product_name, $product_description, $category_id, $price, $discount, $picture);
+          $query-> bind_param("ssiiisi", $product_name, $product_description, $category_id, $price, $discount, $picture, $default_average_score);
           $query->execute();
           $query->close();
 
