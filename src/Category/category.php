@@ -18,7 +18,7 @@
       <h1 onclick="go_to_start()" style='cursor: pointer;'>OFFBRAND</h1>
       <div class="search_bar_container">
         <form class="search_bar_form" method="POST" action="/search.php">
-          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search...">
+          <input class="search_bar_inp" type="text" name="product_name" placeholder="Search..." autocomplete="OFF">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
      </div>
