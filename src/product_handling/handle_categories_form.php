@@ -10,7 +10,7 @@ include($path);
 $stmt = $con->prepare("SELECT * FROM CATEGORIES");
 $stmt->execute();
 $result = $stmt->get_result();
-$result2 = $stmt->get_result();
+$deleted_categories=array();
 ?>
 <!DOCTYPE html5>
 <html>
@@ -30,7 +30,9 @@ $result2 = $stmt->get_result();
             $category_name = $row['category_name'];
             $is_deleted    = $row['is_deleted'];    
             if($is_deleted==0){
-            echo "<option value='$category_name'>$category_name</option>";
+              echo "<option value='$category_name'>$category_name</option>";
+            }else{
+              array_push($deleted_categories,$category_name);
             }  
           }
           ?>    
@@ -43,12 +45,8 @@ $result2 = $stmt->get_result();
         <label for="category_to_reinstate">Choose categort to reinstate</label>
         <select name="category_to_reinstate">Reinstate category
           <?php
-          while($row = $result2->fetch_assoc()){
-            $category_name = $row['category_name'];
-            $is_deleted    = $row['is_deleted'];    
-            if($is_deleted==1){
-              echo "<option value='$category_name'>$category_name</option>";
-            }  
+          foreach ($deleted_categories as $value) {
+            echo "<option value='$value'>$value</option>";
           }
           ?>    
         </select>
