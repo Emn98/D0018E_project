@@ -56,10 +56,13 @@
     position: relative;
   }
   
-  .show_score{
-    position: absolute;
-    font-weight: bold;
-    top: 0.2rem;
-    left: 0.2rem;
-    color: 	orange;
-  }
+  span.stars, span.stars span {
+    display: block;
+    background: url(stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}

@@ -64,7 +64,9 @@ $query->close();
         ?>
         <div class="card">
             <div class="img_cont">
-              <p class="show_score">Score: <?php echo $average_score;?>/5</p>
+              <div class="stars">
+              <span class="stars"><?php echo $average_score; ?></span>
+              </div> 
               <img src="<?php echo $img; ?>" width="170" height="200">
             </div>
             <h2><?php echo $product_name; ?></h2>
@@ -86,4 +88,19 @@ $query->close();
         }
         ?>
     </div>
-</div> 
+</div>
+<script>
+$.fn.stars = function() {
+    return $(this).each(function() {
+        // Get the value
+        var val = parseFloat($(this).html());
+        val = Math.round(val * 2) / 2; /* To round to nearest half */
+        // Make sure that the value is in 0 - 5 range, multiply to get width
+        var size = Math.max(0, (Math.min(5, val))) * 16;
+        // Create stars holder
+        var $span = $('<span />').width(size);
+        // Replace the numerical value with stars
+        $(this).html($span);
+    });
+}    
+</script> 
