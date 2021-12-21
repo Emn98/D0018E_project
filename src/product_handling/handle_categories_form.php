@@ -25,9 +25,13 @@ $result = $stmt->get_result();
         <label for="category_to_delete">Choose category to remove</label>
         <select name="category_to_delete">
           <?php
-          function not_deleted($category_name){
-            echo "<option value='$category_name'>$category_name</option>";   
-          } 
+          while($row = $result->fetch_assoc()){
+            $category_name = $row['category_name'];
+            $is_deleted    = $row['is_deleted'];    
+            if($is_deleted==0){
+            echo "<option value='$category_name'>$category_name</option>";
+            }  
+          }
           ?>    
         </select>
       </form>
@@ -44,17 +48,5 @@ $result = $stmt->get_result();
         </select>
       </form>    
     </div>
-    <?php
-    while($row = $result->fetch_assoc()){
-      $category_name = $row['category_name'];
-      $is_deleted    = $row['is_deleted'];
-      
-      if($is_deleted==0){
-          not_deleted($category_name);
-      }else{
-          deleted($category_name);
-      }
-    }  
-    ?>    
   </body>    
 </html>
