@@ -65,7 +65,18 @@ $query->close();
         <div class="card">
             <div class="img_cont">
               <div class="stars">
-              <span class="stars"><?php echo $average_score; ?></span>
+               <?php
+                for ($x = 0; $x <5; $x++) {
+                    if($average_score >= 1){
+                        echo '<i class="fa fa-star checked"></i>';
+                    }elseif($average_score >= 0.5 && $average_score < 1){
+                        echo '<i class="fa fa-star-half-o"></i>';
+                    }else{
+                        echo '<i class="fa fa-star"></i>';
+                    }
+                    $average_score =- 1;
+                }
+               ?>   
               </div> 
               <img src="<?php echo $img; ?>" width="170" height="200">
             </div>
@@ -89,18 +100,3 @@ $query->close();
         ?>
     </div>
 </div>
-<script>
-$.fn.stars = function() {
-    return $(this).each(function() {
-        // Get the value
-        var val = parseFloat($(this).html());
-        val = Math.round(val * 2) / 2; /* To round to nearest half */
-        // Make sure that the value is in 0 - 5 range, multiply to get width
-        var size = Math.max(0, (Math.min(5, val))) * 16;
-        // Create stars holder
-        var $span = $('<span />').width(size);
-        // Replace the numerical value with stars
-        $(this).html($span);
-    });
-}    
-</script> 
