@@ -13,7 +13,7 @@ require($path);
 $user_id = $_SESSION["user_id"];
 
   //Retrive all orders associated with the logged in user. 
-  $query = $con->prepare("SELECT order_id, purchase_date FROM ORDERS WHERE user_id=?");
+  $query = $con->prepare("SELECT order_id, purchase_date, total_price FROM ORDERS WHERE user_id=?");
   $query->bind_param("i", $user_id);
   $query->execute();
   $result = $query->get_result();
@@ -62,6 +62,7 @@ $user_id = $_SESSION["user_id"];
                 <tr>
                   <th>Order Id</th>
                   <th>Purchase Date</th>
+                  <th>Total Price</th>
                   <th>View Details</th>
                 </tr>
               </thead>
@@ -74,11 +75,13 @@ $form_id = 0;
 while ($row = $result->fetch_assoc()) {
     $order_id = $row["order_id"];
     $purchase_date = $row["purchase_date"];
+    $total_price = $row["total_price"];
                 
     if($temp == 1){
         echo "<tr class='table_row_odd'>";
         echo "<td>$order_id</td>";
         echo "<td>$purchase_date</td>";
+        echo "<td>$total_price</td>";
         echo "<td>";
         ?> 
         <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
@@ -91,6 +94,7 @@ while ($row = $result->fetch_assoc()) {
         echo "<tr class='table_row_even'>";
         echo "<td>$order_id</td>";
         echo "<td>$purchase_date</td>";
+        echo "<td>$total_price</td>";
         echo "<td>";
         ?> 
         <!-- Sends the value of the user_id and email to javascript function when the button is pressed. -->
