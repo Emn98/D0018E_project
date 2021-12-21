@@ -21,6 +21,7 @@ if(isset($_POST["remove"]) && $_POST["category_to_delete"]!=""){
 
 if(isset($_POST["reinstate"]) && $_POST["category_to_reinstate"]!=""){
     $category_name = $_POST["category_to_reinstate"];
+    echo $category_name;
   
     //Establish connection to database. 
     $path = $_SERVER['DOCUMENT_ROOT'];
