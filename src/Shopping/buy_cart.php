@@ -72,13 +72,13 @@ if(!$cart_is_empty){
 
     insert_into_order_items($con, $order_id, $cart_id);
 
-    $get_product_id = update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id);
+    $get_product_id = update_purchase_price_into_ORDER_ITEMS($con, $cart_id);
     while($row = $get_product_id->fetch_assoc()) {
 
       $product_id = $row["product_id"];
 
       $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
-      $query->bind_param("ii", $price, $discount);
+      $query->bind_param("i", $product_id);
       $query->execute();
       $query->close();
 

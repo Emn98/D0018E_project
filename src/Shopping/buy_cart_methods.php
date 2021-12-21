@@ -54,7 +54,7 @@ function insert_into_order_items($con, $order_id, $cart_id){
     $query->close();
 }
 
-function update_purchase_price_into_ORDER_ITEMS($con, $cart_id, $order_id){
+function update_purchase_price_into_ORDER_ITEMS($con, $cart_id){
     $query = $con->prepare("SELECT product_id FROM CART_ITEMS WHERE cart_id=?" );
     $query->bind_param("i", $cart_id);
     $query->execute();
