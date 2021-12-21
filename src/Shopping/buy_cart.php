@@ -23,7 +23,7 @@ if(!$cart_is_empty){
   
   /* Start transaction */
   mysqli_begin_transaction($con);
-
+  echo "test bbbbbbbbbbbbbbbb";
   try { 
     $result = get_product_info_cart_items($con, $cart_id);
 
@@ -40,6 +40,7 @@ if(!$cart_is_empty){
       $new_quantity = $stock_quantity - $quantity;
 
       if($new_quantity >= 0){
+        echo "test ccccccccccccccc";
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
 
         insert_purchase_price_into_CART_ITEMS($con, $product_id);
@@ -69,6 +70,7 @@ if(!$cart_is_empty){
         exit;
       }
     }
+    echo "test aaaaaaa";
 
     insert_into_order_items($con, $order_id, $cart_id);
     echo "test thirde";
