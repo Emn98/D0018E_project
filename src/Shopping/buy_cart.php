@@ -43,8 +43,9 @@ if(!$cart_is_empty){
       if($new_quantity >= 0){
         echo "test ccccccccccccccc";
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
-
+        echo "test sssssssssssssss";
         insert_purchase_price_into_CART_ITEMS($con, $product_id);
+        echo "test ddddddddddddddddd";
       }else{
 
         mysqli_rollback($con);
