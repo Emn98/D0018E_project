@@ -37,7 +37,7 @@ $deleted_categories=array();
           }
           ?>    
         </select>
-        <input type="hidden" value="delete">
+        <input type="hidden" value="delete" name="remove">
         <button type="submit" class="submit_btn">Submit</button>
       </form>
       <br>
@@ -51,7 +51,7 @@ $deleted_categories=array();
           }
           ?>    
         </select>
-        <input type="hidden" value="reinstate">
+        <input type="hidden" name="reinstate" value="reinstate">
         <button type="submit" class="submit_btn">Submit</button>
       </form>
       <form class="go_back_form" method="" action="/Accounts/admin_page.php">
