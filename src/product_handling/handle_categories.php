@@ -13,7 +13,7 @@ if(isset($_POST["remove"])){
   $query -> execute();
   $query->close();
 
-  header("Location: /product_handling/handle_categories_form.php");
+  header("Location: handle_categories_form.php");
   exit;
 }
 
