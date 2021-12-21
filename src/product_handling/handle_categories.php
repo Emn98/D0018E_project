@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["remove"])){
+if(isset($_POST["remove"]) && $_POST["category_to_delete"]!=""){
   $category_name = $_POST["category_to_delete"];
 
   //Establish connection to database. 
@@ -19,7 +19,7 @@ if(isset($_POST["remove"])){
   exit;
 }
 
-if(isset($_POST["reinstate"])){
+if(isset($_POST["reinstate"]) && $_POST["category_to_reinstate"]!=""){
     $category_name = $_POST["category_to_reinstate"];
   
     //Establish connection to database. 
