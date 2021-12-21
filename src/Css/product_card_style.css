@@ -59,6 +59,7 @@
   .stars{
     position: absolute;
     float: left;
+    margin-top: 0.2rem;
     margin-left: 0.3rem;
   }
 
