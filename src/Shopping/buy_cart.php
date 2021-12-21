@@ -27,6 +27,7 @@ if(!$cart_is_empty){
   try { 
     $result = get_product_info_cart_items($con, $cart_id);
 
+    echo "test ggggggggggggggg";
     //Fix result so if cart is empty dont add products
     while($row = $result->fetch_assoc()) {
 
