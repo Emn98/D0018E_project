@@ -97,7 +97,7 @@ if(!$cart_is_empty){
           $stmt->close();
       }
    }
-
+   echo "test final";
     delete_from_cart_items($con, $cart_id);
 
     delete_from_carts($con, $cart_id);
