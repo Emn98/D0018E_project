@@ -68,6 +68,9 @@ function update_total_price_into_ORDER($con, $cart_id, $order_id){
     $stmt->bind_param("i", $total_price, $order_id);
     $stmt->execute();
     $stmt->close();
+
+    echo"$total_price";
+    echo"$order_id";
 }
 
 function update_purchase_price_into_ORDER_ITEMS($con, $cart_id){
