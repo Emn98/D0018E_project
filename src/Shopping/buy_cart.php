@@ -23,11 +23,9 @@ if(!$cart_is_empty){
   
   /* Start transaction */
   mysqli_begin_transaction($con);
-  echo "test bbbbbbbbbbbbbbbb";
   try { 
     $result = get_product_info_cart_items($con, $cart_id);
 
-    echo "test ggggggggggggggg";
     //Fix result so if cart is empty dont add products
     while($row = $result->fetch_assoc()) {
 
@@ -41,9 +39,7 @@ if(!$cart_is_empty){
       $new_quantity = $stock_quantity - $quantity;
 
       if($new_quantity >= 0){
-        echo "test ccccccccccccccc";
         update_product_inventory_quantity($con, $new_quantity, $product_id, $color);
-        echo "test sssssssssssssss";
       }else{
 
         mysqli_rollback($con);
@@ -70,14 +66,10 @@ if(!$cart_is_empty){
         exit;
       }
     }
-    echo "test aaaaaaa";
 
     insert_into_order_items($con, $order_id, $cart_id);
-    echo "test thirde";
     $get_product_id = update_purchase_price_into_ORDER_ITEMS($con, $cart_id);
-    echo "test first";
     while($row = $get_product_id->fetch_assoc()) {
-      echo "test second";
       $product_id = $row["product_id"];
 
       $query = $con->prepare("SELECT price, discount FROM PRODUCTS WHERE product_id=?");
@@ -86,14 +78,6 @@ if(!$cart_is_empty){
       $query->bind_result($price, $discount);
       $query->fetch();
       $query->close();
-
-      echo"$order_id";
-      echo"      ";
-      echo"$product_id";
-      echo"      ";
-      echo"$price";
-      echo"      ";
-      echo"$discount";
 
       if($discount == 0){
           $stmt = $con->prepare("UPDATE ORDER_ITEMS SET purchase_price=? WHERE order_id=? AND product_id=?");
@@ -107,7 +91,6 @@ if(!$cart_is_empty){
           $stmt->close();
       }
    }
-   echo "test final";
     delete_from_cart_items($con, $cart_id);
 
     delete_from_carts($con, $cart_id);
