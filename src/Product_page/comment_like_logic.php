@@ -8,7 +8,7 @@
             echo "<button style='background-color:lightblue;'><i class='fa fa-thumbs-up'></i></button>";
           }
           ?>
-          <label><?php echo $like_to_dislike_ratio ?></label>
+          <label><?php echo $comment_like_to_dislike_ratio ?></label>
           <?php
           if(!has_pressed_like_button_comment($user_id, $comment_id, 0) && isset($user_id)){
             echo "<button onclick='dislike_comment($user_id, $comment_id, 1)'><i class='fa fa-thumbs-down'></i></button>";
