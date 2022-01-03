@@ -27,7 +27,7 @@
         
         //check if there is a COMMENT
         $stmt = $con->prepare("SELECT * FROM USER_LIKES_COMMENT WHERE user_id=? AND comment_id=?");
-        $stmt->bind_param("ii", $user_id, $review_id);
+        $stmt->bind_param("ii", $user_id, $comment_id);
         $stmt->execute();
         $r = $stmt->get_result();
         $stmt->fetch();
