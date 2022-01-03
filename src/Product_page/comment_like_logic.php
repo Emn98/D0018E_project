@@ -1,8 +1,8 @@
 <?php
-          if(!has_pressed_like_button($user_id, $review_id,1) && isset($user_id)){
-            echo "<button onclick='like($user_id, $review_id,1)'><i class='fa fa-thumbs-up'></i></button>";
-          } elseif(has_pressed_like_button($user_id, $review_id,1) && isset($user_id)){
-            echo "<button style='background-color:lightblue;' onclick='like($user_id, $review_id,0)'><i class='fa fa-thumbs-up'></i></button>";
+          if(!has_pressed_like_button_comment($user_id, $comment_id,1) && isset($user_id)){
+            echo "<button onclick='like_comment($user_id, $comment_id,1)'><i class='fa fa-thumbs-up'></i></button>";
+          } elseif(has_pressed_like_button_comment($user_id, $comment_id,1) && isset($user_id)){
+            echo "<button style='background-color:lightblue;' onclick='like_comment($user_id, $comment_id, 0)'><i class='fa fa-thumbs-up'></i></button>";
           }
           else{
             echo "<button style='background-color:lightblue;'><i class='fa fa-thumbs-up'></i></button>";
@@ -10,20 +10,20 @@
           ?>
           <label><?php echo $like_to_dislike_ratio ?></label>
           <?php
-          if(!has_pressed_like_button($user_id, $review_id,0) && isset($user_id)){
-            echo "<button onclick='dislike($user_id, $review_id,1)'><i class='fa fa-thumbs-down'></i></button>";
-          } elseif(has_pressed_like_button($user_id, $review_id,0) && isset($user_id)){
-            echo "<button style='background-color:lightblue;' onclick='dislike($user_id, $review_id,0)'><i class='fa fa-thumbs-down'></i></button>";
+          if(!has_pressed_like_button_comment($user_id, $comment_id, 0) && isset($user_id)){
+            echo "<button onclick='dislike_comment($user_id, $comment_id, 1)'><i class='fa fa-thumbs-down'></i></button>";
+          } elseif(has_pressed_like_button_comment($user_id, $comment_id, 0) && isset($user_id)){
+            echo "<button style='background-color:lightblue;' onclick='dislike_comment($user_id, $comment_id,0)'><i class='fa fa-thumbs-down'></i></button>";
           } else{
             echo "<button style='background-color:lightblue;'><i class='fa fa-thumbs-down'></i></button>";
           }
           ?>
 <script>
-    function like(u_id, r_id, type){
+    function like_comment(u_id, c_id, type){
         $.ajax({
             type: "POST",
-            url:  "like_review.php", // 
-            data: {user_id: u_id, review_id: r_id, type:type},                
+            url:  "like.php", // 
+            data: {user_id: u_id, comment_id: c_id, type:type},                
             success: function(){
                 location.reload();
             },
@@ -32,11 +32,11 @@
             }
         });
     }
-    function dislike(u_id, r_id, type){
+    function dislike_comment(u_id, c_id, type){
         $.ajax({
             type: "POST",
-            url:  "dislike_review.php", // 
-            data: {user_id: u_id, review_id: r_id, type:type},                
+            url:  "dislike.php", // 
+            data: {user_id: u_id, comment_id: c_id, type:type},                
             success: function(){
                 location.reload();
             },
@@ -49,7 +49,7 @@
 
 <?php
 
-function has_pressed_like_button($u_id, $r_id, $decide){
+function has_pressed_like_button_comment($u_id, $c_id, $decide){
   if($decide == 1){
     //user pressed like button
 
@@ -57,8 +57,8 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $path .= "/database.php";
     include($path);
 
-    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
-    $stmt->bind_param("ii",$u_id, $r_id);
+    $stmt = $con->prepare("SELECT * FROM USER_LIKES_COMMENT WHERE user_id=? AND comment_id=?");
+    $stmt->bind_param("ii",$u_id, $c_id);
     $stmt->execute();
     $r = $stmt->get_result();
     $stmt->fetch();
@@ -84,8 +84,8 @@ function has_pressed_like_button($u_id, $r_id, $decide){
     $path .= "/database.php";
     include($path);
 
-    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
-    $stmt->bind_param("ii",$u_id, $r_id);
+    $stmt = $con->prepare("SELECT * FROM USER_LIKES_COMMENT WHERE user_id=? AND comment_id=?");
+    $stmt->bind_param("ii",$u_id, $c_id);
     $stmt->execute();
     $r = $stmt->get_result();
     $stmt->fetch();
