@@ -22,7 +22,7 @@
     function like_comment(u_id, c_id, type){
         $.ajax({
             type: "POST",
-            url:  "like.php", // 
+            url:  "like_comment.php", // 
             data: {user_id: u_id, comment_id: c_id, type:type},                
             success: function(){
                 location.reload();
@@ -35,7 +35,7 @@
     function dislike_comment(u_id, c_id, type){
         $.ajax({
             type: "POST",
-            url:  "dislike.php", // 
+            url:  "dislike_comment.php", // 
             data: {user_id: u_id, comment_id: c_id, type:type},                
             success: function(){
                 location.reload();
