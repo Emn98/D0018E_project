@@ -46,7 +46,7 @@ require($path);
                   <th>Name</th>
                   <th>Color</th>
                   <th>Quantity</th>
-                  <th>Subtotal</th>
+                  <th>Price</th>
                   <th>Total</th>
                 </tr>
               </thead>
