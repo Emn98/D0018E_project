@@ -31,14 +31,14 @@ while($review = $review_result->fetch_assoc()){
                 <div class="stars">
                <?php
                 for ($x = 0; $x <5; $x++) {
-                    if($average_score >= 1){
+                    if($review_score >= 1){
                         echo '<i class="fa fa-star checked" style="color:orange;"></i>';
-                    }elseif($average_score >= 0.5 && $average_score < 1){
+                    }elseif($review_score >= 0.5 && $review_score < 1){
                         echo '<i class="fa fa-star-half-o" style="color:orange;"></i>';
                     }else{
                         echo '<i class="fa fa-star" style="color:#cdcdcd;"></i>';
                     }
-                    $average_score -= 1;
+                    $review_score -= 1;
                 }
                ?>   
               </div> 
