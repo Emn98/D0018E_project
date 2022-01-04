@@ -77,8 +77,23 @@
           $discount = $row['discount'];
           $picture = $row['picture'];
           $product_id = $row['product_id'];
+          $average_score = $row['average_score'];
           ?>
           <div class='product_details_image_div'>
+          <div class="stars">
+               <?php
+                for ($x = 0; $x <5; $x++) {
+                    if($average_score >= 1){
+                        echo '<i class="fa fa-star checked" style="color:orange;"></i>';
+                    }elseif($average_score >= 0.5 && $average_score < 1){
+                        echo '<i class="fa fa-star-half-o" style="color:orange;"></i>';
+                    }else{
+                        echo '<i class="fa fa-star" style="color:#cdcdcd;"></i>';
+                    }
+                    $average_score -= 1;
+                }
+               ?>   
+              </div> 
             <img src ='<?php echo $picture?>' width="200" height="250">
           </div>
           <div class='product_details_quantity_div'>
