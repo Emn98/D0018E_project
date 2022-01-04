@@ -58,10 +58,10 @@
             $search_word = "%$product_name%";
 
             if($product_name == ""){
-              $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0)");
+              $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) AND is_deleted=0");
             } else{
 
-              $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) AND product_name LIKE ?");
+              $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id IN (SELECT category_id FROM CATEGORIES WHERE is_deleted = 0) AND is_deleted=0 AND product_name LIKE ?");
 
               $stmt->bind_param("s", $search_word);
             }

@@ -54,7 +54,7 @@
 
             $category_id = (int)$_POST['category_id'];
 
-            $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ?");
+            $stmt = $con->prepare("SELECT * FROM PRODUCTS WHERE category_id = ? AND is_deleted=0");
 
             $stmt->bind_param("i", $category_id);
 
