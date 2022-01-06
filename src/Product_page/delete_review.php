@@ -19,8 +19,11 @@
         include($path);
 
         $review_id = $_POST['review_id'];
-        $product_id = $_POST['product_id'];
-        echo "this is where to look at" + $product_id;
+        $product_id = (int) $_POST['product_id'];
+        echo "loook";
+        echo $product_id;
+        echo "after";
+
 
         $stmt = $con->prepare("DELETE FROM USER_COMMENTS WHERE review_id=?");
         $stmt->bind_param("i", $review_id);
