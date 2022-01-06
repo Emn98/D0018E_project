@@ -48,61 +48,62 @@
 </script>
 
 <?php
+  if(!function_exists('has_pressed_like_button')){
+    function has_pressed_like_button($u_id, $r_id, $decide){
+      if($decide == 1){
+        //user pressed like button
 
-function has_pressed_like_button($u_id, $r_id, $decide){
-  if($decide == 1){
-    //user pressed like button
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include($path);
 
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include($path);
+        $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
+        $stmt->bind_param("ii",$u_id, $r_id);
+        $stmt->execute();
+        $r = $stmt->get_result();
+        $stmt->fetch();
+        $stmt->close();
 
-    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
-    $stmt->bind_param("ii",$u_id, $r_id);
-    $stmt->execute();
-    $r = $stmt->get_result();
-    $stmt->fetch();
-    $stmt->close();
+        if(mysqli_num_rows($r)==0) {
+            return FALSE;
+        } else{
+          
+          $like_row = $r->fetch_assoc();
 
-    if(mysqli_num_rows($r)==0) {
-        return FALSE;
-    } else{
-      
-      $like_row = $r->fetch_assoc();
+          if($like_row['user_liked']){
+            return TRUE;
+          } else{
+            return FALSE;
+          }
+        }
 
-      if($like_row['user_liked']){
-        return TRUE;
       } else{
-        return FALSE;
-      }
-    }
+        //user pressed dislike button
 
-  } else{
-    //user pressed dislike button
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/database.php";
+        include($path);
 
-    $path = $_SERVER['DOCUMENT_ROOT'];
-    $path .= "/database.php";
-    include($path);
+        $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
+        $stmt->bind_param("ii",$u_id, $r_id);
+        $stmt->execute();
+        $r = $stmt->get_result();
+        $stmt->fetch();
+        $stmt->close();
 
-    $stmt = $con->prepare("SELECT * FROM USER_LIKES_REVIEW WHERE user_id=? AND review_id=?");
-    $stmt->bind_param("ii",$u_id, $r_id);
-    $stmt->execute();
-    $r = $stmt->get_result();
-    $stmt->fetch();
-    $stmt->close();
+        if(mysqli_num_rows($r)==0) {
+            return FALSE;
+        } else{
+          
+          $like_row = $r->fetch_assoc();
 
-    if(mysqli_num_rows($r)==0) {
-        return FALSE;
-    } else{
-      
-      $like_row = $r->fetch_assoc();
-
-      if($like_row['user_disliked']){
-        return TRUE;
-      } else{
-        return FALSE;
+          if($like_row['user_disliked']){
+            return TRUE;
+          } else{
+            return FALSE;
+          }
+        }
       }
     }
   }
-}
 ?>
