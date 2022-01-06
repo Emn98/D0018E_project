@@ -50,7 +50,7 @@ while($review = $review_result->fetch_assoc()){
         <?php
         if($user_id == $review_user_id && isset($user_id) || $user_id == 0 && isset($user_id)){
           ?>
-          <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>')">Delete</button>
+          <button class="delete_button" value="Delete" onclick="delete_review('<?php echo $review_id ?>, <?php echo $product_id ?>')">Delete</button>
           <?php
         }
         ?>
@@ -168,12 +168,13 @@ if($user_id != 0){
 }
 ?>
 <script>
-        function delete_review(id){
+        function delete_review(id, product_id){
           if (confirm("Would you like to delete review?")){
             $.ajax({
                 type: "POST",
                 url:  "delete_review.php", // 
-                data: {review_id: id},                
+                data: {review_id: id,
+                       product_id: product_id},                
                 success: function(){
                   alert("Review deleted successfully!");
                   location.reload();
