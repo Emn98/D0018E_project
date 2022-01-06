@@ -46,7 +46,7 @@
 
               //remove like if review had already been liked
               if($row['user_liked']){
-                $stmt = $con->prepare("UPDATE USER_COMMENTS SET likes = (likes-1) WHERE review_id=?");
+                $stmt = $con->prepare("UPDATE USER_COMMENTS SET likes = (likes-1) WHERE comment_id=?");
                 $stmt->bind_param("i", $comment_id);
                 $stmt->execute(
 
