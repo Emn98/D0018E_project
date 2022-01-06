@@ -63,6 +63,7 @@
               
           }
           // add dislike to review
+          echo "Pls be here";
           $stmt = $con->prepare("UPDATE USER_COMMENTS SET dislikes = (dislikes+1) WHERE comment_id=?");
           $stmt->bind_param("i", $comment_id);
           $stmt->execute();
