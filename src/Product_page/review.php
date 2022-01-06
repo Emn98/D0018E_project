@@ -175,10 +175,10 @@ if($user_id != 0){
                 url:  "delete_review.php", // 
                 data: {review_id: id,
                        product_id: product_id},                
-                success: function(product_id){
+                success: function(response){
                   alert("Review deleted successfully!");
-                  alert(product_id);
-                  location.reload();
+                  console.log(response);
+                  //location.reload();
                 },
                 error: function(response){
                     console.log(response)

@@ -20,6 +20,7 @@
 
         $review_id = $_POST['review_id'];
         $product_id = $_POST['product_id'];
+        echo "this is where to look at" + $product_id;
 
         $stmt = $con->prepare("DELETE FROM USER_COMMENTS WHERE review_id=?");
         $stmt->bind_param("i", $review_id);
