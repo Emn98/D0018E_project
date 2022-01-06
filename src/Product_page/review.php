@@ -308,7 +308,8 @@ if($user_id != 0){
             type: "POST",
             url:  "dislike_comment.php", // 
             data: {user_id: u_id, comment_id: c_id, type:type},                
-            success: function(){
+            success: function(response){
+                console.log(response);
                 location.reload();
             },
             error: function(){
