@@ -28,6 +28,18 @@
         $stmt->bind_param("i", $review_id);
         $stmt->execute();
 
+        $stmt = $con->prepare("SELECT AVG(review_score) FROM USER_REVIEWS WHERE product_id=?");
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $stmt->bind_result($average_score);
+        $stmt->fetch();
+        $stmt->close();
+      
+        $stmt = $con->prepare("UPDATE PRODUCTS SET average_score=? WHERE product_id=?");
+        $stmt->bind_param("di", $average_score, $product_id);
+        $stmt->execute();
+        $stmt->close();
+
         ?>
         <div class="form">
         <h3>Review deleted successfully</h3>
