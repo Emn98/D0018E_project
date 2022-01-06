@@ -48,7 +48,7 @@
 </script>
 
 <?php
-  if(!function_exists('has_pressed_like_button')){
+  //if(!function_exists('has_pressed_like_button')){
     function has_pressed_like_button($u_id, $r_id, $decide){
       if($decide == 1){
         //user pressed like button
@@ -105,5 +105,5 @@
         }
       }
     }
-  }
+ // }
 ?>
