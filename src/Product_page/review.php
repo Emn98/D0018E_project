@@ -4,10 +4,6 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= "/database.php";
 include($path);
 
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/Product_page/review_like_logic_functions.php";";
-include($path);
-
 $user_id = $_SESSION["user_id"];
 
 $stmt = $con->prepare("SELECT * FROM USER_REVIEWS WHERE product_id=?");
