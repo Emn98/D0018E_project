@@ -177,6 +177,7 @@ if($user_id != 0){
                        product_id: product_id},                
                 success: function(){
                   alert("Review deleted successfully!");
+                  alert(product_id);
                   location.reload();
                 },
                 error: function(response){
